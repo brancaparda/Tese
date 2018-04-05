@@ -1,0 +1,3 @@
+  RVopt.nb:
+Cáculo de investimentos optimais, R^*, e respectivos valores de V(X), considerando valores de \gamma \in (0,1) com igual espaçamento.
+Melhor resultado para espaçamento de 0.05.
