@@ -1,1 +1,7 @@
 Diversas versões do Latex, com medo que as ideias sejam erradamente julgadas.
+
+ - Natureza do Problema 1 (1):
+Quando se descobriu que a abordagem para calcular
+\max_K \sup_\tau E (e^(-r \tau) h(X_\tau, K))
+estava errada e que era mais simples do que eu pensava - ver próximo ficheiro.
+
