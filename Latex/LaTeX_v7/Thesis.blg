@@ -1,0 +1,24 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: Thesis.aux
+The style file: abbrvunsrtnat.bst
+Database file #1: Thesis_bib_DB.bib
+Repeated entry---line 320 of file Thesis_bib_DB.bib
+ : @book{dixit:book
+ :                 ,
+I'm skipping whatever remains of this entry
+You're missing a field name---line 343 of file Thesis_bib_DB.bib
+ :  
+ :  %note    = {doi.org/10.1016/j.ejor.2016.04.009}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 353 of file Thesis_bib_DB.bib
+ :  
+ :  %note    = {doi.org/10.1016/j.ejor.2016.04.009}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 363 of file Thesis_bib_DB.bib
+ :  
+ :  %note    = {doi.org/10.1016/j.ejor.2016.04.009}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "marta:ijcfd4"
+(There were 4 error messages)

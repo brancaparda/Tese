@@ -1,0 +1,31 @@
+\babel@toc {english}{}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Threshold value with respect to the benchmark model (orange) and the capacity optimized model (blue), considering capacity levels $K \in [0, \theta /\alpha )$.}}{7}{figure.2.1}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Threshold value with respect to the benchmark model (orange) and the capacity optimized model (blue), considering volatility $\sigma \in [0.0001, 1]$.}}{7}{figure.2.2}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$\mu =-0.7$}}}{7}{figure.2.2}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$\mu =0.03$}}}{7}{figure.2.2}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Threshold value with respect to the benchmark model (orange) and the capacity optimized model (blue), considering drift $\mu \in [-r, r]$ and corresponding stationary point $\sigma ^2/2$ (black).}}{7}{figure.2.3}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$\sigma =0.0001$}}}{7}{figure.2.3}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$\sigma =0.3$}}}{7}{figure.2.3}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Threshold value with respect to the benchmark model (orange) and the capacity optimized model (blue), regarding sensibility parameter $\delta $ and innovation level $\theta $.}}{8}{figure.2.4}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$\delta \in ( 0,10 )$ }}}{8}{figure.2.4}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$\theta \in (\alpha K=1,50)$}}}{8}{figure.2.4}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Optimal capacity regarding the threshold value $x^*_C$.}}{9}{figure.2.5}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$\mu \in ( -r,r )$ }}}{9}{figure.2.5}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$\sigma \in (0,1)$}}}{9}{figure.2.5}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Optimal capacity regarding the threshold value $x^*_C$.}}{9}{figure.2.6}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$ r \in ( \mu , 1 )$}}}{9}{figure.2.6}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$ \alpha \in (0,1)$}}}{9}{figure.2.6}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Optimal values of $R$ and $V(X)$ for fixed values of $F$ and $r$}}{10}{figure.2.7}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Caption for figure in TOC.}}{15}{figure.4.1}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Some aircrafts.}}{16}{figure.4.2}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Airbus A320}}}{16}{figure.4.2}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Bombardier CRJ200}}}{16}{figure.4.2}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Schematic of some algorithm.}}{16}{figure.4.3}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Figure and table side-by-side.}}{19}{figure.4.4}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
