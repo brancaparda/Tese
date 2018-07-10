@@ -1,0 +1,199 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                      %
+%     File: Thesis_Results.tex                                         %
+%     Tex Master: Thesis.tex                                           %
+%                                                                      %
+%     Author: Andre C. Marta                                           %
+%     Last modified :  2 Jul 2015                                      %
+%                                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Adding a new product when already producing one w/ cannibalisation (Firm is already active before investing)}
+\label{chapter:3}
+
+
+Insert your chapter material here...
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+\label{section:2_intro}
+
+[Introdução de artigos já publicados em semelhante contexto]
+
+We increase the complexity of our problem by considering that the firm has three different states of production.
+
+In the first one, we consider that the firm only produces a (very) stable product, that does not depend on the demand observe. We will call it \textit{old} product. Its instanteneous profit function is given by $\pi_0$, which, as defined before, takes the value of
+$$\pi_0= (1-\alpha K_0)K_0.$$
+
+In the second state, we consider the firm produces simultaneously the \textit{old} product and a new one. We will call it \textit{new} product. This \textit{new} product is inserted in the market since after the innovation process as achieved a certain innovation level, \textit{a priori} defined. Since it's based on a new technology and it's a product that is not know by people, we will consider that its profit depends on the demand level.
+
+The instantaneous profit functions associated to the \textit{old} and the \textit{new} product are given respectively by
+$$\pi_0^A(X_t)=(1-\alpha K_0-\eta K_1 X_t) K_0,$$
+$$\pi_1^A(X_t)=(\theta-\alpha K_1-\eta K_0 X_t) K_1.$$
+
+
+We need to consider a cannibalisation (or horizontal differentiation) parameter $\eta$ that corresponds to the crossed effect between the \textit{old} and the \textit{new} product. As we consider both products to be interacting in the same market, $\eta$ represents the penalty that the quantity
+associated to a product will influence the price of the other. We consider here
+that this influence is the same for both products, so we can have a unique cannibalisation parameter $\eta$, however this cannot be greater than the sensibility parameter $\alpha$ ($\eta<\alpha$). Otherwise, the quantity
+of the other product would have a larger effect on the product price than the quantity of the product itself.
+
+The instantaneous profit function associated to this second state of production is denoted by $\pi_A$ and it is such that
+$$\pi_A(X_t)=\pi_0^A(X_t)+\pi_1^A(X_t)= \pi_0+\pi_1(X_t)-2\eta K_0 K_1 X_t=(1-\alpha K_0)K_0+(\theta-\alpha K_1)K_1X_t-2\eta K_0 K_1 X_t.$$
+
+In the third (and last state) we consider that the firm abandons the \textit{old} product and starts producing only the \textit{new} product, which is not considered to be a stable product. The instantaneous profit function associated is given by
+$$\pi_1(X_t)=(\theta-\alpha K_1)K_1X_t.$$
+
+
+Therefore we want to find two optimal times to make different (but maybe simultaneous) decisions. We want to find the best time $\tau_1$ to go from the first to the second state, that is, to invest in the \textit{new} product and start producing, simultaneously, the \textit{old} and the \textit{new} product. And we also want to find the best time $\tau_2$ to go from the second to the third state, that is, to replace the production of the \textit{old} product by the \textit{new} one. Note that $\tau_2 \geq \tau_1$ are both stopping times adapted to the natural filtration of the demand process $\{ X_t, \ t\geq0 \}$ and there is no chance on return the production of the \textit{old} product, once the firm had abandoned it in $\tau_2$. Thus these are irreversible choices.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Stopping Problem}
+\label{section:2_theory}
+
+
+
+\subsection{Benchmark Model}
+\label{subsec:2_bm}
+
+
+As made in previous sections, we still consider that at the moment we adapt the new product, we need to pay $\delta K_1$ related to sunk costs and that at the precise moment we adapt the new product, we are able to produce it. Once again, we set the instant $t=0$ to be the instant immediately after the desired innovation level happens. 
+
+Taking into account the different profits associated to each state of production, as described before, our the optimal stopping problem may be formulated as findng the value function $F$ such that
+\begin{align}
+F(x)=\sup _{\tau_1} \mathds{E}^{X_0=x} \left[ \int_0^{\tau_1} \pi_0e^{-rs} ds + \sup_{\tau_2} \mathds{E}^{X_{\tau_1}=x_{\tau_1}} \left[ \int_{\tau_1}^{\tau_2}  \pi_A(X_s) e^{-rs}ds + \int_{\tau_1}^\infty \pi_1(X_s)e^{-rs}ds -e^{-r \tau_1}\delta K_1  \right] \right] 
+\label{eq:31}
+\end{align}
+
+Manipulating \eqref{eq:31} by changing the region of integration of the first integral and solving it we obtain
+\begin{align}
+F(x)&=\sup _{\tau_1} \mathds{E}^{X_0=x} \left[ \int_0^{\infty} \pi_0e^{-rs} ds +\sup_{\tau_2} \mathds{E}^{X_{\tau_1}=x_{\tau_1}} \left[ \int_{\tau_1}^{\tau_2} \left( \pi_A(X_s)-\pi_0 \right) e^{-rs}ds + \int_{\tau_1}^\infty \left( \pi_1(X_s)-\pi_0 \right) e^{-rs}ds -e^{-r \tau_1}\delta K_1  \right] \right] \nonumber \\
+&=\frac{\pi_0}{r}+\sup _{\tau_1} \mathds{E}^{X_0=x} \left[  \sup_{\tau_2} \mathds{E}^{X_{\tau_1}=x_{\tau_1}} \left[ \int_{\tau_1}^{\tau_2} \left( \pi_A(X_s)-\pi_0 \right) e^{-rs}ds + \int_{\tau_2}^\infty \left( \pi_1(X_s)-\pi_0 \right) e^{-rs}ds  \right]-e^{-r \tau_1}\delta K_1 \right]
+\label{eq:32}
+\end{align}
+
+Changing integration variables of both integrals on optimization problem related with $\tau_2$ we obtain
+\begin{equation}
+F(x)=\frac{\pi_0}{r}+\sup _{\tau_1} \mathds{E}^{X_0=x} \left[ e^{-r \tau_1} \left(  \sup_{\tau_2} \mathds{E}^{X_{\tau_1}=x_{\tau_1}} \left[ \int_0^{\tau_2-\tau_1} \left( \pi_A(X_{\tau_1+s})-\pi_0 \right) e^{-rs}ds + \int_{\tau_2-\tau_1}^\infty \left( \pi_1(X_{\tau_1+s})-\pi_0 \right) e^{-rs}ds  \right]-\delta K_1 \right) \right].
+\label{eq:3w}
+\end{equation}
+where since the term $e^{-r \tau_1}$ does not depend on $\tau_2$, it can be put in evidence as made above.
+
+Considering $F_2$ to be the value function associated to the optimal stopping problem related to $\tau_2$ we have that its expression is given by
+\begin{equation}
+F_2(x)=\sup_{\tau_2} \mathds{E}^{X_{\tau_1}=x_{\tau_1}} \left[ \int_0^{\tau_2-\tau_1} \left( \pi_A(X_{\tau_1+s})-\pi_0 \right) e^{-rs}ds + \int_{\tau_2-\tau_1}^\infty \left( \pi_1(X_{\tau_1+s})-\pi_0 \right) e^{-rs}ds  \right],
+\label{eq:34}
+\end{equation}
+from which follows that our optimal stopping problem, initially given by \eqref{eq:31}, is now given by
+\begin{equation}
+F(x)=\frac{\pi_0}{r}+\sup _{\tau_1} \mathds{E}^{X_0=x} \left[ e^{-r \tau_1}(F_2(X_{\tau_1})-\delta K_1 )\right].
+\label{eq:35}
+\end{equation}
+
+We have two different optimal stopping problems that we should solve starting on the \textit{latest} stopping time, $\tau_2$, by considering that we know what happened until the instant that the firm invests, $\tau_1$. In order to do that, let $\{Y_t, \ t\geq0\}$ be the stochastic process that represents the demand level after occuring the investment at $\tau_1$ (being that its initial time) and which evolves stochastically accordingly to a GBM with the same drift $\mu$ and volatility $\sigma$ as $\{X_t, \ t\geq0\}$, that is $\{Y_t, \ t\geq0\} = \{X_{\tau_1+t}, \ t\geq0\}$. Note that it's initial value is the same as observed at the instant $\tau_1$, that is $Y_0=X_{\tau_1}$.
+
+Consider as well $\tau$ to be the stopping time, adapted to the natural filtration of the process $\{Y_t, \ t\geq0\}$, that represents the optimal time for which the firm should make the replacement of the \textit{old} product by the \textit{new} one, after having invested at time $\tau_1$. This means that  if $\tau=0$, then the old product is replaced by the new one at the precise instant when the investment happens $\tau_1$. Note that $\tau$ is also adapted to the natural filtration of $\{ X_{\tau+t},\ t\geq0 \}$ and that $\tau_2=\tau_1+\tau$. Thus, by knowing $\tau_1$ and finding $\tau$, we can calculate $\tau_2$.
+
+Therefore, problem $F_2$, as written in \eqref{eq:34}, is equivalent to
+
+\begin{equation}
+F_2(x_{\tau_1})=\sup_{\tau} \mathds{E}^{Y_0=x_{\tau_1}} \left[ \int_0^{\tau} \left( \pi_A(Y_s)-\pi_0 \right) e^{-rs}ds + \int_{\tau}^\infty \left( \pi_1(Y_s)-\pi_0 \right) e^{-rs}ds  \right],
+\label{eq:3s2}
+\end{equation}
+%In case we want to calculate $\tau_2$, we just need to add the stopping times $\tau_1$ and $\tau$.
+meaning that from time 0 to time $\tau$ the firm is producing both products and that from time $\tau$ on the firm only produces the \textit{new} product, where the instante 0 corresponds to the instant when the firm decides to invest, $\tau_1$.
+
+Fortunately we can simplify the notation of \eqref{eq:3s2}. Since the Strong Markov property states that after a stopping time, the future path of the GBM depends only on the value at the stopping time (knowing this one), it follows that 
+$$\{(Y_t | Y_0=x_{\tau_1}), \ t\geq0 \} = \{(X_t | X_{\tau_1}=x_{\tau_1}),\ t\geq \tau_1 \} \overset{d}{=}  \{(X_{t},t\geq0 | X_0=x_{\tau_1}), \ t\geq0 \}. $$
+
+Therefore we can keep the same notation as before and thus from \eqref{eq:3s2} follows
+\begin{equation}
+F_2(x_{\tau_1})=\sup_{\tau} \mathds{E}^{X_0=x_{\tau_1}} \left[ \int_0^{\tau} \left( \pi_A(X_s)-\pi_0 \right) e^{-rs}ds + \int_{\tau}^\infty \left( \pi_1(X_s)-\pi_0 \right) e^{-rs}ds  \right].
+\label{eq:3s3}
+\end{equation}
+
+%We haven't forgotten the term $e^{-r \tau_1}$. However since it's irrelevant for the current optimization problem, we will only proceed with it when writing the full problem. 
+
+Using the fact that the expectation is a linear operator, we treat the expectation of the rightmost integral separately of \eqref{eq:3s3}, that is
+\begin{equation}
+\mathds{E}^{X_0=x_{\tau_1}} \left[  \int_{\tau}^\infty \left( \pi_1(X_s)-\pi_0 \right) e^{-rs}ds  \right] =  e^{-r\tau} \mathds{E}^{X_0=x_{\tau_1}} \left[  \int_{0}^\infty \left( \pi_1(X_{\tau+s})-\pi_0 \right) e^{-rs}ds  \right].
+\label{eq:3s4}
+\end{equation}
+
+Conditioning to the stopping time $\tau$ and using Tower Rule we obtain from \eqref{eq:3s4}
+\begin{equation}
+e^{-r\tau} \mathds{E}^{X_0=x_{\tau_1}} \left[ \mathds{E}^{\tau=t}  \left[ \int_{0}^\infty \left( \pi_1(X_{t+s})-\pi_0 \right) e^{-rs}ds  \right] \right].
+\label{eq:3s5}
+\end{equation}
+
+We interchange the integral with expectation using Fubini's theorem and the fact that $r-\mu>0$, obtaining
+\begin{equation}
+e^{-r\tau} \mathds{E}^{X_0=x_{\tau_1}} \left[  \int_{0}^\infty \mathds{E}^{\tau=t}  \left[ \pi_1(X_{t+s}) e^{-rs}  \right] ds - \frac{\pi_0}{r} \right]=  e^{-r\tau} \mathds{E}^{X_0=x_{\tau_1}} \left[    (\theta-\alpha K_1)K_1  \int_{0}^\infty \mathds{E}^{\tau=t}  \left[  X_{t+s} e^{-rs}  \right] ds - \frac{\pi_0}{r} \right],
+\label{eq:3s6}
+\end{equation}
+where the term $ (\theta-\alpha K_1)K_1$ is constant over time.
+
+%Since $\tau$ is a stopping time and that by knowing its value, we also know the observed value of GBM at time $\tau$, by the Strong Markov property it follows from \eqref{eq:3s6} 
+
+
+We focus now on the expected value conditional to the stopping time $\tau$ above. Since the demand level evolves accordingly to a GBM and, by knowing the instant $\tau$, we know its value at time $\tau$, it follows 
+\begin{align}
+\mathds{E}^{X_\tau=x_\tau}  \left[  X_{\tau+s}e^{-rs}  \right] &=\mathds{E}^{X_\tau=x_\tau}  \left[  x_{\tau} e^{\left( \mu- \frac{\sigma^2}{2}-r \right)   (\tau+s-\tau)+\sigma( W_{\tau+s}-W_\tau)}  \right]  \nonumber \\
+&=\mathds{E}^{X_\tau=x_\tau}  \left[  x_{\tau} e^{\left( \mu- \frac{\sigma^2}{2}-r \right) s+\sigma W_{s}}   \right]  \nonumber \\
+&= x_{\tau} e^{\left( \mu-r \right)s},
+\label{eq:3s8}
+\end{align}
+where in the second equality we used the fact that Brownian Motion $\{ W_t, \ t \geq0 \}$ has stationary increments, that is 
+$$W_{\tau+s}-W_\tau \overset{d}{=} W_{\tau+s-\tau}-W_0 \overset{d}{=} W_{s} \sim \mathcal{N}(0,s).$$
+
+
+
+%Interchanging the integral with expectation using Fubini's theorem and the fact that $r-\mu>0$ we obtain
+%\begin{equation}
+%  e^{-r\tau} \mathds{E}^{X_0=x_{\tau_1}} \left[  \int_{0}^\infty \mathds{E}^{\tau=t}  \left[  \pi_1(X_{t})e^{-rs}  \right] ds -\frac{\pi_0}{r} \right]=e^{-r\tau} \mathds{E}^{X_0=x_{\tau_1}} \left[   (\theta-\alpha K_1)K_1 \int_{0}^\infty \mathds{E}^{\tau=t}  \left[  X_{t}e^{-rs}  \right] ds -\frac{\pi_0}{r} \right],
+%    \label{eq:3s6}
+%\end{equation}
+%where the term $ (\theta-\alpha K_1)K_1$ is constant over time.
+
+%We focus now in the expected value above. Recall that the demand level evolves accordingly with a GBM and thus
+%\begin{align}
+%    \mathds{E}^{\tau=t}  \left[  X_{t}e^{-rs}  \right] &=\mathds{E}^{\tau=t}  \left[  x_{\tau_1} e^{\left( \mu- \frac{\sigma^2}{2}-r \right)   (\tau+s-\tau)+\sigma( W_{\tau+s}-W_\tau)}  \right]\\
+%    &=\mathds{E}^{\tau=t}  \left[  x_{\tau_1} e^{\left( \mu- \frac{\sigma^2}{2}-r \right) s+\sigma W_{s}}   \right] \\
+%    &= x_{\tau_1} e^{\left( \mu-r \right)s},
+%    \label{eq:3s7}
+%\end{align}
+%where in the second equality we used the fact that Brownian Motion has stationary increments, that is 
+%$$W_{\tau+s}-W_\tau =^d W_{\tau+s-\tau}-W_0 =^d W_{s} \sim \mathcal{N}(0,s).$$
+Plugging \eqref{eq:3s8} in \eqref{eq:3s6}, we obtain
+\begin{equation}
+e^{-r\tau} \mathds{E}^{X_0=x_{\tau_1}} \left[   (\theta-\alpha K_1)K_1 \int_{0}^\infty x_{\tau_1} e^{\left( \mu-r \right)s} ds -\frac{\pi_0}{r} \right] = e^{-r\tau} \mathds{E}^{X_0=x_{\tau_1}} \left[   \frac{(\theta-\alpha K_1)K_1}{r-\mu} x_{\tau} -\frac{\pi_0}{r} \right].
+\label{eq:3s9}
+\end{equation}
+
+Therefore we have found the terminal function associated to the optimal stopping problem $F_2$. Denoting it by $h_2$, it's given by
+$$h_2(x)=\frac{(\theta-\alpha K_1)K_1}{r-\mu} x -\frac{\pi_0}{r}.$$
+
+Accordingly to \eqref{eq:3s3}, we may also denote $g_2$ as the running cost function associated to this problem, that is given by
+$$g_2(x)=\pi_A(x)-\pi_0.$$
+
+Thus, plugging expression of running and terminal functions on \eqref{eq:3s3}, we have that $F_2$ as initially written in \eqref{eq:34}, is equivalent to
+
+\begin{align}
+F_2(x)&=\sup_{\tau} \mathds{E}^{X_0=x} \left[ \int_0^{\tau} g(X_s) e^{-rs}ds + e^{-r\tau}h(X_\tau)  \right]\\
+&=\sup_{\tau} \mathds{E}^{X_0=x} \left[ \int_0^{\tau} \left( \pi_0^A(X_s)+\pi_1^A(X_s)-\pi_0 \right) e^{-rs}ds + e^{-r\tau} \left(   \frac{(\theta-\alpha K_1)K_1}{r-\mu} X_{\tau} -\frac{\pi_0}{r} \right)  \right].
+\label{eq:3s10}
+\end{align}
+
+
+\subsection{Capacity Optimization Model}
+\label{subsec:2_com}
+
+
+
+%\section{Maximization Problem}
+
+
+\section{Comparative Statics}
+Since the obtained results cannot reduce to each other, as done in the previous section, we will treat each case separately, starting with the simplest one derived in \ref{subsec:2_bm}.
+Comparisons between the benchmark and capacity optimization models will be made on subsection 3.4.2.\\
+
+\subsection{Benchmark Model}

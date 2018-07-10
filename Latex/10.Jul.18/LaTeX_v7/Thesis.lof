@@ -1,0 +1,51 @@
+\babel@toc {english}{}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Threshold value with respect to the benchmark model (orange) and the capacity optimized model (blue), considering capacity levels $K \in [0, \theta /\alpha )$.}}{7}{figure.2.1}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Threshold value with respect to the benchmark model (orange) and the capacity optimized model (blue), considering volatility $\sigma \in [0.0001, 1]$.}}{7}{figure.2.2}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$\mu =-0.7$}}}{7}{figure.2.2}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$\mu =0.03$}}}{7}{figure.2.2}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Threshold value with respect to the benchmark model (orange) and the capacity optimized model (blue), considering drift $\mu \in [-r, r]$ and corresponding stationary point $\sigma ^2/2$ (black).}}{7}{figure.2.3}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$\sigma =0.0001$}}}{7}{figure.2.3}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$\sigma =0.3$}}}{7}{figure.2.3}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Threshold value with respect to the benchmark model (orange) and the capacity optimized model (blue), regarding sensibility parameter $\delta $ and innovation level $\theta $.}}{8}{figure.2.4}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$\delta \in ( 0,10 )$ }}}{8}{figure.2.4}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$\theta \in (\alpha K=1,50)$}}}{8}{figure.2.4}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Optimal capacity regarding the threshold value $x^*_C$.}}{9}{figure.2.5}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$\mu \in ( -r,r )$ }}}{9}{figure.2.5}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$\sigma \in (0,1)$}}}{9}{figure.2.5}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Optimal capacity regarding the threshold value $x^*_C$.}}{9}{figure.2.6}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$ r \in ( \mu , 1 )$}}}{9}{figure.2.6}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$ \alpha \in (0,1)$}}}{9}{figure.2.6}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Optimal values of $R$ and $V(X)$ for fixed values of $F$ and $r$}}{10}{figure.2.7}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Threshold value with respect to the benchmark model (orange) and the capacity optimized model (blue) and parameters with which $x^*_B$ increases.}}{14}{figure.3.1}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$\delta \in (0,1)$}}}{14}{figure.3.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$\sigma \in (0,1)$}}}{14}{figure.3.1}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Threshold value with respect to the benchmark model (orange) and the capacity optimized model (blue) and parameter with which $x^*_B$ decreases.}}{15}{figure.3.2}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$\mu \in ( -r,r )$ }}}{15}{figure.3.2}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$\theta \in (1,10)$}}}{15}{figure.3.2}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Threshold value with respect to the benchmark model (orange) and the capacity optimized model (blue) and parameters with which $x^*_B$ has a non-monotonic behaviour.}}{15}{figure.3.3}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$r \in (\mu ,1)$, $\mu =0.01$ and $\sigma =0.9$}}}{15}{figure.3.3}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$K_0 \in ( 0, \frac {1}{\alpha }=100 )$ }}}{15}{figure.3.3}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$K_1 \in (0, \frac {\theta }{\alpha }=1000 )$}}}{15}{figure.3.3}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Threshold value with respect to the benchmark model (orange) and the capacity optimized model (blue) and sensibility parameter $\alpha $.}}{16}{figure.3.4}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$\alpha \in (0,1)$$\theta =10>\frac {K_1}{ K_0^2} (K_0+K_1 r \delta )$}}}{16}{figure.3.4}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$\alpha \in (0,1) $ and $\theta =1<\frac {K_1}{ K_0^2} (K_0+K_1 r \delta )$}}}{16}{figure.3.4}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Optimal capacity regarding the threshold value $x^*_C$ considering capacity levels $K_0 \in [0, 100)$ and its highest values at $\frac {1}{2 \alpha }=50$.}}{17}{figure.3.5}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Optimal capacity regarding the threshold value $x^*_C$.}}{18}{figure.3.6}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$\mu \in ( -r,r )$ }}}{18}{figure.3.6}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$\sigma \in (0,1)$}}}{18}{figure.3.6}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Optimal capacity regarding the threshold value $x^*_C$.}}{18}{figure.3.7}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$ \theta \in ( 1, 10 )$}}}{18}{figure.3.7}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$ \delta \in (0,10)$}}}{18}{figure.3.7}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Optimal capacity regarding the threshold value $x^*_C$.}}{18}{figure.3.8}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$ r \in ( \mu , 1 )$}}}{18}{figure.3.8}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$ \alpha \in (0,1)$}}}{18}{figure.3.8}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Optimal values of $R$ and $V(X)$ for fixed values of $F$ and $r$}}{27}{figure.5.1}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
