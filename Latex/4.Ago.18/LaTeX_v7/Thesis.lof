@@ -1,0 +1,52 @@
+\babel@toc {english}{}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Threshold value with respect to the benchmark model (blue) and the capacity optimized model (orange), considering capacity levels $K \in [0, \theta /\alpha )$ and the value that $x^*_B$ takes when considering $K*$ (black).}}{12}{figure.2.1}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Threshold value with respect to the benchmark model (blue) and the capacity optimized model (orange) and regarding its increasing parameters $\sigma $ and $\delta $.}}{13}{figure.2.2}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$\sigma \in (0.0001,1)$}}}{13}{figure.2.2}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$\delta \in (0,10)$}}}{13}{figure.2.2}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Threshold value with respect to the benchmark model (blue) and the capacity optimized model (orange), considering drift $\mu \in [-r, r]$ and corresponding stationary point $\sigma ^2/2$ (black).}}{13}{figure.2.3}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$\sigma =0.05$}}}{13}{figure.2.3}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$\sigma =0.2$}}}{13}{figure.2.3}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Threshold value with respect to the benchmark model (orange) and the capacity optimized model (blue), regarding sensibility parameter $\delta $ and innovation level $\theta $.}}{13}{figure.2.4}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$r \in ( \mu , 1)$ }}}{13}{figure.2.4}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$\theta \in (\alpha K=1, 50)$}}}{13}{figure.2.4}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Optimal capacity regarding the threshold value $x^*_C$ and increasing parameters $\mu $, $\sigma $ and $\theta $.}}{14}{figure.2.5}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$\mu \in ( -r,r )$ }}}{14}{figure.2.5}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$\sigma \in (0,1)$}}}{14}{figure.2.5}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$\theta \in (\alpha K^*_C,10)$}}}{14}{figure.2.5}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Optimal capacity regarding the threshold value $x^*_C$ and decreasing parameters $r$ and $\alpha $.}}{15}{figure.2.6}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$ r \in ( \mu , 1 )$}}}{15}{figure.2.6}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$ \alpha \in (0,1)$}}}{15}{figure.2.6}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Optimal values of $R$ and $V(X)$ for fixed values of $F$ and $r$}}{15}{figure.2.7}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Threshold value with respect to the benchmark model (orange) and the capacity optimized model (blue) and parameters with which $x^*_B$ increases.}}{23}{figure.3.1}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$\delta \in (0,1)$}}}{23}{figure.3.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$\sigma \in (0,1)$}}}{23}{figure.3.1}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Threshold value with respect to the benchmark model (orange) and the capacity optimized model (blue) and parameter with which $x^*_B$ decreases.}}{23}{figure.3.2}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$\mu \in ( -r,r )$ }}}{23}{figure.3.2}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$\theta \in (1,10)$}}}{23}{figure.3.2}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Threshold value with respect to the benchmark model (orange) and the capacity optimized model (blue) and parameters with which $x^*_B$ has a non-monotonic behaviour.}}{24}{figure.3.3}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$r \in (\mu ,1)$, $\mu =0.01$ and $\sigma =0.9$}}}{24}{figure.3.3}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$K_0 \in ( 0, \frac {1}{\alpha }=100 )$ }}}{24}{figure.3.3}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$K_1 \in (0, \frac {\theta }{\alpha }=1000 )$}}}{24}{figure.3.3}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Threshold value with respect to the benchmark model (orange) and the capacity optimized model (blue) and sensibility parameter $\alpha $.}}{25}{figure.3.4}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$\alpha \in (0,1)$$\theta =10>\frac {K_1}{ K_0^2} (K_0+K_1 r \delta )$}}}{25}{figure.3.4}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$\alpha \in (0,1) $ and $\theta =1<\frac {K_1}{ K_0^2} (K_0+K_1 r \delta )$}}}{25}{figure.3.4}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Optimal capacity regarding the threshold value $x^*_C$ considering capacity levels $K_0 \in [0, 100)$ and its highest values at $\frac {1}{2 \alpha }=50$.}}{26}{figure.3.5}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Optimal capacity regarding the threshold value $x^*_C$.}}{26}{figure.3.6}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$\mu \in ( -r,r )$ }}}{26}{figure.3.6}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$\sigma \in (0,1)$}}}{26}{figure.3.6}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Optimal capacity regarding the threshold value $x^*_C$.}}{27}{figure.3.7}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$ \theta \in ( 1, 10 )$}}}{27}{figure.3.7}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$ \delta \in (0,10)$}}}{27}{figure.3.7}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Optimal capacity regarding the threshold value $x^*_C$.}}{27}{figure.3.8}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$ r \in ( \mu , 1 )$}}}{27}{figure.3.8}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$ \alpha \in (0,1)$}}}{27}{figure.3.8}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Optimal values of $R$ and $V(X)$ for fixed values of $F$ and $r$}}{37}{figure.5.1}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
