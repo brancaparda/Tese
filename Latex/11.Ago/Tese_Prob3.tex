@@ -257,7 +257,7 @@ We still want to find the optimal time $\tau_1$ to make the investment decision.
 	\item $x_{1,R}^*$: when we add the \textit{new} product and immediately replace the old one. It is associated to the region $X_{\tau_1} \geq x^*_2$ and to the stopping problem
 	\begin{equation}
 	%\underset{\tau_1}{\text{sup}} 
-	\sup_{\tau_1} \mathds{E}^{X_0=x} \left[ e^{-r \tau_1} \left( \frac{(\theta-\alpha K_1)K_1}{r-\mu} X_{\tau_1}+
+	\sup_{\tau_1} \mathds{E}^{X_0=x} \left[ e^{-r \tau_1} \left( \frac{(\theta-\alpha K_1)K_1}{r-\mu} X_{\tau_1}-
 	\frac{\pi_0}{r} - \delta K_1 \right) \mathds{1}_{ \{ \tau_1 < \infty \} } \right]
 	\label{3:r}
 	\end{equation}
@@ -290,15 +290,21 @@ from which we obtain
 \begin{align}
 x_{1,A}^*&=\frac{d_1}{d_1-1} \frac{\delta K_1 (r-\mu )}{ (\theta -\alpha  K_1)K_1-2 \eta  K_0 K_1} \label{eq:3_x1A}\\
 a_{1,A}&=
-a_2 x^*_2+\frac{((\theta -\alpha  K_1)K_1-2 \eta  K_1 K_0) }{r-\mu }(x_{1,A}^*)^{1-d_1}-\delta K_1 (x_{1,A}^*)^{-d_1}. 
+a_2 x^*_2+\frac{((\theta -\alpha  K_1)K_1-2 \eta  K_1 K_0) }{r-\mu }(x_{1,A}^*)^{1-d_1}-\delta K_1 (x_{1,A}^*)^{-d_1}. \label{3:a1A} 
 %&= \frac{2^{\text{dd1}} \eta  k \text{k0} \left(\frac{\text{dd1} (1-\alpha  \text{k0}) (r-\mu )}{(\text{dd1}-1) \eta  k r}\right)^{1-\text{dd1}}}{\text{dd1} (r-\mu )}
 \end{align}
+Note that the threshold $x_{1,A}^*$ needs always to be positive. Therefore the following restriction holds
+\begin{equation}
+	(\theta -\alpha  K_1)K_1-2 \eta  K_0 K_1>0 \ \Leftrightarrow \ K_1 < \frac{\theta}{\alpha + 2\eta K_0} \leq \frac{\theta}{\alpha},
+	\label{3_cond}
+\end{equation}
+where the equality (in the last inequality) holds for $\eta=0$. 
 
 Thus the solution associated to $\eqref{3:add}$ is given by 
 \begin{equation}
-F_{1,A}(x)= a_{1,A}x^{d_1} \mathds{1}_{ \{ x<x^*_{1,A}\}} +
+F_{1,A}(x)= \left(  a_{1,A}x^{d_1} \mathds{1}_{ \{ x<x^*_{1,A}\}} +
 \left(  \frac{(\theta-\alpha K_1)K_1-2 \eta K_0 K_1}{r-\mu} x+
-a_2 x^{d_1} - \delta K_1 \right)  \mathds{1}_{ \{ x \geq x^*_{1,A}\}}.
+a_2 x^{d_1} - \delta K_1 \right)  \mathds{1}_{ \{ x \geq x^*_{1,A} \}} \right)  \mathds{1}_{ \{   x < x_2^*  \}} .
 \label{3:Fadd}
 \end{equation}
 \\
@@ -310,10 +316,224 @@ Thus it follows that the threshold level is given by \eqref{2_xB}, that is,
 x^*_{1,R}=\frac{d_1}{d_1-1} \frac{ \delta K_1  +\frac{\pi_0}{r} }{\theta-\alpha K_1} \frac{r-\mu}{K_1}.
 \label{3_x1R}
 \end{equation}
-On the otherside the solution associated to $\eqref{3:r}$ is given by \eqref{2:Fbm}, that is, (changing the name of the associated solution)
+On the other side the solution associated to $\eqref{3:r}$ is given by \eqref{2:Fbm}, that is, (changing the name of the associated solution)
 \begin{equation}
-F_{1,R}(x)= a_{1,R}(x^*)^{d_1} \mathds{1}_{ \{ x<x^*_{1,R}\}} +
-\left(  \frac{(\theta-\alpha K_1)K_1 x}{r-\mu} - \delta K_1  +\frac{\pi_0}{r}\right)  \mathds{1}_{ \{ x \geq x^*_{1,R}\}},
+F_{1,R}(x)= \left(  a_{1,R}(x^*)^{d_1} \mathds{1}_{ \{ x<x^*_{1,R}\}} +
+\left(  \frac{(\theta-\alpha K_1)K_1 x}{r-\mu} - \delta K_1  -\frac{\pi_0}{r}\right)  \mathds{1}_{ \{ x \geq x^*_{1,R}\}} \right) \mathds{1}_{ \{ x \geq x^*_2\}} ,
 \label{3:Fr}
 \end{equation}
 with $a_{1,R}$ taking the same value as $a_2$ in \eqref{2_aB}.
+
+
+Note that from \eqref{3:Fadd} it's impossible to observe a demand threshold $x_2^*$ smaller than $x_{1,A}^*$. This would mean that at the precise instant $x_{1,A}^*$ was reached, we should immediately replace the \textit{old} product by the \textit{new} one. However, this case is not related with thresholds $x_{1,A}$ or $x_2^*$, but with $x_{1,R}^*$.
+Therefore we are able to constraint the domains of both functions $F_{1,A}$ and $F_{1,R}$ by analyzing when does $x_{1,A}^*<x^*_2$ happen or not, respectively. That is
+\begin{align}
+x_{1,A}^*<x_2^* \ &\Leftrightarrow \ \frac{d_1}{d_1-1} \frac{1-\alpha K_0}{2 \eta K_1} \frac{r-\mu}{r} = \frac{d_1}{d_1-1} \frac{\delta K_1 (r-\mu)}{(\theta-\alpha K_1)K_1-2\eta K_0 K_1} \nonumber \\
+&\Leftrightarrow \ (1-\alpha K_0) ((\theta-\alpha K_1)K_1-2\eta K_0 K_1)=2 \eta \delta K_1^2 r 
+ \nonumber \\
+&\Leftrightarrow \ \eta <\frac{(1-\alpha K_0)(\theta-\alpha K_1)}{2(\delta K_1 r + \pi_0)}=: \eta^*, \label{3_eta*}
+\end{align}
+where we denoted $\eta^*$ to be the cannibalization threshold that states which value function stands.
+
+Therefore we obtain that our problem, as stated in \eqref{eq:f2x}, may be written as
+
+\begin{equation}
+F(x)=\frac{\pi_0}{r} + \begin{cases}
+a_{1,A}x^{d_1}  &, \ x<x_{1,A} \  \wedge \ \eta<\eta^*\\
+a_2x^{d_1}+\frac{(\theta-\alpha K_1)K_1-2 \eta K_0 K_1}{r-\mu} x - \delta K_1 &, \ x_{1,A} \leq x < x_2^* \ \wedge \ \eta<\eta^*\\
+a_{1,R}x^{d_1} &, \ x<x_{1,R}^*  \ \wedge \ \eta\geq \eta^* \\
+\frac{(\theta-\alpha K_1)K_1 x}{r-\mu} -\frac{\pi_0}{r} - \delta K_1   &, \ ( x>x_{1,A}^* \ \wedge \ \eta<\eta^*) \ \overset{.}{\vee} \ (x>x_{1,R}^* \ \wedge \ \eta \geq \eta^*) \\
+\end{cases}
+	\label{3_madzbigboy}
+\end{equation}
+with $a_{1,A}$ as described in \eqref{3:a1A}, $a_{1,R}$ as described in \eqref{2_aB}, $x^*_{1,A}$ as described in \eqref{eq:3_x1A}, $x^*_{1,R}$ as described in \eqref{2_xB}, $x^*_2$ as described in \eqref{3:x2} and $\eta^*$ as described in \eqref{3_eta*} (and $\pi_0$ as described in \eqref{pi0}).
+
+
+\section{Comparative Statics}
+
+Before we start to analyse how parameters influence the three different threshold levels, we will show how one should interpret the results obtained in \eqref{3_madzbigboy}.
+
+Considering parameters 
+\begin{table*}[!htb]
+	\centering
+	\begin{tabular}{lllllll}
+		$\bullet$ & $\mu=0.45$     &  & \hspace{7cm} &  &  $\bullet$ & $\alpha=0.015$ \\
+		$\bullet$ & $\sigma=0.6$ &  & \hspace{7cm} &  &  $\bullet$ & $\theta=1.5$   \\
+		$\bullet$ & $r=0.85$       &  & \hspace{7cm} &  &  $\bullet$ & $K_0=51.5$       \\
+		$\bullet$ & $\delta=0.95$     &  & \hspace{7cm} & &  $\bullet$ & $K_1=2.5$                              
+	\end{tabular}
+\end{table*}
+and playing with the cannibalization parameter $\eta$, we obtain the six plots represented on Figure \ref{fig:3_F}.
+
+Each column corresponds a different value of $\eta$ set. In each plot of the first row it's represented the different possible parts associated to the value function $F$ \eqref{3_madzbigboy}, accordingly to the respective legend, being the red dashed line corresponding to the valid value function associated to the parameters considered. It is also represented the three possible thresholds: $x_{1,A}^*$ by the pink dot, $x^*_2$ by the purple dot and $x_{1,R}^*$ by the black dot. Finally on the second row it's represented solely the value function $F$ associated (the same as showed in the respective plot above) and respective threshold values.
+
+\begin{figure}[!htb]
+	\begin{subfigmatrix}{6}
+		\subfigure[$\eta=0.007$ ]{\includegraphics[width=0.32\textwidth]{Prob3/eta007.pdf}}
+		\subfigure[$\eta=0.012$ ]{\includegraphics[width=0.32\textwidth]{Prob3/eta0121.pdf}}
+		\subfigure[$\eta=0.013$ ]{\includegraphics[width=0.32\textwidth]{Prob3/eta013.pdf}}
+		\subfigure[$\eta=0.007$]{\includegraphics[width=0.32\textwidth]{Prob3/eta007dash.pdf}}
+		\subfigure[$\eta=0.012$]{\includegraphics[width=0.32\textwidth]{Prob3/eta0121dash.pdf}}
+		\subfigure[$\eta=0.013$]{\includegraphics[width=0.32\textwidth]{Prob3/eta013dash.pdf}}
+	\end{subfigmatrix}
+	\caption{Threshold value with respect to the benchmark model (blue) and the capacity optimized model (orange) and parameter with which  $x^*_B$ decreases.}
+	\label{fig:3_F}
+\end{figure}
+
+First, note that for this set of values, we obtain $\eta^*\simeq 0.0121121$. Therefore we have, for the plots in the first and second columns, that it's better to invest and have a period of simultaneous production and only after the second threshold being reached, we change to produce solely the \textit{new} product. On the other side, in the third column, we have the situation where, when we invest, we should immediately produce solely the \textit{new} product.
+
+In the first column, we observe that the thresholds to be considered are $x_{1,A}^*$ and $x_2^*$. The first one states upon which demand level we should invest in the \textit{new} product and start the simultaneous production. The second one states upon which demand level we should produce only the \textit{new} product. The respective value function associated to this problem has 3 parts and it's given by 
+\begin{equation}
+\begin{split}
+F(x)=\frac{\pi_0}{r}+
+	a_{1,A}x^{d_1}  \mathds{1}_{ \{x<x^*_{1,A} \}}&+
+	\left( a_2x^{d_1}+\frac{(\theta-\alpha K_1)K_1-2 \eta K_0 K_1}{r-\mu} x - \delta K_1 \right)  \mathds{1}_{ \{ x_{1,A} \leq x < x_2^* \}}\\
+	&+
+	\left(  \frac{(\theta-\alpha K_1)K_1 x}{r-\mu} -\frac{\pi_0}{r} - \delta K_1 \right)   \mathds{1}_{ \{ x>x_2^*  \} }.
+\end{split}
+	\label{3_F2t}
+\end{equation}	
+
+In the second column, we are in a similar situation as in the first column, where we have two thresholds and the value function is also defined in three parts, as in \eqref{3_F2t}.
+Observe also that as $\eta \to \eta^*$, the three thresholds tend to admit the same value. This is accordance with the analytical result that replacing $\eta$ by $\eta^*$ in $x^*_{1,A}$ \eqref{eq:3_x1A} and in $x^*_{1,R}$ \eqref{2_xB} we get
+$$x^*_{1,A}(\eta^*)=x_2^*(\eta^*)=x^*_{1,R}.$$
+
+
+In the third column, we observe that the threshold to be considered is $x_{1,R}^*$. In this case the value function is only defined by two parts, being given by
+$$F(x)=\frac{\pi_0}{r}+
+	a_{1,R}x^{d_1} \mathds{1}_{ \{ x<x_{1,R}^* \} }+
+	\left(  \frac{(\theta-\alpha K_1)K_1 x}{r-\mu} -\frac{\pi_0}{r} - \delta K_1 \right)  \mathds{1}_{ \{ x>x_{1,R}^* \} }$$
+
+
+\subsection{Demand threshold $x_{1,A}^*$}
+\label{3_dmx1A}
+
+
+\begin{prop}
+	\label{3_propx1A}
+	Decision threshold $x_{1,A}^*$ increases with $\eta, \ \delta, \ \sigma, \ K_0$ and $K_1$ and decreases with $\theta$ and $\alpha$.
+\end{prop}
+
+\textbf{Proof:}
+
+The results regarding parameters $\eta, \ \delta, \ \theta$ and $\alpha$ come immediately by the expression of $x_{1,A}^*$  \eqref{eq:3_x1A}.
+
+Regarding $\sigma$, we obtain that
+\begin{align*}
+\frac{\partial x_{1,A}^* ( \sigma) }{\partial \sigma}=\frac{2 \delta  (\mu -r) \left(-2 \mu ^2+\mu  \sigma ^2 \left(\phi+1\right)-2 r \sigma ^2\right)}{(d_1-1)^2 \sigma ^5 \phi (\theta -\alpha  K_1 -2 \eta  K_0)}>0,
+\end{align*}
+where the denominator is positive since $d_1>1$, $\phi>0$ and ?????? and the denominator is positive since $r>\mu$ and by noting that $-2 \mu ^2+\mu  \sigma ^2 \left(\phi+1\right)-2 r \sigma ^2<0 \Leftrightarrow \mu d_1-r<0$, which holds always, as previously showed in \eqref{mud1-r}.
+
+Regarding $K_0$ and $K_1$, we obtain that
+\begin{align*}
+\frac{\partial x_{1,A}^* ( K_0) }{\partial K_0}&=\frac{2 \delta d_1 \eta  (r-\mu )}{(d_1-1) (-\theta +\alpha  K_1+2 \eta  K_0)^2}>0\\
+\frac{\partial x_{1,A}^* ( K_1) }{\partial K_1}&=\frac{\alpha \delta d_1 \eta  (r-\mu )}{(d_1-1) (-\theta +\alpha  K_1+2 \eta  K_0)^2}>0.
+\end{align*}
+
+%Regarding parameters $\mu$ and $r$, we obtained complex derivates, from which we couldn't deduce any analytical result. However, as it will be showed hereunder, $x^*_C$ behaves in a non-monotonic way with all of them.
+\begin{flushright}
+	$\square$
+\end{flushright}
+
+
+Considering the following parameters,
+
+\begin{table*}[!htb]
+	\centering
+	\begin{tabular}{lllllll}
+		$\bullet$ & $\mu=0.03$     &  & \hspace{7cm} &  &  $\bullet$ & $\alpha=0.01$ \\
+		$\bullet$ & $\sigma=0.05$ &  & \hspace{7cm} &  &  $\bullet$ & $\theta=10$   \\
+		$\bullet$ & $r=0.05$       &  & \hspace{7cm} &  &  $\bullet$ & $\delta=2$        \\
+		$\bullet$ & $K_0=90$     &  & \hspace{7cm} &  &  $\bullet$ & $K_1=100$       \\
+		$\bullet$ & $\eta=0.007$     &  & 
+	\end{tabular}
+\end{table*}
+we perform some numerical approximations concerning $x_{1,A}^*$. %Note that $\eta$ is chose to be smaller than $\eta^*$.
+
+\begin{figure}[!htb]
+	\begin{subfigmatrix}{6}
+		\subfigure[$\eta \in (0, \alpha )$ ]{\includegraphics[width=0.32\textwidth]{Prob3/x1Aeta.pdf}}
+		\subfigure[$\delta \in (1,2)$]{\includegraphics[width=0.32\textwidth]{Prob3/x1Adelta.pdf}}
+		\subfigure[$\sigma \in (0,1)$]{\includegraphics[width=0.32\textwidth]{Prob3/x1Asigma.pdf}}
+		\subfigure[$r \in (0,\mu)$]{\includegraphics[width=0.32\textwidth]{Prob3/x1Ar.pdf}}
+		\subfigure[$K_0 \in (0,1/\alpha)$]{\includegraphics[width=0.32\textwidth]{Prob3/x1Ak0.pdf}}
+		\subfigure[$K_1 \in (0,\theta/\alpha)$]{\includegraphics[width=0.32\textwidth]{Prob3/x1Ak1.pdf}}
+	\end{subfigmatrix}
+	\caption{Threshold value $x^*_{1,A}$ with respect to parameters with which it increases.}
+	\label{fig:2_x1Ai}
+\end{figure}
+
+On Figure \ref{fig:2_x1Ai} we present some plots that comprove what was stated on Proposition \ref{3_propx1A}. We also add another one, regarding the discount rate $r$, for which we couldn't derive any analytical solution, but studying the behaviour of $x^*_{1,A}$ we conclude that it also increases with $r$.
+
+\begin{figure}[!htb]
+	\begin{subfigmatrix}{3}
+		\subfigure[$\alpha \in (0, \min \{ 1/K_0, \theta/K_1 \} )$ ]{\includegraphics[width=0.32\textwidth]{Prob3/x1Aalpha.pdf}}
+		\subfigure[$\mu \in (0,r)$]{\includegraphics[width=0.32\textwidth]{Prob3/x1Amu.pdf}}
+		\subfigure[$\theta \in (1,10)$]{\includegraphics[width=0.32\textwidth]{Prob3/x1Atheta.pdf}}
+	\end{subfigmatrix}
+	\caption{Threshold value $x^*_{1,A}$ with respect to parameters with which it decreases.}
+	\label{fig:2_x1Ad}
+\end{figure}
+
+On Figure \ref{fig:2_x1Ad} we present some plots that also comprove what was stated on Proposition \ref{3_propx1A}, but with respect to the parameters with which $x_{1,A}^*$ increases. Again, we add the plot concerning the drift parameter $\mu$, for which we couldn't derive any analytical solution, but studying the behaviour of $x^*_{1,A}$ we conclude that it also decreases with $\mu$.
+
+
+\subsection{Demand threshold $x_{1,R}^*$}
+\label{3_dmx1R}
+
+All results come from Section \ref{2_bm} and thus they won't repeated here.
+
+
+
+\subsection{Demand threshold $x_2^*$}
+	\label{3_dmx2}
+	
+\begin{prop}
+	\label{3_propx2}
+	Decision threshold $x_2^*$ increases with $\sigma$ and decreases with $\eta, \ \alpha, \ K_0$ and $K_1$.
+\end{prop}
+
+\textbf{Proof:}
+
+The results regarding parameters $\eta, \ \alpha, \ K_0$ and $K_1$ come immediately by the expression of $x_2^*$  \eqref{3:x2}.
+
+Regarding $\sigma$, we obtain that
+\begin{align*}
+\frac{\partial x_2^* ( \sigma) }{\partial \sigma}=
+\frac{(\alpha  K_0-1) (r-\mu) \left(-2 \mu ^2+\mu  \sigma ^2 \left(\phi+1\right)-2 r \sigma ^2\right)}{(d_1-1)^2 \eta  K_1 r \sigma ^5 \phi}>0
+\end{align*}
+where the denominator is positive since $d_1>1$, $\phi>0$  and the denominator is positive since $r>\mu$, $1-\alpha K_0>0$ and by noticing (again) that $-2 \mu ^2+\mu  \sigma ^2 \left(\phi+1\right)-2 r \sigma ^2<0 \Leftrightarrow \mu d_1-r<0$, which holds always, as previously showed in \eqref{mud1-r}.
+
+%Regarding parameters $\mu$ and $r$, we obtained complex derivates, from which we couldn't deduce any analytical result. However, as it will be showed hereunder, $x^*_C$ behaves in a non-monotonic way with all of them.
+\begin{flushright}
+	$\square$
+\end{flushright}
+
+Considering the same parameters as in Section \ref{3_dmx1A}, we perform some numerical approximations concerning $x_2^*$.
+
+\begin{figure}[!htb]
+	\begin{subfigmatrix}{1}
+		\subfigure[$\eta \in (0, \alpha )$ ]{\includegraphics[width=0.45\textwidth]{Prob3/x2sigma.pdf}}
+	\end{subfigmatrix}
+	\caption{Threshold value $x^*_2$ with respect to parameters with which it increases.}
+	\label{fig:2_x2i}
+\end{figure}
+
+From Figure \ref{fig:2_x2i} we comprove what was stated on Proposition \ref{3_propx2} regarding $\sigma$. 
+
+We also obtained that the volatility $\sigma$ was the unique parameter we found to increase both thresholds $x_{1,A}^*$ and $x_2$. Note that by Section \ref{2_bm}, that the same holds for the threshold $x_{1,R}$. Thus we conclude that a situation where the demands shows to have a high volatility, both investment and replacement decisions tend to be postponed.
+
+\begin{figure}[!htb]
+	\begin{subfigmatrix}{6}
+		\subfigure[$\eta \in (0, \alpha )$ ]{\includegraphics[width=0.32\textwidth]{Prob3/x2eta.pdf}}
+		\subfigure[$\alpha \in (0, \min \{ 1/K_0, \theta/K_1 \} )$ ]{\includegraphics[width=0.32\textwidth]{Prob3/x2alpha.pdf}}
+		\subfigure[$K_1 \in (0,\theta/\alpha)$]{\includegraphics[width=0.32\textwidth]{Prob3/x2k.pdf}}
+		\subfigure[$K_0 \in (0,1/\alpha)$]{\includegraphics[width=0.32\textwidth]{Prob3/x2k0.pdf}}
+		\subfigure[$r \in (0,\mu)$]{\includegraphics[width=0.32\textwidth]{Prob3/x2r.pdf}}
+		\subfigure[$\mu \in (0,r)$]{\includegraphics[width=0.32\textwidth]{Prob3/x2mu.pdf}}
+	\end{subfigmatrix}
+	\caption{Threshold value $x^*_{1,A}$ with respect to parameters with which it decreases.}
+	\label{fig:2_x2d}
+\end{figure}
+
+On Figure \ref{fig:2_x2d} we show how the threshold $x_2$ decreases with parameters stated on Proposition \ref{3_propx2}. We also add plots concerning the drift parameter $\mu$ and the discount rate $r$, for which we couldn't derive any analytical solution, but studying how $x^*_2$ behaves with them, we conclude that it also increases with $\mu$ and $r$, from which the behaviour showed may be generalized.
