@@ -1,0 +1,568 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                      %
+%     File: Thesis_Implementation.tex                                  %
+%     Tex Master: Thesis.tex                                           %
+%                                                                      %
+%     Author: Andre C. Marta                                           %
+%     Last modified :  2 Jul 2015                                      %
+%                                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Background concepts}
+\label{chapter:bc}
+
+Before starting to explain the work that is here developed, we introduce the main concepts and tools required.
+
+We will start by introducing the field of Optimal Control Problems: defining its key elements, deducing the dynamic programming principle, respective dynamic programming equation and the verification technique. Secondly, we will explain how they are related with the field of optimal stopping problems as well as how we can find an optimal stopping time. Lastly, we will explain how Optimal Stopping Problems are related with investment decisions under uncertainty, deducing the general solution of the (standard) optimal problems that we will face along this work.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Stochastic Control and Optimal Stopping Problems}
+\label{section:scop}	
+
+\subsection{Stochastic Control Problems}
+\label{section:control}
+
+\subsubsection{Settings}
+
+We need to set the key elements related to stochastic control problems. Among these, it is included:
+
+\textbf{Time Horizon:}
+in the context of investment-consumption problems (as this work is), an infinite time-horizon is considered: $[0,\infty)$. However one may also consider a finite horizon: $[0,T], \ T \in(0,\infty)$, as in the case where a situation is valid until an expiration date $T$; or and indefinite horizon: $[0,\tau]$ for some $\tau$ stopping time, as in the case where a situation is valid until a certain exit time $\tau$.
+
+
+\textbf{Controlled State Process:}  
+a stochastic process which describes the state of the event that we are interested on and that it is often given as the solution of a stochastic differential equation (SDE) of the form
+\begin{equation}
+	d X_t=b(t,X_t,U_t)dt + \sigma (t,X_t,U_t)dW_t, \ X_0=x
+	\label{bc_cp}
+\end{equation}
+where $\{U_t: \ t \in T_u\}$ is a control as defined hereunder; $\{W_t: \ t\geq 0\}$ corresponds to a standard Brownian Motion and $b$ and $\sigma$ are functions that satisfy the \textit{global Lipschitz} and\textit{ linear growth} conditions (also known by \textit{Itô conditions}), respectively given by
+\begin{align}
+\exists K \in (0,\infty) \  \forall t \in [0,\infty) \ \forall u \in \mathds{U} \ \forall x,y \in\mathds{R}^n: \hspace{3mm} \nonumber &\\
+|b(t,x,\alpha)-b(t,y,\alpha)| + || \sigma (t,x,\alpha)- \sigma(t,y,\alpha)|| &\leq K |x-y| \label{bc_cond1} \\
+|b(t,x,\alpha)|^2+|| \sigma (t,x,\alpha)|| &\leq K^2 (1+|x|^2).  \label{bc_cond2}
+\end{align}
+
+
+\textbf{Control process:}
+a stochastic process chosen to influence the state of the system. Considering the SDE \eqref{bc_cp}, $U=\{U_t: \ t \in T_u\}$ is a control that influences the drift and the diffusion of the SDE and that takes values on \textit{control space} $\mathds{U} \in \mathds{R}^m$, with $T_u$ representing the \textit{support space}.
+
+
+\textbf{Admissible Controls:}
+control processes that verify certain conditions impose by the context of the problem. They will be defined some pages later.
+
+\textbf{Cost/reward function:} 
+denoted as $J(x,U)$, it identifies the costs/rewards of a system with an initial state $x$ and a control process $U$.
+
+
+\textbf{Value Function:}
+denoted as $V(x)$, it corresponds to the minimum/maximum possible cost/reward of the system over all admissible controls. Hence, when dealing with a cost function, $V$ is such that $V(x)= \underset{U\in \mathds{U}}{\inf} J(x,U)$. On the other side, when dealing with a reward function (which will be our case), $V$ is such that $V(x)= \underset{U\in \mathds{U}}{\sup} J(x,U)$.
+
+
+Therefore we are now in position to state the primary goal of a stochastic control problem: for a given initial state $x$, we want to find the control process that lead to the optimized value function $V(x)$.
+
+How one is able to derive this optimal control process? That's what will be explained in the next sections, in which we show the main tools used on this sort of problems and proof their correctness.
+
+\subsubsection{Dynamic programming principle}
+
+We will follow the explanation made in \cite{ross}. Hence we assume an infinite horizon time $[0,\infty)$ and a controlled state process as in \eqref{bc_cp} defined on the probability space $(\Omega,\mathcal{F}, \mathds{P})$ associated to the underlying Brownian Motion, on which $\Omega$ corresponds to its state space, $\mathcal{F}=\{\mathcal{F}_t, \ t\geq0 \}$ the natural filtration associated to it and the $\mathds{P}$ the probability measure. Considering an unidimensional controlled state space and under these assumptions, \eqref{bc_cp} takes the form of
+\begin{equation}
+ 	d X_t=b(X_t,U_t)dt + \sigma (X_t,U_t)dW_t, \ X_0=x\in \mathds{R},
+ \label{bc_cp2}
+\end{equation} 
+with $U$ being the control process defined in the control space $\mathds{U}=\mathds{R}$.
+
+Due to the close connection to our problem, we will restrict our attention to Markov controls.
+\begin{defi}
+	A \textit{Markov control process} is a stochastic process that takes the
+	form $U_t=u(X_t), \ \forall t \geq 0$ for some control function $u: \mathds{R} \rightarrow \mathds{U}=\mathds{R}$.
+\end{defi}
+
+Also, assume that the state process $X \equiv X_x^u$ \eqref{bc_cp2} associated with the Markov control function $u$ is a time-homogeneous Markov process with generator $\mathcal{A} \equiv \mathcal{A}^u$, that is
+$$\mathcal{A}=\lim_{t\downarrow 0} \frac{\mathds{E}^{X_0=x}(f(X_t))-f(x)}{t}=b(x,u(x)) f'(x)+\frac{1}{2}\sigma^2(x,u(x))f''(x),$$
+with $f \in C^2(\mathds{R})$. Note that $X$ is uniquely determined by the initial state $x$, the Markov control function $u$ and functions $b$ and $\sigma$, which verify conditions \eqref{bc_cond1} and \eqnref{bc_cond2}. If functions $b$ and $\sigma$ are fixed (assumption that will hold from now on), $X$ will be completely determined by $x$ and $u$.
+
+We now define the cost function $J$ as
+\begin{equation}
+	 J(x,u)=\mathds{E}\left[ \int^\infty_0 e^{-\gamma s} g(X_s,u(X_s)) \ ds \ \Big{|} \ X_0=x \right],
+	 \label{bc_J}
+\end{equation}
+where $\mathds{E} \equiv \mathds{E}^u$, and the respective value function $V$ as
+\begin{equation}
+	V(x)=\inf_{u \in \mathds{U}} J(x,u),
+	\label{bc_V}
+\end{equation}
+where the infimum is taken over all the Markov control functions.
+
+For the sake of simplicity, for now we will ignore the admissibility restrictions and consider that always exists a Markov control function $u^*$ such that $V(x)=J(x,u^*), \ \forall x$ and the conditional expectation as in \eqref{bc_J} to be $\mathds{E}\left[\ . \ | X_0=x \right] \equiv \mathds{E}^{X_0=x}\left[\ . \ \right]$. Also, denote $X^*$ to be the controlled state process associated with $u^*$. Thus it holds
+\begin{equation}
+V(x)=J(x,u^*)=\mathds{E}^{X^*_0=x}\left[ \int^t_0 e^{-\gamma s} g(X^*_s,u^*(X^*_s)) \ ds\right] + \mathds{E}^{X^*_0=x}\left[ \int^\infty_t e^{-\gamma s} g(X^*_s,u^*(X^*_s)) \ ds\right]
+	\label{bc_V2}
+\end{equation}
+
+Manipulating the expression $\mathds{E}^{X^*_0=x}\left[ \int^\infty_t e^{-\gamma s} g(X^*_s,u^*(X^*_s)) \ ds\right]$ we obtain
+\begin{align}
+\mathds{E}^{X^*_0=x}\left[ \int^\infty_t e^{-\gamma s} g(X^*_s,u^*(X^*_s)) \ ds\right]
+  \ &=  \ e^{-\gamma t}\mathds{E}^{X^*_0=x}\left[ \int^\infty_t e^{-\gamma (s-t)}g(X^*_s,u^*(X^*_s)) \ ds\right] \nonumber \\
+&\underset{v:=s-t}{=}  e^{-\gamma t} \mathds{E}^{X^*_0=x}\left[ \int^\infty_0 e^{-\gamma v}g(X^*_{v+t},u^*(X^*_{v+t})) \ dv\right] \nonumber \\
+&= \ e^{-\gamma t}\mathds{E}^{X^*_0=x}\left[ \int^\infty_0 e^{-\gamma v}g(\bar{X}^*_{v+t},u^*(\bar{X}^*_{v+t})) \ dv \right]. \label{bc_ded}
+\end{align}
+
+In the last step we introduced the process $\{\bar{X}^*_v=X^*_{v+t}: \ v \geq 0\}$ for some $t\geq 0$. Since $X^*$ is a time-homogeneous Markov process, $\bar{X}^*$ also it is. Therefore its also determined by function $b$ and $\sigma$, the same control function $u^*$ and its the initial state. Furthermore, if we consider $ \bar{X}^*_0=X^*_0=x$ we have that the conditional expected value on \eqref{bc_ded} is
+\begin{align}
+	\mathds{E}^{X^*_0=x}\left[ \int^\infty_0 e^{-\gamma v}g(\bar{X}^*_{v+t},u^*(\bar{X}^*_{v+t})) \ ds\right]
+	&= \mathds{E}^{\bar{X}^*_0=x}\left[ \int^\infty_0 e^{-\gamma v}g(\bar{X}^*_{v+t},u^*(\bar{X}^*_{v+t})) \ ds \ \Big{|} \ \bar{X}^*_0=X^*_0=x \right] \nonumber \\
+	&\underset{s=v+t}{=}\mathds{E}^{\bar{X}^*_0=x}\left[ \int^\infty_0 e^{-\gamma v}g(X^*_s,u^*(X^*_s)) \ ds  \right] \nonumber \\
+	&= \ J(x,u^*) \nonumber \\
+	&= \ V(x). \label{bc_ded2}
+\end{align}
+
+Following a similar approach considering the random starting state $\bar{X}^*_0=X^*_t$, it follows
+\begin{align}
+\mathds{E}^{X^*_0=x}\left[ \int^\infty_0 e^{-\gamma s}g(X^*_s,u^*(X^*_s)) \ ds  \right]
+=& e^{-\gamma t} \mathds{E}^{X^*_0=x}\left[ \int^\infty_0 g(\bar{X}^*_{v},u^*(\bar{X}^*_{v})) \ dv  \right] \nonumber \\
+=& e^{-\gamma t}  \mathds{E}^{X^*_0=x}\left[ \mathds{E}\left[ \int^\infty_0 g(\bar{X}^*_{v},u^*(\bar{X}^*_{v})) \ dv \ \Big{|} \bar{X}^*_0=X^*_t  \right] \right] \nonumber \\
+% =& e^{-\gamma t}  \mathds{E}^{X_0=x}\left[ J(\bar{X}_0^*,u^*)  \right] \\
+% =&  e^{-\gamma t}  \mathds{E}^{X_0=x}\left[ J(X_t^*,u^*)  \right] \\
+=& e^{-\gamma t}  \mathds{E}^{X_0=x}\left[ V(X_t^*)  \right]. \label{bc_ded3}
+\end{align}
+
+On the first step we used the fact $\{ \bar{X}_t^*, \ t\geq 0\}\overset{d}{=} \{ X_t^*, \ t\geq 0\}$. On the second step we used the Tower Rule, conditioning to $\bar{X}^*_0=X^*_0=x$. On the last step the result on \eqref{bc_ded2} was used.
+
+\textcolor{red}{ Mencionar a expressão da Tower Rule (Prop ou rodapé)?} 
+
+Replacing \eqref{bc_ded3} on \eqref{bc_V2}, we obtain
+\begin{equation}
+ V(x)= \mathds{E}^{X^*_0=x}\left[ \int^t_0 e^{-\gamma s} g(X^*_s,u^*(X^*_s)) \ ds\right] + e^{-\gamma t}  \mathds{E}^{X^*_0=x}\left[ V(X_t^*)  \right].
+ \label{bc_V3}
+\end{equation}
+
+Now, consider $u$ to be an arbitrary Markov control function, the respective controlled process $X^u$, and $\hat{u}$ a Markov control function such that
+$$\hat{u}=\begin{cases}
+u, \ &0\leq s <t \\
+u^*, \ &s \geq t
+\end{cases}.$$
+
+Following a similar strategy used to derive \eqref{bc_V3} we obtain
+\begin{equation}
+V(x) \leq \mathds{E}^{X_0=x}\left[ \int^t_0 e^{-\gamma s} g(X^u_s,u^*(X^u_s)) \ ds\right] + e^{-\gamma t}  \mathds{E}^{X_0=x}\left[ V(X_t^u)  \right].
+\label{bc_V4}
+\end{equation}
+
+Combining results \eqref{bc_V3} and \eqref{bc_V4} we obtain the \textit{Dynamic Programming Principle} corresponding to 
+\begin{equation}
+V(x)=\inf_{u \in \mathds{U}} \mathds{E}^{X_0=x}\left[ \int^t_0 e^{-\gamma s} g(X^u_s,u^*(X^u_s)) \ ds+ e^{-\gamma t} V(X_t^u)  \right],
+\label{bc_V5}
+\end{equation}
+where $\mathds{U}$ is considered to be the set of all (admissible) Markov control functions. It states that the optimal strategy either calculated on each of the time intervals $[0,t)$ and $[t,\infty)$ or on the whole time interval $[0,\infty)$, leads to the same result. The same statement holds for any partition of the time interval.
+
+
+
+\subsubsection{Dynamic Programming Equation}
+
+Following a similar approach as in \cite{ross}, we explain how one can find the optimal control function $u^*$ using the Dynamic Programming Principle. 
+
+Consider an arbitrary Markov control $u$ with corresponding state process $X$ with initial state $X_0=x$ and the respective generator $\mathcal{A}$. Applying Itô's Lemma to the function $f(t,x)=e^{\gamma t}V(x)$ (assumed to be $C(\mathds{R}^2)$) and integrating we obtain
+\begin{equation}
+e^{\gamma t}V(X_t)-V(X_0)=\int^t_0  e^{\gamma t} \left( - \gamma V(X_s))+\mathcal{A}V(X_s)\right) \ ds + \sigma \int^t_0 \frac{\partial}{\partial x}(e^{-\gamma s}V(x))\bigg\rvert_{x=X_s} dW_s.
+\label{bc_dpe1}
+\end{equation}
+
+Noting that $X_0=x$ and taking the expect value on both sides it follows that
+\begin{equation}
+\mathds{E}^{X_0=x} \left[  e^{\gamma t}V(X_t) \right]=V(x) + \mathds{E}^{X_0=x} \left[ \int^t_0  e^{\gamma t} \left( - \gamma V(X_s))+\mathcal{A}V(X_s)\right) \ ds \right],
+\label{bc_ded4}
+\end{equation}
+where we used the fact that $\int^t_0 \frac{\partial}{\partial x}(e^{-\gamma s}V(x))\bigg\rvert_{x=X_s} dW_s$ is a martingale - since $\{ \frac{\partial}{\partial x}(e^{-\gamma s}V(x)) \in B \} \in \mathcal{F}_s \ \forall B$ Borel-set and 
+$\int^t_0 \left( \frac{\partial}{\partial x}(e^{-\gamma s}V(x)) \right)^2  ds
+=\frac{1}{2\gamma}\left( 1 - e^{-2\gamma s} \left(\frac{\partial}{\partial x}V(x)\right)^2 \right)<\infty \forall V(x),t<\infty$ - and, hence, it's expected value is 0.
+
+\textcolor{red}{Introduzir definiçao de martingale?}
+	
+Using results deduced in \eqref{bc_V4}, \eqref{bc_ded4} and by the dynamic programming principle, we obtain
+\begin{align}
+V(x)+\mathds{E}^{X_0=x} \left[ \int^t_0  e^{\gamma s} \left( - \gamma V(X_s))+\mathcal{A}V(X_s)\right) \ ds \right] &\geq V(x) - \mathds{E}^{X_0=x} \left[ \int^t_0  e^{\gamma s} g(X_s^u,u(X_s^u)) ds \right] \nonumber \\ 
+\Rightarrow \ \mathds{E}^{X_0=x} \left[ \int^t_0  e^{\gamma s} \left( - \gamma V(X_s))+\mathcal{A}V(X_s)+g(X_s^u,u(X_s^u))\right) \ ds \right] &\geq 0.
+\label{bc_ded5}
+\end{align}
+
+%Assuming that exists an optimal control function $u^*$ with $X^*$ and $\mathcal{A}^*$ being corresponding controlled process and generator, respectively, such that $\mathds{E}^{X^*_0=x} \left[ \int^t_0  e^{\gamma s} \left( - \gamma V(X^*_s))+ \mathcal{A}^*V(X^*_s)+g(X^*_s,u^*(X_s^*))\right) \ ds \right]=0$ holds.
+ 
+Now, we divide the expression in \eqref{bc_ded5} by $t$ and we take its limit as $t \downarrow 0$. Taking into account that $X_t \rightarrow X_0=x \ \Rightarrow u(X_t) \rightarrow u(x)$ and considering that the different functions are smooth such that we are able to 
+interchange the integral with the expectation (using Fubini's theorem) it follows
+\begin{equation}
+ - \gamma V(x)+\mathcal{A}V(x)+g(x,u(x))\geq0.
+ \label{bc_ded6}
+\end{equation}
+
+Considering now the optimal control function $u^*$, $\eqref{bc_ded6}$ corresponds to
+\begin{equation}
+- \gamma V(x)+\mathcal{A^*}V(x)+g(x,u^*(x))=0.
+\label{bc_ded7}
+\end{equation}
+
+Summarizing \eqref{bc_ded6} and \eqref{bc_ded7}, we obtain the \textit{dynamic programming equation} (DPE) that is given by
+\begin{equation}
+	 \inf_{u \in \mathds{U}} \{  - \gamma V(x)+\mathcal{A}V(x)+g(x,u(x)) \}=0,
+	 \label{bc_eq}
+\end{equation}
+where the infimum is takenover all Markov control functions.
+Observe that the DPE establishes a map between $x \in \mathds{S}$ (an initial observation in the set of states) and $u \in \mathds{U}$ (corresponding to the optimal control function). Therefore we have that by finding a solution to the DPE, we find the optimal control.
+
+However many assumptions that we made along the explanation - such as the smoothness of the value function $V$ or necessary/sufficient conditions that must hold in order to assure the existence of an optimal control - are hardly observed. Nevertheless there are two main approaches that can be used to obtain a solution to the DPE, while verifying all necessary assumptions: using the theory of \textit{viscosity solutions}, that we will not go further here (for further details check \cite{ross}, \cite{oksendal:book} and \cite{oksendal:book2}) or using the \textit{verification} technique, whose main idea we will explain.
+
+
+
+\subsubsection{Verification}
+ 
+The verification is seen as a backwards technique. Instead of solving the optimal control problem using the correspondent DPE, we suppose a solution was found and we show that this solution satisfy the admissibility conditions and that it cost/reward corresponds to the value function associated to the problem in hands. Its a very useful method since by finding a solution to the DPE, then that solution gives us what we want, an optimal control.
+
+
+Once again (but now in order to emphasize that we want to find an ODE's solution) our optimal control problem might be stated as: we want to find  $\phi \in C^2(\mathds{R})$ that satisfies the DPE, that is,
+\begin{equation}
+  \inf_{\alpha \in \mathds{U}} \{  - \gamma \phi(x)+\mathcal{A^\alpha}\phi(x)+g(x,\alpha) \}=0 \ x\in \mathds{R}.
+  \label{bc_eq2}
+\end{equation}
+
+Using the verification technique we are able to find a relationship between the value function $V$ and our solution $\phi$, that a priori doesn't exist.
+Therefore we assume that exists a function $\phi \in C^2(\mathds{R})$ that satisfies \eqref{bc_eq2}, we fix $x \in \mathds{R}$ and the correspondent unique optimal control function $\alpha_x^* \in \mathds{U}$ that always exists and satisfies
+\begin{equation}
+ \alpha_x^*= \arg \min_{\alpha \in \mathds{U} }  \{  - \gamma \phi(x)+\mathcal{A^\alpha}\phi(x)+g(x,\alpha) \}  \ x\in \mathds{R},
+ \label{bc_a}
+\end{equation}
+which corresponds to a map between $x \in \mathds{R}$ and $\alpha_x^* \in \mathds{U}$. From now on this map will be denoted by $u^*: \mathds{R} \rightarrow \mathds{U}$ and we will show that it defines an optimal Markov control function.
+
+However, since any Markov control process is an admissible control process, we need to define the class of admissible control processes. As stated in \cite{ross}:
+\begin{defi}
+	\label{ac}
+	A stochastic process $U= \{ U_t, \ t \geq 0 \}$ is an admissible control process if:
+	\begin{enumerate}
+		\item $U$ is $\{ \mathcal{F}_t\}$-adapted;
+		\item $U_t \in \mathds{U} \ \forall t \geq 0$;
+		\item The SDE in \eqref{bc_cp} has a unique solution;
+		\item The process $\int^t_0 e^{-\gamma s} \phi^\prime(X_s)\sigma(X_s,U_s) dW_s$ is a martingale;
+		\item $e^{-\gamma t} \mathds{E}^{X_0=x}[V(X_t)] \rightarrow 0$ as $t \rightarrow \infty$. 
+	\end{enumerate}
+\end{defi}
+
+In order to show that $\phi$ corresponds to the value function $V$, consider $\mathds{A}$ to be the set of admissible controls, that are not necessarily Markov. The cost and value functions are defined in a similar way as before, by taking the infimum over all admissible controls:
+\begin{align*}
+	J(x,U)&=\mathds{E}^{X_0=x} \left[ \int^\infty_0 e^{-\gamma t}g(X_t,U_t)dt\right]  \\
+	V(x)&=\inf_{U \in \mathds{A}} J(x,U)
+\end{align*}
+
+The verification technique uses the same reasoning as used on the DPE. We define an associated SDE by $e^{-\gamma t}\phi(X_t^*)$ and using Itô's lemma we integrate from 0 to $t$, obtaining
+\begin{equation}
+e^{-\gamma t}\phi(X_t^*)=\phi(x)+\int^t_0 e^{-\gamma s}[-\gamma \phi(X_s^*)+\mathcal{A^*}\phi(X^*_s)] ds+\int^t_0 e^{-\gamma s} \phi^\prime(X^*_s)\sigma(X^*_s,U^*_s) dW_s,
+\label{bc_bah}
+\end{equation}
+where $\{X_t^*, \ t \geq 0\}$ denotes the process $X$ associated with the optimal control function $\alpha^*_x$. This calculation is possible since we assumed $\phi \in C^2(\mathds{R})$.
+
+Adding $\int^\infty_0 e^{-\gamma s}g(X_s^*,U_s^*)ds$ and taking the expected value on both sides of \eqref{bc_bah}, it follows that
+\begin{align}
+\mathds{E}^{X^*_0=x} \left[ \int^\infty_0 e^{-\gamma s}g(X_s^*,U_s^*)ds \right] &+ \mathds{E}^{X^*_0=x} \left[ e^{-\gamma t}\phi(X_t^*) \right]=
+\phi(x) + \nonumber \\ 
+&+\mathds{E}^{X^*_0=x} \left[ \int^t_0 e^{-\gamma s}(-\gamma \phi(X_s^*)+\mathcal{A^*}\phi(X^*_s)+g(X_s^*,U_s^*)) ds \right],
+\label{bc_bah2}
+\end{align}
+where we used the fact that the integral $\int^t_0 e^{-\gamma s} \phi^\prime(X^*_s)\sigma(X^*_s,U^*_s) dW_s$ is a martingale and thus its expected value is 0.
+
+
+Recalling that $\phi$ is the solution of \eqref{bc_a}, then by the DPE we verify $-\gamma \phi(x)+\mathcal{A}^\alpha \phi(x)+g(x,\alpha)=0$. Also, since we are considering the set of all admissible control processes, when taking $t \rightarrow \infty$, by Definition \ref{ac}, it follows that $e^{-\gamma t} \mathds{E}^{X_0=x}[V(X_t)] \rightarrow 0$.
+
+Hence, in the limit, \eqref{bc_bah2} simplifies to
+\begin{equation}
+	\phi(x)=\mathds{E}^{X^*_0=x} \left[ \int^\infty_0 e^{-\gamma s}g(X_s^*,U_s^*)ds \right]=J(x,U^*)
+	\label{bc_bah3}
+\end{equation}
+
+On the other side, when considering an arbitrary admissible control process $U \in \mathds{A}$, it follows by the DPE that $\phi(X_s)+\mathcal{A}^\alpha \phi(X_s)+g(X_s,U_S \geq 0, \ \forall s \in [0, \infty)$, which taken into the limit as done before ( $t \rightarrow \infty$) follows that
+\begin{equation}
+\phi(x) \leq \mathds{E}^{X_0=x} \left[ \int^\infty_0 e^{-\gamma s}g(X_s,U_s)ds \right]=J(x,U).
+\label{bc_bah4}
+\end{equation}
+
+Joining both results \eqref{bc_bah3} and \eqref{bc_bah4}, we obtain
+\begin{equation}
+\phi(x) \leq \mathds{E}^{X_0=x} \left[ \int^\infty_0 e^{-\gamma s}g(X_s,U_s)ds \right]=J(x,U) \ \underset{\forall U \in \mathds{A}}{\Rightarrow} \ \phi(x) \leq \inf_{U \in \mathds{A}} J(x,U)=V(x).
+\label{bc_bah5}
+\end{equation}
+
+However, since in \eqref{bc_bah3} we proved that $\phi(x)=J(x,U^*)$ and by the rightmost relation in \eqref{bc_bah5}, which states that $\phi(x)=J(x,U^*)=V(x)$, it follows that $U^*$ is an optimal control.
+
+
+\subsection{Optimal Stopping Problems}
+
+Having treated the general context of optimal control problems, we now restrict to the field of optimal stopping problems. While on an optimal control problem our goal was to find an optimal control, on an optimal stopping problem our goal is to find the optimal time to achieve a certain purpose, optimizing our cost/reward function. Hence, considering an optimal control problem where the set of admissible controls is taken to be formed by controls that, for each state $x$, they find the optimal time to make an action (if we should continue or stop), this coincides with an optimal stopping problem.
+
+
+\subsubsection{Settings}
+  As it will be seen hereunder, the general formulation is quite identical to the one stated for optimal control problems (now considering an optimal stopping time as the control function).
+ For the sake of simplicity and the close relation with what will be developed in this thesis, we will focus on the unidimensional problem.
+ 
+ 
+ We start by considering the probability space $(\Omega,\mathcal{F}, \mathds{P})$ associated to the underlying Brownian Motion $W$, on which $\mathcal{F}=\{\mathcal{F}_t, \ t\geq0 \}$ corresponds to its natural filtration and a stochastic process $X=\{ X_t, \ t \geq0 \}$ with state space $\mathds{S}=\mathds{R}$, which evolves according to the following SDE
+ \begin{equation}
+ d X_t=b(X_t)dt + \sigma (X_t)dW_t, \ X_0=x\in \mathds{R},
+ \label{bc_cp2}
+ \end{equation} 
+ where $b$ and $\sigma$ are functions that satisfy Itô conditions \eqref{bc_cond1} and \eqref{bc_cond2}.
+ 
+ One of the main concepts in optimal stopping problems are \textit{optimal stopping times}, which accordingly to \cite{oksendal:book}, we defined as:
+ \begin{defi}
+	 A function $\tau:\Omega \rightarrow [0,\infty]$ is called a stopping time with respect to the filtration $\mathcal{F}$ is $\{ \omega: \ \tau(\omega)\leq t\} \in \mathcal{F}_t \ \forall t\geq0$.
+ \end{defi}
+ We will denote $\mathcal{T}$ to be the set of all $\{\mathcal{F}_t\}-$stopping times.
+ 
+
+ Observe that now the cost/reward function $J$ depends on a state $x\in\mathds{S}$ and a stopping time (instead of a control function) and it is such that
+ \begin{equation}
+ J(x,\tau)=\mathds{E}^{X_0=x}\left[ \int^\tau_0 \left(e^{-\gamma s} g(X_s) \ ds +e^{-\gamma \tau}h(X_\tau)\right) \mathds{1}_{ \{\tau< \infty \}} \right]  ,
+ \label{bc2_J}
+ \end{equation}
+ where $g$ denotes a running function and $h$ a terminal function.
+ 
+The value function $V$ depends solely on a state $x\in \mathds{S}$ and it is such that
+$V(x)=\inf_{\tau \in \mathcal{S}} J(x, \tau)$, if $J$ is a cost function, and $V(x)=\sup_{\tau \in \mathcal{S}} J(x, \tau)$, if $J$ is a reward function.
+
+Accordingly to our goal, we want to find (or characterize) an optimal stopping time $\tau\in \mathcal{T}$ that satisfies $J(x,\tau^*)=V(x), \ \forall x \in \mathds{R}$. We will see that $\tau^*$ can be defined as a complicated functional of the sample paths of $X$. In order to do so, we split our state space in two regions: a continuation region $\mathcal{C}$ and a stopping region $\mathcal{S}$. Taking their names straightforward, an optimal strategy is the one in which we \textit{continue until its optimal to stop}. Therefore the optimal stopping time is defined as
+\begin{equation}
+\tau_x^*=\inf\{ t \geq0: \ X^x_t \notin \mathcal{C} \}
+=\inf\{ t \geq0: \ X^x_t \in \mathcal{S} \},
+\label{stop}
+\end{equation}
+where we highlight the dependence on the initial state $x$ chosen. Observe that the continuation region $\mathcal{C}$ as a similar function as a Markov control function on optimal control problems, since it represents the strategy to follow.
+Considering $J$ to be a cost function, the optimal strategy consists in continuing while the value function $V$ is smaller than the terminal function $h$. Hence the continuation region is given by $\mathcal{C}=\{ x\in \mathds{R}: V(x)<h(x) \}$.
+
+
+\subsubsection{Hamilton-Jacobi-Bellman Equation}
+
+In this section we will give an heuristic motivation to the Hamilton-Jacobi-Bellman equation which, in the context of optimal stopping problems, is the equivalent to the dynamic programming equation.
+
+Define $\tilde{\tau}_x= \inf \{ t \geq \tau: X_t \notin \mathcal{C} \}$ to be a stopping time for a fixed initial state $x \in \mathds{R}$ and an arbitrary $\tau \in \mathcal{T}$.
+Observe that the stopping rule of $\tilde{\tau}$ - it is optimal to stop after $\tau$, but might not be optimal before - is similar to the idea of dynamic programming principle, by optimizing with respect to different stopping times $\tau$.
+
+Considering the case where $J$ is a cost function, we obtain by the definition of $V$ that
+\begin{align}
+V(x)&\leq J(x,\tilde{\tau}) \nonumber  \\
+&= \mathds{E}^{X_0=x}\left[ \int^{\tilde{\tau}}_0 \left(e^{-\gamma s} g(X_s) \ ds +e^{-\gamma \tilde{\tau}}h(X_{\tilde{\tau}}) 
+\right) \mathds{1}_{ \{\tilde{\tau}< \infty \}} \right] \nonumber \\
+&= \mathds{E}^{X_0=x} \left[ \int^\tau_0 e^{-\gamma s} g(X_s) \ ds +e^{-\gamma \tau} \left( \int^{\tilde{\tau}}_\tau e^{-\gamma (s-\tau)} g(X_s) \ ds + e^{-\gamma (\tilde{\tau}-\tau)} h(X_{\tilde{\tau}} )  \right) 
+\mathds{1}_{ \{\tilde{\tau}< \infty \}} 
+\right] \nonumber \\
+&=  \mathds{E}^{X_0=x}\left[ \int^{\tau}_0 e^{-\gamma s} g(X_s) \ ds +e^{-\gamma \tau} J(X_\tau,\tau^*_{X_\tau}) \right] \nonumber \\
+&= \mathds{E}^{X_0=x}\left[ \int^{\tau}_0 e^{-\gamma s} g(X_s) \ ds +e^{-\gamma \tau}V(X_\tau) \right].
+ \label{bc2_unf1}
+\end{align}
+
+For an arbitrary $\tau\in \mathcal{T}: \ \tau \leq \tilde{\tau}_x$, we have $\tilde{\tau}=\tau_x^*$ and hence the following equality holds
+\begin{equation}
+V(x)=J(x,\tau_x^*)=J(x,\tilde{\tau})=\mathds{E}^{X_0=x}\left[ \int^{\tau}_0 e^{-\gamma s} g(X_s) \ ds +e^{-\gamma \tau}V(X_\tau) \right].
+	\label{bc2_unf2}
+\end{equation}
+
+The dynamic principle for optimal stopping is obtained by combining \eqref{bc2_unf1} and \eqref{bc2_unf2}, being given by
+\begin{equation}
+V(x)=\inf_{\tau \in \mathcal{T}} \mathds{E}^{X_0=x}\left[ \int^{\tau}_0 e^{-\gamma s} g(X_s) \ ds +e^{-\gamma \tau}V(X_\tau) \right].
+	\label{bc2_dpp}
+\end{equation}
+
+The dynamic programming equation will be now derived following a similar approach as done for stochastic control problems. Consider a fixed $x \in \mathds{R}$ and $\tau \in \mathcal{T}$. Assumming that $e^{-\gamma t} V(x) \in C^2(\mathds{R}^2)$, we use Itô's lemma, to integrate it, (as similarly done in \eqref{bc_dpe1}); we take the expectation on both sides (as similarly done in \eqref{bc_ded4}) and we sum the term $\mathds{E}^{X_0=x}\left[ \int^\tau_0 e^{-\gamma t}g(X_t)dt \right]$ on both sides, obtaining 
+\begin{equation}
+\mathds{E}^{X_0=x} \left[e^{-\gamma \tau} + V(X_\tau) \int^\tau_0 e^{-\gamma t}g(X_t)dt \right]=
+V(x)+\mathds{E}^{X_0=x} \left[ \int^t_0  e^{-\gamma s} \left( - \gamma V(X_s))+\mathcal{A}V(X_s)+g(X_s) \right) \ ds \right].
+\label{bc2_unf3}
+\end{equation}
+
+Since $\tilde{\tau}$ is an optimal stopping time and $\tau< \tau^*_x$, we have that \begin{equation}
+V(x)=J(x,\tau^*_x)=J(x,\tilde{\tau}) \  \underset{\eqref{bc2_unf1}}{\Rightarrow} \  V(x)=\mathds{E}^{X_0=x} \left[e^{-\gamma \tau} + V(X_\tau) \int^\tau_0 e^{-\gamma t}g(X_t)dt \right].
+\label{bc2_unf4}
+\end{equation} 
+Combining deduced results \eqref{bc2_unf3} and \eqref{bc2_unf4}, it follows that
+$$\mathds{E}^{X_0=x} \left[ \int^t_0  e^{-\gamma s} \left( - \gamma V(X_s))+\mathcal{A}V(X_s)+g(X_s) \right) \ ds \right]=0.$$
+
+ Let $x\in \mathcal{C}$ and $\tau_x^*>0$ and assume the continuation region $\mathcal{C}$ to be an open set. By dividing last equation by $\tau$ and taking the limit to 0 ($\tau \rightarrow 0$) we obtain
+\begin{equation}
+- \gamma V(x)+\mathcal{A}V(x)+g(x)=0.
+\label{bc2_continuation}
+\end{equation}
+
+On the other side, considering $x\notin \mathcal{C}$ (and $\tau_x^*>0$), we have that the value function $V$ is equal to the terminal cost $h$, that is,
+\begin{equation}
+ -\gamma V(x)+\mathcal{A}V(x)+g(x)=0.
+\label{bc2_stop}
+\end{equation}
+
+Considering an arbitrary stopping time $\tau \in \mathcal{T}$, by \eqref{bc2_unf1}, using a similar approach as the one use to deduce \eqref{bc2_continuation} and the definition of the continuation region, we obtain 
+\begin{equation}
+	\begin{cases}
+	- \gamma V(x)+\mathcal{A}V(x)+g(x) \geq 0, \ &x \in \mathcal{C}\\
+	h(x)-V(x), \ &x \notin \mathcal{C}
+	\end{cases}
+	\label{bc2_asd}
+\end{equation}
+
+The dynamic programming equation for optimal stopping problems follows by combining last results, \eqref{bc2_continuation}, \eqref{bc2_stop} and \eqref{bc2_asd}, and corresponds to:
+\begin{equation}
+\min \{ - \gamma V(x)+\mathcal{A}V(x)+g(x), h(x)-V(x)\}=0, \ x\in \mathds{R}.
+\label{bc2_dpe2}
+\end{equation}
+It also takes the name of \textit{Hamilton-Jacobi-Bellman (HJB) equation}. However instead of an equation, \eqref{bc2_dpe2} is in fact a variational inequality. Also, note that it does not depend explicitly on the continuation, but, since for any state $x$ it recommends us whether to stop or continue, we can deduce the continuation region from which - showing that our previous guess was right.
+
+Observe that all previous deduction were made considering $J$ to be a cost function. However in the context of this thesis, $J$ will be considered to be a reward function. A similar construction as the one already done could be made, but here we will just state the main results that are going to be used.
+
+If $J$ is a reward function, then we obtain that our optimal stopping problem is such that
+\begin{equation}
+V(x)=\sup_{\tau \in \mathcal{T}} J(x,\tau)=\sup_{\tau \in \mathcal{T}} \mathds{E}^{X_0=x}\left[ (\int^\tau_0 e^{-\gamma s} g(X_s) \ ds +e^{-\gamma \tau}h(X_\tau) \mathds{1}_{ \{\tau< \infty \}} \right]  
+\footnote{Recall (again) that we are denoting $\mathds{E}\left[\ . \ | X_0=x\right]$ by $\mathds{E}^{X_0=x}\left[ \ . \ \right].$},
+\label{stopprob}
+\end{equation}
+where $g$ corresponds to the running cost function and $h$ to the terminal function.
+
+The associated HJB equation, as deduced in \eqref{bc2_dpe2}, takes the form of
+\begin{align}
+\max \{ - \gamma V(x)+\mathcal{A}V(x)+g(x), h(x)-V(x)\}&=0 \ x\in \mathds{R} \nonumber \\
+\Leftrightarrow \ \min \{ \gamma V(x)-\mathcal{A}V(x)-g(x), V(x)-h(x) \}&=0 \ x\in \mathds{R}
+\label{HJB}
+\end{align}
+from which that we deduce that the associated continuation and stopping regions are respectively given by
+\begin{align}
+\mathcal{C}&=\{ x\in \mathds{R}: h(x)-V(x)<0 \}, \label{contreg}\\
+\mathcal{S}&=\{ x\in \mathds{R}: h(x)-V(x)= 0 \}=\mathds{R}\setminus \mathcal{C}. \label{stopreg}
+\end{align}
+The optimal stopping time can be formally defined for any state $x\in \mathds{R}$ as
+\begin{equation}
+\tau^*_x=\inf \{ \tau \geq 0: \ x\notin \mathcal{C} \}.
+\label{stoptime}
+\end{equation}
+
+\subsubsection{Verification}
+As done for optimal control problems, a solution $\phi$ is found using the verification technique now applied on the context of optimal stopping problems.
+
+We won't go further in detail since the methodology is pretty similar to what was described before. Instead we will give the main idea of it. For more information one should check \cite{ross} and \cite{oksendal:book}. 
+
+As the verification technique was previously explained, it doesn't give a solution by solving explicitly the HJB variational inequality \eqref{HJB}, but instead, we assume a solution $\phi$ and we show that it verifies the HJB variational inequality.
+
+The function $\phi$ might be defined by parts, in order to verify both sides of the variational inequality \eqref{HJB}. However the main difficulty appears at on the boundary of $\mathcal{C}$. The strong formulation of the verification technique - as stated on Section \ref{section:control} - requires $\phi$ to be $C^2$. This assumption is hardly verified since there is an abrupt change on the behaviour from the $\mathcal{C}$ to $\mathcal{S}$. Fortunately, there are generalizations of Itô's rule that only require $\phi$ to be $C^1$ (and other weaker assumptions). This condition over $\phi$ will originate two other conditions referred as \textit{value matching} \eqref{valuematch} and \textit{smooth pasting} \eqref{smoothpasting} conditions, as stated in \cite{dixit:book}, essential to the formulation of $\phi$.
+
+Therefore, having $\phi$ constructed by parts such that it verifies the HJB variational inequality in \eqref{HJB} and is $C^1$ everywhere, we have found the solution to the optimal stopping problem \eqref{stopprob}.
+
+
+
+
+
+\section{Optimal Stopping Problems Applied to Investment Decisions under Uncertainty}
+\label{section:osro}
+
+In this section we will deduce the solution to all standard optimal stopping problems that we will face during this thesis, taking into account the respective financial context.
+
+We will start by presenting some financial concepts related to investment decisions under uncertainty, based on \cite{dixit:book}.
+Then we will return to the mathematical formulation and derive the solution, presenting a detailed explanation.
+
+\subsection{A Real Options approach}
+\label{bc_ro}
+
+In firm's investment context, a \textit{real option} is seen as a situation on which a firm has the right, but not the obligation, to undertake certain initiatives such as deferring, abandoning, expanding, staging or contracting a capital investment project. There are three factors assumed to hold during the investment decision:
+\begin{enumerate}
+	\item Future rewards are random and thus uncertain;
+	\item The decision is irreversible, in the sense that it is a sunk cost: the investment expenditure cannot be fully recovered;
+	\item The decision can be made at any time.
+	% and thus it is made at the best time regarding the value of the firm.
+\end{enumerate}
+
+Therefore any investment decision might be seen as an optimal stopping problem in which we want to find the best time to make a decision such that the value of the firm is maximized.
+
+By considering $t=0$ as the starting instant to make the decision, the investment problem can be stated on the form of \eqref{stopprob}, where the running cost function $g\geq0$ denotes the current earnings, corresponding to the cash-flow originated at each instant by the current situation; the terminal function $h\geq0$ denotes the long-term earnings after the investment is done, corresponding to the long-term cash-flow originated since the investment is made and considering the new situation of the firm and investment costs; parameter $\gamma$ denotes the discount rate $r$ and the process $X$ denotes here the demand process, which evolves accordingly to a Geometric Brownian Motion\footnote{On Section \ref{intro:notation} the demand process is defined.}. Since the supremum here is taken over all stopping times after the initial instant, it follows that \eqref{stopprob} is now written as
+\begin{equation}
+V(x)=\sup_{\tau \geq 0} J(x,\tau)=\sup_{\tau \geq 0} \mathds{E}^{X_0=x}\left[ \int^\tau_0 e^{-r s} g(X_s) \ ds +e^{-r \tau}h(X_\tau) \mathds{1}_{ \{\tau< \infty \}} \right].
+	\label{stopprob2}
+\end{equation}
+
+Recall that $V$ is such that the HJB variational inequality \eqref{HJB} is satisfied, where $\mathcal{A}$ is an operator that denotes the infinitesimal generator of the demand level process, represented here as a Geometric Brownian Motion. Accordingly to \textit{Theorem 7.3.3} on \cite{oksendal:book}, its expression is given by 
+\begin{equation}
+\mathcal{A}F(x)=
+\lim_{t\downarrow 0} \frac{\mathds{E}^{X_0=x}(F(X_t))-F(x)}{t}=
+\frac{\sigma^2}{2}x^2F''(x)+\mu x F'(x), \ \forall F \in C^2(\mathds{R}).
+\label{eq:Lgbm}
+\end{equation}
+
+For any state (i.e., demand level) included in the continuation region $\mathcal{C}$, terminal costs are bigger than what we earn by investing, resulting in a negative profit. Thus the firm will prefer to wait until the demand level reaches a value that does not belong to $\mathcal{C}$ and only then, invest. Therefore, the continuation region consists in the set of states attained by the leftmost term above of HJB equation \eqref{eq:HJB}, that is
+\begin{equation*}
+\mathcal{C}=\{ x \in \mathds{R}: h(x)-V(x)>0 \}=\{ x \in \mathds{R}: rV(x)- \mathcal{A}V(x)-g(x)=0 \}.
+\label{cont}
+\end{equation*}
+
+%Since the investment decision will only occur after a jump in the innovation process happens, at time $T$, 
+Our intuition leads us to conjecture that the continuation region consists on the set of demand levels that are under a certain value $x^*$, which is defined to be the threshold between the continuation region $\mathcal{C}$ and the stopping region $\mathcal{S}$. The threshold value $x^*$ might be greater or equal to the demand value observed immediately after a jump in the innovation process happens, at time $t_\theta$, since at this time we are already in position to invest. If we don't invest for the demand level observed at innovation jump  $x_{t_\theta}$, then we won't do it for smaller values since
+$h(x_{t_\theta})-V(x_{t_\theta})>0\ \Rightarrow \ \forall x<x_{t_\theta}: h(x)-V(x)>0$, meaning that we will have no profit. Therefore,
+\begin{equation}
+	\mathcal{C} = \{ x \in (0, \infty): x<x^* \} \ \text{for some} \ x^* \in 
+	%(a,\infty) \subseteq
+	(X_{t_\theta}, \infty).
+	\label{c_region}
+\end{equation}
+
+On the other hand, the stopping region $\mathcal{S}$, is defined to be the set whose states verify that the terminal function and the value function are equal (equivalent to the set of states attained by the rightmost term above of HJB equation \eqref{eq:HJB}), that is,
+\begin{equation}
+\mathcal{S}=\{ x \in \mathds{R}: h(x)-V(x)=0 \}= \{ x \in \mathds{R}: x\geq x^* \}= \mathds{R} \setminus \mathcal{C}.
+\label{s_region}
+\end{equation}
+
+The value function $V$, as defined in \eqref{stopprob2}, must statements both statements \eqref{cont} and \eqref{s_region}, meaning that $V$ must be defined by parts.
+
+Starting with the condition in \eqref{cont}, $V$ is such that
+\begin{equation}
+r V(x) - \mathcal{L} V(x)= r V(x)-\frac{\sigma^2}{2}x^2V''(x)-\mu x V'(x) -g(x) =0
+\label{ce}
+\end{equation}
+is verified for $\forall x \in \mathcal{C}$.
+
+The solution $V$ above might be seen as the sum of the homogeneous solution $V_h$ with a particular solution $V_p$, that is, $V(x)=V_h(x)+V_p(x), \ \forall x \in \mathcal{C}$.
+
+A particular solution $V_p$ might be found by considering $V''(x)=0, \ \forall x$ and then solve the corresponding differential equation $V(x)-\mu x V'(x) -g(x)=0$.
+Note that in case the running cost function $g$ is null, $V(x)=V_h(x)$.
+
+The correspondent homogeneous ODE in \eqref{ce} corresponds to an (homogeneous) Cauchy-Euler equation of second order, whose solution has the form
+$$ V(x)=ax^{d_1}+bx^{d_2}$$
+where $d_1$ and $d_2$ are the positive and negative solutions of the quadratic equation
+\begin{equation}
+d^2+\left( \frac{2 \mu}{\sigma^2}-1 \right)d-\frac{2r^2}{\sigma^2}=0 \qquad  \Rightarrow \qquad   d_{1,2}= \frac{1}{2}-\frac{\mu}{\sigma^2} \pm \sqrt{\left( \frac{1}{2} -\frac{\mu}{\sigma^2} \right) ^2+ \frac{2r}{\sigma^2}}.
+\label{d1d2}
+\end{equation}
+
+Taking into account that $r>\mu$, it follows that $d_1>0$ and $d_2<0$.
+
+Since there is no possibility of having a project with negative value and $h$ is a non-negative and non-decreasing function, the solution regarding $x=0$ must be 0, that is, $V$ must verify
+\begin{equation}
+\lim_{x\rightarrow 0^+} V(x)=0.
+\label{cond1}
+\end{equation}
+This fact implies that when the running cost function is null ($V(x)=V_h(x)$), $b=0$ and hence $V(x)=ax^{d_1}$. Regarding the situation when $V(x)=V_h(x)+V_p(x)$, one should have $V_p(0)=V_h(0)$ and thus coefficients $a$ and $b$ must be determined. However, since we will be able to reduce all problems to the case where the running cost function is null - except on Chapter \ref{chapter:3} where $V_h$ is such that $V_h(0)=0$, implying $\lim_{x\rightarrow 0^+} V(x)=\lim_{x\rightarrow 0^+} V_h(x)=0$ - we can focus on the case where
+\begin{equation}
+V(x)=ax^{d_1} \quad \text{with} \quad d_1=\frac{1}{2}-\frac{\mu}{\sigma^2} +\sqrt{\left( \frac{1}{2} -\frac{\mu}{\sigma^2} \right) ^2+ \frac{2r}{\sigma^2}}>1.
+\label{d1}
+\end{equation}
+
+In order to satisfy condition presented in \eqref{stop}, $V$ is taken to be equal to terminal cost function $h$ for $\forall x \in \mathcal{S}$.
+
+Despite the two different regions, value function $F$ must be continuous and smooth in all its domain ($F\in C(\mathds{R})$), particularly at the boundary value $x^*$. Then, accordingly to \cite{dixit:book}, \textit{value matching} and \textit{smooth pasting}, respectively given by
+\begin{subequations}
+	\label{eq:vm+sp}
+	\begin{align}
+	&V(x^*)=V(x^*) \label{valuematch}\\
+	&V'(x^*)=V'(x)|_{x=x^*} \label{smoothpasting}
+	\end{align}
+\end{subequations}
+must be verified. Solving the respective system, we get values $x^*$ and $a$, obtainning inally, that our value function takes the form of
+$$V(x)=\begin{cases} ax^{d_1} &\quad \text{for } x\in \mathcal{C} \\
+h(x)  &\quad \text{for } x\in \mathcal{S},
+\end{cases}$$
+with $d_1$ as in \eqref{d1} and where $\mathcal{C}$ is defined as in \eqref{c_region}, $\mathcal{S}$ as in \eqref{s_region} and the optimal stopping time as in \eqref{stop}.
+
+
+
+
+
+
+
