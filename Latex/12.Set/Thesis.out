@@ -1,0 +1,61 @@
+\BOOKMARK [1][-]{section*.1}{Acknowledgments}{}% 1
+\BOOKMARK [1][-]{section*.2}{Resumo}{}% 2
+\BOOKMARK [1][-]{section*.3}{Abstract}{}% 3
+\BOOKMARK [1][-]{section*.5}{List of Tables}{}% 4
+\BOOKMARK [1][-]{section*.7}{List of Figures}{}% 5
+\BOOKMARK [1][-]{section*.9}{Nomenclature}{}% 6
+\BOOKMARK [1][-]{section*.10}{Glossary}{}% 7
+\BOOKMARK [0][-]{chapter.1}{1 Introduction}{}% 8
+\BOOKMARK [1][-]{section.1.1}{1.1 Motivation}{chapter.1}% 9
+\BOOKMARK [1][-]{section.1.2}{1.2 Optimal Stopping Problems}{chapter.1}% 10
+\BOOKMARK [2][-]{subsection.1.2.1}{1.2.1 Literature}{section.1.2}% 11
+\BOOKMARK [1][-]{section.1.3}{1.3 Thesis Outline}{chapter.1}% 12
+\BOOKMARK [2][-]{subsection.1.3.1}{1.3.1 Some Notation}{section.1.3}% 13
+\BOOKMARK [0][-]{chapter.2}{2 Background concepts}{}% 14
+\BOOKMARK [1][-]{section.2.1}{2.1 Stochastic Control and Optimal Stopping Problems}{chapter.2}% 15
+\BOOKMARK [2][-]{subsection.2.1.1}{2.1.1 Stochastic Control Problems}{section.2.1}% 16
+\BOOKMARK [2][-]{subsection.2.1.2}{2.1.2 Optimal Stopping Problems}{section.2.1}% 17
+\BOOKMARK [1][-]{section.2.2}{2.2 Optimal Stopping Problems Applied to Investment Decisions under Uncertainty}{chapter.2}% 18
+\BOOKMARK [2][-]{subsection.2.2.1}{2.2.1 A Real Options approach}{section.2.2}% 19
+\BOOKMARK [0][-]{chapter.3}{3 Investing and entering the market with a new product \(Firm is not active before investing\)}{}% 20
+\BOOKMARK [1][-]{section.3.1}{3.1 Introduction}{chapter.3}% 21
+\BOOKMARK [1][-]{section.3.2}{3.2 Stopping Problem}{chapter.3}% 22
+\BOOKMARK [2][-]{subsection.3.2.1}{3.2.1 Benchmark Model}{section.3.2}% 23
+\BOOKMARK [2][-]{subsection.3.2.2}{3.2.2 Capacity Optimization Model}{section.3.2}% 24
+\BOOKMARK [1][-]{section.3.3}{3.3 Comparative Statics}{chapter.3}% 25
+\BOOKMARK [2][-]{subsection.3.3.1}{3.3.1 Benchmark Model}{section.3.3}% 26
+\BOOKMARK [2][-]{subsection.3.3.2}{3.3.2 Capacity Optimization Model}{section.3.3}% 27
+\BOOKMARK [2][-]{subsection.3.3.3}{3.3.3 Optimal Capacity Level}{section.3.3}% 28
+\BOOKMARK [0][-]{chapter.4}{4 Adding a new product when already producing one \(Firm is already active before investing\)}{}% 29
+\BOOKMARK [1][-]{section.4.1}{4.1 Introduction}{chapter.4}% 30
+\BOOKMARK [1][-]{section.4.2}{4.2 Stopping Problem}{chapter.4}% 31
+\BOOKMARK [2][-]{subsection.4.2.1}{4.2.1 Benchmark Model}{section.4.2}% 32
+\BOOKMARK [2][-]{subsection.4.2.2}{4.2.2 Capacity Optimization Model}{section.4.2}% 33
+\BOOKMARK [1][-]{section.4.3}{4.3 Comparative Statics}{chapter.4}% 34
+\BOOKMARK [2][-]{subsection.4.3.1}{4.3.1 Benchmark Model}{section.4.3}% 35
+\BOOKMARK [2][-]{subsection.4.3.2}{4.3.2 Capacity Optimization Model}{section.4.3}% 36
+\BOOKMARK [2][-]{subsection.4.3.3}{4.3.3 Optimal Capacity Level}{section.4.3}% 37
+\BOOKMARK [0][-]{chapter.5}{5 Adding a new product when already producing one w/ cannibalisation \(Firm is already active before investing\)}{}% 38
+\BOOKMARK [1][-]{section.5.1}{5.1 Introduction}{chapter.5}% 39
+\BOOKMARK [1][-]{section.5.2}{5.2 Stopping Problem}{chapter.5}% 40
+\BOOKMARK [1][-]{section.5.3}{5.3 Comparative Statics}{chapter.5}% 41
+\BOOKMARK [2][-]{subsection.5.3.1}{5.3.1 Demand threshold x1,A*}{section.5.3}% 42
+\BOOKMARK [2][-]{subsection.5.3.2}{5.3.2 Demand threshold x1,R*}{section.5.3}% 43
+\BOOKMARK [2][-]{subsection.5.3.3}{5.3.3 Demand threshold x2*}{section.5.3}% 44
+\BOOKMARK [0][-]{chapter.6}{6 Sensibility analysis of optimal investment times}{}% 45
+\BOOKMARK [1][-]{section.6.1}{6.1 Introduction}{chapter.6}% 46
+\BOOKMARK [1][-]{section.6.2}{6.2 Initial demand values x0}{chapter.6}% 47
+\BOOKMARK [1][-]{section.6.3}{6.3 Volatility sensibility analysis}{chapter.6}% 48
+\BOOKMARK [0][-]{chapter.7}{7 Value of the project: the influence of the number of innovation jumps}{}% 49
+\BOOKMARK [1][-]{section.7.1}{7.1 Introduction}{chapter.7}% 50
+\BOOKMARK [1][-]{section.7.2}{7.2 One jump}{chapter.7}% 51
+\BOOKMARK [1][-]{section.7.3}{7.3 Multiple jumps}{chapter.7}% 52
+\BOOKMARK [1][-]{section.7.4}{7.4 Comparative Statics}{chapter.7}% 53
+\BOOKMARK [0][-]{chapter.8}{8 Conclusions}{}% 54
+\BOOKMARK [1][-]{section.8.1}{8.1 Achievements}{chapter.8}% 55
+\BOOKMARK [1][-]{section.8.2}{8.2 Future Work}{chapter.8}% 56
+\BOOKMARK [0][-]{section*.26}{Bibliography}{}% 57
+\BOOKMARK [0][-]{appendix.A}{A Vector calculus}{}% 58
+\BOOKMARK [1][-]{section.A.1}{A.1 Vector identities}{appendix.A}% 59
+\BOOKMARK [0][-]{appendix.B}{B Technical Datasheets}{}% 60
+\BOOKMARK [1][-]{section.B.1}{B.1 Some Datasheet}{appendix.B}% 61

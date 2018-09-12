@@ -1,0 +1,117 @@
+\babel@toc {english}{}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Influence of the chosen capacity $K$ in the threshold values $x^*_B$ and $x^*_C$ and respective value functions $F$ and $F^*$.}}{29}{figure.3.1}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Threshold value with respect to the benchmark model (blue) and the capacity optimized model (orange), considering capacity levels $K \in [0, \theta /\alpha =1000)$ and the value that $x^*_B$ takes when considering $K^*_C$ (black).}}}{29}{figure.3.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Evaluation of value functions $F$, considering capacities $K=100$ (darker blue) and $K=700$ (lighter blue), and $F^*$ (orange) with respective demand threshold values presented (black)}}}{29}{figure.3.1}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Threshold value with respect to the benchmark model (blue) and the capacity optimized model (orange) and regarding its increasing parameters $r, \ \sigma $ and $\delta $.}}{29}{figure.3.2}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$r \in ( \mu , 1)$}}}{29}{figure.3.2}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$\sigma \in (0.0001,1)$}}}{29}{figure.3.2}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$\delta \in (0,10)$}}}{29}{figure.3.2}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Threshold value with respect to the benchmark model (blue) and the capacity optimized model (orange), considering drift $\mu \in [-r, r]$ and corresponding stationary point $\sigma ^2/2$ (black).}}{30}{figure.3.3}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$\sigma =0.05$}}}{30}{figure.3.3}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$\sigma =0.2$}}}{30}{figure.3.3}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Threshold values regarding the benchmark model (blue) and the capacity optimized model (orange) and decreasing parameter $\theta $.}}{30}{figure.3.4}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$\theta \in ( 1, 10)$ }}}{30}{figure.3.4}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Optimal capacity regarding the threshold value $x^*_C$ and increasing parameters $\mu $, $\sigma $ and $\theta $.}}{31}{figure.3.5}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$\mu \in ( -r,r )$ }}}{31}{figure.3.5}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$\sigma \in (0,1)$}}}{31}{figure.3.5}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$\theta \in (\alpha K^*_C,10)$}}}{31}{figure.3.5}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Optimal capacity regarding the threshold value $x^*_C$ and decreasing parameters $r$ and $\alpha $.}}{32}{figure.3.6}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$ r \in ( \mu , 1 )$}}}{32}{figure.3.6}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$ \alpha \in (0,1)$}}}{32}{figure.3.6}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Threshold value with respect to the benchmark model (blue) and the capacity optimized model (orange) and parameters with which $x^*_B$ increases.}}{41}{figure.4.1}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$\delta \in (0,1)$}}}{41}{figure.4.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$\sigma \in (0,1)$}}}{41}{figure.4.1}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Threshold value with respect to the benchmark model (blue) and the capacity optimized model (orange) and parameter with which $x^*_B$ decreases.}}{42}{figure.4.2}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$\mu \in ( -r,r )$ }}}{42}{figure.4.2}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$\theta \in (1,10)$}}}{42}{figure.4.2}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Threshold value with respect to the benchmark model (blue) and the capacity optimized model (orange) and parameters with which $x^*_B$ has a non-monotonic behaviour.}}{42}{figure.4.3}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$r \in (\mu ,1)$, $\mu =0.01$ and $\sigma =0.9$}}}{42}{figure.4.3}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$K_0 \in ( 0, \frac {1}{\alpha }=100 )$ }}}{42}{figure.4.3}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$K_1 \in (0, \frac {\theta }{\alpha }=1000 )$}}}{42}{figure.4.3}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Threshold value with respect to the benchmark model (blue) and the capacity optimized model (orange) and sensibility parameter $\alpha $.}}{43}{figure.4.4}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$\alpha \in (0,1)$ and $\theta =10>\frac {K_1}{ K_0^2} (K_0+K_1 r \delta )$}}}{43}{figure.4.4}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$\alpha \in (0,1) $ and $\theta =1<\frac {K_1}{ K_0^2} (K_0+K_1 r \delta )$}}}{43}{figure.4.4}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Optimal capacity regarding the threshold value $x^*_C$ considering capacity levels $K_0 \in [0, 100)$ and its highest values at $\frac {1}{2 \alpha }=50$ (black).}}{44}{figure.4.5}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Optimal capacity regarding the threshold value $x^*_C$ and increasing parameters $\mu , \ \sigma $ and $\theta $}}{44}{figure.4.6}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$\mu \in ( -r,r )$ }}}{44}{figure.4.6}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$\sigma \in (0,1)$}}}{44}{figure.4.6}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$ \theta \in ( 1, 10 )$}}}{44}{figure.4.6}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Optimal capacity regarding the threshold value $x^*_C$ and decreasing parameters $\delta , \ r$ and $\alpha $.}}{44}{figure.4.7}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$ \delta \in (0,10)$}}}{44}{figure.4.7}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$ r \in ( \mu , 1 )$}}}{44}{figure.4.7}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$ \alpha \in (0,1)$}}}{44}{figure.4.7}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Value function $F$ and respective subfunctions associated to different settings of parameter $\eta $.}}{53}{figure.5.1}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$\eta =0.007$ }}}{53}{figure.5.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$\eta =0.012$ }}}{53}{figure.5.1}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$\eta =0.013$ }}}{53}{figure.5.1}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {$\eta =0.007$}}}{53}{figure.5.1}
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {$\eta =0.012$}}}{53}{figure.5.1}
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {$\eta =0.013$}}}{53}{figure.5.1}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Threshold value $x^*_{1,A}$ with respect to parameters with which it increases.}}{55}{figure.5.2}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$\eta \in (0, \alpha )$ }}}{55}{figure.5.2}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$\delta \in (1,2)$}}}{55}{figure.5.2}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$\sigma \in (0,1)$}}}{55}{figure.5.2}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {$r \in (0,\mu )$}}}{55}{figure.5.2}
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {$K_0 \in (0,1/\alpha )$}}}{55}{figure.5.2}
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {$K_1 \in (0,\theta /\alpha )$}}}{55}{figure.5.2}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Threshold value $x^*_{1,A}$ with respect to parameters with which it decreases.}}{55}{figure.5.3}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$\alpha \in (0, \qopname \relax m{min}\{ 1/K_0, \theta /K_1 \} )$ }}}{55}{figure.5.3}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$\mu \in (0,r)$}}}{55}{figure.5.3}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$\theta \in (1,10)$}}}{55}{figure.5.3}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Threshold value $x^*_2$ with respect to parameters with which it increases.}}{56}{figure.5.4}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$\eta \in (0, \alpha )$ }}}{56}{figure.5.4}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Threshold value $x^*_{1,A}$ with respect to parameters with which it decreases.}}{56}{figure.5.5}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$\eta \in (0, \alpha )$ }}}{56}{figure.5.5}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$\alpha \in (0, \qopname \relax m{min}\{ 1/K_0, \theta /K_1 \} )$ }}}{56}{figure.5.5}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$K_1 \in (0,\theta /\alpha )$}}}{56}{figure.5.5}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {$K_0 \in (0,1/\alpha )$}}}{56}{figure.5.5}
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {$r \in (0,\mu )$}}}{56}{figure.5.5}
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {$\mu \in (0,r)$}}}{56}{figure.5.5}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Sensibility analysis of estimated mean and median (leftmost column) and standard deviation (rigthmost column) of the optimal investment time for each of the three situations studied, regarding different initial values $x_0$.}}{59}{figure.6.1}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Mean \& Median of $\tau _B^*$ w.r.t. \textup {\hbox {\mathsurround \z@ \normalfont (\ignorespaces \ref {eq:sistema}\unskip \@@italiccorr )}} }}}{59}{figure.6.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Standard Deviation of $\tau _B^*$ w.r.t. \textup {\hbox {\mathsurround \z@ \normalfont (\ignorespaces \ref {eq:sistema}\unskip \@@italiccorr )}} }}}{59}{figure.6.1}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Mean \& Median of $\tau _C^*$ w.r.t. \textup {\hbox {\mathsurround \z@ \normalfont (\ignorespaces \ref {eq:prob1_xC}\unskip \@@italiccorr )}}}}}{59}{figure.6.1}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Standard Deviation of $\tau _C^*$ w.r.t. \textup {\hbox {\mathsurround \z@ \normalfont (\ignorespaces \ref {eq:prob1_xC}\unskip \@@italiccorr )}}}}}{59}{figure.6.1}
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Mean \& Median of $\tau _B^*$ w.r.t. \textup {\hbox {\mathsurround \z@ \normalfont (\ignorespaces \ref {2_xB}\unskip \@@italiccorr )}} }}}{59}{figure.6.1}
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {Standard Deviation of $\tau _B^*$ w.r.t. \textup {\hbox {\mathsurround \z@ \normalfont (\ignorespaces \ref {2_xB}\unskip \@@italiccorr )}} }}}{59}{figure.6.1}
+\contentsline {subfigure}{\numberline {(g)}{\ignorespaces {Mean \& Median of $\tau _C^*$ w.r.t. \textup {\hbox {\mathsurround \z@ \normalfont (\ignorespaces \ref {eq:prob2_xC}\unskip \@@italiccorr )}} }}}{59}{figure.6.1}
+\contentsline {subfigure}{\numberline {(h)}{\ignorespaces {Standard Deviation of $\tau _C^*$ w.r.t. \textup {\hbox {\mathsurround \z@ \normalfont (\ignorespaces \ref {eq:prob2_xC}\unskip \@@italiccorr )}} }}}{59}{figure.6.1}
+\contentsline {subfigure}{\numberline {(i)}{\ignorespaces {Mean \& Median of $\tau _{1,A}^*$ w.r.t. \textup {\hbox {\mathsurround \z@ \normalfont (\ignorespaces \ref {eq:3_x1A}\unskip \@@italiccorr )}}}}}{59}{figure.6.1}
+\contentsline {subfigure}{\numberline {(j)}{\ignorespaces {Standard Deviation of $\tau _{1,A}^*$ w.r.t. \textup {\hbox {\mathsurround \z@ \normalfont (\ignorespaces \ref {eq:3_x1A}\unskip \@@italiccorr )}} }}}{59}{figure.6.1}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Sensibility analysis of the (estimated) mean of optimal investment time, the threshold level and the optimal capacity level (referred on Chapter \ref {chapter:1}) with the volatility, regarding different initial values $x_0 \in \{0.001, \ 0.01\}$.}}{61}{figure.6.2}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {(Estimated) mean of optimal investment times. }}}{61}{figure.6.2}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Demand threshold. }}}{61}{figure.6.2}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Optimal capacity level.}}}{61}{figure.6.2}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Variation of (estimated) mean of optimal investment time, the threshold level and the optimal capacity level (referred on Chapter \ref {chapter:1}) with the volatility, regarding different initial values $x_0 \in \{0.001, \ 0.01\}$.}}{62}{figure.6.3}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Variation of parameters of interest for volatilities $\sigma \in (0,0.5)$. }}}{62}{figure.6.3}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Variation of parameters of interest for volatilities $\sigma \in (0,0.35)$. }}}{62}{figure.6.3}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Sensibility analysis of the (estimated) mean of optimal investment time, the threshold level and the optimal capacity level (referred on Chapter \ref {chapter:2}) with the volatility, regarding different initial values $x_0 \in \{0.001, \ 0.01\}$.}}{63}{figure.6.4}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {(Estimated) mean of optimal investment times. }}}{63}{figure.6.4}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Demand threshold. }}}{63}{figure.6.4}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Optimal capacity level.}}}{63}{figure.6.4}
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Variation of (estimated) mean of optimal investment time, the threshold level and the optimal capacity level (referred on Chapter \ref {chapter:2}) with the volatility, regarding different initial values $x_0 \in \{0.001, \ 0.01\}$.}}{63}{figure.6.5}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Variation of parameters of interest for volatilities $\sigma \in (0,0.5)$. }}}{63}{figure.6.5}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Variation of parameters of interest for volatilities $\sigma \in (0,0.35)$. }}}{63}{figure.6.5}
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Sensibility analysis of the (estimated) mean of optimal investment time, the threshold level and the optimal capacity level (referred on Chapter \ref {chapter:3}) with the volatility, regarding different initial values $x_0 \in \{0.001, \ 0.01\}$.}}{64}{figure.6.6}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {(Estimated) mean of optimal investment times.}}}{64}{figure.6.6}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Demand threshold.}}}{64}{figure.6.6}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Variation of parameters of interest for volatilities $\sigma \in (0,0.5)$.}}}{64}{figure.6.6}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Function to be maximized in \textup {\hbox {\mathsurround \z@ \normalfont (\ignorespaces \ref {max_V}\unskip \@@italiccorr )}} with respect to parameters $\gamma $ and $R$ and corresponding maximum values $V_1$ regarding each $\gamma $ (black)}}{70}{figure.7.1}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$R \in {(0,1]} $ and $\gamma \in {(0,1]} $. }}}{70}{figure.7.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {A particular case: $\gamma =0.5$. }}}{70}{figure.7.1}
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Optimal R\&D values $R^*$ regarding parameter $\gamma $ and the occurrence of $n\in \{1,...,5\}$ innovation jumps with corresponding numerical approximations (black). }}{71}{figure.7.2}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {3D view. }}}{71}{figure.7.2}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {2D view. }}}{71}{figure.7.2}
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Effect of parameters $\gamma $ and the occurrence of $n\in \{1,...,5\}$ innovation jumps on jump rate $\lambda (R^*)$ and project's value $V_n$ with corresponding numerical approximations (black). }}{71}{figure.7.3}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Jump rate $\lambda (R^*)$. }}}{71}{figure.7.3}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$V_n$ }}}{71}{figure.7.3}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }

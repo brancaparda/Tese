@@ -1,0 +1,77 @@
+\babel@toc {english}{}
+\contentsline {section}{Acknowledgments}{v}{section*.1}
+\contentsline {section}{Resumo}{vii}{section*.2}
+\contentsline {section}{Abstract}{ix}{section*.3}
+\contentsline {section}{List of Tables}{xiii}{section*.5}
+\contentsline {section}{List of Figures}{xv}{section*.7}
+\contentsline {section}{Nomenclature}{1}{section*.9}
+\contentsline {section}{Glossary}{1}{section*.10}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Optimal Stopping Problems}{1}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Literature}{1}{subsection.1.2.1}
+\contentsline {section}{\numberline {1.3}Thesis Outline}{2}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Some Notation}{3}{subsection.1.3.1}
+\contentsline {chapter}{\numberline {2}Background concepts}{7}{chapter.2}
+\contentsline {section}{\numberline {2.1}Stochastic Control and Optimal Stopping Problems}{7}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Stochastic Control Problems}{7}{subsection.2.1.1}
+\contentsline {subsubsection}{Settings}{7}{section*.11}
+\contentsline {subsubsection}{Dynamic programming principle}{8}{section*.12}
+\contentsline {subsubsection}{Dynamic Programming Equation}{10}{section*.13}
+\contentsline {subsubsection}{Verification}{12}{section*.14}
+\contentsline {subsection}{\numberline {2.1.2}Optimal Stopping Problems}{13}{subsection.2.1.2}
+\contentsline {subsubsection}{Settings}{14}{section*.15}
+\contentsline {subsubsection}{Hamilton-Jacobi-Bellman Equation}{15}{section*.16}
+\contentsline {subsubsection}{Verification}{17}{section*.17}
+\contentsline {section}{\numberline {2.2}Optimal Stopping Problems Applied to Investment Decisions under Uncertainty}{17}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}A Real Options approach}{17}{subsection.2.2.1}
+\contentsline {chapter}{\numberline {3}Investing and entering the market with a new product (Firm is not active before investing)}{21}{chapter.3}
+\contentsline {section}{\numberline {3.1}Introduction}{21}{section.3.1}
+\contentsline {section}{\numberline {3.2}Stopping Problem}{22}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Benchmark Model}{22}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Capacity Optimization Model}{24}{subsection.3.2.2}
+\contentsline {section}{\numberline {3.3}Comparative Statics}{26}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Benchmark Model}{26}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Capacity Optimization Model}{27}{subsection.3.3.2}
+\contentsline {subsubsection}{Numerical comparisons between the Benchmark and the Capacity Optimization Models}{28}{section*.18}
+\contentsline {subsection}{\numberline {3.3.3}Optimal Capacity Level}{30}{subsection.3.3.3}
+\contentsline {chapter}{\numberline {4}Adding a new product when already producing one (Firm is already active before investing)}{33}{chapter.4}
+\contentsline {section}{\numberline {4.1}Introduction}{33}{section.4.1}
+\contentsline {section}{\numberline {4.2}Stopping Problem}{34}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Benchmark Model}{34}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Capacity Optimization Model}{36}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}Comparative Statics}{38}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Benchmark Model}{38}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Capacity Optimization Model}{40}{subsection.4.3.2}
+\contentsline {subsubsection}{Numerical comparisons between the Benchmark and the Capacity Optimization Models}{41}{section*.19}
+\contentsline {subsection}{\numberline {4.3.3}Optimal Capacity Level}{43}{subsection.4.3.3}
+\contentsline {chapter}{\numberline {5}Adding a new product when already producing one w/ cannibalisation (Firm is already active before investing)}{45}{chapter.5}
+\contentsline {section}{\numberline {5.1}Introduction}{45}{section.5.1}
+\contentsline {section}{\numberline {5.2}Stopping Problem}{46}{section.5.2}
+\contentsline {subsubsection}{$\tau _2 \ - $ Optimal Stopping Problem:}{47}{section*.20}
+\contentsline {subsubsection}{$\tau _1 \ - $ Optimal Stopping Problem:}{50}{section*.21}
+\contentsline {section}{\numberline {5.3}Comparative Statics}{52}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Demand threshold $x_{1,A}^*$}{54}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}Demand threshold $x_{1,R}^*$}{55}{subsection.5.3.2}
+\contentsline {subsection}{\numberline {5.3.3}Demand threshold $x_2^*$}{55}{subsection.5.3.3}
+\contentsline {chapter}{\numberline {6}Sensibility analysis of optimal investment times}{57}{chapter.6}
+\contentsline {section}{\numberline {6.1}Introduction}{57}{section.6.1}
+\contentsline {section}{\numberline {6.2}Initial demand values $x_0$}{57}{section.6.2}
+\contentsline {subsubsection}{Methodology}{57}{section*.22}
+\contentsline {subsubsection}{Results}{58}{section*.23}
+\contentsline {section}{\numberline {6.3}Volatility sensibility analysis}{60}{section.6.3}
+\contentsline {subsubsection}{Methodology}{60}{section*.24}
+\contentsline {subsubsection}{Results}{61}{section*.25}
+\contentsline {chapter}{\numberline {7}Value of the project: the influence of the number of innovation jumps}{65}{chapter.7}
+\contentsline {section}{\numberline {7.1}Introduction}{65}{section.7.1}
+\contentsline {section}{\numberline {7.2}One jump}{66}{section.7.2}
+\contentsline {section}{\numberline {7.3}Multiple jumps}{68}{section.7.3}
+\contentsline {section}{\numberline {7.4}Comparative Statics}{70}{section.7.4}
+\contentsline {chapter}{\numberline {8}Conclusions}{73}{chapter.8}
+\contentsline {section}{\numberline {8.1}Achievements}{73}{section.8.1}
+\contentsline {section}{\numberline {8.2}Future Work}{73}{section.8.2}
+\contentsline {chapter}{Bibliography}{75}{section*.26}
+\contentsline {chapter}{\numberline {A}Vector calculus}{77}{appendix.A}
+\contentsline {section}{\numberline {A.1}Vector identities}{77}{section.A.1}
+\contentsline {chapter}{\numberline {B}Technical Datasheets}{79}{appendix.B}
+\contentsline {section}{\numberline {B.1}Some Datasheet}{79}{section.B.1}
