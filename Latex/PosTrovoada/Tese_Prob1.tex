@@ -186,20 +186,21 @@ Stationary points are found by calculating the roots of the first partial deriva
 \frac{\partial h }{\partial K}(x,K)=  \frac{(\theta-2\alpha K)x}{r-\mu} - \delta,
 \label{1_dK}
 \end{equation}
-following  that $h$ has a unique stationary point:
-\begin{equation}
-K=\frac{\theta}{2\alpha}-\frac{\delta (r-\mu)}{2 \alpha x}. 
-\label{eq:K41}
-\end{equation}
+following  that $h$ has a unique stationary point corresponding to
+$K=\frac{\theta}{2\alpha}-\frac{\delta (r-\mu)}{2 \alpha x}$.
+
 
 Analysing its second partial derivative of $h$, we obtain that
 \begin{equation}
 \frac{\partial^2 h }{\partial K^2}(x,K)=  -\frac{2\alpha x}{r-\mu},
 \label{1_d2K}
 \end{equation}
-which is negative, since the any state of the GBM is positive, $\alpha>0$ and $r-\mu>0$ . Therefore, $h$ is a concave function and the capacity value found in \eqref{eq:K41} corresponds to its global maximizer.
+which is negative, since the any state of the GBM is positive, $\alpha>0$ and $r-\mu>0$ . Therefore, $h$ is a concave function and the capacity value found before corresponds to its global maximizer. Denoting it by $K^*$ we have that
+\begin{equation}
+K^*:= \arg \max_K h(x,K)=\frac{\theta}{2\alpha}-\frac{\delta (r-\mu)}{2 \alpha x},\ \forall x 
+\label{eq:K41}
+\end{equation}
 
-From now on, and to emphasize its maximizer role, we denote \eqref{eq:K41} by $K^*$.
 Since the firm can only produce a positive quantity, we need to verify $K^* >0 $ which is equivalent to the condition  $x > \frac{\delta(r-\mu)}{\theta} $ for any considered demand level $x \in \mathds{R}^+$.
 %Observe that $K^*$ grows with the demand level and grows linearly with the innovation level (meaning that the higher the demand or technology level is, the larger is the optimal quantity that should be produced).
 
@@ -426,17 +427,11 @@ $F^*(x)>F(x,K^*_C) \ \forall x > x^*_C$. This is justified by the fact that $F(x
 	\caption{Threshold value with respect to the benchmark model (blue) and the capacity optimized model (orange) and regarding its increasing parameters $r, \ \sigma$ and $\delta$.}
 	\label{fig:sigm}
 \end{figure}
-
-%On the leftmost side of Figure \ref{fig:sigm} we observe that both thresholds increase with volatility. This in accordance with \cite{rita} and \cite{hagspiel:cap}, whose works describe that when uncertainty is high, there is a delay time to invest, which is here reflected on an higher demand level.
-
-%As the sensibility parameter $\delta$ increases, the firm needs to pay more sunk costs. Therefore the investment will only be made if higher demand values are observed, which is comproved also by Figure \ref{fig:sigm}.
-
 On Figure \ref{fig:sigm} (a), we observe that the greater the discount rate $r$ is, the greater the currency devaluation is, when evaluating the expected cash-flow to be earned. Thus, in order to justify the irreversible investment that the firm needs to incur on the new product, we need to observe large values of demand to balance the money lost due to currency devaluation and the future earnings.
 
 On Figure \ref{fig:sigm} (b), we obtain that both thresholds increase with volatility. This in accordance with \cite{hagspiel:cap} and \cite{rita}, which works describe that when uncertainty is high, there is a delay time to invest, which is here reflected on an higher demand level.
 
 On Figure \ref{fig:sigm} (c), we have that the greater the sensibility parameter $\delta$ is, the larger are the investment sunk cost, leading to a delay on the investment, in the sense that it will only be made if high demand values are observed.
-\pagebreak
 
 \begin{figure}[!htb]
 	\begin{subfigmatrix}{2}
@@ -450,7 +445,7 @@ On Figure \ref{fig:sigm} (c), we have that the greater the sensibility parameter
 %Regarding the drift parameter $\mu$ we obtained that the threshold values do not have a monotonic behaviour, either for smaller or bigger values of volatility. As showed in Figure \ref{fig:mu}, the smallest value of demand level necessary to invest is observed at the stationary point when $\mu=\sigma^2/2$.
 As proved in Propositions \ref{1_prop1} and \ref{1_prop2}, the investment threshold does not have a monotonic behaviour w.r.t. $\mu$. 
 
-For instance, when $\sigma=0.05$ (low volatility), the behaviour of $x^*_B$ and $x^*_C$ is presented on Figure \ref{fig:mu} (a). By inspection of the figure, we conclude that for $\mu<\frac{sigma^2}{2}$, $x^*_B>x^*_C$, which leads to postponing the investment decision in the benchmark model. For larger values of $\mu$, the opposite is verified and thus, in the case the market is expected to grow, the investment decision occurs first without capacity optimization. This seems to be related with the fact that an increasing $\mu$ also impacts on $K_C^*$ - as can be seen on the leftmost side of Figure \ref{fig:k1}. So, a growing market leads also to an investment in larger capacity and thus higher values of demand are needed. Regarding $x^*_B$, its value doesn't seem to significantly decrease for a situation when te market is growing. This might whether be related with the low capacity chosen or with the small values of $\mu$ considered.
+For instance, when $\sigma=0.05$ (low volatility), the behaviour of $x^*_B$ and $x^*_C$ is presented on Figure \ref{fig:mu} (a). By inspection of the figure, we conclude that for $\mu<\frac{\sigma^2}{2}$, $x^*_B>x^*_C$, which leads to postponing the investment decision in the benchmark model. For larger values of $\mu$, the opposite is verified and thus, in the case the market is expected to grow, the investment decision occurs first without capacity optimization. This seems to be related with the fact that an increasing $\mu$ also impacts on $K_C^*$ - as can be seen on the leftmost side of Figure \ref{fig:k1}. So, a growing market leads also to an investment in larger capacity and thus higher values of demand are needed. Regarding $x^*_B$, its value doesn't seem to significantly decrease for a situation when te market is growing. This might whether be related with the low capacity chosen or with the small values of $\mu$ considered.
 
 When the volatility is considerably higher, as on Figure \ref{fig:mu} (b) considering $\sigma=0.2$, we observe a clear dominance of $x^*_C$ with comparison with $x^*_B$, at least for the drift range considered.
 
