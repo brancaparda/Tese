@@ -443,7 +443,7 @@ Regarding parameters $\mu, \ r, \ \alpha$ and $K_0$ we obtained complex derivati
 
 %Although we couldn't obtain any analytical (strong) evidence, after different experiments done using \textit{Mathematica} and its function \texttt{Manipulate}, we obtained that decision thresholds $x^*_B$ and $x^*_C$ increase with volatility $\sigma$. An example is showed on Figure \ref{fig:2_x2}.
 
-Regarding parameters $\mu, \ r, \ \alpha$ and $K_0$ we obtained complex derivatives, from which we weren't able to derive any analytical result. However as it will be shown later, numerical results show that $x_C^*$ behaves in a non-monotonic way with each of them.
+Regarding parameters $\mu, \ r, \ \alpha$ and $K_0$ we obtained complex derivatives, from which we weren't able to derive any analytical result. However, as it will be shown later, numerical results show that $x_C^*$ behaves in a non-monotonic way with each of them.
 
 
 
@@ -451,7 +451,7 @@ Regarding parameters $\mu, \ r, \ \alpha$ and $K_0$ we obtained complex derivati
 
 \subsubsection{Numerical comparisons between the Benchmark and the Capacity Optimization Models}
 
-As in Chapter \ref{chapter:1}, using software \textit{Mathematica}, we perform some numerical simulations to illustrate results mentioned above. 
+As in Chapter \ref{chapter:1}, using software \textit{Mathematica}, we perform numerical simulations to illustrate results mentioned above. 
 In addiction to the values considered in the previous chapter, we also assumed $K_0=50$ (and $K_1=100$).
 
 %We start by illustrating how does $x^*_B$ and $x^*_C$ are related by the capacity level $K$, on which $x^*_B$ is dependent. One can see on Figure \ref{fig:Kvar} that conclusions mentioned on the proof (including that $x^*_B(0)=x^*_C$) hold.
@@ -467,25 +467,31 @@ In addiction to the values considered in the previous chapter, we also assumed $
 \end{figure}
 
 
-Figures \ref{fig:2_x2} (a) and (b) show the behaviour of both thresholds with changing on $\delta$ and $\sigma$, respectively. 
+Figures \ref{fig:2_x2} (a) and (b) show the behaviour of both thresholds by changing $\delta$ and $\sigma$, respectively. 
 %They are on line with the theoretical results (Propositions \ref{2_prop1} and \ref{2_prop2}).
 %On Figure \ref{fig:2_x2}, we obtained similar results to the ones on Section 2. Both threshold values increase with sensibility parameter $\delta$ and volatility $\sigma$. 
-The first resulted is motivated by the fact that a higher $\delta$ reflects a larger investment (sunk) cost, which will only be incurred, if there is a large enough demand that justifies it.
+The first result is motivated by the fact that a higher $\delta$ reflects a larger investment (sunk) cost, which is only incurred if there is a demand level large enough such that the investment is reliable.
 
-The second one is justified by the increasing uncertainty of the demand. Although we weren't able to derive this result regarding the threshold $x_C^*$, it is widely common that a larger volatility postpones the investment decision \cite{dixit:book}. 
+The second one is justified by the growing uncertainty (of the demand). Although we weren't able to derive this result regarding the threshold $x_C^*$, it is widely common that a larger volatility postpones the investment decision \cite{dixit:book}. 
 %Since it has a high variance, the demand has a great amplitude of values, which delays the investment decision, only made when the demand reaches a high level. This is in accordance to what is described in \cite{dixit:book}.
 
 
 \begin{figure}[!htb]
 	\begin{subfigmatrix}{2}
-		\subfigure[$\mu \in ( -r,r )$ ]{\includegraphics[width=0.45\textwidth]{Prob2_CapOpt/xopt_mu.pdf}}
 		\subfigure[$\theta \in (1,10)$]{\includegraphics[width=0.45\textwidth]{Prob2_CapOpt/xopt_theta.pdf}}
+		\subfigure[$\mu \in ( -r,r )$ ]{\includegraphics[width=0.45\textwidth]{Prob2_CapOpt/xopt_mu.pdf}}
 	\end{subfigmatrix}
 	\caption{Threshold value with respect to the benchmark model (blue) and the capacity optimized model (orange) and parameter with which  $x^*_B$ decreases.}
 	\label{fig:2_x3}
 \end{figure}
 
-On Figure \ref{fig:2_x3} we see that, similarly to what happened on Section 2, both threshold levels decrease with innovation level. Although the threshold level associated to the Benchmark Model decreases with $\mu$ in what seems to be a linear way for negative values of $\mu$ and almost negligible for positive values of $\mu$, the same doesn't happen to the threshold level associated to the capacity optimization model. This last one, seems to increase for positive values of $\mu$. 
+
+
+On Figure \ref{fig:2_x3} (a) we observe that, similarly to what happens on Section 2, both threshold levels decrease with innovation level meaning that the firm is eager to invest when the technology improvement is more significant.
+
+Regarding the situation of the market, we have on Figure \ref{fig:2_x3} (b), that in a declining market both thresholds decrease approximately in a linear rate. However the same rate is not verified on a growing market. The threshold associated to the Benchmark Model decreases in a weaker rate than in a declining market, but $x^*_C$ increases with $\mu$. Again, we believe this happens in view of the invested capacity associated to each threshold.
+
+% Although the threshold level associated to the Benchmark Model decreases with $\mu$ in what seems to be a linear way for negative values of $\mu$ and almost negligible for positive values of $\mu$, the same doesn't happen to the threshold level associated to the capacity optimization model. This last one, seems to increase for positive values of $\mu$. 
 
 %The same happened considering other values for parameters $K_0, \ \alpha, \ \delta, \ \theta$. Regarding $\sigma$, we obtained that when increasing the volatility, the value of $\mu$ associated with the stationary point happens for values of $\mu$ greater than 0.
 
@@ -499,14 +505,21 @@ On Figure \ref{fig:2_x3} we see that, similarly to what happened on Section 2, b
 	\label{fig:2_x1}
 \end{figure}
 
-On Figure \ref{fig:2_x1} we have that a non-monotonic behaviour was also observed on parameters $r$, $K_0$ and $K_1$, being this last one only valid for the Benchmark Model.
+%On Figure \ref{fig:2_x1} we have that a non-monotonic behaviour was also observed on parameters $r$, $K_0$ and $K_1$, being this last one only valid for the Benchmark Model.
 %On Figure \ref{fig:2_x1}, we observe that both threshold level behave in a non-monotonic way with $r$ and $K_0$.
 
-On the leftmost plot we can see that a minimum demand threshold is observed for small values of discount rate $r$. Unfortunately we couldn't derive its analytical expression.
+On Figure \ref{fig:2_x1} (a) we observe that, concerning each model, exists a discount rate that lead to a minimal demand threshold and that it is associated to small values of $r$. Unfortunately, we were not able to derive its analytical expression.
+% thethe leftmost plot we can see that a minimum demand threshold is observed for small values of discount rate $r$. Unfortunately we couldn't derive its analytical expression.
 
-Interestingly, as seen on the plot located at the center, regarding the capacity of \textit{old} product, a maximum demand threshold is observed for both models when the capacity level $K_0$ is exactly equal to $\frac{1}{2 \alpha}$. This values comes from the expression $\alpha K_0 \pi_0=\alpha K_0 (1-\alpha K_0)$ included on both expressions of $x_B^*$ \eqref{2_xB} and $x^*_C$ \eqref{eq:prob2_xC}.
+Interestingly, as seen on Figure \ref{fig:2_x1} (b), 
+%regarding the capacity of \textit{old} product,
+a maximum demand threshold is observed on both models when the capacity level $K_0$ is exactly equal to $\frac{1}{2 \alpha}$ (which, on this case, takes the value $K_0=50$). This quantity is motivated by the profit function associated to the established product, in the sense that a capacity of $\frac{1}{2 \alpha}$ leads to the maximization of $\pi_0$. Therefore, for $K_0$ assuming quite smaller or larger values than $\frac{1}{2 \alpha}$, the firm obtains a relative low profit and, consequently, the idea of investing in a new product gets more attractive to the firm, which is reflected by the small threshold levels.
+%This values comes from the expression $\alpha K_0 \pi_0=\alpha K_0 (1-\alpha K_0)$ included on both expressions of $x_B^*$ \eqref{2_xB} and $x^*_C$ \eqref{eq:prob2_xC}.
 
-Regarding parameter $K_1$, its value doesn't affect threshold $x^*_C$, since it takes into account the optimal capacity $K^*_C$. However, when it comes to the threshold $x^*_B$ we have that it achieves a minimum value at $K_1=\frac{\pi_0+\sqrt{\alpha \pi_0(\pi_0+\delta \theta r)}}{r\alpha \delta}$, as it's represented on the bottom plot. Note that the standard value considered was $K_1=100$ and that it's associated a threshold $x_B^*$ smaller than the threshold $x_C^*$. This is one of the reasons why the demand threshold $x_B^*$ appears to be smaller than $x_C^*$ in most cases. However as showed in Figure \ref{fig:Kvar} (b), we have that the value function $F^*$ (associated to the threshold $x_C^*$) will always be greater than the value function $F$ (associated to the threshold $x_B^*$).
+
+Regarding the capacity associated to the new product, we notice on Figure \ref{fig:2_x1} (c), that (as expected) it only affects $x_B^*$. We observe that a large $x_B^*$ is associated to either quite small or quite large values of $K_1$. The first one is explained by the fact that, to invest in a small quantity, the demand needs to be large enough such that the expected long-run $\pi_1$ (and investment costs) overcome the profit associated to the established product. The second one supports that the greater the capacity to invest on, the larger the expected $\pi_1$ is as well as associated investment costs. Hence, a larger value of demand is need, in order to justify the investment made. A minimum triggering value is observed at $K_1=\frac{-\pi_0+\sqrt{\alpha \pi_0(\alpha \pi_0+\delta \theta r)}}{r\alpha \delta}$ (which, on this case, takes the value $K_1\simeq  223$).
+
+%Regarding parameter $K_1$, its value doesn't affect threshold $x^*_C$, since it takes into account the optimal capacity $K^*_C$. However, when it comes to the threshold $x^*_B$ we have that it achieves a minimum value at $K_1=\frac{\pi_0+\sqrt{\alpha \pi_0(\pi_0+\delta \theta r)}}{r\alpha \delta}$, as it's represented on the bottom plot. Note that the standard value considered was $K_1=100$ and that it's associated a threshold $x_B^*$ smaller than the threshold $x_C^*$. This is one of the reasons why the demand threshold $x_B^*$ appears to be smaller than $x_C^*$ in most cases. However as showed in Figure \ref{fig:Kvar} (b), we have that the value function $F^*$ (associated to the threshold $x_C^*$) will always be greater than the value function $F$ (associated to the threshold $x_B^*$).
 	
 	\begin{figure}[!htb]
 		\begin{subfigmatrix}{2}
@@ -517,15 +530,20 @@ Regarding parameter $K_1$, its value doesn't affect threshold $x^*_C$, since it 
 		\label{fig:2_x4}
 	\end{figure}
 	
-	On Figure \ref{fig:2_x4} it's represented the behaviour of $x^*_B$ with $\alpha$, as written on Proposition \label{3_prop2}. Considering the fixed values considered before, we obtain a $\theta$-threshold equal to $\frac{K_1}{ K_0^2} (K_0+K_1 r \delta)=1.23457$. One can see on Figure \ref{fig:2_x4} when that testing for innovation levels greater (leftmost) and smaller (rightmost) than the mentioned threshold, we verify what was deduced: that $x^*_B$ behaves in either an increasing or decreasing way with $\alpha$ for certain levels of innovation, while $x_C^*$ always behave in a non-monotonic way.
+On Figure \ref{fig:2_x4} we highlight the two possible behaviours of $x^*_B$ regarding parameter $\alpha$. As stated in Proposition \ref{2_prop1}, we observe that for values of $\theta$ greater than $\frac{K_1}{ K_0^2} (K_0+K_1 r \delta)$, $x^*_B$ increases with $\alpha$ (as represented on (a)). For greater values than that quatity, $x^*_B$ decreases (as represented on (b)). We suspect that this exotic behaviour happens due to the influence of both $\pi_0$ and $\pi_1$. In this case, $\frac{K_1}{ K_0^2} (K_0+K_1 r \delta)$ is approximately 1.235.
+Although we weren't able to derive any analytical result concerning $x^*_C$, we conclude that it behaves non-monotonically with $\theta$, confirming the stated on Proposition \ref{2_prop2}.
+
+
+% it's represented the behaviour of $x^*_B$ with $\alpha$, as written on Proposition \label{3_prop2}. Considering the fixed values considered before, we obtain a $\theta$-threshold equal to $\frac{K_1}{ K_0^2} (K_0+K_1 r \delta)=1.23457$. One can see on Figure \ref{fig:2_x4} when that testing for innovation levels greater (leftmost) and smaller (rightmost) than the mentioned threshold, we verify what was deduced: that $x^*_B$ behaves in either an increasing or decreasing way with $\alpha$ for certain levels of innovation, while $x_C^*$ always behave in a non-monotonic way.
 	%Note that on most of the plots you have that the threshold $x_C^*$ has an associated capacity level ($K^*(x_C^*)$) greater than the one considered ($K_1=100$), resulting in values $x^*_B$ smaller than $x_C^*$, contrarily to what happened on the previous section.
 
 \subsection{Optimal Capacity Level}
 
-Now we analyse optimal capacity level $K^*_C$, that is given by evaluating $K^*$ on demand level $x^*_C$ and as it is written in \eqref{3_K*}.
+In this section we analyse the optimal capacity level $K^*_C$, whose formula is provided in \eqref{3_K*}. Due to its complex expression, we are just able to deduce analytical results concerning the asymptotic behaviour of $K^*_C$ with $\theta$. However, the numerical results obtained lead us to conclude that it has a similar behaviour to the optimal capacity, presented on Chapter \ref{chapter:1}, whose formula corresponds to \eqref{prob1:K*}.
+%Now we analyse optimal capacity level $K^*_C$, that is given by evaluating $K^*$ on demand level $x^*_C$ and as it is written in \eqref{3_K*}.
 
 \begin{prop}
-Optimal capacity level $K^*_C$ increases linearly asymptotically with $\theta$ and does not have a monotonic behaviour with $K_0$. 
+Asymptotically, the optimal capacity level $K^*_C$ grows in a linear rate with $\theta$. Also, $K^*_C$ has a non-monotonic behaviour with $K_0$. 
 \end{prop}
 
 \textbf{Proof:}
@@ -534,14 +552,14 @@ Regarding innovation level $\theta$, assuming that it has no upper limit, it's p
 $$K^*_C(\theta) \sim \theta_K \theta \ \Leftrightarrow \ \lim_{\theta \to \infty}  \frac{K^*_C}{\theta_K \theta}=1 $$
 
 
-The non monotonic behaviour of $K^*_C$ with $K_0$ will be showed hereunder in the obtained plots.
+The non monotonic behaviour of $K^*_C$ with $K_0$ is justified by Figure \ref{fig:2_k0}.
 \begin{flushright}
 	$\square$
 \end{flushright}
+\vspace{2cm}
+%Although it wasn't possible to derive any (strong) analytical solution about te behaviour of the other parameters, numerically we obtain robust results. By manipulating each parameter, using command \texttt{Manipulate}, we obtained no different behaviours from the ones showed hereunder.
 
-Although it wasn't possible to derive any (strong) analytical solution about te behaviour of the other parameters, numerically we obtain robust results. By manipulating each parameter, using command \texttt{Manipulate}, we obtained no different behaviours from the ones showed hereunder.
-
-The results obtained regarding parameters $\mu, \ \sigma,\ r, \ \alpha$ and $\theta$  were similar to the ones obtain for the optimal capacity level on the previous section.  Since $K^*_C$ depends on value $x_C^*$, it is expected to observe similiar behaviours regarding the studied parameters. 
+%The results obtained regarding parameters $\mu, \ \sigma,\ r, \ \alpha$ and $\theta$  were similar to the ones obtain for the optimal capacity level on the previous section.  Since $K^*_C$ depends on value $x_C^*$, it is expected to observe similiar behaviours regarding the studied parameters. 
 
 
 \begin{figure}[!htb]
@@ -551,8 +569,12 @@ The results obtained regarding parameters $\mu, \ \sigma,\ r, \ \alpha$ and $\th
 	\label{fig:2_k0}
 \end{figure}
 
-Starting with the capacity level of the \textit{old} product $K_0$, on Figure \ref{fig:2_k0}, we obtained that the highest optimal capacity level $K^*_C$ happens for $K_0=\frac{1}{2 \alpha}$. This is motivated by the results obtained for $x^*_C$, as seen on Figure \ref{fig:2_x1}, which also reaches its highest value at $\frac{1}{2 \alpha}$.
+%Starting with the capacity level of the \textit{old} product $K_0$, 
+On Figure \ref{fig:2_k0}, we obtain that the highest optimal capacity level $K^*_C$ happens for $K_0=\frac{1}{2 \alpha}$.
+We note that this stresses previous observations: if the firm is committed to a larger investment, then it impacts the investing timing, postponing it.
+% This is motivated by the results obtained for $x^*_C$, as seen on Figure \ref{fig:2_x1}, which also reaches its highest value at $\frac{1}{2 \alpha}$.
 
+\vspace{0.5cm}
 
 \begin{figure}[!htb]
 	\begin{subfigmatrix}{3}
@@ -564,10 +586,10 @@ Starting with the capacity level of the \textit{old} product $K_0$, on Figure \r
 	\label{fig:2_k1}
 \end{figure}
 
-On Figure \ref{fig:2_k1}, we obtain that $K^*_C$ increases with both drift, volatility and innovation level, as it happened in the previous section. Note that again that, contrary to what happens for positive drift values, the growth of $K^*_C$ with $\mu$ is barely noticeable for negative values of $\mu$. This is related to the inverse relationship between $K^*_C$ and $x_C^*$.
-
-
-Also note that $K^*_C$ seems to increase linearly with $\theta$, being in accordance to the asymptotical behaviour of $K_C^*$ with $\theta$ previously deduced.
+On Figure \ref{fig:2_k1}, we observe that $K^*_C$ increases with both drift, volatility and innovation level, as it happened in the previous section. 
+Note, on Figure \ref{fig:2_k1} (a), that, on a declining market, the optimal capacity is significantly smaller than in the growing market. This facts seems to support the increasing behaviour of $x^*_C$ for values $\mu>0$, as presented on Figure \ref{fig:2_x3} (b).
+%Note that again that, contrary to what happens for positive drift values, the growth of $K^*_C$ with $\mu$ is barely noticeable for negative values of $\mu$. This is related to the inverse relationship between $K^*_C$ and $x_C^*$.
+Also, note, on Figure  \ref{fig:2_k1} (c), that $K^*_C$ seems to increase linearly with $\theta$, being in accordance to the asymptotic behaviour of $K_C^*$ with $\theta$ previously proved.
 
 \begin{figure}[!htb]
 	\begin{subfigmatrix}{3}
@@ -579,7 +601,10 @@ Also note that $K^*_C$ seems to increase linearly with $\theta$, being in accord
 	\label{fig:2_k3}
 \end{figure}
 
-Regarding  sensibility parameter $\delta$, discount rate $r$ and sensibility parameter $\alpha$, we have on Figure \ref{fig:2_k3} that $K^*_C$ decreases with them, as happened in the previous section.
+The most relevant result presented above corresponds to Figure \ref{fig:2_k3} (a). The decreasing behaviour is motivated by the fact that a smaller $\delta$ leads to a lower investment cost and therefore the firm is more attracted to invest on a larger capacity.
+
+On Figures \ref{fig:2_k3} (b) and (c) we observe that $K^*_C$ behaves in a similar way as $K^*_C$ analysed in the previous Chapter, in particular regarding results on Figure \ref{fig:k2}.
+%Regarding the sensibility parameter $\delta$, discount rate $r$ and sensibility parameter $\alpha$, we have on Figure \ref{fig:2_k3} that $K^*_C$ decreases with them, as happened in the previous section.
 
 
 
