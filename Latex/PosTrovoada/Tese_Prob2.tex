@@ -17,7 +17,7 @@
 \section{Introduction}
 \label{section:2_intro}
 
-We consider now the case in which a firm that is already active, with an established product in the market, has the opportunity to invest in a new and more profitable technological product.
+We consider now the case in which a firm that is already active, with an established product in the market, and has the opportunity to invest in a new and more profitable technological product.
 
 By an established product we mean that it is so well recognized in the market that its unitary price is not influenced by the demand level, assuming a fixed price, given by
 %, even before we decide to invest, the firm already produces a certain product. We also consider that the product is \textit{stable} in the market, in the sense that it's a recognized product, resulting in a demand function that is not influenced by the demand level. Instead it's given by
@@ -25,21 +25,31 @@ By an established product we mean that it is so well recognized in the market th
 p_0=1-\alpha K_0
 \label{p0}
 \end{equation}
-where $\alpha$ stands for a capacity sensibility parameter and $K_0$ for the capacity of production of the \textit{old} product. 
+where $\alpha$ stands for a capacity sensibility parameter and $K_0$ for the capacity of production of this product, that we will call the \textit{old} product.
 
-However, the same doesn't hold for the new product. When the innovation breakthrough takes place, the firm has the option to invest and immediately start to produce the new product. Since this one is a new product, susceptible to the consumers' demand, its unitary price function is considered to be the same as in Section \ref{section:overview}, by the expression in \eqref{prob1:pi}, that is,
+However, the same doesn't hold for the new product. When the innovation breakthrough takes place, the firm has the option to invest and immediately start to produce the new product. Since this one is a new product, susceptible to the consumers' demand, its unitary price function is considered to be the same as in Section \ref{section:overview}, that is,
 \begin{equation}
 p_1(X_t)=(\theta-\alpha K_1)X_t
 \label{p1}
 \end{equation}
 where $\theta$ stands for the innovation level after the breakthrough, $\alpha$ for the same sensitivity parameter as in the \textit{old} product, $K_1$ for the capacity of production of the \textit{new} product and $X_t$ for the demand level at time $t$.
 
-The instantaneous profit function w.r.t. each product is given by $\pi_i, \ i \in \{0,1\}$, and it's obtain by multiplying the unitary price function by the production capacity, that is, $\pi_i(X_t)=p_i(X_t) K_i$.
+The instantaneous profit function w.r.t. each product is given by $\pi_i, \ i \in \{0,1\}$, and it's obtained by multiplying the unitary price function by the production capacity. %, that is, $\pi_i(X_t)=p_i(X_t) K_i$. 
+
+
+%\vspace{4mm}
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=\textwidth]{Prob2_CapOpt/2_timelinet.PNG}
+	\caption{Timeline representing the two possible different stages of production and associated decisions. Time is set to start at the innovation breakthrough.}
+	\label{2_time}
+\end{figure}
 
 Since the firm is not interested to invest before the innovation process reaches level $\theta$, it is not relevant, for the investment decision, to consider what happened before. Therefore the initial time is set to start at the instant the breakthrough takes place. %($t_\theta$).  
-Hence the optimal investment time will occur $\tau^*$ time units after the breakthrough, as presented on Figure \textcolor{red}{METER FIGURA!}  % \ref{2_timeline}.
+Hence the optimal investment time will occur $\tau^*$ time units after the breakthrough, as presented on Figure \ref{2_time}.
 
-Recall that at the moment we decide to invest, we need to pay $\delta K_1$ related to sunk costs, that the established product is in that precise instant retired from the market and that the investment is an irreversible decision.
+Recall that at the moment we decide to invest, we need to pay $\delta K_1$ related to sunk costs. We assume also that upon investment in the new product, the old product is no longer in the market.
+%, that the established product is in that precise instant retired from the market and that the investment is an irreversible decision.
 
 
 
@@ -63,7 +73,7 @@ We want to find when is the best time to invest in the new product, knowing that
 \pi_0=(1-\alpha K_0)K_0,
 \label{pi0}
 \end{equation}
-and when the replacement happens, the firm will be immediately and solely producing a technology which profit function corresponds
+and when the replacement happens, the firm will be immediately and solely produce a product which profit function corresponds to
 \begin{equation}
 \pi_1(X_t) =(\theta-\alpha K_1)K_1 X_t.
 \label{pi1}
@@ -85,7 +95,7 @@ Starting by conditioning \eqref{eq:prob2} to the time when the investment should
 \end{equation}
 Since expectation is a linear operator, we can simplify each of the integrals separately.
 
-Note that in the leftmost integral of \eqref{eq:prob21}, as previously written, the instantaneous profit associated to the \textit{old} product does not depend on the demand level and all the parameters are deterministic. Then we easily solve the integral and its expression can be simplified as
+Note that in the leftmost integral of \eqref{eq:prob21}, as previously written, the instantaneous profit associated to the \textit{old} product does not depend on the demand level and all the parameters are deterministic. Then we easily solve the integral, simplifying its expression as
 \begin{align}
 \mathds{E}^{\tau} \left[\int_0^\tau \pi_0e^{-rs} ds \right] 
 &= \mathds{E}^{\tau} \left[ \int_0^\tau p_0K_0e^{-rs} ds \right] \nonumber \\
@@ -106,9 +116,9 @@ Following a similar approach as in Section \ref{subsec:1_bm}, when deducing \eqn
 \end{align}
 where $X_\tau$ is taken to be the demand level at the time when the \textit{new} product starts being produced. Recall, from the previous section, that expression \eqref{h2} only holds if the assumptions of Fubini's Theorem hold, which particularly implies that $r-\mu>0$.
 
-Let's denote $F$ as the value function solution to \eqref{eq:prob21}. Plugging expressions \eqref{g2} and \eqref{h2} in \eqref{eq:prob21}, getting rid of the expectation conditional to time when the investment decision is made and using (again) the Tower rule, we obtain that $F$ may be written as
+Let's denote $F$ as the value function solution to \eqref{eq:prob21}. Plugging expressions \eqref{g2} and \eqref{h2} in \eqref{eq:prob21}, getting rid of the expectation conditional to time when the investment decision is made and using (again) the Tower rule, we obtain that, assuming the investment decision to be made in finite time, $F$ may be written as
 \begin{equation}
-F(x)=\frac{\pi_0}{r}+ \sup _\tau \mathds{E}^{X_0=x} \left[ e^{-r\tau}\left(\frac{(\theta-\alpha K_1)K_1 X_\tau}{r-\mu} - \left( \delta K_1  +\frac{\pi_0}{r}\right)  \right) \mathds{1}_{ \{\tau < \infty \} } \right],
+F(x)=\frac{\pi_0}{r}+ \sup _\tau \mathds{E}^{X_0=x} \left[ e^{-r\tau}\left(\frac{(\theta-\alpha K_1)K_1 X_\tau}{r-\mu} - \left( \delta K_1  +\frac{\pi_0}{r}\right)  \right) \right],
 \label{prob235}
 \end{equation}
 %which corresponds to the sum of a constant term with a standard optimal stopping problem with null running cost function, as we wanted. This is the effect of dealing with a very stable product, which doesn't depend on the current demand level, allowing us to simply this much its expression.
@@ -121,11 +131,11 @@ V(x)=  \sup _\tau \mathds{E}^{X_0=x} \left[ e^{-r\tau}h(X_\tau) \right]
 =\sup _\tau \mathds{E}^{X_0=x} \left[ e^{-r\tau}\left(\frac{(\theta-\alpha K_1)K_1 X_\tau}{r-\mu} - \left( \delta K_1  +\frac{\pi_0}{r}\right)  \right) \mathds{1}_{ \{\tau < \infty \} }\right].
 \end{equation} 
 
-Following all the steps presented before, we propose as candidate for the continuation region $\mathcal{C}=\{x \in \mathds{R}: x<x_B^* \}$., with $x^*_B$ being the demand level that triggers the investment. Since $V$ satisfies the HJB variational inequality \eqref{HJB} it takes the form of
+Following all the steps presented before, we propose as candidate for the continuation region $\mathcal{C}=\{x \in \mathds{R}: x<x_B^* \}$, with $x^*_B$ being the demand level that triggers the investment. Since $V$ satisfies the HJB variational inequality \eqref{HJB} it takes the form of
 %$V$ is such that it must verify the HJB variational inequality \eqref{HJB} regarding values on the continuation and stopping region. As was written in Section \ref{bc_ro}, it follows that $V$ is such that
 \begin{equation}
 V(x)=\begin{cases} a_2 x^{d_1} &\ , \ x \in \mathcal{C} \\
-\frac{(\theta-\alpha K_1)K_1 X_\tau}{r-\mu} - \left( \delta K_1  +\frac{\pi_0}{r}\right)=\frac{(\theta-\alpha K_1)K_1}{r-\mu} &\ , \ x \in \mathcal{S}
+\frac{(\theta-\alpha K_1)K_1 x}{r-\mu} - \left( \delta K_1  +\frac{\pi_0}{r}\right) &\ , \ x \in \mathcal{S}
 \end{cases}
 \end{equation}
 with $d_1$ being the positive root of the polynomial described in \eqref{d1}.
@@ -147,7 +157,7 @@ leading to
 Plugging the results stated above on the expression of $F$ \eqref{prob235}, it leads to
 \begin{equation}
 F(x)=\frac{\pi_0}{r}+\begin{cases} a_2 x^{d_1} &\ , \ x<x^*_B \\
-\frac{(\theta-\alpha K_1)K_1 X_\tau}{r-\mu} - \left( \delta K_1  +\frac{\pi_0}{r}\right) &\ , \ x\geq x_B^*
+\frac{(\theta-\alpha K_1)K_1 x}{r-\mu} - \left( \delta K_1  +\frac{\pi_0}{r}\right) &\ , \ x\geq x_B^*
 \label{2:Fbm}
 \end{cases}
 \end{equation}
@@ -166,7 +176,7 @@ F^*(x)&=\sup _\tau \mathds{E}^{X_0=x} \left[ \max_{K_1} \left\{ \int_0^\tau \pi_
 &= \frac{\pi_0}{r}+ \sup _\tau \mathds{E}^{X_0=x} \left[ e^{-r\tau} \max_{K_1}   \left\{ \frac{(\theta-\alpha K_1)K_1X_\tau}{r-\mu} - \left( \delta K_1  +\frac{\pi_0}{r}\right)   \right\} \mathds{1}_{ \{\tau < \infty \} } \right],
 \label{eq:o2}
 \end{align}
-where the expression is simplified in similar way as done in the previous section and using the fact that $\pi_0$ is deterministic.
+where the expression is simplified in a similar way as done in the previous section, and using the fact that $\pi_0$ is deterministic.
 
 Denoting the non-maximized terminal function by $h$ with the dependence on the capacity parameter $K_1$ highlighted, we have that
 \begin{equation}
@@ -175,7 +185,7 @@ h(x,K_1)= \frac{(\theta-\alpha K_1)K_1 x}{r-\mu} - \left( \delta K_1  +\frac{\pi
 \end{equation}
 %$h$ is a second order polynomial with respect to the capacity, meaning that it exists an optimal capacity level $K_1^*$ that maximizes it.
 
-Note that, $h$ is a second order polynomial with respect to the capacity and its expression corresponds to the terminal function in the previous chapter minus a constant term ($\frac{\pi_0}{r}$). Thus, by studying the first and second derivatives of $h$, we obtain the same results as achieved in Section \ref{subsec:1_com}: its first and second partial derivatives are, respectively, given by \eqref{1_dK} and \eqref{1_d2K}. Therefore the maximizer of $h$ in \eqref{2_h} is the same in \eqref{eq:K41}, that is,
+Note that $h$ is a second order polynomial with respect to the capacity and its expression corresponds to the terminal function in the previous chapter minus a constant term ($\frac{\pi_0}{r}$). Thus, by studying the first and second derivatives of $h$, we obtain the same results as achieved in Section \ref{subsec:1_com}: its first and second partial derivatives are, respectively, given by \eqref{1_dK} and \eqref{1_d2K}. Therefore the maximizer of $h$ in \eqref{2_h} is the same in \eqref{eq:K41}, that is,
 \begin{equation}
 K^*_1:=\text{arg} \max_{K_1} h(x,K_1) = \frac{\theta}{2\alpha}-\frac{\delta (r-\mu)}{2 \alpha x}, \ \forall x.
 \label{eq:Kopt2}
@@ -205,10 +215,10 @@ which is again a standard optimal stopping problem with null running cost functi
 \begin{equation}
 V^*(x)=\begin{cases} b x^{d_1}  \ , \ x \in \mathcal{C} \\
 \frac{\pi_0}{r}+ \frac{(\theta x -\delta (r-\mu))^2}{4 \alpha (r-\mu) x} \ , \ x \in \mathcal{S}
-\end{cases}
+\end{cases}.
 \label{2_V*3}
 \end{equation}
-with $d_1$ being the positive root of the polynomial described in \eqref{d1}.
+%with $d_1$ being the positive root of the polynomial described in \eqref{d1}.
 
 Considering that the continuation region should be of the form $\mathcal{C}= \{ x \in \mathds{R}: x< x^*_C \}$ - stating that the firm should postpone the investment for small demand values, in particular, smaller than $x_C^*$ -, $b$ and $x_C^*$ are found by value matching \eqref{valuematch} and smooth pasting \eqref{smoothpasting} conditions, hereunder expressed
 \begin{equation}
@@ -230,7 +240,7 @@ x^*_{C,2}&=\frac{r-\mu}{(d_1-1) \theta ^2 r}
 d_1 \left(2 \alpha \pi_0 + \delta  \theta  r \right) -
 \sqrt{(\delta  \theta  r)^2 + 4 d_1^2 \alpha \pi_0 \left( \alpha \pi_0 +\delta  \theta  r \right)} \right).
 \end{align*}
-However, since the coefficient $b$ associated to it takes a negative value, we exclude $x^*_{C,2}$. Considering such $b$ would be an absurd, since it would lead to a negative value function for any demand level smaller than $x^*_{C,2}$. Therefore we obtain that the threshold level and coefficient $b$ in \eqref{eq:2_sistema} are, respectively, given by
+However, since the coefficient $b$ associated to it takes a negative value, we exclude $x^*_{C,2}$. As explained in the previous chapter, considering such $b$ would be an absurd. Consequently, we obtain that the threshold level and coefficient $b$ in \eqref{eq:2_sistema} are, respectively, given by
 \begin{align}
 &x_C^*=\frac{r-\mu}{(d_1-1) \theta ^2 r}
 \left(
@@ -255,7 +265,7 @@ K^*_C=\frac{\theta }{2 \alpha }-\frac{\delta  (d_1-1) \theta ^2 r}{2 \alpha  \le
 \label{3_K*}
 \end{equation}
 
-Denoting $X_0$ as the demand value at the innovation breakthrough, we have that $K^*_C$ represents the optimal capacity to invest on the new product, considering that the initial demand is smaller than the value that triggers the investment (i.e. $X_0 \leq x^*_C$). However it does not correspond to the optimal capacity to invest if $X_0$ is greater than $x_C^*$. In this case, it is given by evaluating $K^*_1$ at $X_0$.
+%Denoting $X_0$ as the demand value at the innovation breakthrough, we have that $K^*_C$ represents the optimal capacity to invest on the new product, considering that the initial demand is smaller than the value that triggers the investment (i.e. $X_0 \leq x^*_C$). However it does not correspond to the optimal capacity to invest if $X_0$ is greater than $x_C^*$. In this case, it is given by evaluating $K^*_1$ at $X_0$.
 %Such quantity represents the optimal capacity to invest on the new product at the first instant, after the innovation breakthrough, the demand process reaches $x_C^*$. It does not correspond to the best one if, at the instant the innovation breakthrough happens, there is a demand level greater than $x^*_C$. In this case the optimal capacity to invest is given by evaluating $K^*_1$ at $X_0$ (the demand value at the innovation breakthrough such that $X_0>x_C^*$).
 
 
@@ -272,8 +282,8 @@ Denoting $X_0$ as the demand value at the innovation breakthrough, we have that 
 
 \section{Comparative Statics}
 
-In this section we study more profoundly the results derived.
-We start to analyse the threshold obtain on the Benchmark Model and then the one obtained on the capacity optimization model as well as the associated optimal capacity to invest. Comparisons between both thresholds and the optimal capacity are made in the end of the chapter.
+In this section we analyse the results obtained regarding $x^*_B$, $x^*_C$ and $K^*_C$. As we have considered in Chapter 3, we compare $x^*_B$ and $x^*_C$.
+% the threshold obtained in the benchmark model and then the one obtained on the capacity optimization model as well as the associated optimal capacity to invest. Comparisons between both thresholds and the optimal capacity are made in the end of the chapter.
 
 \subsection{Benchmark Model}
 \label{2_bm}
@@ -314,7 +324,7 @@ The leftmost expression is always positive. Thus we only need to evaluate the ri
 \footnote{We obtain that 
 	$$\frac{\alpha (\frac{\pi_0}{r}+K_1 \delta )}{\theta-\alpha K_1} -\frac{ \frac{\pi_0}{r}+K_1 \delta }{K_1}+ \delta =
 \frac{d_1 (r-\mu) (2K_1 \pi_0 \alpha+K^2_1r \alpha \delta -\pi_0 \theta)}{(d_1-1)K_1^2r(\theta-\alpha K_1)^2}$$
-which roots are given by 
+which roots are given by
 $$ 2K_1 \pi_0 \alpha+K^2_1r \alpha \delta -\pi_0 \theta =0  \ \Leftrightarrow \ K_1=\frac{-\pi_0 \pm \sqrt{\alpha \pi_0 (\pi_0 + r \delta \theta)}}{ r\alpha \delta}.
 $$
 Since the capacity chosen $K_1$ must be positive, we obtain a single root, $K_1=\frac{-\pi_0 + \sqrt{\alpha \pi_0 (\pi_0 + r \delta \theta)}}{ r\alpha \delta}$, that leads to the result presented.}
@@ -326,7 +336,7 @@ Since the capacity chosen $K_1$ must be positive, we obtain a single root, $K_1=
 <0 &\ \text{for} \ K_1 \in \left[ 0, \frac{-\pi_0+\sqrt{\alpha \pi_0(\pi_0 + r \delta \theta)}}{ r\alpha \delta} \right]
 \end{cases},
 \end{align*}
-from which we obtain that $x^*_B$ has no monotonic behaviour with $K_1$.
+from which we obtain that $x^*_B$ does not have a monotonic behaviour with $K_1$.
 
 
 Regarding parameter $\alpha$, we obtain that
@@ -339,7 +349,7 @@ Again, the leftmost expression is positive. Simplifying the rightmost one
 \footnote{Reducing to the same denominator it follows that the rightmost expression corresponds to
 	$$\frac{\frac{\pi_0}{r}+ \delta K_1  }{\theta-\alpha K_1} -\frac{ K_0^2}{r K_1} =
 	\frac{r K_1 \frac{K_0(1-\alpha K_0)}{r}+ \delta K_1  -K_0^2(\theta-\alpha K_1)}{r K_1(\theta-\alpha K_1)},$$
-	which root is given by 
+	which is equal to zero when
 	$$  K_1 K_0(1-\alpha K_0)+ r\delta K_1^2  -K_0^2(\theta-\alpha K_1)= K_0K_1+r\delta K_1^2-K_0^2 \theta=0 \ \Rightarrow \ \theta=\frac{K_0 K_1 +K_1^2 r\delta}{K_0^2}.
 	$$
 	},
@@ -373,21 +383,22 @@ Manipulating expression (2), we obtain that
 %&\Leftrightarrow \frac{1}{4}-\frac{r^2}{\mu^2}+\frac{2r}{\sigma^2}<\frac{r^2}{\mu^2}-\frac{r}{\mu} \nonumber \\
 &\Leftrightarrow \frac{r}{\mu}\left(1-\frac{r}{\mu} \right) <0 \label{mud1-r},
 \end{align}
-which holds true for the two possible cases: when $\mu<0$ and $\mu>0$.
-Analysing expression (3), we have that the polynomial $d_1^2-d_1-1$ has roots for $d_1 \in \left\{\frac{1}{2} (3-\sqrt{5}),\frac{1}{2} (3+\sqrt{5}) \right\}$. Since $d_1>1$, the first root is impossible to be observed. Consequently, we obtain that expression (3) is negative for $d_1 \in \left(1,\frac{1}{2} (3+\sqrt{5}) \right]$, and positive for $d_1 \in \left(\frac{1}{2} (3+\sqrt{5}), \infty \right)$.
+which holds true as $r>\mu$. %for the two possible cases: when $\mu<0$ and $\mu>0$.
+Analysing expression (3), we have that the polynomial $d_1^2-d_1-1$ has roots on $\left\{\frac{1}{2} (3-\sqrt{5}),\frac{1}{2} (3+\sqrt{5}) \right\}$. Since $d_1>1$, the first root is not admissible. Consequently, we obtain that expression (3) is negative for $d_1 \in \left(1,\frac{1}{2} (3+\sqrt{5}) \right]$, and positive for $d_1 \in \left(\frac{1}{2} (3+\sqrt{5}), \infty \right)$.
 
 
 
-Regarding parameter $r$ we obtained complex derivatives, from which we weren't able to derive any analytical result. However as it will be shown later, numerical results show that $x_B^*$ behaves in a non-monotonic way with $r$.
+Regarding parameter $r$ we obtained complex derivatives, from which we weren't able to derive any analytical result. However, as it will be shown later, numerical results show that $x_B^*$ behaves in a non-monotonic way with $r$.
 %However, as it will be showed right after this proof, using Mathematica we obtained that $x^*_B$ behaves in a non-monotonic way with it.
 
+Regarding $\mu$, as the sign of the derivatives is not either clearly positive or negative, we could not assess analytically if $x^*_B$ has a monotonic behaviour w.r.t. $\mu$. But as we will present later, numerical illustrations suggest that $x_B^*$ decreases with $\mu$.
 \begin{flushright}
 	$\square$
 \end{flushright}
 
 %We weren't able to deduce any analytical result regarding the drift value $\mu$. However, after many numerical experiments, we observed that $x_B^*$ decreases with $\mu$, as it's showed on Figure \ref{fig:2_x3}.
 
-Similarly, we were not able to study analytically the behaviour of $x_B^*$ with $\mu$. But, as we will present later, numerical experiments suggest that $x_B^*$ decreases with $\mu$.
+%Similarly, we were not able to study analytically the behaviour of $x_B^*$ with $\mu$. But, as we will present later, numerical experiments suggest that $x_B^*$ decreases with $\mu$.
 
 \subsection{Capacity Optimization Model}
 \label{2_com}
@@ -401,7 +412,8 @@ The decision threshold $x^*_C$ increases with $\delta$, decreases asymptotically
 \textbf{Proof:}
 
 For the sake of simplicity, in this proof, we consider $\phi$ as in \eqref{phi}, which is always positive and well-defined, and we define
-$\psi:=4 d_1^2 \alpha \pi_0  (\delta  \theta  r+\alpha \pi_0 )+\delta ^2 \theta ^2 r^2$, which is also positive and well-defined w.r.t to our assumptions.
+$\psi:=4 d_1^2 \alpha \pi_0  (\delta  \theta  r+\alpha \pi_0 )+\delta ^2 \theta ^2 r^2$, which is also positive.
+% and well-defined w.r.t to our assumptions.
 %Recall also that $\pi_0>0$ stands for the profit function associated to the new product.
 
 Regarding $\delta$, we immediately conclude that
@@ -414,7 +426,7 @@ Regarding $\theta$, we obtain that
 \begin{align*}
 	\frac{\partial x^*_C ( \theta) }{\partial \theta}= \frac{ \theta (r-\mu ) \left(\frac{4 \delta  d_1^2 r \alpha \pi_0 +2 \delta ^2 \theta  r^2}{2 \sqrt{\psi }}+\delta  d_1 r\right)- 2 (r-\mu ) \left(d_1 (\delta  \theta  r+2 \alpha \pi_0 )+\sqrt{\psi }\right)}{(d_1-1) \theta ^3 r}.
 \end{align*}
-Although we weren't able to evaluate the sign of preceding expression due its the complexity, we analyse its asymptotic behaviour. This is possible since we assume no upper limit for innovation levels.
+Although we weren't able to evaluate the sign of preceding expression due its the complexity, we analyse its asymptotic behaviour. This is possible since we assume no upper limit for innovation levels  $\theta$.
 
 %The denominator is positive since $d_1>1$.
 %Manipulating the numerator, we obtain that it has
@@ -430,11 +442,12 @@ Although we weren't able to evaluate the sign of preceding expression due its th
 
 
 %Since we assume that innovation levels have no upper limit, we evaluated them asymptotically.
-Denoting $\theta_A:=\frac{(r-\mu )}{(d_1-1) r}  \left(\sqrt{\delta ^2 r^2}+\frac{\delta  r \left(\sigma ^2 (\phi +1)-2 \mu \right)}{2 \sigma ^2}\right)>0$ we obtain that $x^*_C$ asymptotically decreases on order of $\frac{\theta_A}{\theta}$, that is,  
+Denoting $\theta_A:=\frac{(r-\mu )}{(d_1-1) r}  \left(\sqrt{\delta ^2 r^2}+\frac{\delta  r \left(\sigma ^2 (\phi +1)-2 \mu \right)}{2 \sigma ^2}\right)>0$ we obtain that $x^*_C$ asymptotically decreases in order of $\frac{\theta_A}{\theta}$, that is,  
 
 $$x^*_C(\theta) \sim \frac{\theta_A}{\theta} \ \Leftrightarrow \ \lim_{\theta \to \infty} \frac{x^*_C(\theta)}{\frac{\theta_A}{\theta}}=1.$$
 
-Regarding parameters $\mu, \ r, \ \alpha$ and $K_0$ we obtained complex derivatives, from which we weren't able to derive any analytical result. However as it will be shown later, numerical results suggest that $x_C^*$ behaves in a non-monotonic way with each of them.
+%Regarding parameters $\mu, \ r, \ \alpha$ and $K_0$ we obtained complex derivatives, from which we weren't able to derive any analytical result. However as it will be shown later, numerical results suggest that $x_C^*$ behaves in a non-monotonic way with each of them.
+Regarding parameters $\mu, \ r, \ \alpha$ and $K_0$ we obtained complex derivatives, from which we weren't able to derive any analytical result. However, as it will be shown later, numerical results show that $x_C^*$ behaves in a non-monotonic way with each of them.
 
 \begin{flushright}
 	$\square$
@@ -443,7 +456,7 @@ Regarding parameters $\mu, \ r, \ \alpha$ and $K_0$ we obtained complex derivati
 
 %Although we couldn't obtain any analytical (strong) evidence, after different experiments done using \textit{Mathematica} and its function \texttt{Manipulate}, we obtained that decision thresholds $x^*_B$ and $x^*_C$ increase with volatility $\sigma$. An example is showed on Figure \ref{fig:2_x2}.
 
-Regarding parameters $\mu, \ r, \ \alpha$ and $K_0$ we obtained complex derivatives, from which we weren't able to derive any analytical result. However, as it will be shown later, numerical results show that $x_C^*$ behaves in a non-monotonic way with each of them.
+
 
 
 
@@ -451,8 +464,8 @@ Regarding parameters $\mu, \ r, \ \alpha$ and $K_0$ we obtained complex derivati
 
 \subsubsection{Numerical comparisons between the Benchmark and the Capacity Optimization Models}
 
-As in Chapter \ref{chapter:1}, using software \textit{Mathematica}, we perform numerical simulations to illustrate results mentioned above. 
-In addiction to the values considered in the previous chapter, we also assumed $K_0=50$ (and $K_1=100$).
+As in Chapter \ref{chapter:1}, using software \textit{Mathematica}, we perform numerical simulations to illustrate above mentioned results. 
+In addiction to the values considered in the previous chapter, we also assume $K_0=50$ (and $K_1=100$).
 
 %We start by illustrating how does $x^*_B$ and $x^*_C$ are related by the capacity level $K$, on which $x^*_B$ is dependent. One can see on Figure \ref{fig:Kvar} that conclusions mentioned on the proof (including that $x^*_B(0)=x^*_C$) hold.
 
@@ -470,9 +483,9 @@ In addiction to the values considered in the previous chapter, we also assumed $
 Figures \ref{fig:2_x2} (a) and (b) show the behaviour of both thresholds by changing $\delta$ and $\sigma$, respectively. 
 %They are on line with the theoretical results (Propositions \ref{2_prop1} and \ref{2_prop2}).
 %On Figure \ref{fig:2_x2}, we obtained similar results to the ones on Section 2. Both threshold values increase with sensibility parameter $\delta$ and volatility $\sigma$. 
-The first result is motivated by the fact that a higher $\delta$ reflects a larger investment (sunk) cost, which is only incurred if there is a demand level large enough such that the investment is reliable.
+The first result is motivated by the fact that a higher $\delta$ reflects a larger investment (sunk) cost, which is only incurred if there is a demand level large enough such that the investment is worthwhile.
 
-The second one is justified by the growing uncertainty (of the demand). Although we weren't able to derive this result regarding the threshold $x_C^*$, it is widely common that a larger volatility postpones the investment decision \cite{dixit:book}. 
+The second one is justified by the growing uncertainty (of the demand). Although we weren't able to derive analytically this result regarding the threshold $x_C^*$, it is widely common that a larger volatility postpones the investment decision \cite{dixit:book}. 
 %Since it has a high variance, the demand has a great amplitude of values, which delays the investment decision, only made when the demand reaches a high level. This is in accordance to what is described in \cite{dixit:book}.
 
 
@@ -487,9 +500,9 @@ The second one is justified by the growing uncertainty (of the demand). Although
 
 
 
-On Figure \ref{fig:2_x3} (a) we observe that, similarly to what happens on Section 2, both threshold levels decrease with innovation level meaning that the firm is eager to invest when the technology improvement is more significant.
+On Figure \ref{fig:2_x3} (a) we observe that, similarly to what happens on Chapter 2, both threshold levels decrease with innovation level, meaning that the firm is eager to invest when the technology improvement is more significant.
 
-Regarding the situation of the market, we have on Figure \ref{fig:2_x3} (b), that in a declining market both thresholds decrease approximately in a linear rate. However the same rate is not verified on a growing market. The threshold associated to the Benchmark Model decreases in a weaker rate than in a declining market, but $x^*_C$ increases with $\mu$. Again, we believe this happens in view of the invested capacity associated to each threshold.
+Regarding expectations about market's evolution (illustrated in Figure \ref{fig:2_x3} (b)), we see that in a declining market ($\mu<0$) both thresholds decrease approximately in a linear rate. However the same is not verified on a growing market ($\mu>0$). The threshold associated to the Benchmark Model still decreases, but in a weaker rate than in a declining market, whereas $x^*_C$ increases with $\mu$. Again, we believe this happens in view of the invested capacity associated to each threshold (as, with increasing $\mu$, the optimal capacity $K^*_C$ also increases, and therefore the firm tends to invest later).
 
 % Although the threshold level associated to the Benchmark Model decreases with $\mu$ in what seems to be a linear way for negative values of $\mu$ and almost negligible for positive values of $\mu$, the same doesn't happen to the threshold level associated to the capacity optimization model. This last one, seems to increase for positive values of $\mu$. 
 
@@ -508,16 +521,16 @@ Regarding the situation of the market, we have on Figure \ref{fig:2_x3} (b), tha
 %On Figure \ref{fig:2_x1} we have that a non-monotonic behaviour was also observed on parameters $r$, $K_0$ and $K_1$, being this last one only valid for the Benchmark Model.
 %On Figure \ref{fig:2_x1}, we observe that both threshold level behave in a non-monotonic way with $r$ and $K_0$.
 
-On Figure \ref{fig:2_x1} (a) we observe that, concerning each model, exists a discount rate that lead to a minimal demand threshold and that it is associated to small values of $r$. Unfortunately, we were not able to derive its analytical expression.
+On Figure \ref{fig:2_x1} (a) we observe that, concerning each model, exists a discount rate that leads to a minimal demand threshold and that it is associated to small values of $r$. Unfortunately, we were not able to derive its analytical expression.
 % thethe leftmost plot we can see that a minimum demand threshold is observed for small values of discount rate $r$. Unfortunately we couldn't derive its analytical expression.
 
 Interestingly, as seen on Figure \ref{fig:2_x1} (b), 
 %regarding the capacity of \textit{old} product,
-a maximum demand threshold is observed on both models when the capacity level $K_0$ is exactly equal to $\frac{1}{2 \alpha}$ (which, on this case, takes the value $K_0=50$). This quantity is motivated by the profit function associated to the established product, in the sense that a capacity of $\frac{1}{2 \alpha}$ leads to the maximization of $\pi_0$. Therefore, for $K_0$ assuming quite smaller or larger values than $\frac{1}{2 \alpha}$, the firm obtains a relative low profit and, consequently, the idea of investing in a new product gets more attractive to the firm, which is reflected by the small threshold levels.
+a maximum demand threshold is observed on both models when the capacity level $K_0$ is exactly equal to $\frac{1}{2 \alpha}$ (which, on this case, takes the value $K_0=50$). This quantity is motivated by the profit function associated to the established product, in the sense that a capacity of $\frac{1}{2 \alpha}$ leads to the maximization of $\pi_0$. Therefore, for $K_0$ assuming quite smaller or larger values than $\frac{1}{2 \alpha}$, the firm obtains a relative low profit in the \textit{old} product and, consequently, the idea of investing in a new product gets more attractive to the firm, which is reflected by the small threshold levels.
 %This values comes from the expression $\alpha K_0 \pi_0=\alpha K_0 (1-\alpha K_0)$ included on both expressions of $x_B^*$ \eqref{2_xB} and $x^*_C$ \eqref{eq:prob2_xC}.
 
 
-Regarding the capacity associated to the new product, we notice on Figure \ref{fig:2_x1} (c), that (as expected) it only affects $x_B^*$. We observe that a large $x_B^*$ is associated to either quite small or quite large values of $K_1$. The first one is explained by the fact that, to invest in a small quantity, the demand needs to be large enough such that the expected long-run $\pi_1$ (and investment costs) overcome the profit associated to the established product. The second one supports that the greater the capacity to invest on, the larger the expected $\pi_1$ is as well as associated investment costs. Hence, a larger value of demand is need, in order to justify the investment made. A minimum triggering value is observed at $K_1=\frac{-\pi_0+\sqrt{\alpha \pi_0(\alpha \pi_0+\delta \theta r)}}{r\alpha \delta}$ (which, on this case, takes the value $K_1\simeq  223$).
+Regarding the capacity associated to the new product, we notice on Figure \ref{fig:2_x1} (c), that (as expected) it only affects $x_B^*$. We observe that a large $x_B^*$ is associated to either quite small or quite large values of $K_1$. The first one is explained by the fact that, to invest in a small quantity, the demand needs to be large enough such that the expected long-run $\pi_1$ (and investment costs) overcome the profit associated to the established product. The second one supports that the larger the capacity to invest on, the larger the expected $\pi_1$ is as well as associated investment costs. Hence, a larger value of demand is needed, in order to justify the investment made. A minimum triggering value is observed at $K_1=\frac{-\pi_0+\sqrt{\alpha \pi_0(\alpha \pi_0+\delta \theta r)}}{r\alpha \delta}$ (which, on this case, takes the value $K_1\simeq  223$).
 
 %Regarding parameter $K_1$, its value doesn't affect threshold $x^*_C$, since it takes into account the optimal capacity $K^*_C$. However, when it comes to the threshold $x^*_B$ we have that it achieves a minimum value at $K_1=\frac{\pi_0+\sqrt{\alpha \pi_0(\pi_0+\delta \theta r)}}{r\alpha \delta}$, as it's represented on the bottom plot. Note that the standard value considered was $K_1=100$ and that it's associated a threshold $x_B^*$ smaller than the threshold $x_C^*$. This is one of the reasons why the demand threshold $x_B^*$ appears to be smaller than $x_C^*$ in most cases. However as showed in Figure \ref{fig:Kvar} (b), we have that the value function $F^*$ (associated to the threshold $x_C^*$) will always be greater than the value function $F$ (associated to the threshold $x_B^*$).
 	
@@ -530,7 +543,8 @@ Regarding the capacity associated to the new product, we notice on Figure \ref{f
 		\label{fig:2_x4}
 	\end{figure}
 	
-On Figure \ref{fig:2_x4} we highlight the two possible behaviours of $x^*_B$ regarding parameter $\alpha$. As stated in Proposition \ref{2_prop1}, we observe that for values of $\theta$ greater than $\frac{K_1}{ K_0^2} (K_0+K_1 r \delta)$, $x^*_B$ increases with $\alpha$ (as represented on (a)). For greater values than that quatity, $x^*_B$ decreases (as represented on (b)). We suspect that this exotic behaviour happens due to the influence of both $\pi_0$ and $\pi_1$. In this case, $\frac{K_1}{ K_0^2} (K_0+K_1 r \delta)$ is approximately 1.235.
+On Figure \ref{fig:2_x4} we highlight the two possible behaviours of $x^*_B$ regarding parameter $\alpha$. As stated in Proposition \ref{2_prop1}, we observe that for values of $\theta$ greater than $\frac{K_1}{ K_0^2} (K_0+K_1 r \delta)$ (which, in this case, is approximately 1.235), $x^*_B$ decreases with $\alpha$ (as represented on (a)). For greater values than that quantity, $x^*_B$ increases (as represented on (b)). We suspect that this unexpected behaviour happens due to the influence of both $\pi_0$ and $\pi_1$.
+% In this case, $\frac{K_1}{ K_0^2} (K_0+K_1 r \delta)$ is approximately 1.235.
 Although we weren't able to derive any analytical result concerning $x^*_C$, we conclude that it behaves non-monotonically with $\theta$, confirming the stated on Proposition \ref{2_prop2}.
 
 
@@ -539,7 +553,7 @@ Although we weren't able to derive any analytical result concerning $x^*_C$, we 
 
 \subsection{Optimal Capacity Level}
 
-In this section we analyse the optimal capacity level $K^*_C$, whose formula is provided in \eqref{3_K*}. Due to its complex expression, we are just able to deduce analytical results concerning the asymptotic behaviour of $K^*_C$ with $\theta$. However, the numerical results obtained lead us to conclude that it has a similar behaviour to the optimal capacity, presented on Chapter \ref{chapter:1}, whose formula corresponds to \eqref{prob1:K*}.
+In this section we analyse the optimal capacity level $K^*_C$, whose formula is provided in \eqref{3_K*}. Due to its complex expression, we are just able to deduce analytical results concerning the asymptotic behaviour of $K^*_C$ with $\theta$. However, the numerical results obtained lead us to conclude that it has a similar behaviour to the optimal capacity presented on Chapter \ref{chapter:1}, whose formula corresponds to \eqref{prob1:K*}.
 %Now we analyse optimal capacity level $K^*_C$, that is given by evaluating $K^*$ on demand level $x^*_C$ and as it is written in \eqref{3_K*}.
 
 \begin{prop}
@@ -552,7 +566,7 @@ Regarding innovation level $\theta$, assuming that it has no upper limit, it's p
 $$K^*_C(\theta) \sim \theta_K \theta \ \Leftrightarrow \ \lim_{\theta \to \infty}  \frac{K^*_C}{\theta_K \theta}=1 $$
 
 
-The non monotonic behaviour of $K^*_C$ with $K_0$ is justified by Figure \ref{fig:2_k0}.
+The non monotonic behaviour of $K^*_C$ with $K_0$ is illustrated in Figure \ref{fig:2_k0}.
 \begin{flushright}
 	$\square$
 \end{flushright}
@@ -570,7 +584,7 @@ The non monotonic behaviour of $K^*_C$ with $K_0$ is justified by Figure \ref{fi
 \end{figure}
 
 %Starting with the capacity level of the \textit{old} product $K_0$, 
-On Figure \ref{fig:2_k0}, we obtain that the highest optimal capacity level $K^*_C$ happens for $K_0=\frac{1}{2 \alpha}$.
+On Figure \ref{fig:2_k0} we obtain that the highest optimal capacity level $K^*_C$ happens for $K_0=\frac{1}{2 \alpha}$.
 We note that this stresses previous observations: if the firm is committed to a larger investment, then it impacts the investing timing, postponing it.
 % This is motivated by the results obtained for $x^*_C$, as seen on Figure \ref{fig:2_x1}, which also reaches its highest value at $\frac{1}{2 \alpha}$.
 
@@ -586,10 +600,10 @@ We note that this stresses previous observations: if the firm is committed to a 
 	\label{fig:2_k1}
 \end{figure}
 
-On Figure \ref{fig:2_k1}, we observe that $K^*_C$ increases with both drift, volatility and innovation level, as it happened in the previous section. 
-Note, on Figure \ref{fig:2_k1} (a), that, on a declining market, the optimal capacity is significantly smaller than in the growing market. This facts seems to support the increasing behaviour of $x^*_C$ for values $\mu>0$, as presented on Figure \ref{fig:2_x3} (b).
+On Figure \ref{fig:2_k1} we observe that $K^*_C$ increases with both drift, volatility and innovation level, as it happened in the previous section. 
+Note, on Figure \ref{fig:2_k1} (a), that, on a declining market ($\mu<0$), the optimal capacity is significantly smaller than in the growing market ($\mu>0$). This facts seems to support the increasing behaviour of $x^*_C$ for values $\mu>0$, as presented on Figure \ref{fig:2_x3} (b).
 %Note that again that, contrary to what happens for positive drift values, the growth of $K^*_C$ with $\mu$ is barely noticeable for negative values of $\mu$. This is related to the inverse relationship between $K^*_C$ and $x_C^*$.
-Also, note, on Figure  \ref{fig:2_k1} (c), that $K^*_C$ seems to increase linearly with $\theta$, being in accordance to the asymptotic behaviour of $K_C^*$ with $\theta$ previously proved.
+Also, note, on Figure \ref{fig:2_k1} (c), that $K^*_C$ seems to increase linearly with $\theta$, being in accordance to the asymptotic behaviour of $K_C^*$ with $\theta$ previously proved.
 
 \begin{figure}[!htb]
 	\begin{subfigmatrix}{3}

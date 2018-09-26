@@ -390,7 +390,7 @@ x_{1,A}^*<x_2^* \ &\Leftrightarrow \ \frac{d_1}{d_1-1} \frac{1-\alpha K_0}{2 \et
  \nonumber \\
 &\Leftrightarrow \ \eta <\frac{(1-\alpha K_0)(\theta-\alpha K_1)}{2(\delta K_1 r + \pi_0)}=: \eta^*, \label{3_eta*}
 \end{align}
-where we denoted $\eta^*$ to be the cannibalization threshold that states which value function stands.
+where we denoted $\eta^*$ to be the cannibalisation threshold that states which value function stands.
 
 Therefore we obtain that our problem, as stated in \eqref{eq:f2x}, may be written as
 
@@ -421,7 +421,7 @@ On this chapter, for a better understanding of numerical experiments' results, w
 	\end{tabular}
 \end{table*}
 
-On Figure \ref{fig:3_F} we assess the cannibalization threshold $\eta^*$ and how value functions relate to it. In each column we can find a different $\eta$ tested. On the first row we plot all subfunctions possible (respecting the order as they appear in \eqref{3_madzbigboy}) and associated to the value function $F$, without considering the constant term $\frac{\pi_0}{r}$. The final version of it is represented on the first row.
+On Figure \ref{fig:3_F} we assess the cannibalisation threshold $\eta^*$ and how value functions relate to it. In each column we can find a different $\eta$ tested. On the first row we plot all subfunctions possible (respecting the order as they appear in \eqref{3_madzbigboy}) and associated to the value function $F$, without considering the constant term $\frac{\pi_0}{r}$. The final version of it is represented on the second row.
 %and playing with the cannibalization parameter $\eta$, we obtain the six plots represented on Figure \ref{fig:3_F}.
 
 %Each column corresponds a different value of $\eta$ set. In each plot of the first row it's represented the different possible parts associated to the value function $F$ \eqref{3_madzbigboy}, accordingly to the respective legend, being the red dashed line corresponding to the valid value function associated to the parameters considered. It is also represented the three possible thresholds: $x_{1,A}^*$ by the yellow dot, $x^*_2$ by the orange dot and $x_{1,R}^*$ by the black dot. Finally on the second row it's represented solely the value function $F$ associated (the same as showed in the respective plot above) and respective threshold values.
@@ -435,7 +435,7 @@ On Figure \ref{fig:3_F} we assess the cannibalization threshold $\eta^*$ and how
 		\subfigure[$\eta=0.012$]{\includegraphics[width=0.32\textwidth]{Prob3/eta012dash_1.pdf}}
 		\subfigure[$\eta=0.013$]{\includegraphics[width=0.32\textwidth]{Prob3/eta013dash.pdf}}
 	\end{subfigmatrix}
-	\caption{Value function $F$ and respective subfunctions, given the order in \eqref{3_madzbigboy}, associated to different settings of parameter $\eta$.}
+	\caption{Value function $F$ minus $\frac{\pi_0}{r}$ and respective subfunctions, presented following the order in in \eqref{3_madzbigboy}, associated to different settings of parameter $\eta$. There is also represented the threshold values: $x^*_{1,A}$ (light green),  $x^*_2$ (darker green) and $x^*_{1,R}$ (black). }
 	\label{fig:3_F}
 \end{figure}
 
@@ -525,8 +525,11 @@ On Figure \ref{fig:2_x1Ai} (a) we observe that the larger the cannibalisation pa
 
 The linear relationship between $\delta$ and $x_{1,A}^*$, as presented on Figure \ref{fig:2_x1Ai} (b), comes immediately  by the threshold's expression. This is financially justified by the fact that a larger $\delta$ results on larger investmnet (sunk) costs and, therefore, the firm only invests when it could profit. 
 
+One can note that $x^*_{1,A}$ shows a similar linear behaviour with $\alpha$, $K_0$ and $K_1$. 
 
+On Figure \ref{fig:2_x1Ai} (c), the growth of $\alpha$ suggests that the established product is preferable to the \textit{new} one, resulting in a larger demand threshold.
 
+Concerning both capacities of production $K_0$ and $K_1$, we observe on Figures \ref{fig:2_x1Ai} (d) and (e), that the larger they are, the higher the demand level that triggers the invest is. Regarding $K_0$ this result is justified by the fact that the larger is the value it takes, the higher the profit of the established product is, so the firm gets more relutant about investing for low demand levels. In different circumstances, a larger $K_1$ induces a longer investment (so as investment costs), wherefore the investment decision will only incur if the observed demand is large enough. 
 
 
 
@@ -538,20 +541,24 @@ Although we weren't able to deduce any analytical result concerning the interest
 
 \begin{figure}[!htb]
 	\begin{subfigmatrix}{2}
-		\subfigure[$\mu \in (0,r)$]{\includegraphics[width=0.32\textwidth]{Prob3/x1Amu.pdf}}
-		\subfigure[$\theta \in (1,10)$]{\includegraphics[width=0.32\textwidth]{Prob3/x1Atheta.pdf}}
+		\subfigure[$\mu \in (0,r)$]{\includegraphics[width=0.4\textwidth]{Prob3/x1Amu.pdf}}
+		\subfigure[$\theta \in (1,10)$]{\includegraphics[width=0.4\textwidth]{Prob3/x1Atheta.pdf}}
 	\end{subfigmatrix}
 	\caption{Threshold value $x^*_{1,A}$ with respect to parameters with which it decreases.}
 	\label{fig:2_x1Ad}
 \end{figure}
 
-On Figure \ref{fig:2_x1Ad} we present some plots that also comprove what was stated on Proposition \ref{3_propx1A}, but with respect to the parameters with which $x_{1,A}^*$ increases. Again, we add the plot concerning the drift parameter $\mu$, for which we couldn't derive any analytical solution, but studying the behaviour of $x^*_{1,A}$ we conclude that it also decreases with $\mu$.
+
+As analysed on previous chapters, we observe on a declining market ($\mu<0$), the investment threshold decreases linearly in a stronger rate than in a growing market $\mu>0$, on which the threshold barely changes.
+ 
+Finally, in view of Figure \ref{fig:2_x1Ai}, we obtain that the larger the innovation level, the higher is the expected profit during the simultaneous production period and hence the more attractive is the investment on the \textit{new} product.
+%On Figure \ref{fig:2_x1Ad} we present some plots that also comprove what was stated on Proposition \ref{3_propx1A}, but with respect to the parameters with which $x_{1,A}^*$ increases. Again, we add the plot concerning the drift parameter $\mu$, for which we couldn't derive any analytical solution, but studying the behaviour of $x^*_{1,A}$ we conclude that it also decreases with $\mu$.
 
 
-\subsection{Demand threshold $x_{1,R}^*$}
-\label{3_dmx1R}
+%\subsection{Demand threshold $x_{1,R}^*$}
+%\label{3_dmx1R}
 
-All results come from Section \ref{2_bm} and thus they won't repeated here.
+%All results come from Section \ref{2_bm} and thus they won't repeated here.
 
 
 
@@ -560,7 +567,7 @@ All results come from Section \ref{2_bm} and thus they won't repeated here.
 	
 \begin{prop}
 	\label{3_propx2}
-	Decision threshold $x_2^*$ increases with $\sigma$ and decreases with $\eta, \ \alpha, \ K_0$ and $K_1$.
+	The decision threshold $x_2^*$ increases with $\sigma$ and decreases with $\eta, \ \alpha, \ K_0$ and $K_1$.
 \end{prop}
 
 \textbf{Proof:}
@@ -572,14 +579,17 @@ Regarding $\sigma$, we obtain that
 \frac{\partial x_2^* ( \sigma) }{\partial \sigma}=
 \frac{(\alpha  K_0-1) (r-\mu) \left(-2 \mu ^2+\mu  \sigma ^2 \left(\phi+1\right)-2 r \sigma ^2\right)}{(d_1-1)^2 \eta  K_1 r \sigma ^5 \phi}>0
 \end{align*}
-where the denominator is positive since $d_1>1$, $\phi>0$  and the denominator is positive since $r>\mu$, $1-\alpha K_0>0$ and by noticing (again) that $-2 \mu ^2+\mu  \sigma ^2 \left(\phi+1\right)-2 r \sigma ^2<0 \Leftrightarrow \mu d_1-r<0$, which holds always, as previously showed in \eqref{mud1-r}.
+since the denominator is positive and the numerator also, concerning the same reason used in \eqref{1_xBs}.
+%where the denominator is positive since $d_1>1$, $\phi>0$  and the denominator is positive since $r>\mu$, $1-\alpha K_0>0$ and by noticing (again) that $-2 \mu ^2+\mu  \sigma ^2 \left(\phi+1\right)-2 r \sigma ^2<0 \Leftrightarrow \mu d_1-r<0$, which holds always, as previously showed in \eqref{mud1-r}.
 
 %Regarding parameters $\mu$ and $r$, we obtained complex derivates, from which we couldn't deduce any analytical result. However, as it will be showed hereunder, $x^*_C$ behaves in a non-monotonic way with all of them.
 \begin{flushright}
 	$\square$
 \end{flushright}
 
-Considering the same parameters as in Section \ref{3_dmx1A}, we perform some numerical approximations concerning $x_2^*$.
+
+Unfortunately we are not able to deduce any analytical expression regarding changes influenced by the discount rate and demand's drift. However, supporting on numerical experiments we observe that the behaviour hereunder described holds.
+%Considering the same parameters as in Section \ref{3_dmx1A}, we perform some numerical approximations concerning $x_2^*$.
 
 \begin{figure}[!htb]
 	\begin{subfigmatrix}{1}
@@ -589,16 +599,18 @@ Considering the same parameters as in Section \ref{3_dmx1A}, we perform some num
 	\label{fig:2_x2i}
 \end{figure}
 
-From Figure \ref{fig:2_x2i} we comprove what was stated on Proposition \ref{3_propx2} regarding $\sigma$. 
+%From Figure \ref{fig:2_x2i} we comprove what was stated on Proposition \ref{3_propx2} regarding $\sigma$. 
 
-We also obtained that the volatility $\sigma$ was the unique parameter we found to increase both thresholds $x_{1,A}^*$ and $x_2$. Note that by Section \ref{2_bm}, that the same holds for the threshold $x_{1,R}$. Thus we conclude that a situation where the demands shows to have a high volatility, both investment and replacement decisions tend to be postponed.
+%We also obtained that the volatility $\sigma$ was the unique parameter we found to increase both thresholds $x_{1,A}^*$ and $x_2$. Note that by Section \ref{2_bm}, that the same holds for the threshold $x_{1,R}$. Thus we conclude that a situation where the demands shows to have a high volatility, both investment and replacement decisions tend to be postponed.
+
+Interestingly, market's uncertainty is the unique aspect that delays the abandonment of the production of the \textit{old} product, being preferable to keep the firm producing both products. This result is presented on Figure \ref{fig:2_x2i} and it is justified by the fact that the stable profit associated to the \textit{old} product, which not influenced by the uncertainty of the market, benefits the firm from possible low demand levels, leading to a low profit, if the firm was only producing the innovative product.
 
 \begin{figure}[!htb]
 	\begin{subfigmatrix}{6}
 		\subfigure[$\eta \in (0, \alpha )$ ]{\includegraphics[width=0.32\textwidth]{Prob3/x2eta.pdf}}
 		\subfigure[$\alpha \in (0, \min \{ 1/K_0, \theta/K_1 \} )$ ]{\includegraphics[width=0.32\textwidth]{Prob3/x2alpha.pdf}}
-		\subfigure[$K_1 \in (0,\theta/\alpha)$]{\includegraphics[width=0.32\textwidth]{Prob3/x2k.pdf}}
 		\subfigure[$K_0 \in (0,1/\alpha)$]{\includegraphics[width=0.32\textwidth]{Prob3/x2k0.pdf}}
+		\subfigure[$K_1 \in (0,\theta/\alpha)$]{\includegraphics[width=0.32\textwidth]{Prob3/x2k.pdf}}
 		\subfigure[$r \in (0,\mu)$]{\includegraphics[width=0.32\textwidth]{Prob3/x2r.pdf}}
 		\subfigure[$\mu \in (0,r)$]{\includegraphics[width=0.32\textwidth]{Prob3/x2mu.pdf}}
 	\end{subfigmatrix}
@@ -606,4 +618,15 @@ We also obtained that the volatility $\sigma$ was the unique parameter we found 
 	\label{fig:2_x2d}
 \end{figure}
 
-On Figure \ref{fig:2_x2d} we show how the threshold $x_2$ decreases with parameters stated on Proposition \ref{3_propx2}. We also add plots concerning the drift parameter $\mu$ and the discount rate $r$, for which we couldn't derive any analytical solution, but studying how $x^*_2$ behaves with them, we conclude that it also increases with $\mu$ and $r$, from which the behaviour showed may be generalized.
+In view of Figure \ref{fig:2_x2d} (a) the larger the cannibalisation parameter considered, the smaller is the profit obtained during the simultaneous production period, inducing the firm to antecipate the abandonment decision. 
+
+Since both cannibalisation $\eta$ and capacity $K_1$ appear in the denominator of $x^*_2$, a similar behaviour is expected from both them. This is verified on Figure \ref{fig:2_x2d} (d) and comes from the fact that a larger capacity investment (already) incurred - when the demand reached $x^*_{1,A}$ - results on smaller profit by considering a simultaneous production than by solely producing the innovative product, encouraging the firm to invest earlier.
+
+By confronting the results presented on Figures \ref{fig:2_x2d} (b) and (c) with the expression on \eqref{3:x2}, we observe that both $\alpha$ and $K_0$ have an akin linear effect: the larger the sensibility $\alpha$ or the capacity $K_0$, the earlier the firm should cease the production of the \textit{old} product.
+
+Once again we obtain the same peculiar type of behaviour with respect to changes on market's fortuity, as is showed on Figure \ref{fig:2_x2d} (f).
+
+
+
+
+%On Figure \ref{fig:2_x2d} we show how the threshold $x_2$ decreases with parameters stated on Proposition \ref{3_propx2}. We also add plots concerning the drift parameter $\mu$ and the discount rate $r$, for which we couldn't derive any analytical solution, but studying how $x^*_2$ behaves with them, we conclude that it also increases with $\mu$ and $r$, from which the behaviour showed may be generalized.

@@ -17,17 +17,22 @@ Insert your chapter material here...
 \section{Motivation}
 \label{section:motivation}
 
-Nowadays, society is too attached to technology, from mobile phones to fancy gadgets - and sometimes scratching the absurd \textcolor{red}{FONTES FILAS DE ESPERA E ESTATÍSTICAS} . Nevertheless, all this huge demand brought changes on how IT companies should manage their investments. These should, not only pay attention to the product demand on the market, but also to technology evolution. Therefore they started to require more complex models to support their investment decisions. Models that wouldn't just consider the current value of the firm, such as the ones based on the Net Present Value (NPV), but that could take into account the potential associated to future events.
+Nowadays, society is highly attached to technology, from mobile phones to fancy gadgets - and sometimes scratching the absurd\footnote{Parents forget to feed child while playing videogames:\\
+\url{https://www.theguardian.com/world/2010/mar/05/korean-girl-starved-online-game} }.
+ Nevertheless, all this huge demand brought changes on how IT companies should manage their investments. These should, not only pay attention to the product demand on the market, but also to technology evolution. Therefore they started to require more complex models to support their investment decisions. Models that wouldn't just consider the current value of the firm, such as the ones based on the Net Present Value (NPV), but that could take into account the potential associated to future events.
 
 We may take ASML, a dutch company considered to be Europe's largest semiconductor equipment maker FONTE, as an example.
 ASML builds chips producing machines that satisfy the needs of hardware building companies - from Intel to Apple.
 Therefore, in order to survive on the competitive market, they need either to develop their own technology, by investing on R\&D, or import a desired one, by paying an associated cost.
 
-In this work we will focus on the situation where the firm chooses to develop their own technology and, hence, define the desired innovation level and investment to be made \textit{a priori}. Since it is impossible to access that a certain level of technology will be reached in a precise amount of time\footnote{Flying cars as an example!}, the innovation process is considered to evolve randomly with time, which rate might be influenced by the amount of money invested. More money implies more resources and, hence, an higher evolution rate.
+In this work we will focus on the situation where the firm chooses to develop their own technology and, hence, define the desired innovation level and investment to be made \textit{a priori}. Since it is impossible to access that a certain level of technology will be reached in a precise amount of time\footnote{Flying cars predicted for 2015 in \textit{Back to Future} as an example (!):\\ \url{http://content.time.com/time/specials/packages/article/0,28804,2024839_2024845_2024855,00.html}} \footnote{Moore's Law - which defends that processor performance doubles (approximately) every two years - is dying:\\
+\url{https://www.forbes.com/sites/forbestechcouncil/2018/03/09/moores-law-is-dying-so-where-are-its-heirs/\#53cb24a17a7b}}, the innovation process is considered to evolve randomly with time, which rate might be influenced by the amount of money invested. More money implies more resources and, hence, an higher evolution rate.
 
 After having reached the desired innovation level, the firm is responsible to evaluate under which market conditions it should invest and in which type of products. Always having in mind to maximize the expected long run profit.
 
 
+%iPhone X release in 2017:\\ \url{https://www.bloomberg.com/news/articles/2017-11-02/long-lines-are-back-at-apple-stores-for-10th-anniversary-iphone
+%}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -47,15 +52,135 @@ where $\theta_0$ corresponds to the initial innovation level, $u > 0$ to the jum
 
 %Under this situation the firms decides how much it will invest in R\&D, knowing that a bigger investment implies a smaller expected time until it is able to invest on the new product.
 
-When the breakthrough happens, the innovation process stops and the firm is able to invest on the new product with innovation level $\theta$. The firm will need to incur investment (sunk) costs, related with employees' formation and new equipment. They will depend on the production capacity chosen $K_1$. During this work, we consider that the firm produces up to it's capacity. Hence, sunk cost will be dependent on the quantity of production chosen.
+When the breakthrough happens, the innovation process stops and the firm is able to decide when it should invest on the new product with the innovation level $\theta$. In order to have the new product available on the market, the firm needs to incur an investment (sunk) cost. This one is related with employees' formation and new equipment, that depends on the production capacity chosen $K_1$. During this work, we consider that the firm produces up to it's capacity. Hence, sunk cost will be dependent on the quantity of production chosen.
+
+Since the new product offers a new technology level, not recognized by the market, its profit is strongly dependent on market's demand. The better the reception of the product is, the higher is its demand and the bigger is the profit made. 
+%Here the demand is considered to evolve accordingly to a Geometric Brownian Motion (GBM) which initial state corresponds to the demand at the breakthrough time.
+
+%The investment decision will be influenced by the long run profit possible to be obtained.
 
 The goal of this work is to define, using real
 options analysis, the optimal investment time on the new product such that the expected long run profit is maximized and to study how market conditions influence it.
 
-During the following work we will consider the timeline represented on Figure % \ref{timeline}.
-\textcolor{red}{ADICIONAR BARRA CRONOLÓGICA!}
+During the following work we will consider the timeline represented hereunder
 
-Therefore, when determining the optimal investment time on the new product, we consider as the starting time the instant at which occurs the innovation breakthrough. However when evaluating the value function regarding the complete investment (associated to both R\&D and new product), the starting time corresponds to the time at which the firm decides to invest in R\&D.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\begin{tikzpicture}[y=1cm, x=1cm, thick, font=\footnotesize]    
+%\usetikzlibrary{arrows,decorations.pathreplacing}
+%
+%\tikzset{
+%	brace_top/.style={
+%		decoration={brace},
+%		decorate
+%	},
+%	brace_bottom/.style={
+%		decoration={brace, mirror},
+%		decorate
+%	}
+%}
+%
+%% time line week
+%\draw[line width=1.2pt, ->, >=latex'](0,0) -- coordinate (x axis) (14,0) node[right] {\textit{Time}}; 
+%\foreach \x in {0,3,8}
+%\draw (\x cm,3pt) -- (\x cm,-3pt);
+%%\foreach \x in {current time,  , $\tau$, 3} \draw (\x,0.1) -- (\x,-0.1) node[below] {\x};
+%\draw (0,0) node[below=3pt] (a) {$\text{R\&D investment}$} node[above=3pt] {};
+%\draw (3,0) node[below=9pt] (a) {$\text{Innovation breakthrough $\theta$}$} node[above=3pt] {};
+%\draw (8,0) node[below=3pt] (a) {$\tau:$ 
+%\text{ \textit{new} product's investment}} node[above=3pt] {};
+%%\draw (12,0) node[below=9pt] (a) {$\tau_2:$ \text{\textit{old} product's abandonment}} node[above=3pt] {};
+%
+%%brace
+%%\node (start_p) at (0,0.6) {};
+%%\node (end_p) at (7.99,0.6) {};
+%%\draw [brace_top] (start_p.north) -- node [above, pos=0.5] {$\text{\textit{Old} product}$} (end_p.north);
+%
+%%brace
+%%\node (start_pn) at (8.01,0.6) {};
+%%\node (end_pn) at (11.99,0.6) {};
+%%\draw [brace_top] (start_pn.north) -- node [above, pos=0.5] {$\text{\textit{Old \& New} product}$} (end_pn.north);
+%
+%%brace
+%\node (start_pn) at (8.01,0.6) {};
+%\node (end_pn) at (13.8,0.6) {};
+%\draw [brace_top] (start_pn.north) -- node [above, pos=0.5] {$\text{\textit{New} product}$} (end_pn.north);
+%
+%
+%% top brace
+%\node (start_t) at (0,0.1) {};
+%\node (end_t) at (2.99,0.1) {};
+%\draw [brace_top] (start_t.north) -- node [above, pos=0.5] {$\text{Innovation development}$} (end_t.north);
+%
+%% top brace
+%\node (start_week) at (3.01,0.1) {};
+%\node (end_week) at (13.8,0.1) {};
+%\draw [brace_top] (start_week.north) -- node [above, pos=0.5] {$\text{Firm is able to make its investment decisions regarding $\theta$}$} (end_week.north);
+%
+%\end{tikzpicture}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vspace{4mm}
+
+\begin{tikzpicture}[y=1cm, x=1cm, thick, font=\footnotesize]    
+\usetikzlibrary{arrows,decorations.pathreplacing}
+
+\tikzset{
+	brace_top/.style={
+		decoration={brace},
+		decorate
+	},
+	brace_bottom/.style={
+		decoration={brace, mirror},
+		decorate
+	}
+}
+
+% time line week
+\draw[line width=1.2pt, ->, >=latex'](0,0) -- coordinate (x axis) (14,0) node[right] {\textit{Time}}; 
+\foreach \x in {0,3}
+\draw (\x cm,3pt) -- (\x cm,-3pt);
+%\foreach \x in {current time,  , $\tau$, 3} \draw (\x,0.1) -- (\x,-0.1) node[below] {\x};
+\draw (0,0) node[below=3pt] (a) {$\text{R\&D investment}$} node[above=3pt] {};
+\draw (3,0) node[below=9pt] (a) {$\text{Innovation breakthrough $\theta$}$} node[above=3pt] {};
+
+%%brace
+%\node (start_p) at (0,0.6) {};
+%\node (end_p) at (7.99,0.6) {};
+%\draw [brace_top] (start_p.north) -- node [above, pos=0.5] {$\text{\textit{Old} product}$} (end_p.north);
+%
+%%brace
+%\node (start_pn) at (8.01,0.6) {};
+%\node (end_pn) at (11.99,0.6) {};
+%\draw [brace_top] (start_pn.north) -- node [above, pos=0.5] {$\text{\textit{Old \& New} product}$} (end_pn.north);
+%
+%%brace
+%\node (start_pn) at (12.01,0.6) {};
+%\node (end_pn) at (13.8,0.6) {};
+%\draw [brace_top] (start_pn.north) -- node [above, pos=0.5] {$\text{\textit{New} product}$} (end_pn.north);
+
+
+% top brace
+\node (start_t) at (0,0.1) {};
+\node (end_t) at (2.99,0.1) {};
+\draw [brace_top] (start_t.north) -- node [above, pos=0.5] {$\text{Innovation development}$} (end_t.north);
+
+% top brace
+\node (start_week) at (3.01,0.1) {};
+\node (end_week) at (13.8,0.1) {};
+\draw [brace_top] (start_week.north) -- node [above, pos=0.5] {$\text{Firm is able to make its investment decisions regarding $\theta$}$} (end_week.north);
+
+\end{tikzpicture}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Henceforth, when determining the optimal investment time on the new product, we consider as the starting time the instant at which occurs the innovation breakthrough. However when evaluating the value function regarding the complete investment (associated to both R\&D and new product), the starting time corresponds to the time at which the firm decides to invest in R\&D.
 
 
 

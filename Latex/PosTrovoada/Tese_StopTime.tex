@@ -9,58 +9,101 @@
 
 In this section we will analyse the optimal times to invest regarding the three different models developed on previous sections.
 
-First, we will analyse some estimated relevant measures - such as mean, median and standard deviation - of the optimal investment times, by considering different demand initial values.
+First, we will analyse some relevant measures - such as estimated mean, median and standard deviation - concerning the behaviour of optimal investment times with different initial demand values.
 
-Secondly, we will analyse how the estimated mean of optimal investment times behaves with volatility and compare their behaviour with the change on associated threshold value and optimal capacity level.
+Secondly, we will analyse how the estimated mean of optimal investment times behaves with volatility and assess its relation with changes  either on the associated threshold value or optimal capacity level.
 
 \section{Initial demand values $x_0$}
 \label{section:x0}
 
 \subsubsection{Methodology}
 
-We start by fixing values regarding the relevant parameters to each of the models, with the exception of the initial point $x_0$, that we will vary here.
 
-Regarding the first and second models, discussed on Chapters \ref{chapter:1} and \ref{chapter:2}, respectively, we consider $x_0 \in [0.0002, 3 \times  \texttt{xStep} + \lfloor \max{ \{ x_B^*, x_C^* \} } \rfloor]  ]$, in particular, values $x_{0_i}$ which are incremented $i$-th times by \texttt{xStep}=0.0002. Due to the noticeable difference of the order of magnitude of the thresholds on Chapter \ref{chapter:3}, we consider the interval of possible initial values to be $[0.002, 10 \times \texttt{xStep} +  \lfloor  x_{1,A}^* \rfloor] ]$, in particular, values $x_{0_i}$ which are incremented $i$-th times \texttt{xStep}=0.002.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+We analyse model by model, initially fixing relevant parameters to the considered situation, with the exception of the initial point $x_0$ - which is changed.
+
+On the first and second situations, discussed on Chapters \ref{chapter:1} and \ref{chapter:2}, respectively, we consider $x_0$ to be incremented by \texttt{xStep}=0.0002 and to take values between 0.0002 and $3 \times  \texttt{xStep} + \lfloor \max{ \{ x_B^*, x_C^* \} } \rfloor]$. Such small values are considered due to the low investment triggering values associated to each of the models.
+
+
+On the other side, since the magnitude of thresholds analysed on Chapter \ref{chapter:3}, is quite larger than the ones on previous two chapters, we consider the demand to be incremented by a larger step: \texttt{xStep}=0.002.
+Recall that the most interesting situation on this chapter was obtained by considering $\eta<\eta^*$ \eqref{3_eta*} \footnote{For values $\eta \geq \eta^*$, we are in the same case as described on Chapter \ref{chapter:2}: we have an unique threshold which sets the transition from the production of the established product to the \textit{new} one.}, from which we would get an optimal investment time regarding the simultaneous production of established and \textit{new} products. Regarding the analysis of the optimal stopping time associated to $x_2^*$, we evaluate for a single initial demand value $x_{1,R}^*$, since this is the first instant, after investing when the demand reaching $x_{1,R}^*$.
+%Considering the case when we invest on the \textit{new} product for a demand level $x$ greater than $x_{1,R}^*$, we would set the initial instant until it re
+
+
+
+% on the analysis of the optimal investment time associated to $x^*_{1,A}$, we consider now $x_0$ to start at 0.002 and to be incremented, by \texttt{xStep}=0.002, until it achieves the value $3 \times  \texttt{xStep} + x_1,R^*$ and then
+
+Note that $x_0$ is also taken to be greater than the correspondent thresholds. Considering those values, we numerically show that, whenever a firm is interested to invest in a market on which high demand levels are observed, it should immediately invest - obtaining a null expected waiting time.
+
+%Regarding the first and second models, discussed on Chapters \ref{chapter:1} and \ref{chapter:2}, respectively, we consider $x_0 \in [0.0002, 3 \times  \texttt{xStep} + \lfloor \max{ \{ x_B^*, x_C^* \} } \rfloor]  ]$, in particular, values $x_{0_i}$ which are incremented $i$-th times by \texttt{xStep}=0.0002. Due to the noticeable difference of the order of magnitude of the thresholds on Chapter \ref{chapter:3}, we consider the interval of possible initial values to be $[0.002, 10 \times \texttt{xStep} +  \lfloor  x_{1,A}^* \rfloor] ]$, in particular, values $x_{0_i}$ which are incremented $i$-th times \texttt{xStep}=0.002.
 		
-By fixing the firm's situation to analyse, we fix as well the respective demand threshold, for which, higher demand values, state that the investment should be done.
+%By fixing the firm's situation to analyse, we fix as well the respective demand threshold, for which, higher demand values, state that the investment should be done.
 
-Therefore we execute the function \texttt{generalStopTime}, that given the extremes of the domain of initial points to be considered, it simulates \texttt{NsamplePaths}=1000 demand sample paths, until they all reach the threshold chosen. It returns as output the set of times corresponding to when each sample path reached the referred threshold.
-After that, per each initial value $x_{0_i}$, we calculate the respective measure of interest (mean, median or standard deviation), whose result is presented in plots, as can be seen in the section hereunder.
 
-Note that, since this is a mere illustration of the models deduced, for following results we consider a \texttt{timeStep}=1. However this value can be changed and chosen to be in the same time scale as the estimated drift $\mu$ and volatility $\sigma$ of the GBM or regarding a certain time window. 
+
+Using as input fixed initial demand values, steps and also demand's volatility and drift, function \texttt{generalStopTime} returns optimal investiment times' measures of interest. To a better understanding, outputs are plotted hereunder.
+%We execute function \texttt{generalStopTime}, which, per each initial value, returns the measures we are interested on (mean, median or standard deviation) along with the initial demand value considered. To a better understanding, outputs are plotted hereunder.
+
+
+The time step here can be chosen taking into account how drift and volatility of the demand process are estimated or in view of a certain time window.
+Since these are mere illustrations concerning deduced models, we are able to choose an arbitrary time step. However, for the sake of a better understanding, we consider it to be one time unit.
+
+
+
+%The time step we fix a time step of 1 time unit, but this value can be chosen to be in the same time scale as the estimated drift $\mu$ and volatility $\sigma$ of the GBM or regarding a certain time window. 
 
 
 \subsubsection{Results}
 
-Regarding models derived on Sections \ref{chapter:1} and \ref{chapter:2}, the following set of parameters was considered:
-\begin{table*}[!htb]
-	\centering
-	\begin{tabular}{lllllll}
-		$\bullet$ & $\mu=0.03$     &  & \hspace{7cm} &  &  $\bullet$ & $\alpha=0.01$ \\
-		$\bullet$ & $\sigma=0.1$ &  & \hspace{7cm} &  &  $\bullet$ & $\theta=10$   \\
-		$\bullet$ & $r=0.05$       &  & \hspace{7cm} &  &  $\bullet$ & $K_0=90$       \\
-		$\bullet$ & $\delta=2$     &  & \hspace{7cm} & &  $\bullet$ & $K_1=100$  	\\                                
-	\end{tabular}
-	%\caption{bjde}
-\end{table*}
-Despite $\sigma$, these are the same values used in Sections \ref{chapter:1} and \ref{chapter:2}.
 
-Regarding the model derived on Section \ref{chapter:3}, the following set of parameters was considered:
-\begin{table*}[!htb]
-	\centering
-	\begin{tabular}{lllllll}
-		$\bullet$ & $\mu=0.45$     &  & \hspace{7cm} &  &  $\bullet$ & $\alpha=0.015$ \\
-		$\bullet$ & $\sigma=0.1$ &  & \hspace{7cm} &  &  $\bullet$ & $\theta=1.5$   \\
-		$\bullet$ & $r=0.85$       &  & \hspace{7cm} &  &  $\bullet$ & $K_0=51.5$       \\
-		$\bullet$ & $\delta=0.95$     &  & \hspace{7cm} & &  $\bullet$ & $K_1=2.5$  		\\
-		$\bullet$ & $\eta=0.007$.     
-	\end{tabular}
-\end{table*}
+For all the analysis performed, we consider the same set of parameters used on respective Comparative Statics sections. The only exception stands for volatility, which we increase to $\sigma=0.1$, in order to obtain results within a larger variability.
 
-Despite $\sigma$, these are the same values used on Chapter \ref{chapter:3}. Note that by choosing $\eta=0.007$, we have that $\eta< \eta^*$ and thus we are in the situation where the firm has two decisions to make: when it should invest and start the simultaneous production; when it should stop  the simultaneous production and produce solely the \textit{new} product.
-On Figure \ref{fig:stoptime_1} we can find the results obtained.
 
-Note that, in which of the plots, there is represented a dashed line corresponding to the demand threshold level for which the firm should make its investment decision. As expected, for any initial value higher than the threshold,
+%Despite $\sigma$, these are the same values used on Chapter \ref{chapter:3}. Note that by choosing $\eta=0.007$, we have that $\eta< \eta^*$ and thus we are in the situation where the firm has two decisions to make: when it should invest and start the simultaneous production; when it should stop  the simultaneous production and produce solely the \textit{new} product.
+%On Figure \ref{fig:stoptime_1} we can find the results obtained.
+
+Results are presented on Figure \eqref{fig:stoptime_1}.
+First we state that in every plot, the demand level that triggers the investment it is represented by a dashed line. As expected, for any initial value higher than the threshold,
 % there is no waiting time until it's optimal to make the investment decision 
 the firm is not expected to wait to decide
 - not only the mean and median are null, so it is the standard deviation.
