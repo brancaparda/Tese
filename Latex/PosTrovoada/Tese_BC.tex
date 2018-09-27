@@ -1,0 +1,45 @@
+\chapter{Background concepts}
+\label{chapter:bc}
+
+Before starting to explain the work that is here developed, we introduce the main concepts and tools required.
+
+We start by introducing the field of Optimal Stopping Problems, a subfield of Stochastic Control Problems (which won't be here treated) showing how we can characterize an optimal stopping time regarding a certain decision and then we explain how Optimal Stopping Problems are related with investment decisions under uncertainty, namely with Real Options approach, deducing the general solution of the (standard) optimal problems that we will face along this work.
+
+
+\section{Optimal Stopping Problems}
+\label{section:osp}
+
+The main goal of optimal stopping problems consists on finding a stopping time such that a reward or cost function is maximized or minimized, respectively. Taking into account that investment decisions are usually formulated as the maxiization of possible gains, we treat along this sectiion the case on which we are dealing with a rewarding function. Nevertheless, we highlight the fact that te minimization problem is easily reductable to a maximization one and \textit{vice-versa} - for further details we recommend \cite{ross} and \cite{oksendal:book}.
+
+Since investment decisions are usually related to sources of uncertainty, represented on the form of stochastic processes, we start to set our investment environment. We consider a probability space probability space $(\Omega,\mathcal{F}, \mathds{P})$ associated to the underlying Brownian Motion $W$, on which $\mathcal{F}=\{\mathcal{F}_t, \ t\geq0 \}$ corresponds to its natural filtration and the unidimensional Itô process $\textbf{X}=\{ X_t, \ t \geq0 \}$ with state space defined on $\mathds{R}$. $\textbf{X}$ evolves accordingly to the SDE:
+\begin{equation}
+d X_t=b(X_t)dt + \sigma (X_t)dW_t, \ X_0=x\in \mathds{R},
+\label{bc_sde}
+\end{equation} 
+where $b$ and $\sigma$ are functions that satisfy Itô conditions given by:
+\begin{align}
+\exists K \in (0,\infty) \  \forall t \in [0,\infty) \ \forall u \in \mathds{U} \ \forall x,y \in\mathds{R}^n: \hspace{3mm} \nonumber &\\
+|b(t,x,\alpha)-b(t,y,\alpha)| + || \sigma (t,x,\alpha)- \sigma(t,y,\alpha)|| &\leq K |x-y| \label{bc_cond1} \\
+|b(t,x,\alpha)|^2+|| \sigma (t,x,\alpha)|| &\leq K^2 (1+|x|^2).  \label{bc_cond2}
+\end{align}
+
+Given this context, we define one of the most important concepts regarding optimal stopping problems.
+ \begin{defi}
+	A function $\tau:\Omega \rightarrow [0,\infty]$ is called a stopping time with respect to the filtration $\mathcal{F}$ is $\{ \omega: \ \tau(\omega)\leq t\} \in \mathcal{F}_t \ \forall t\geq0$.
+\end{defi}
+
+Intuitively we have that our reward function is strongly influenced by a running cost function $g$, which states the instantaneous earnings before the decision is taken; a terminal function $h$ corresponding to the long-run earnings or termination payoff associated to the observed value of the Itô process when the decision is incurred; a stopping time $\tau$, upon which we switch from one stage to another and a initial given state for the underlying Itô process. Here we denote the reward function by $J$ and it is such that
+\begin{equation*}
+ J(x,\tau)=\mathds{E}^{X_0=x}\left[ \left(\int^\tau_0 e^{-\gamma s} g(X_s) \ ds +e^{-\gamma \tau}h(X_\tau)\right) \mathds{1}_{ \{\tau< \infty \}} \right]\footnote{Henceforth, on this work, we denote $\mathds{E}\left[\ . \ | X_0=x\right]$ by $\mathds{E}^{X_0=x}\left[ \ . \ \right].$}.
+\end{equation*}
+
+Note that $ \mathds{1}_{ \{\tau< \infty \}}$ indicates that with probability 1, the decision is taken within a finite time.
+
+Denoting $V$ as the value function associated to the reward problem, it is such that
+\begin{equation*}
+V(x)=\sup_\tau J(x,\tau)
+\end{equation*}
+with $\tau$ taken to be a stopping time in the set of all $\{\mathcal{F}_t\}$-stopping times.
+
+
+\textcolor{red}{Continuar página 2! :) }
