@@ -1,0 +1,95 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                      %
+%     File: Thesis_Appendix_A.tex                                      %
+%     Tex Master: Thesis.tex                                           %
+%                                                                      %
+%     Author: Andre C. Marta                                           %
+%     Last modified :  2 Jul 2015                                      %
+%                                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{\texttt{Mathematica} code to assess the influence of changes on initial demand values and volatility on the optimal decision time}
+\label{chapter:appendixVectors}
+
+In this appendix we present the code used to make the assessments presented on Chapter \ref{chapter:stoptime}.
+
+% ----------------------------------------------------------------------
+\section{Sensibility analysis w.r.t. to initial demand values}
+	\label{section:saidv}
+
+ $\bullet$ Simulation of a value of the demand process at time $t$ knowing value at time $t=0$:
+\begin{lstlisting}
+demandProcess[x0_,t_,mu_,sigma_]:=x0 Exp[(mu-sigma^2/2)t+
+	sigma RandomVariate[NormalDistribution[0,Sqrt[t]]]];
+\end{lstlisting}
+
+\vspace{3mm}
+$\bullet$ Simulation of a sample path of the demand process (starting at $x_0$) until it reaches the threshold stipulated:
+\begin{lstlisting}
+stopTime[timeStep_, xthreshold_, x0_, mu_, sigma_] := Module[{stop, t, X},
+	stop = 0; (* hasn't stopped *)
+	t = 0.001;
+	X = {x0};
+	While[Last[X] < xthreshold,
+		X = Append[X, demandProcess[x0, t, mu, sigma]];
+		t = t + timeStep];
+	t
+];
+\end{lstlisting}
+
+
+\vspace{3mm}
+$\bullet$ Simulation of a number of \texttt{NsamplePaths} demand processes, w.r.t. each initial value tested between \texttt{xMin} and \texttt{xMax}:
+\begin{lstlisting}
+generalStopTime[Xmin_,Xmax_, xStep_,NsamplePaths_,timeStep_,xthreshold_,mu_,sigma_]:=
+	Module[{x0=Xmin,
+	stop={},
+	X={}
+	},
+	While[x0<=Xmax,
+		stop=Append[stop,Table[stopTime[timeStep,xthreshold,x0,mu,sigma],
+			{i,1,NsamplePaths}]];
+		X=Append[X,Table[x0,{i,1,NsamplePaths}]];
+		x0=x0+xStep;
+	];
+{X,stop}
+];
+\end{lstlisting}
+
+
+\section{Sensibility analysis w.r.t. to volatility}
+\label{section:sav}
+
+Besides function \texttt{demandProces} stated hereunder, we also defined the following functions:
+
+\vspace{3mm}
+$\bullet$ Simulation of a sample path of the demand process (starting at $x_0$) until it reaches the threshold stipulated, returning the stopping time and the whole sample path:
+\begin{lstlisting}
+stopTimemod[timeStep_,xthreshold_,x0_,mu_,sigma_,horizon_]:=Module[{stop,t,X},
+	t=0;
+	X={x0};
+	While[Last[X]<xthreshold &&t <=horizon,
+		t=t+timeStep;
+		X=Append[X,demandProcess[x0,t,mu,sigma]];
+	];
+	X=Append[X,Table[demandProcess[x0,t+timeStep*i,mu,sigma],{i,horizon-t}]];
+{t,Flatten@X}];
+\end{lstlisting}
+
+
+\vspace{3mm}
+$\bullet$ Estimation of the investment waiting time w.r.t. changes in market's uncertainty:
+\begin{lstlisting}
+estTau[x0_, threshold_] := Module[{b},
+	Table[
+		b = Table[stopTimemod[timeStep, threshold@sigma, x0, mu, sigma,
+		horizon], {i, NsamplePaths}];
+		(*Print["Tempos de paragem=",First/@b];*)
+		If[Count[First /@ b, horizon + timeStep] > 0,
+		  Print[ "(sigma, # unended sample paths) = ", {sigma, 
+		    Count[First /@ b, horizon + timeStep]}]
+		];
+	Mean[First /@ b],
+{sigma, 0.01, sigmaMax, 0.01}]
+];
+\end{lstlisting}
