@@ -129,7 +129,7 @@
 %
 % Add entry in the table of contents as section
 \phantomsection
-\addcontentsline{toc}{section}{\listfigurename}
+%\addcontentsline{toc}{section}{\listfigurename}
 % Generate list
 \listoffigures
 \cleardoublepage 
@@ -142,13 +142,13 @@
 %
 % Add entry in the table of contents as section
 \phantomsection
-\addcontentsline{toc}{section}{\nomname}
+%\addcontentsline{toc}{section}{\nomname}
 % Insert glossary/nomenclature section produced by MakeIndex
 \printnomenclature
 \cleardoublepage
 
 % entries of glossary list
-\input{Thesis_Glossary} % file "Thesis_Glossary.tex"
+%\input{Thesis_Glossary} % file "Thesis_Glossary.tex"
 
 % Add entry in the table of contents as section
 \phantomsection
@@ -169,7 +169,10 @@
 \input{Thesis_Introduction} % file "Thesis_Introduction.tex"
 \cleardoublepage
 
-\input{Thesis_Implementation}
+%\input{Thesis_Implementation}
+%\cleardoublepage
+
+\input{Tese_BC}
 \cleardoublepage
 
 
@@ -268,7 +271,7 @@
 %\setcounter{page}{1}
 
 \input{Thesis_Appendix_B} % file "Thesis_Appendix_B.tex"
-\cleardoublepage
+%\cleardoublepage
 
 % ----------------------------------------------------------------------
 \end{document}
