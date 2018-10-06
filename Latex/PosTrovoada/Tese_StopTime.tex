@@ -43,8 +43,8 @@ edge from parent/.style={->,draw},
 \node[root] (r) {\textbf{1.} Fix parameters of interest:
 }
 % The first level, as children of the initial tree
-child {node[level 2] (c1) {\textbf{Chapters 1 and 2}}}
-child {node[level 2] (c2) {\textbf{Chapter 3}}};
+child {node[level 2] (c1) {\textbf{Chapters \ref{chapter:1} and \ref{chapter:2}}}}
+child {node[level 2] (c2) {\textbf{Chapter \ref{chapter:3}}}};
 
 %\begin{scope}[every node/.style={root}] 
 %\node[above of = r , xshift=-30pt] (svc0) {svc\_top=0};
@@ -160,11 +160,12 @@ Since these are mere illustrations concerning deduced models, we are able to cho
 \subsubsection{Results}
 
 \begin{table}[!htb]
-	\caption{Sensitivity analysis of estimated mean and median and standard deviation of the optimal investment time for each of the three situations studied, regarding different initial values $x_0$. }
+	\caption{Sensitivity analysis of estimated mean and median and standard deviation of the optimal investment time for each of the three situations studied, regarding different initial values $x_0$ and the benchmark (B) and capacity optimization (CO) models.}
+	\centering
 	\begin{tabular}{c|c|c|c}
 		\hline
-		Chapter & Model & Mean \% Median & Standard Deviation \\ \hline
-		1 & B & 
+		Chapter & Model & Mean \& Median & Standard Deviation \\ \hline
+		\multirow{11}{*}{\ref{chapter:1}} & B & 
 		\begin{minipage}{.4\textwidth}
 			\includegraphics[width=\linewidth]{StopTime/1_BMtau.pdf}
 		\end{minipage}
@@ -180,7 +181,7 @@ Since these are mere illustrations concerning deduced models, we are able to cho
 			\includegraphics[width=\linewidth]{StopTime/1_COMsd.pdf}
 		\end{minipage} 
 	 \\ \hline
-		2 & B & 
+		\multirow{11}{*}{ \ref{chapter:2}} & B & 
 			\begin{minipage}{.4\textwidth}
 			\includegraphics[width=\linewidth]
 			{StopTime/2_BMtau.pdf}
@@ -200,7 +201,7 @@ Since these are mere illustrations concerning deduced models, we are able to cho
 			{StopTime/2_COMsd.pdf}
 		\end{minipage}   
 	 \\ \hline
-		3 & - &
+		\ref{chapter:3} & - &
 		\begin{minipage}{.4\textwidth}
 			\includegraphics[width=\linewidth]
 			{StopTime/3_BMtau.pdf}
@@ -281,7 +282,7 @@ The case $x^*\leq X_0$ is not here addressed since it immediately implies that t
 %We highlight here, as well, the fact that the mean and the median of investment times is approximately equal, suggesting that the distribution of investment times is approximately symmetric.
 
 On the last row we find the results concerning the optimal time to invest in a \textit{new} product and start to produce, simultaneously, the \textit{old} and \textit{new} products, as studied on Chapter \ref{chapter:3}.
-The noticeable \textit{step} behaviour of both simulated values and respective mean is a consequence of the unitary time step considered during the simulation and the scale of the results obtained. Note that this implies a more irregular standard deviation as presented in Figure \ref{fig:stoptime_1} (j).
+The noticeable \textit{step} behaviour of both simulated values and respective mean is a consequence of the unitary time step considered during the simulation and the scale of the results obtained. Note that this implies a more irregular standard deviation as presented on the last row of Table \ref{tab1}.
 Although this behaviour is not easily detectable on the other situations, since the results obtained are in a larger scale, one expects that they behave the same way.
 %Although its simulations and median are presented in a (clear) step format, they have a similar behaviour has 
 % to have a median more be sparser (regarding the median) and more oscillated (regarding the standard deviation) than the others, they have a similar behaviour to the previous ones showed. Changes are only more noticeable due to the range of values obtained and the respective ratio between them and \texttt{xStep}.
@@ -432,7 +433,7 @@ However, due to the quite disparate order of magnitude of the optimal investment
 \end{table}
 
 
-Confronting the results of performed simulation, regarding both models on chapters \ref{chapter:1} and \ref{chapter:2}, above presented with the numerical results present on Appendix \ref{tabelas}, the following conclusions are pointed:
+Confronting the results of performed simulation, regarding both models on chapters \ref{chapter:1} and \ref{chapter:2}, above presented with the numerical results present on Appendix \ref{chapter:appendixVectors}, the following conclusions are pointed:
 \begin{enumerate}
 	
 	
@@ -452,6 +453,127 @@ Confronting the results of performed simulation, regarding both models on chapte
 
 
 The results regarding the behaviour of the investment times for the case that the firm is already in the market and may either replace or add a new product (Chapter \ref{chapter:3}), present on the last row, have a different behaviour from the previous ones. We note that for this case the expected times (both for the investment and for the replacement time) are much more stable that in the other two cases, in the sense that changes on $\sigma$ do not affect them as significantly as in the previous cases. We do not have any explanation for this fact. However we do suspect that it is related with the fact that quite different values are considered for the numerical simulation of the chapter \ref{chapter:3} than for chapters \ref{chapter:1} and \ref{chapter:2}.  
+
+
+\section{Sensitivity of the optimal investment times w.r.t. the crossed-effect between initial demand value, $x_0$, and volatility, $\sigma$}
+
+Additionally we study the crossed-effect of both initial demand value and volatility. This is achieved by analysing the frequency of the optimal investment times obtained through their histogram representation.
+
+\subsubsection{Methodology}
+
+Per each set of values chosen, we simulate 500 demand sample paths, using function \texttt{hist}\footnote{For further details, check Appendix \ref{chapter:appendixVectors}.}, until they reach either the respective demand threshold or the time horizon, here set as 1500 time units.
+The set of parameters considered was the same as in the respective comparative statics sections.
+
+As previously noticed, since the results obtained for chapters \ref{chapter:1} and \ref{chapter:2} and both benchmark and capacity optimization models are quite similar, we only represent in this thesis here the results regarding chapters \ref{chapter:1} and \ref{chapter:3}.
+
+
+\subsubsection{Results}
+
+On Table \ref{hist} we represent the obtained results regarding the benchmark model associated to the situation on which a firm is not active in the market and wants to enter it with an innovative product. 
+
+\begin{table}[!htb]
+	\caption{Histograms of simulated optimal investment times of the benchmark model w.r.t. the situation for which a firm is not active in the market and wants to enter it with a new product (Chapter \ref{chapter:1}), considering initial demand values $x_0=\{0.001,\ 0.01\}$ and demand's volatilities $\sigma=\{0.001, \ 0.1, \ 0.5 \}$.}
+	\begin{tabular}{c|c|c}
+		\hline
+		Volatility & $x=0.001$ & $x=0.01$ \\ \hline
+		$\sigma=0.001$ & \begin{minipage}{.45\textwidth}
+			\includegraphics[width=\linewidth]{StopTime/x001o001.pdf}
+		\end{minipage}
+		& \begin{minipage}{.45\textwidth}
+			\includegraphics[width=\linewidth]{StopTime/x01o001.pdf}
+		\end{minipage}
+		\\ \hline
+		$\sigma=0.1$ & 
+		\begin{minipage}{.45\textwidth}
+			\includegraphics[width=\linewidth]{StopTime/x001o1.pdf}
+		\end{minipage}
+		& \begin{minipage}{.45\textwidth}
+			\includegraphics[width=\linewidth]{StopTime/x01o1.pdf}
+		\end{minipage}
+		\\ \hline
+		$\sigma=0.5$ & \begin{minipage}{.45\textwidth}
+			\includegraphics[width=\linewidth]{StopTime/x001o5.pdf}
+		\end{minipage}
+		& \begin{minipage}{.45\textwidth}
+			\includegraphics[width=\linewidth]{StopTime/x01o5.pdf}
+		\end{minipage} \\ \hline
+	\end{tabular}
+	\label{hist}
+\end{table}
+
+
+We conclude that:
+\begin{enumerate}
+	\item The smaller the uncertainty in the market, the lower is the variability of the waiting time to invest.
+	However, as previously concluded from Table \ref{res2}, this is not associated to the lowest waiting times.
+	Curiously, when considering $\sigma=0.001$ and $x_0=0.1$ we observe that for all the demand processes simulated, the firm enters the market after 4 time units;
+	
+	\item The larger the volatility, the larger is the number of demand sample paths that do not reach the demand level that triggers the investment within the horizon defined (of 1500 time units). This result is in accordance to the significant growth of the waiting time when on markets with a large uncertainty, as observed on Table \ref{res2};
+	
+	\item A significant reduction on the waiting time until invest is observed when the initial demand value increases. This same fact is noticeable in Table \ref{tab1}, on which the waiting time seems to have a logarithmic behaviour with the initial value chosen;
+	
+	\item Assesing the normality of the optimal investment times,, recurring to a Shapiro-Wilk test \cite{sw}\footnote{On Mathematica it is given by \texttt{ShapiroWilkTest} function: \\
+	\url{https://reference.wolfram.com/language/ref/ShapiroWilkTest.html}}
+		, we obtain that solely for $x=0.001$ and $\sigma=0.1$, the normality is verified for the usual significance levels $(1\%, \ 5\%, \ 10\%, \ 15\%)$ - since we obtain a p-value $\simeq 0.264$.
+\end{enumerate}
+
+
+\vspace{3mm}
+Now we analyse the situation on which a firm is already active, but wants to enter the market with an innovative product, allowing a simultaneous production period, as described on Chapter \ref{chapter:3}. Here we only analyse the threshold that triggers the introduction of the innovative product in the market, $x^*_{1,A}$, since it is dependent on the initial demand value (while the threshold that triggers the removal of the \textit{old} product, $x_2$, it is not).
+
+
+\begin{table}[!htb]
+	\caption{Histograms of simulated optimal investment times w.r.t. the situation when an already active firm wants to introduce an innovative product in the market, allowing a simultaneous production period, considering initial demand values $x_0=\{0.001,\ 0.01\}$ and demand's volatilities $\sigma=\{0.001, \ 0.1, \ 0.5 \}$.}
+	\begin{tabular}{c|c|c}
+		\hline
+		Volatility & $x=0.001$ & $x=0.01$ \\ \hline
+		$\sigma=0.001$ & \begin{minipage}{.45\textwidth}
+			\includegraphics[width=\linewidth]{StopTime/3x001o001.pdf}
+		\end{minipage}
+		& \begin{minipage}{.45\textwidth}
+			\includegraphics[width=\linewidth]{StopTime/3x01o001.pdf}
+		\end{minipage}
+		\\ \hline
+		$\sigma=0.1$ & 
+		\begin{minipage}{.45\textwidth}
+			\includegraphics[width=\linewidth]{StopTime/3x001o1.pdf}
+		\end{minipage}
+		& \begin{minipage}{.45\textwidth}
+			\includegraphics[width=\linewidth]{StopTime/3x01o1.pdf}
+		\end{minipage}
+		\\ \hline
+		$\sigma=0.5$ & \begin{minipage}{.45\textwidth}
+			\includegraphics[width=\linewidth]{StopTime/3x001o5.pdf}
+		\end{minipage}
+		& \begin{minipage}{.45\textwidth}
+			\includegraphics[width=\linewidth]{StopTime/3x01o5.pdf}
+		\end{minipage} \\ \hline
+	\end{tabular}
+	\label{hist2}
+\end{table}
+
+
+
+From the results presented on Table \ref{hist2}, the following conclusions are taken:
+\begin{enumerate}
+	\item The larger the uncertainty in the market, the larger the variance observed on the simulated optimal investment times;
+	
+	\item There are no significant changes on the behaviour of the simulated optimal investment times with the initial value of the demand observed. Nevertheless, we observe that larger initial demand values reflect on smaller waiting times until it is advantageous for the firm to invest, as concluded from Table \ref{tab1};
+	
+	\item In none of the situations the time horizon defined (of 1500 time units) was reached. This is in accordance to the uniformity observed on Table \ref{res2};
+	
+	\item In none of the situations exists statistical evidence that the waiting times are normally distributed - the largest p-value obtained when performing Shapiro-Wilk test \cite{sw}: $4\times 10^{-5}$.
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
 
 
 
