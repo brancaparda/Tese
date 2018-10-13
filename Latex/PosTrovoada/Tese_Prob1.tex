@@ -158,7 +158,7 @@ h(x) \ &, \ x \in \mathcal{S}
 \end{cases},
 \label{1_F}
 \end{equation}
-with $d_1$ being the positive root of the polynomial described in \eqref{d1}.
+with $d_1$ being the positive root of the polynomial described in \eqref{d1d2}.
 
 As motivated before, we propose that $\mathcal{C}=\{x\in \mathds{R}:x< x_B^* \}$, where $x_B^*$ denotes the demand that triggers the (optimal) decision to invest. Thus we find $a$ and $x_B^*$ using value matching \eqref{valuematch} and smooth pasting \eqref{smoothpasting} conditions, expressed by the corresponding system
 
@@ -176,7 +176,7 @@ x_B^*=\frac{d_1}{d_1-1} \frac{ \delta (r-\mu)}{\theta-\alpha K}
 \end{equation}
 
 
-Continuation and stopping regions are respectively described as in \eqref{c_region} and \eqref{s_region} and the optimal stopping time as in \eqref{stoptime}.
+Finally, we obtain that the stopping region associated to this problem is defined as $\mathcal{S}=\{x\in \mathds{R}:x \geq x_B^* \}$ and the optimal stopping time as in \eqref{stoptime}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -259,7 +259,7 @@ Therefore we obtain that the threshold level and coefficient $b$ in \eqref{eq:si
  &x_C^*=\frac{d_1+1}{d_1-1} \frac{ \delta (r-\mu)}{\theta} \label{eq:prob1_xC}\\
  &b=\left( \frac{(\theta x -\delta (r-\mu))^2}{4 \alpha (r-\mu) x_C^*} \right)(x_C^*)^{-d_1} = \frac{\delta \theta}{\alpha (d_1^2-1)} \left( \frac{d_1+1}{d_1-1} \frac{ \delta (r-\mu)}{\theta} \right)^{-d_1} \nonumber
 \end{align}
-and continuation and stopping regions are respectively described as in \eqref{c_region} and \eqref{s_region} and the optimal stopping time as in \eqref{stoptime}.
+Finally the stopping region coincides with $\mathcal{S}=\{x\in \mathds{R}:x< x_C^* \}$ and the optimal stopping time as in \eqref{stoptime}.
 
 Now we analyse the optimal capacity level $K^*_C$. If at the innovation breakthrough - that we set to be the initial instant when deducting the optimal investment times - we have $X_0<x^*_C$, then the investment decision will happen at the same instant the demand reaches level $x^*_C$. 
 %, by paying $\delta K^*_C$. 
@@ -310,9 +310,21 @@ Now we are in position to explain the stated results.
 
 Regarding $r$, we obtain
 $$\frac{\partial x^*_B}{\partial r}=\frac{\delta  \left(-(d_1-1) d_1 \sigma ^2 \phi-2 \mu +2 r \right)}{(d_1-1)^2 \sigma ^2 (\alpha  K-\theta ) \sqrt{\frac{4 \mu ^2}{\sigma ^4}-\phi}}>0,$$
-Given the constraints of our problem, its denominator is well-defined and negative so as its numerator\footnote{Numerator's roots are given by $\mu \in \left\{r, \frac{1}{2}\left(\sigma ^2\pm\sqrt{\sigma ^4-8 r \sigma ^2}\right) \right\}$ and $\sigma = \pm i \frac{ \mu  (\mu -r)}{\sqrt{-\mu ^3+2 r^3-5 \mu  r^2+4 \mu ^2 r}}$. Note that,\\
-$\forall r, \ \sigma \in (0,1) \ \Rightarrow \ \sigma ^4-8 r \sigma ^2<0 \ \Rightarrow \ \frac{1}{2}\left(\sigma ^2\pm\sqrt{\sigma ^4-8 r \sigma ^2}\right \} \notin \mathds{R}.$ 
-Since no imaginary roots are possible regarding our context and $r-\mu>0$, none of the roots above is relevant for our problem, implying that the numerator never changes its sign. Then, evaluating for any value of $\mu, \ \sigma$ and $r$ we obtain that $-(d_1-1) d_1 \sigma ^2 \phi-2 \mu +2 r <0$, showing this way that the numerator is negative. },
+Given the constraints of our problem, its denominator is well-defined and negative so as its numerator\footnote{Numerator's roots are given by $\mu \in \left\{r, \frac{1}{2}\left(\sigma ^2\pm\sqrt{\sigma ^4-8 r \sigma ^2}\right) \right\}$ and $\sigma = \pm i \frac{ \mu  (\mu -r)}{\sqrt{-\mu ^3+2 r^3-5 \mu  r^2+4 \mu ^2 r}}$.
+%	Regarding the first case we have that only admissible root w.r.t. $\mu$ is given by $r$:	
+%	the second pair of roots is admissible \textit{iff} $\sqrt{\sigma^4-8r \sigma^2}$ is well-defined \textit{iff} $\sigma^4-8r \sigma^2>0$ iff $r<-6 \sigma^2$, which is an absurd since we are considering positive interest rates.
+
+%	 Note that,\\
+%$\forall r, \ \sigma \in (0,1) \ \Rightarrow \ \sigma ^4-8 r \sigma ^2<0 \ \Rightarrow \ \frac{1}{2}\left(\sigma ^2\pm\sqrt{\sigma ^4-8 r \sigma ^2}\right \} \notin \mathds{R}.$ 
+
+Regarding the roots in terms of $\mu$ we observe that none of them are admissible in our domain. The first one ($r=\mu$) is excluded since we consider $r>\mu$. The second pair $\left(\mu=\frac{1}{2}\left(\sigma ^2\pm\sqrt{\sigma ^4-8 r \sigma ^2}\right) \right)$ is also excluded: 
+\begin{align*}
+\frac{1}{2}\left(\sigma ^2-\sqrt{\sigma ^4-8 r \sigma ^2}\right)>r & \ \Leftrightarrow \  (\sigma ^2-2r)^2= \sigma^4-4\sigma^2 r +4 r^2 > -8 r \sigma^2+\sigma^4\\
+&\overset{r>0}{\Leftrightarrow} \sigma^2+r>0, \qquad \forall r, \sigma>0 \ \forall \mu<r
+\end{align*}
+is always verified and $\frac{1}{2}\left(\sigma ^2+\sqrt{\sigma ^4-8 r \sigma ^2}\right)>\frac{1}{2}\left(\sigma ^2-\sqrt{\sigma ^4-8 r \sigma ^2}\right)>r$ and hence, none of them are valid roots.
+
+Since no imaginary roots are possible regarding our context, none of the two possible roots for $\sigma$ is admissible in our problem. Hence, it follows that the numerator never changes its sign. Evaluating for any value of $\mu, \ \sigma$ and $r$ we obtain that $-(d_1-1) d_1 \sigma ^2 \phi-2 \mu +2 r <0$, showing this way that the numerator is negative. },
 from which the result follows.
 
 %Thus since the expression on the numerator is continuous in each of its parameters and takes a positive value when testing for given values, it follows that it is always positive with respect to our problem domain.
@@ -324,7 +336,7 @@ Regarding $\sigma$, we obtain
 \end{equation}
 Again, given the constraints of our problem, the denominator is negative.
 Since $r-\mu>0$ and $-2 \mu ^2+\mu  \sigma ^2 \left(\phi+1\right)-2 r \sigma ^2<0$
-\footnote{We obtain that its roots are given by $r=\{0, \ \mu \}$ and both are impossible regarding our context. Then evaluating for any value of $\mu, \ \sigma$ and $r$ we obtain the result stated.}, the denominator is also negative, from which the result follows.
+\footnote{We obtain that the roots of the polynomial $-2 \mu ^2+\mu  \sigma ^2 \left(\phi+1\right)-2 r \sigma ^2$ correspond to $r \in \{0, \ \mu \}$ and both are impossible in the domain of our problem. Then evaluating for any value of $\mu, \ \sigma$ and $r$ we obtain the result stated.}, the denominator is also negative, from which the result follows.
 
 % the numerator, we found that it has no possible roots on problem domain. Thus, since $-2 \delta  (\mu -r) \left(-2 \mu ^2+\mu  \sigma ^2 \left(\phi+1\right)-2 r \sigma ^2\right) |_{\mu=0}<0$ and the numerator is continuous with respect to each of its parameters, it follows that it is negative.
 
@@ -375,17 +387,21 @@ From the negativity of the numerator in  \eqref{1_xBs}, it follows that the nume
 %Note that its denominator is positive.
 %Analyzing the numerator, we found that it has no possible roots on the domain of our problem. Thus since the expression in the numerator is continuous in each of its parameters and takes a positive value when testing for given possible values, it follows that it is always positive with respect to our domain.
 
-Regarding $\delta$ and  $\theta$, we obtain immediately
+Regarding $\delta$, $\theta$ and $\mu$, we immediately obtain 
 \begin{align*}
 \frac{\partial x^*_C}{\partial \delta}&=\frac{(d_1+1) (r-\mu )}{(d_1-1) \theta }>0,\\
-\frac{\partial x^*_C}{\partial \theta}&=-\frac{\delta  (d_1+1) (r-\mu )}{(d_1-1) \theta^2}<0.
-\end{align*}
-
-Regarding $\mu$, we obtain
-$$\frac{\partial x^*_C}{\partial \mu}=\frac{\delta}{(d_1-1)^2 \theta} \left( 1-d_1^2 +(r-\mu)\left(-1+\frac{2\mu-\sigma^2}{\phi \sigma^2} \right) \right)= \begin{cases}
+\frac{\partial x^*_C}{\partial \theta}&=-\frac{\delta  (d_1+1) (r-\mu )}{(d_1-1) \theta^2}<0\\
+\frac{\partial x^*_C}{\partial \mu}&=\frac{\delta}{(d_1-1)^2 \theta} \left( 1-d_1^2 +(r-\mu)\left(-1+\frac{2\mu-\sigma^2}{\phi \sigma^2} \right) \right)= \begin{cases}
 <0 \quad \text{for} \ \mu<\frac{\sigma^2}{2}\\
 >0 \quad \text{for} \ \mu>\frac{\sigma^2}{2}
-\end{cases}.$$
+\end{cases}.
+\end{align*}
+
+%Regarding $\mu$, we obtain
+%$$\frac{\partial x^*_C}{\partial \mu}=\frac{\delta}{(d_1-1)^2 \theta} \left( 1-d_1^2 +(r-\mu)\left(-1+\frac{2\mu-\sigma^2}{\phi \sigma^2} \right) \right)= \begin{cases}
+%<0 \quad \text{for} \ \mu<\frac{\sigma^2}{2}\\
+%>0 \quad \text{for} \ \mu>\frac{\sigma^2}{2}
+%\end{cases}.$$
 \begin{flushright}
  $\square$
 \end{flushright}
@@ -426,7 +442,7 @@ We use the following values, unless stated otherwise:
 
 \begin{figure}[!htb]
 	\begin{subfigmatrix}{2}
-		\subfigure[Threshold value with respect to the benchmark model (blue) and the capacity optimized model (orange), considering capacity levels $K \in [0, \theta/\alpha=1000)$ and the value that $x^*_B$ takes when considering $K^*_C \simeq 375$ (black).]{\includegraphics[width=0.45\textwidth]{Prob1_CapOpt/xopt_k.pdf}}
+		\subfigure[Behaviour of the threshold value with respect to the benchmark model (blue) and the capacity optimized model (orange), considering capacity levels $K \in [0, \theta/\alpha=1000)$ and the value that $x^*_B$ takes when considering $K^*_C \simeq 375$ (black).]{\includegraphics[width=0.45\textwidth]{Prob1_CapOpt/xopt_k.pdf}}
 		\subfigure[Evaluation of value functions $F$, considering capacity equal to 200 (darkest blue), $K=K^*_C \simeq 375$ (mid-blue) and 600 (lighest blue), and $F^*$ (orange) with respective demand threshold values presented (black w.r.t. Benchmark Model and grey w.r.t. Capacity Optimization Model)]{\includegraphics[width=0.45\textwidth]{Prob1_CapOpt/F_k100700.pdf}}
 	\end{subfigmatrix}
 	\caption{Influence of the chosen capacity $K$ in the threshold values $x^*_B$ and $x^*_C$ and respective value functions $F$ and $F^*$.}
@@ -450,7 +466,7 @@ $F^*(x)>F(x,K^*_C), \ \forall x > x^*_C$. This is justified by the fact that $F(
 		\subfigure[$\sigma \in (0.0001,1)$]{\includegraphics[width=0.32\textwidth]{Prob1_CapOpt/xopt_sigma.pdf}}
 		\subfigure[$\delta \in (0,10)$]{\includegraphics[width=0.32\textwidth]{Prob1_CapOpt/xopt_delta.pdf}}
 	\end{subfigmatrix}
-	\caption{Threshold value with respect to the benchmark model (blue) and the capacity optimized model (orange) as a function of $r$ (a), $\sigma$ (b)  and $\delta$ (c).}
+	\caption{Behaviour of the threshold value with respect to the benchmark model (blue) and the capacity optimized model (orange) as a function of increasing parameters $r$ (a), $\sigma$ (b)  and $\delta$ (c).}
 	\label{fig:sigm}
 \end{figure}
 On Figure \ref{fig:sigm} (a) we observe that in both situations the decision is postponed with increasing interest rate. This is explainable as: the larger the $r$, the larger is the expected discounted cash-flow and therefore we need to observe larger values of the demand to balance the money lost due to runway devaluation and future earnings.
@@ -545,7 +561,7 @@ In order to illustrate the previous result and to have an idea about the type of
 		\subfigure[$\sigma \in (0,1)$]{\includegraphics[width=0.32\textwidth]{Prob1_CapOpt/kopt_sigma.pdf}}
 		\subfigure[$\theta \in (\alpha K^*_C,10)$]{\includegraphics[width=0.32\textwidth]{Prob1_CapOpt/kopt_theta.pdf}}
 	\end{subfigmatrix}
-	\caption{Optimal capacity regarding the threshold value $x^*_C$ and increasing parameters $\mu$, $\sigma$ and $\theta$.}
+	\caption{Behaviour of the optimal capacity regarding the threshold value $x^*_C$ and increasing parameters $\mu$, $\sigma$ and $\theta$.}
 	\label{fig:k1}
 \end{figure}
 
@@ -567,7 +583,7 @@ As expected, on Figure \ref{fig:k1} (c) we observe that $K^*_C$ grows linearly w
 		\subfigure[$ r \in ( \mu, 1 )$]{\includegraphics[width=0.45\textwidth]{Prob1_CapOpt/kopt_r.pdf}}
 		\subfigure[$ \alpha \in (0,1)$]{\includegraphics[width=0.45\textwidth]{Prob1_CapOpt/kopt_alpha.pdf}}
 	\end{subfigmatrix}
-	\caption{Optimal capacity regarding the threshold value $x^*_C$ and decreasing parameters $r$ and $\alpha$.}
+	\caption{Behaviour of the optimal capacity regarding the threshold value $x^*_C$ and decreasing parameters $r$ and $\alpha$.}
 	\label{fig:k2}
 \end{figure}
 

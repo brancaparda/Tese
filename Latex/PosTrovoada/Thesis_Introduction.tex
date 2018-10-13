@@ -11,7 +11,6 @@
 \chapter{Introduction}
 \label{chapter:introduction}
 
-Insert your chapter material here...
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Motivation}
@@ -21,14 +20,14 @@ Nowadays, society is highly attached to technology, from mobile phones to fancy 
 \url{https://www.theguardian.com/world/2010/mar/05/korean-girl-starved-online-game} }.
  Nevertheless, all this huge demand brought changes on how IT companies should manage their investments. These should, not only pay attention to the product demand on the market, but also to technology evolution. Therefore they started to require more complex models to support their investment decisions. Models that wouldn't just consider the current value of the firm, such as the ones based on the Net Present Value (NPV), but that could take into account the potential associated to future events.
 
-We may take ASML, a dutch company considered to be Europe's largest semiconductor equipment maker FONTE, as an example.
-ASML builds chips producing machines that satisfy the needs of hardware building companies - from Intel to Apple.
+We may take ASML, a dutch company considered to be Europe's largest semiconductor equipment maker which currently is part of \textit{Euro Stoxx 50}\footnote{Stock index representing the 50 most liquid stocks in the Eurozone:\\  \url{http://en.boerse-frankfurt.de/index/constituents/Euro_Stoxx_50\#Constituents} }, as an example.
+ASML builds chips producing machines that satisfy the needs of hardware building companies - from Intel to Samsung\footnote{For further details check: \url{https://www.asml.com/company/our-history/en/s277?rid=51985}}.
 Therefore, in order to survive on the competitive market, they need either to develop their own technology, by investing on R\&D, or import a desired one, by paying an associated cost.
 
-In this work we will focus on the situation where the firm chooses to develop their own technology and, hence, define the desired innovation level and investment to be made \textit{a priori}. Since it is impossible to access that a certain level of technology will be reached in a precise amount of time\footnote{Flying cars predicted for 2015 in \textit{Back to Future} as an example (!):\\ \url{http://content.time.com/time/specials/packages/article/0,28804,2024839_2024845_2024855,00.html}} \footnote{Moore's Law - which defends that processor performance doubles (approximately) every two years - is dying:\\
-\url{https://www.forbes.com/sites/forbestechcouncil/2018/03/09/moores-law-is-dying-so-where-are-its-heirs/\#53cb24a17a7b}}, the innovation process is considered to evolve randomly with time, which rate might be influenced by the amount of money invested. More money implies more resources and, hence, an higher evolution rate.
+In this work we will focus on the situation where the firm chooses to develop their own technology and, hence, define the desired innovation level and investment to be made \textit{a priori}. Since it is impossible to access that a certain level of technology will be reached in a precise amount of time\footnote{Flying cars predicted for 2015 in \textit{Back to Future} as an example (!):\\  \url{http://content.time.com/time/specials/packages/article/0,28804,2024839_2024845_2024855,00.html}} \footnote{Moore's Law - which defends that processor performance doubles (approximately) every two years - is dying:\\
+\url{https://www.forbes.com/sites/forbestechcouncil/2018/03/09/moores-law-is-dying-so-where-are-its-heirs/\#53cb24a17a7b}}, the innovation process is considered to evolve randomly with time, with a rate that might be influenced by the amount of money invested. More money implies more resources and, hence, an higher evolution rate.
 
-After having reached the desired innovation level, the firm is responsible to evaluate under which market conditions it should invest and in which type of products. Always having in mind to maximize the expected long run profit.
+After having reached the desired innovation level, the firm is responsible to evaluate under which market conditions it should invest and in which type of products, always having in mind to maximize the expected long run profit.
 
 
 %iPhone X release in 2017:\\ \url{https://www.bloomberg.com/news/articles/2017-11-02/long-lines-are-back-at-apple-stores-for-10th-anniversary-iphone
@@ -43,16 +42,16 @@ As stated before, in the current work we consider a firm that develops its own t
 
 The innovation process associated to the technology level is denoted by $\{ \theta(t), \ t \geq 0 \}$ and considered to be an homogeneous Compound Poisson process, evolving accordingly to
 $$\theta_t= \theta_0+ u N_t$$  
-where $\theta_0$ corresponds to the initial innovation level, $u > 0$ to the jump size and $\{N_t, \ t \geq 0\}$  to the jump process. The last one follows a Poisson process with rate $\lambda(R)=R^\gamma, \ \gamma \in (0,1)$, where $R$ stands for the R\&D investment, such as scientists wages, equipments and expenses. The mentioned rate function $\lambda$ is such that it verifies:
+where $\theta_0$ corresponds to the initial innovation level, $u > 0$ to the jump size in the technology and $\{N_t, \ t \geq 0\}$  to the jump process. The last one follows a Poisson process with rate $\lambda(R)=R^\gamma, \ \gamma \in (0,1)$, where $R$ stands for the R\&D investment, such as scientists wages, equipments and expenses. The mentioned rate function $\lambda$ is such that it verifies:
 \begin{itemize}
 	\item $\lambda(0) = 0$: no R\&D investment means zero probability of innovating;
-	\item $\lambda^\prime (R)>0$: the bigger the investment is, the higher is the probability of observing a jump and hence the smaller is the waiting time for the next technology jump;
+	\item $\lambda^\prime (R)>0$: the larger the investment is, the higher is the probability of observing a jump and hence the smaller is the waiting time for the next technology jump;
 	\item $ \lambda ^{ \prime \prime} (R)<0$: exists an optimal R\&D investment that leads to the maximization of the rate function, that is, $\exists R^*: \lambda(R^*)\geq \lambda(R), \  \forall R$.
 \end{itemize}
 
 %Under this situation the firms decides how much it will invest in R\&D, knowing that a bigger investment implies a smaller expected time until it is able to invest on the new product.
 
-When the breakthrough happens, the innovation process stops and the firm is able to decide when it should invest on the new product with the innovation level $\theta$. In order to have the new product available on the market, the firm needs to incur an investment (sunk) cost. This one is related with employees' formation and new equipment, that depends on the production capacity chosen $K_1$. During this work, we consider that the firm produces up to it's capacity. Hence, sunk cost will be dependent on the quantity of production chosen.
+When the breakthrough happens, the innovation process stops and the firm is able to decide when it should invest on the new product with the innovation level $\theta$. In order to have the new product available on the market, the firm needs to incur an investment (sunk) cost. This one is related with employees' formation and new equipment, for example, that depends on the production capacity chosen $K_1$. During this work, we consider that the firm produces up to it's capacity. Hence, sunk cost will be dependent on the quantity of production chosen.
 
 Since the new product offers a new technology level, not recognized by the market, its profit is strongly dependent on market's demand. The better the reception of the product is, the higher is its demand and the bigger is the profit made. 
 %Here the demand is considered to evolve accordingly to a Geometric Brownian Motion (GBM) which initial state corresponds to the demand at the breakthrough time.
@@ -65,8 +64,8 @@ options analysis, the optimal investment time on the new product such that the e
 During the following work we will consider the timeline represented hereunder
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
+%
+%
 %\begin{tikzpicture}[y=1cm, x=1cm, thick, font=\footnotesize]    
 %\usetikzlibrary{arrows,decorations.pathreplacing}
 %
@@ -87,10 +86,11 @@ During the following work we will consider the timeline represented hereunder
 %\draw (\x cm,3pt) -- (\x cm,-3pt);
 %%\foreach \x in {current time,  , $\tau$, 3} \draw (\x,0.1) -- (\x,-0.1) node[below] {\x};
 %\draw (0,0) node[below=3pt] (a) {$\text{R\&D investment}$} node[above=3pt] {};
-%\draw (3,0) node[below=9pt] (a) {$\text{Innovation breakthrough $\theta$}$} node[above=3pt] {};
+%\draw (3,0) node[below=9pt] (a) {$\text{Innovation breakthrough $\theta$\\
+%	$t_1=0$}$} node[above=3pt] {};
 %\draw (8,0) node[below=3pt] (a) {$\tau:$ 
-%\text{ \textit{new} product's investment}} node[above=3pt] {};
-%%\draw (12,0) node[below=9pt] (a) {$\tau_2:$ \text{\textit{old} product's abandonment}} node[above=3pt] {};
+%\text{ \textit{new} product's investment\\ $t_2=0$: initial instant regarding $\tau_2$}} node[above=3pt] {};
+%\draw (12,0) node[below=9pt] (a) {$\tau_2:$ \text{\textit{old} product's abandonment}} node[above=3pt] {};
 %
 %%brace
 %%\node (start_p) at (0,0.6) {};
@@ -196,7 +196,7 @@ Henceforth, when determining the optimal investment time on the new product, we 
 %On the other side a Real Option Analysis takes into account the future potential, as well the respective uncertainty.
 %Among many studies already made, Farzin \textit{et al.} (1998) \cite{farzin:cap}, do a comparative study between both approaches in the technology adoption context.
 
-One of the first contributions on Real Options analysis regarding investment decisions was due to McDonald \& Siegel (1986)  \cite{siegel}. They model an investment problem where the investor must decide when it is the best time to exercise, taking into account that the value of the investment project is stochastically random and evolves accordingly to a Geometric Brownian Motion. Another one was due to Dixit (1989) \cite{dixit_alone}, who models the best time to make entry and exit decisions, while considering that the market price evolves accordingly to a Brownian Motion and that each decision has an associated cost.
+One of the first contributions on Real Options analysis regarding investment decisions was due to McDonald \& Siegel (1986)  \cite{siegel}. They model an investment problem where the investor must decide when it is the best time to exercise the option, taking into account that the value of the investment project is stochastically random and evolves accordingly to a Geometric Brownian Motion. Another one was due to Dixit (1989) \cite{dixit_alone}, who models the best time to make entry and exit decisions, while considering that the market price evolves accordingly to a Brownian Motion and that each decision has an associated cost.
 
 Years later, Dixit \& Pindyck (1994) \cite{dixit:book} publish what is considered by some of the experts as the (financial) \textit{Bible of Real Options approach}. It exploits an analogy between real options and financial investment decisions, focusing on many different decision problems (entry, investment and exit, among them) dependent on different stochastically behavioured (diffusion processes and jump diffusion processes, among them) measures, such as demand or market price.
 
@@ -226,25 +226,26 @@ and a firm which is producing an established product, she deduces the optimal ti
 \section{Thesis Outline}
 \label{section:outline}
 
-Considering the context described on Section \ref{section:context}, we will treat three different situations related with the irreversible decision of investing in a new product under one source of uncertainty.
+Considering the context described on Section \ref{section:context}, we will treat three different situations related with the irreversible decision of investing in a new product when the innovation breakthrough and future demand are stochastic.
 
-\textcolor{red}{1 SOURCE OF UNCERATINTY (DEMAND) OU 2 (INNOVATION PROCESS)?}
+%\textcolor{red}{1 SOURCE OF UNCERATINTY (DEMAND) OU 2 (INNOVATION PROCESS)?}
 
-On Chapter \ref{chapter:bc} we introduce major theoretical concepts and the state-of-the-art (common to all problems), following the approaches presented in \cite{dixit:book}, \cite{ross} and \cite{oksendal:book}.
+The major theoretical concepts and the state-of-the-art is introduced on Chapter \ref{chapter:bc}, following the approaches presented in \cite{dixit:book}, \cite{ross} and \cite{oksendal:book}.
 We start by exploring the most relevant results of Optimal Stopping Problems (OSP). Then we show how they are related to investment decisions under uncertainty through Real Option analysis.
 
-On Chapter \ref{chapter:1} we consider a firm that has no product in the market and wants to find the optimal time to introduce a (new) product.
-
-On Chapter \ref{chapter:2} we consider a firm that has an established product in the market and wants to find the optimal time to invest in a new product while, replacing immediately the established product by the new one. 
-
-On Chapter \ref{chapter:3} we consider a firm that has an established product in the market and wants to find the optimal time to invest in a new product while, either replacing immediately the established product by the new one or allowing a simultaneous production period, followed by the removal of the oldest product.
+On the next three chapters we analyse different possible investment decisions, namely:
+\begin{itemize}
+	\item Chapter \ref{chapter:1}: a firm that has no products in the market and wants to find the optimal time to introduce a new product;
+	\item Chapter \ref{chapter:2}: a firm that has an established product in the market wants to find the optimal time to invest in a new product while replacing immediately the established product by the new one;
+	\item Chapter \ref{chapter:3}: a firm that has an established product in the market wants to find the optimal time to invest in a new product while either replacing immediately the established product by the new one or allowing a simultaneous production period, followed by the removal of the oldest product.
+\end{itemize}
 
 Two models are developed for situations described on Chapters \ref{chapter:1} and \ref{chapter:2}. The first one corresponds to the benchmark model, which considers the original cash-flow for a chosen production capacity. The second one to the capacity optimization model, which considers the maximized long-run cash-flow with respect to production capacity. 
-Regarding the situation described on Chapter \ref{chapter:3}, due to its complexity, only the benchmark model is developed.
+Regarding the situation described on Chapter \ref{chapter:3}, due to its complexity, only the benchmark model is analysed.
 On the last section of each of the three chapters we study the behaviour of respective thresholds and optimal capacity level with different parameters.
 
 
-On Chapter \ref{chapter:stoptime} we study the behaviour of optimal investment times, associated to the situations described on Chapters 3 to 5, regarding initial demand values and demand volatility.
+The behaviour of optimal investment times, associated to the situations described on chapters 3 to 5, regarding initial demand values and market's uncertainty is studied on Chapter \ref{chapter:stoptime}.
 
 
 
@@ -255,7 +256,7 @@ Finally, we study the behaviour of the decision threshold with the different par
 
 
 
-Finally, on Chapter \ref{chapter:conclusion} we summarize the relevant findings and how this work can be extended.
+Finally, on Chapter \ref{chapter:conc} we summarize the relevant findings and how this work can be extended.
 
 
 
@@ -280,7 +281,7 @@ Throughout the chapters, many terms will appear and their explanation will come 
 	$$ dX_t=\mu X_t dt + \sigma X_t d W_t, \ X_0=x, $$
 	where $\mu$ represents the drift and $\sigma$ the volatility of the demand.
 	
-	\item $R$: R\&D costs such scientists wages and equipments, which directly related with the innovation process. These are seen as sunk costs, that is, costs that cannot be recovered after being incurred.
+	\item $R$: R\&D costs such as scientists wages and equipments, which directly related with the innovation process. These are seen as sunk costs, that is, costs that cannot be recovered after being incurred.
 	
 	\item  $\{ \theta(t), \ t \geq 0 \}$: innovation process assumed to be a homogeneous Compound Poisson Process, that is a stochastic process that evolves accordingly to
 	$$\theta_t= \theta_0+ u N_t$$
@@ -291,7 +292,7 @@ Throughout the chapters, many terms will appear and their explanation will come 
 	
 	\item $\alpha$: constant parameter that reflects the sensitivity of the quantity with respect to the price, $\alpha>0$.
 	
-	\item $K_i$: capacity of production of product $i$. When a single product is considered, there is no mention to index $i$. The firm is considered to produce always up to its capacity and , consequently, $K_i$ corresponds as well to the quantity produced. Since profit functions need to be positive, on Chapters \ref{chapter:2} and \ref{chapter:3}, we have the following restrictions regarding capacities of \textit{old} and \textit{new} product, respectively, $K_0<1/\alpha$ and $K_1<\theta/\alpha$. Note that (only) the last restriction will also hold for Chapter \ref{chapter:1}.
+	\item $K_i$: capacity of production of product $i$. When a single product is considered, there is no mention to index $i$. The firm is considered to produce always up to its capacity and, consequently, $K_i$ corresponds as well to the quantity produced. Since profit functions need to be positive, on Chapters \ref{chapter:2} and \ref{chapter:3}, we have the following restrictions regarding capacities of \textit{old} and \textit{new} product, respectively, $K_0<1/\alpha$ and $K_1<\theta/\alpha$. Note that (only) the last restriction will also hold for Chapter \ref{chapter:1}.
 	
 	\item $\delta$: constant parameter that reflects the sensitivity of the quantity with respect to investment sunk costs. These sunk costs will be denoted by $\delta K_1, \  \delta>0$ (or $\delta K$, on Chapter \ref{chapter:1}).
 	

@@ -204,7 +204,7 @@ Since these are mere illustrations concerning deduced models, we are able to cho
 		\ref{chapter:3} & - &
 		\begin{minipage}{.4\textwidth}
 			\includegraphics[width=\linewidth]
-			{StopTime/3_BMtau.pdf}
+			{StopTime/3_BMtau1.pdf}
 		\end{minipage}
 		& \begin{minipage}{.4\textwidth}
 			\includegraphics[width=\linewidth]
@@ -411,22 +411,22 @@ However, due to the quite disparate order of magnitude of the optimal investment
 			\includegraphics[width=\linewidth]{StopTime/1_meantauSP500H1500.pdf}
 		\end{minipage}
 	 & \begin{minipage}{.45\textwidth}
-	 	\includegraphics[width=\linewidth]{StopTime/1_varSP500H1500.pdf}
+	 	\includegraphics[width=\linewidth]{StopTime/1_var1.pdf}
 	 \end{minipage}
   \\ \hline
 		\ref{chapter:2} & 
 		\begin{minipage}{.45\textwidth}
-			\includegraphics[width=\linewidth]{StopTime/2_meantauSP500H1500.pdf}
+			\includegraphics[width=\linewidth]{StopTime/2_meantau1.pdf}
 		\end{minipage}
 		& \begin{minipage}{.45\textwidth}
 			\includegraphics[width=\linewidth]{StopTime/2_varSP500H1500.pdf}
 		\end{minipage}
 		 \\ \hline
 		\ref{chapter:3} & \begin{minipage}{.45\textwidth}
-			\includegraphics[width=\linewidth]{StopTime/3_meantau.pdf}
+			\includegraphics[width=\linewidth]{StopTime/3_meantau1.pdf}
 		\end{minipage}
 		& \begin{minipage}{.45\textwidth}
-			\includegraphics[width=\linewidth]{StopTime/3_var.pdf}
+			\includegraphics[width=\linewidth]{StopTime/3_var1.pdf}
 		\end{minipage} \\ \hline
 	\end{tabular}
 \label{res2}
@@ -512,8 +512,7 @@ We conclude that:
 	
 	\item A significant reduction on the waiting time until invest is observed when the initial demand value increases. This same fact is noticeable in Table \ref{tab1}, on which the waiting time seems to have a logarithmic behaviour with the initial value chosen;
 	
-	\item Assesing the normality of the optimal investment times,, recurring to a Shapiro-Wilk test \cite{sw}\footnote{On Mathematica it is given by \texttt{ShapiroWilkTest} function: \\
-	\url{https://reference.wolfram.com/language/ref/ShapiroWilkTest.html}}
+	\item Assesing the normality of the optimal investment times,, recurring to a Shapiro-Wilk test \cite{sw}\footnote{On Mathematica it is given by \texttt{ShapiroWilkTest} function: \url{https://reference.wolfram.com/language/ref/ShapiroWilkTest.html}}
 		, we obtain that solely for $x=0.001$ and $\sigma=0.1$, the normality is verified for the usual significance levels $(1\%, \ 5\%, \ 10\%, \ 15\%)$ - since we obtain a p-value $\simeq 0.264$.
 \end{enumerate}
 

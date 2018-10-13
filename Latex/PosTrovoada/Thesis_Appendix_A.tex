@@ -8,24 +8,159 @@
 %                                                                      %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter{Vector calculus}
+\chapter{\texttt{Mathematica} code to assess the influence of changes on initial demand values and volatility on the optimal decision time and numerical results obtained}
 \label{chapter:appendixVectors}
 
-In case an appendix if deemed necessary, the document cannot exceed a total of 100 pages...
-
-Some definitions and vector identities are listed in the section below.
+In this appendix we present the code used to make the assessments presented on Chapter \ref{chapter:stoptime} as well as the numerical results obtained concerning the study of market's uncertainty impact.
 
 % ----------------------------------------------------------------------
-\section{Vector identities}
-\label{section:vectorIdentities}
+\section{Sensitivity analysis w.r.t. to initial demand values}
+	\label{section:saidv}
 
-\begin{equation}
-	\nabla \times \left( \nabla \phi \right) = 0
-	\label{eq:cross_nnp}
-\end{equation}
 
-\begin{equation}
-	\nabla \cdot \left( \nabla \times {\bf u} \right) = 0
-	\label{eq:dotCross_nnu}
-\end{equation}
+ $\bullet$ Simulation of a value of the demand process at time $t$ knowing value at time $t=0$:
+\begin{lstlisting}
+demandProcess[x0_,t_,mu_,sigma_]:=x0 Exp[(mu-sigma^2/2)t+
+	sigma RandomVariate[NormalDistribution[0,Sqrt[t]]]];
+\end{lstlisting}
+
+\vspace{3mm}
+$\bullet$ Simulation of a sample path of the demand process (starting at $x_0$) until it reaches the threshold stipulated:
+\begin{lstlisting}
+stopTime[timeStep_, xthreshold_, x0_, mu_, sigma_] := Module[{stop, t, X},
+	stop = 0; (* hasn't stopped *)
+	t = 0.001;
+	X = {x0};
+	While[Last[X] < xthreshold,
+		X = Append[X, demandProcess[x0, t, mu, sigma]];
+		t = t + timeStep];
+	t
+];
+\end{lstlisting}
+
+
+\vspace{3mm}
+$\bullet$ Simulation of a number of \texttt{NsamplePaths} demand processes, w.r.t. each initial value tested between \texttt{xMin} and \texttt{xMax}:
+\begin{lstlisting}
+generalStopTime[Xmin_,Xmax_, xStep_,NsamplePaths_,timeStep_,xthreshold_,mu_,sigma_]:=
+	Module[{x0=Xmin,
+	stop={},
+	X={}
+	},
+	While[x0<=Xmax,
+		stop=Append[stop,Table[stopTime[timeStep,xthreshold,x0,mu,sigma],
+			{i,1,NsamplePaths}]];
+		X=Append[X,Table[x0,{i,1,NsamplePaths}]];
+		x0=x0+xStep;
+	];
+{X,stop}
+];
+\end{lstlisting}
+
+
+\section{Sensitivity analysis w.r.t. to volatility}
+\label{section:sav}
+\subsection{\texttt{Mathematica} code}
+Besides function \texttt{demandProces} stated hereunder, we also defined the following functions:
+
+\vspace{3mm}
+$\bullet$ Simulation of a sample path of the demand process (starting at $x_0$) until it reaches the threshold stipulated, returning the stopping time and the whole sample path:
+\begin{lstlisting}
+stopTimemod[timeStep_,xthreshold_,x0_,mu_,sigma_,horizon_]:=Module[{stop,t,X},
+	t=0;
+	X={x0};
+	While[Last[X]<xthreshold &&t <=horizon,
+		t=t+timeStep;
+		X=Append[X,demandProcess[x0,t,mu,sigma]];
+	];
+	X=Append[X,Table[demandProcess[x0,t+timeStep*i,mu,sigma],{i,horizon-t}]];
+{t,Flatten@X}];
+\end{lstlisting}
+
+
+\vspace{3mm}
+$\bullet$ Estimation of the investment waiting time w.r.t. changes in market's uncertainty:
+\begin{lstlisting}
+estTau[x0_, threshold_] := Module[{b},
+	Table[
+		b = Table[stopTimemod[timeStep, threshold@sigma, x0, mu, sigma,
+		horizon], {i, NsamplePaths}];
+		(*Print["Tempos de paragem=",First/@b];*)
+		If[Count[First /@ b, horizon + timeStep] > 0,
+		  Print[ "(sigma, # unended sample paths) = ", {sigma, 
+		    Count[First /@ b, horizon + timeStep]}]
+		];
+	Mean[First /@ b],
+{sigma, 0.01, sigmaMax, 0.01}]
+];
+\end{lstlisting}
+
+\subsection{Numerical results}
+
+\begin{table}[!ht]
+	\centering
+	\caption{Sensitivity analysis of the (estimated) mean of optimal investment time, the threshold level and the optimal capacity level (referred on Chapter \ref{chapter:1}) with the volatility, regarding different initial values $x_0 \in \{0.001, \ 0.01\}$.}
+	\begin{tabular}{c|ccccccccl}
+		\hline
+		\text{ $\sigma $ } & 0.05 & 0.1 & 0.15 & 0.2 & 0.25 & 0.3 & 0.35 & 0.4 \\ \hline
+		$K^*$ & 381.04 & 395.08 & 410.92 & 425.39 & 437.62 & 447.66 & 455.80 & 462.41 \\
+		$x_B^*$ & 0.012 & 0.013 & 0.015 & 0.017 & 0.020 & 0.023 & 0.027 & 0.032 \\
+		$x_C^*$ & 0.017 & 0.019 & 0.022 & 0.027 & 0.032 & 0.038 & 0.045 & 0.053 \\ \hline
+		$\overline{\tau _B}$ & 67.64 & 58.71 & 53.64 & 52.22 & 52.46 & 57.49 & 63.97 & 106.98 & \rdelim\}{2}{0.05mm}[$x_0=0.001$]  \\
+		$\overline{\tau _C}$ & 78.21 & 68.43 & 63.82 & 63.94 & 65.55 & 70.66 & 90.09 & 193.65 \\ \hline
+		$\overline{\tau _B}$ & 4.29 & 5.26 & 6.48 & 7.81 & 9.53 & 10.25 & 11.90 & 14.154 &	\rdelim\}{2}{0.05mm}[$x_0=0.01$] \\
+		$\overline{\tau _C}$ & 13.88 & 12.89 & 13.40 & 14.92 & 15.53 & 16.93 & 19.77 & 23.11
+		\\ \hline
+	\end{tabular}
+	\label{tab:vol_1}
+\end{table}
+
+
+\begin{table}[!ht]
+	\centering
+	\caption{Sensitivity analysis of the (estimated) mean of optimal investment time, the threshold level and the optimal capacity level (referred on Chapter \ref{chapter:2}) with the volatility, regarding different initial values $x_0 \in \{0.001, \ 0.01\}$.}
+	\begin{tabular}{c|ccccccccl}
+		\hline
+		\text{ $\sigma $ } & 0.05 & 0.1 & 0.15 & 0.2 & 0.25 & 0.3 & 0.35 & 0.4 \\ \hline
+		$K^*$ & 406.62 & 416.81 & 428.59 & 439.60 & 449.10 & 457.01 & 463.51 & 468.84  \\
+		$x_B^*$ & 0.022 & 0.024 & 0.028 & 0.033 & 0.038 & 0.045 & 0.052 & 0.060  \\
+		$x_C^*$ & 0.021 & 0.024 & 0.028 & 0.033 & 0.039 & 0.047 & 0.055 & 0.064 \\ \hline
+		$\overline{\tau _B}$ & 86.86 & 76.4 & 71.57 & 65.01 & 68.18 & 73.59 & 84.79 & 203.85  & \rdelim\}{2}{0.05mm}[$x_0=0.001$]  \\
+		$\overline{\tau _C}$ & 86.45 & 75.33 & 69.36 & 67.75 & 71.57 & 76.08 & 99.44 & 194.35 \\ \hline
+		$\overline{\tau _B}$ & 20.94 & 18.04 & 18.04 & 17.19 & 17.37 & 19.55 & 22.19 & 25.88  &	\rdelim\}{2}{0.05mm}[$x_0=0.01$] \\
+		$\overline{\tau _C}$ & 20.34 & 18.69 & 18.18 & 17.94 & 19.88 & 21.21 & 22.04 & 23.02  \\ \hline
+	\end{tabular}
+	\label{tab:vol_2}
+\end{table}
+
+
+\begin{table}[!htb]
+	\centering
+	\caption{Sensitivity analysis of the (estimated) mean of optimal investment time, the threshold level and the optimal capacity level (referred on Chapter \ref{chapter:3}) with the volatility, regarding different initial values $x_0 \in \{0.001, \ 0.01\}$.}
+	\begin{tabular}{c|ccccccccc}
+		\hline
+		\text{ $\sigma $ } & 0.05 & 0.1 & 0.15 & 0.2 & 0.25 & 0.3 & 0.35 & 0.4 \\ \hline
+		$x_{1,A}^*$ & 1.092 & 1.101 & 1.116 & 1.136 & 1.161 & 1.190 & 1.224 & 1.261   \\
+		$x_2^*$ & 6.518 & 6.572 & 6.659 & 6.779 & 6.928 & 7.104 & 7.306 & 7.530  \\ \hline
+		$\overline{\tau _{1,A}}$ & 16.08 & 16.18 & 16.13 & 16.07 & 16.06 & 16.34 & 16.34 & 16.64  & \rdelim\}{1}{0.05mm}[$x_0=0.001$] \\
+		$\overline{\tau _{1,A}}$ & 10.92 & 11.00 & 11.01 &  11.08 & 11.10 & 1.10 & 11.27 & 11.53 & \rdelim\}{1}{0.05mm}[$x_0=0.001$]  \\ \hline
+		$\overline{\tau _2}$ & 4.48 & 4.50 & 4.54 & 4.56 & 4.65 & 4.55 & 4.49 & 4.63   \\ \hline
+	\end{tabular}
+	\label{tab:vol_3}
+\end{table}
+
+\pagebreak
+\section{Sensitivity analysis w.r.t. the crossed-effect between initial demand and volatility}
+
+$\bullet$ Histogram of the optimal investment times:
+\begin{lstlisting}
+hist[timeStep_, xfunc_, x0_, mu_, sigma_, horizon_, NsamplePaths_, color_] :=
+ Module[{b, xthreshold = xfunc@sigma},
+	b = Table[stopTimemod[timeStep, xthreshold, x0, mu, sigma, horizon],
+		{i, NsamplePaths}];
+	{Histogram[First /@ b, 20, ChartStyle -> color, AxesLabel -> {"tau", " "}],
+	First /@ b, 
+	ShapiroWilkTest[First /@ b, "TestDataTable"]}
+];
+\end{lstlisting}
 

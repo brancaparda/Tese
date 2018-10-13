@@ -9,7 +9,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{Background concepts}
-\label{chapter:bc}
+\label{chapter:bc1}
 
 Before starting to explain the work that is here developed, we introduce the main concepts and tools required.
 
@@ -479,22 +479,28 @@ V(x)=\sup_{\tau \geq 0} J(x,\tau)=\sup_{\tau \geq 0} \mathds{E}^{X_0=x}\left[ \i
 	\label{stopprob2}
 \end{equation}
 
-Recall that $V$ is such that the HJB variational inequality \eqref{HJB} is satisfied, where $\mathcal{A}$ is an operator that denotes the infinitesimal generator of the demand level process, represented here as a Geometric Brownian Motion. Accordingly to \textit{Theorem 7.3.3} on \cite{oksendal:book}, its expression is given by 
+Recall that $V$ is such that the HJB variational inequality \eqref{HJB} is satisfied, where $\mathcal{A}$ is the infinitesimal generator of the stochastic process $X$. Accordingly to \textit{Theorem 7.3.3} on \cite{oksendal:book}, its expression is given by 
 \begin{equation}
 \mathcal{A}F(x)=
-\lim_{t\downarrow 0} \frac{\mathds{E}^{X_0=x}(F(X_t))-F(x)}{t}=
+%\lim_{t\downarrow 0} \frac{\mathds{E}^{X_0=x}(F(X_t))-F(x)}{t}=
 \frac{\sigma^2}{2}x^2F''(x)+\mu x F'(x), \ \forall F \in C^2(\mathds{R}).
 \label{eq:Lgbm}
 \end{equation}
 
-For any state (i.e., demand level) included in the continuation region $\mathcal{C}$, terminal costs are bigger than what we earn by investing, resulting in a negative profit. Thus the firm will prefer to wait until the demand level reaches a value that does not belong to $\mathcal{C}$ and only then, invest. Therefore, the continuation region consists in the set of states attained by the leftmost term above of HJB equation \eqref{eq:HJB}, that is
+For any state (i.e., demand level) included in the continuation region $\mathcal{C}$, terminal costs are larger than what we earn by investing, resulting in a negative profit. Thus the firm will prefer to wait until the demand level reaches a value that does not belong to $\mathcal{C}$ and only then, invest. Therefore, the continuation region consists in the set of states attained by the leftmost term above of HJB equation \eqref{HJB}, that is
 \begin{equation*}
 \mathcal{C}=\{ x \in \mathds{R}: h(x)-V(x)>0 \}=\{ x \in \mathds{R}: rV(x)- \mathcal{A}V(x)-g(x)=0 \}.
 \label{cont}
 \end{equation*}
 
 %Since the investment decision will only occur after a jump in the innovation process happens, at time $T$, 
-Our intuition leads us to conjecture that the continuation region consists on the set of demand levels that are under a certain value $x^*$, which is defined to be the threshold between the continuation region $\mathcal{C}$ and the stopping region $\mathcal{S}$. The threshold value $x^*$ might be greater or equal to the demand value observed immediately after a jump in the innovation process happens, at time $t_\theta$, since at this time we are already in position to invest. If we don't invest for the demand level observed at innovation jump  $x_{t_\theta}$, then we won't do it for smaller values since
+Our intuition leads us to conjecture that the continuation region consists on the set of demand levels that are under a certain value $x^*$, which is defined to be the threshold between the continuation region $\mathcal{C}$ and the stopping region $\mathcal{S}$.
+
+
+Since at time $t_\theta$ (when the innovation breakthrough occurs) we are already in position to invest and the investment is done as soon as possible, it follows that the threshold value $x^*$ might be greater or equal to the demand value observed at that time. Otherwise it wouldn't be true that
+
+
+%Note that the threshold value $x^*$ might be greater or equal to the demand value observed at the innovation breakthrough, that is at time $t_\theta$, since at this time we are already in position to invest. If we don't invest for the demand level observed at innovation jump  $x_{t_\theta}$, then we won't do it for smaller values since
 $h(x_{t_\theta})-V(x_{t_\theta})>0\ \Rightarrow \ \forall x<x_{t_\theta}: h(x)-V(x)>0$, meaning that we will have no profit. Therefore,
 \begin{equation}
 	\mathcal{C} = \{ x \in (0, \infty): x<x^* \} \ \text{for some} \ x^* \in 
@@ -555,9 +561,12 @@ Despite the two different regions, value function $F$ must be continuous and smo
 	\end{align}
 \end{subequations}
 must be verified. Solving the respective system, we get values $x^*$ and $a$, obtainning inally, that our value function takes the form of
-$$V(x)=\begin{cases} ax^{d_1} &\quad \text{for } x\in \mathcal{C} \\
+\begin{equation}
+V(x)=\begin{cases} ax^{d_1} &\quad \text{for } x\in \mathcal{C} \\
 h(x)  &\quad \text{for } x\in \mathcal{S},
-\end{cases}$$
+\end{cases}
+\label{sol}
+\end{equation}
 with $d_1$ as in \eqref{d1} and where $\mathcal{C}$ is defined as in \eqref{c_region}, $\mathcal{S}$ as in \eqref{s_region} and the optimal stopping time as in \eqref{stop}.
 
 

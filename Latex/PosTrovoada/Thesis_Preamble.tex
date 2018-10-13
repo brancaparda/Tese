@@ -34,13 +34,40 @@
 %
 % ******************************* SELECT *******************************
 %\usepackage[portuguese]{babel} % <<<<< Portuguese
-\usepackage[english]{babel} % <<<<< English
+\usepackage[english]{babel} %
+
+\usepackage{listings}
+\lstloadlanguages{[5.2]Mathematica}
+
+\usepackage{tikz}% <<<<< English
+\usepackage{mwe}
+
+\usetikzlibrary{arrows,shapes,positioning,shadows,trees}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{tikz}
+\usepackage{mwe}
+
+\tikzset{
+	basic/.style  = {draw, text width=7cm, drop shadow, font=\sffamily, rectangle},
+	root/.style   = {basic, rounded corners=4pt, thin, align=center,
+		fill=white},
+	level 2/.style = {basic, rounded corners=6pt, thin,align=center, fill=blue!30,
+		text width=12em},
+	level 3/.style = {basic, thin, align=left, fill=white, text width=11em}
+}
+
+
+\usepackage{extarrows}
 % ******************************* SELECT *******************************
 \usepackage{amsthm}
 \usepackage{xcolor, bigdelim}
-
+\newtheorem{theo}{Theorem}[chapter]
 \newtheorem{prop}{Proposition}[chapter]
 \newtheorem{defi}{Definition}[chapter]
+\usepackage{cases}
+\usepackage[overload]{empheq}
+\usepackage{multirow}
 % List of LaTeX variable names: \abstractname, \appendixname, \bibname,
 %   \chaptername, \contentsname, \listfigurename, \listtablename, ...)
 % http://www.tex.ac.uk/cgi-bin/texfaq2html?label=fixnam
