@@ -1,0 +1,359 @@
+\chapter{Background concepts}
+\label{chapter:bc}
+
+Before starting to explain the work that is here developed, we introduce the main concepts and tools required.
+
+We start by introducing the field of Optimal Stopping Problems, a subfield of Stochastic Control Problems (which won't be treated here) showing how we can characterize an optimal stopping time regarding a certain decision and then we explain how Optimal Stopping Problems are related with investment decisions under uncertainty, namely with Real Options approach, deducing the general solution of the (standard) optimal problems that we will face along this work.
+
+\section{Optimal Stopping Problems}
+\label{section:osp}
+
+The main goal of optimal stopping problems consists on finding a stopping time such that a reward or cost function is maximized or minimized, respectively. Taking into account that investment decisions are usually formulated as the maximization of possible gains, we treat along this section the case on which we are dealing with a rewarding function. Nevertheless, we highlight the fact that the minimization problem is easily reductable to a maximization one and \textit{vice-versa} - for further details we recommend \cite{ross} and \cite{oksendal:book}.
+
+Since investment decisions are usually related to sources of uncertainty, represented on the form of stochastic processes, we start to set our investment environment. We consider a probability space probability space $(\Omega,\mathcal{F}, \mathds{P})$ associated to the underlying Brownian Motion $W$, on which $\mathcal{F}=\{\mathcal{F}_t, \ t\geq0 \}$ corresponds to its natural filtration and the unidimensional Itô process $\textbf{X}=\{ X_t, \ t \geq0 \}$ with state space defined on $\mathds{R}$. $\textbf{X}$ evolves accordingly to the stochastic differential equation (SDE):
+\begin{equation}
+d X_t=b(X_t)dt + \sigma (X_t)dW_t, \ X_0=x\in \mathds{R},
+\label{bc_sde}
+\end{equation} 
+where $b$ and $\sigma$ are functions that satisfy Itô conditions given by:
+\begin{align}
+\exists K \in (0,\infty) \  \forall t \in [0,\infty) \ \forall u \in \mathds{U} \ \forall x,y \in\mathds{R}^n: \hspace{3mm} \nonumber &\\
+|b(t,x,\alpha)-b(t,y,\alpha)| + || \sigma (t,x,\alpha)- \sigma(t,y,\alpha)|| &\leq K |x-y| \label{bc_cond1} \\
+|b(t,x,\alpha)|^2+|| \sigma (t,x,\alpha)|| &\leq K^2 (1+|x|^2).  \label{bc_cond2}
+\end{align}
+
+Given this context, we define one of the most important concepts regarding optimal stopping problems.
+ \begin{defi}
+	A function $\tau:\Omega \rightarrow [0,\infty]$ is called a stopping time with respect to the filtration $\mathcal{F}$ is $\{ \omega: \ \tau(\omega)\leq t\} \in \mathcal{F}_t, \ \forall t\geq0$.
+\end{defi}
+
+Intuitively we have that our reward function is strongly influenced by a running cost function $g$, which accounts for the instantaneous earnings before the decision is taken; a terminal function $h$, corresponding to the long-run earnings or termination payoff associated to the observed value of the Itô process when the decision is incurred; a stopping time $\tau$, upon which we switch from one stage to another, and a initial given state for the underlying Itô process. Here we denote the reward function by $J$ and it is such that
+\begin{align}
+ J(x,\tau)=\mathds{E}^{X_0=x}\left[ \left(\int^\tau_0 e^{-r s} g(X_s) \ ds +e^{-r \tau}h(X_\tau)\right) \mathds{1}_{ \{\tau< \infty \}} \right].\footnote{Henceforth, on this work, we denote $\mathds{E} \left[ \ . \ | X_0=x \right]$ by $\mathds{E}^{X_0=x}\left[ \ . \ \right].$}
+ \label{bc_j}
+\end{align}
+
+Note that $ \mathds{1}_{ \{\tau< \infty \}}$ indicates that with probability 1, the decision is taken within a finite time. Also, henceforth on this work, we denote $\mathds{E} \left[ \ . \ | X_0=x \right]$ by $\mathds{E}^{X_0=x}\left[ \ . \ \right]$.
+
+Denoting $V$ as the value function associated to the reward problem, it is such that
+\begin{equation}
+V(x)=\sup_\tau J(x,\tau)
+\label{bc_v1}
+\end{equation}
+with $\tau$ taken to be a stopping time in the set of all $\{\mathcal{F}_t\}$-stopping times.
+
+
+%\textcolor{red}{Continuar página 2! :) }
+
+Therefore we will want to characterize an optimal stopping time $\tau^*$ such that 
+\begin{equation}
+	J(x,\tau^*)=V(x),\ \forall x \in \mathds{R}
+	\label{bc_v}
+\end{equation}
+
+In order to accomplish that, we suppose a continuation and a stopping region to be respectively given by $\mathcal{C}=\{ x\in \mathds{R}: x<x^* \}$ and $\mathcal{S}=\{ x\in \mathds{R}: x\geq x^* \}$. These are intuitive guesses: since we want to maximize our reward function, we expect that small values of $x$ lead to a smaller value of $h(x)$, for which we verify $h(x)<V(x)$ meaning that is more attractive to \textit{continue} with an instantaneous earning $g$; where, on the other hand, large values of $x$ conduce to $h(x)=V(x)$, being preferable to change the strategy. Alternatively, continuation and stopping regions might be also defined as
+\begin{align}
+ \mathcal{C}&=\{ x\in \mathds{R}: h(x)<V(x) \} \label{bc_c}\\
+ \mathcal{S}&=\{ x\in \mathds{R}: h(x)=V(x) \} \label{bc_s},
+\end{align}
+respectively. We note that there exists vast literature about the definition of continuation and stopping problems, that we omit in the work. We simply motivate $\mathcal{C}$ and $\mathcal{S}$, as we present (in a rather informal way) in this section.
+
+As consequence, since the optimal stopping time sets the first instant upon which is advantageous to turnaround, that is when $h(x)=V(x)$ for some $x \in \mathds{R}$, it might be formally defined as
+\begin{equation}
+\tau^*=\inf \{ t \geq 0: X_t \notin \mathcal{C} \}=\inf \{ t \geq 0: X_t \in \mathcal{S} \}.
+\label{stoptime}
+\end{equation}
+
+
+Although it won't be proved here, the uniqueness of an optimal stopping time is a consequence of the Dynamic Principle - quite remarkable on the field of Stochastic Control Problems -, and which briefly states that the optimal solution of a stochastic control problem can be found either by analysing te whole admissible domain or a partition of it. Following \cite{ross}, in the context of optimal stopping problems, the Dynamic Principle is given by
+\begin{equation}
+V(x)=\sup_\tau \mathds{E}^{X_0=x} \left[ \left( \int^\tau_0 e^{-rs}g(x_s) \ ds + e^{-r \tau}V(X_\tau) \right) \mathds{1}_{ \{\tau< \infty \}}  \right]
+\label{bc_2}
+\end{equation}
+from which we, after comparing with \eqref{bc_j}, conclude that in the stopping region $h(x)=V(x)$, showing that our guess (regarding the stopping region) presented on \eqref{bc_s} was correct. 
+
+In order to obtain a general formulation of our optimal stopping problem regarding continuation and stopping regions, we manipulate the expression associated to the discounted value function (coinciding with the discounted terminal function as seen in \eqref{bc_2}). Using Itô's lemma and supposing that $e^{-r t} V(x) \in C^2(\mathds{R}^2)$, we integrate it, obtaining
+\begin{equation*}
+e^{-r t} V(X_\tau)=V(X_0)+\int^\tau_0 e^{-rs}(\mathcal{L} V(X_s) -r V(X_s)) ds
+\end{equation*}
+where $\mathcal{L}$ denotes the infinitesimal generator of the Itô process $X$, given by $\mathcal{L}f(x,u(x))=b(x,u(x)) f'(x)+\frac{1}{2}\sigma^2(x,u(x))f''(x)$.
+
+Taking the expectation on both sides and adding the term $\mathds{E}^{X_0=x}\left[\int^\tau_0 e^{-rs} g(X_s) ds \right]$ on both sides we get
+$$\underbrace{ \mathds{E}^{X_0=x} \left[  \int^\tau_0 e^{-rs} g(X_s) ds + e^{-r t} V(X_\tau) \right] }_{J(x,\tau) \ \text{by \eqref{bc_2}}} = V(x) +  \mathds{E}^{X_0=x} \left[ \int^\tau_0 e^{-rs}(\mathcal{L} V(X_s) -r V(X_s)+  g(X_s)) ds \right].$$
+
+Since $\tau^*$ is considered to be the optimal time associated to the problem, it follows
+\begin{align}
+%\mathds{E}^{X_0=x} \left[
+J(x,\tau^*) 
+%\right]  
+\underset{\eqref{bc_v}}{=} V(x)=  V(x) +  \mathds{E}^{X_0=x} \left[ \int^\tau_0 e^{-rs}(\mathcal{L} V(X_s) -r V(X_s)+  g(X_s)) ds \right] \nonumber \\
+\Rightarrow \mathds{E}^{X_0=x} \left[ \int^\tau_0 e^{-rs}(\mathcal{L} V(X_s) -r V(X_s)+  g(X_s)) ds \right]=0.
+\label{bc_3}
+\end{align}
+
+When $x \notin \mathcal{C}$, we have that $x \in \mathcal{S}$ and, as previously seen, $V(x)=h(x)$ holds.
+
+However when considering an arbitrary $x \in \mathcal{C}$, $\tau>0$ and therefore taking the limit $\tau \rightarrow 0$ in \eqref{bc_3}, it follows that
+$$0=-rV(x)+\mathcal{L}V(x)+g(x).$$
+
+Therefore we obtain that for an arbitrary $\tau$ (that might or not be optimal)
+\begin{align}
+\begin{cases} 
+-rV(x)+\mathcal{L}V(x)+g(x) \leq 0 \\
+V(x) \geq J(x,0)=h(x)
+\end{cases}
+\ \Leftrightarrow \
+\begin{cases} 
+rV(x)-\mathcal{L}V(x)-g(x) \geq 0 \\
+V(x)- h(x) \geq 0
+\end{cases}
+\ , \ \forall x \in \mathds{R}
+\end{align}
+
+
+Summarizing the result above, we obtain the Hamilton-Jacobi-Bellman (HJB) variational equation which, in case of a reward problem, is given by
+\begin{align}
+ \min \{ r V(x)-\mathcal{L}V(x)-g(x), V(x)-h(x) \}&=0, \ x\in \mathds{R}.
+\label{HJB}
+\end{align}
+
+Although continuation and stopping regions are not explicitly defined, we obtained that as stated in \eqref{bc_c} and \eqref{bc_s}, our guess regarding the continuation region\footnote{Recall that our guess about the stopping region was already checked to be correct.} was right and more, that it verifies the leftmost side of \eqref{HJB}, that is,
+$\mathcal{C}=\{ x\in \mathds{R}: r V(x)-\mathcal{L}V(x)-g(x)=0 \}.$
+
+Notwithstanding, the HJB variational inequality provides us the main tool to characterize the continuation (and stopping) regiom, we need to make use of our intuition to construct it - in this case it manifests by the assumption that larger values of $x$ lead to the choice of termination payoff.
+
+In order to verify that our guesses concerning $\mathcal{C}$ and $\mathcal{S}$ were the right ones, one could use Itô lemma and manipulate the result achieved. However this last one needs a very strong assumption: $V \in C^1(\mathds{R})$ - which is not always verified, in particularly, in the boundary between $\mathcal{C}$ and $\mathcal{S}$ due to the quite different behaviour of $V$ deduced by \eqref{HJB}. Fortunately, this hypothesis can be relaxed by requiring (along with other conditions), $V$ to be \textit{sufficiently smooth}. This idea is present on the following theorem, whose proof can be checked on \cite{ross}:
+
+\begin{theo}[Verification Theorem]
+	\label{verif}
+	Suppose $\exists \ \phi: \mathds{R}\rightarrow \mathds{R}$ such that:
+	\begin{enumerate}
+		\item $\phi \in C^1(\mathds{R})$.
+		\item $\exists \psi:\mathds{R}\rightarrow \mathds{R}$ measurable function: $a) \ \forall a>0: \ \psi \ \text{is Lebesgue integrable in } [-a,a]$;
+		
+		\hspace{5.2cm} $b) \ \forall y \in \mathds{R}: \ \phi'(y)-\phi'(0)=\int^y_0 \psi(z)dz$.
+		\item $\forall x \in \mathds{R}: \ \min \{ r V(x)-\mathcal{L}V(x)-g(x), V(x)-h(x) \}=0$.
+		\item $\forall x\in \mathds{R}: \ \underset{t\to \infty}{lim} e^{-rt}\mathds{E}[\phi(X_t)]=0$.
+	\end{enumerate}
+Then,
+\begin{enumerate}
+	\item  $\forall x \in \mathds{R}: \ \phi(x) \geq J(x,\tau) \ \forall \tau \in \mathcal{S} \ \Rightarrow \ \phi(x) \geq V(x)$.
+	\item Let $\mathcal{C}$ be defined as in \eqref{bc_c} and $\tau^*$ as in \eqref{stoptime}.\\
+	Then, $\phi(x)=J(x,\tau^*)=V(x) \ $ iff $\ \tau^*$ is an optimal stopping time.
+\end{enumerate}
+\end{theo}
+
+Combining the HJB variational inequality with the Verification theorem we obtain a powerful tool to characterize continuation and stopping regions, by the free-boundary problem: 
+
+\begin{align}
+\begin{cases}
+V(x)-h(x)=0 \ &, \ x \in \mathcal{S} \\
+r V(x)-\mathcal{L}V(x)-g(x)=0  \ &, \ x \in \mathcal{C} \\
+V(x)=h(x) \ &, \ x \in  \partial \mathcal{C} \\
+V'(x)=h'(x) \ &, \ x \in  \partial \mathcal{C} \\
+\end{cases}
+\label{bc_prob}
+%\qquad
+%\underset{\eqref{bc_c}, \eqref{bc_s}}{\Rightarrow}
+%\qquad
+%\begin{cases}
+%V(x)-h(x)=0 \ &, \ x > x^* \nonumber\\
+%r V(x)-\mathcal{L}V(x)-g(x)=0  \ &, \  x < x^* \nonumber \\
+%V(x^*)=h(x^*) \label{valuematch} \\
+%V'(x)\left|_{x=x^*} =h'(x)\right|_{x=x^*} \label{smoothpasting}
+%\end{cases}
+\end{align}
+
+This way we assure that our guess concerning the continuation region is the right one so as the value that triggers our decision, that is, $x^*$. Finally, the optimal stopping time is deduced from \eqref{stoptime} to be such that $\tau^*= \inf \{ t \geq 0: X_t \geq x \}$, which is characterized by \eqref{bc_c}
+
+
+
+
+\section{A Real Options approach}
+\label{bc_ro}
+
+%In firm's investment context, a \textit{real option} is seen as a situation on which a firm has the right, but not the obligation, to undertake certain initiatives such as deferring, abandoning, expanding, staging or contracting a capital investment project. There are three factors assumed to hold during the investment decision:
+
+To incorporate the irreversibility and the possibility to delay an investment the real option approach was extended to support investment decisions. One of the pioneer books on this subject was \cite{dixit:book}, which we follow during this section.
+
+In this approach, investment opportunities are seen as real options: \textit{the firm has the right, but not the obligation, to undertake certain initiatives such as deferring, abandoning, expanding, staging or contracting a capital investment project} \cite{corp:book}. There are three factors assumed to hold during the investment decision:
+\begin{enumerate}
+	\item Future rewards are random and thus uncertain;
+	\item The decision is irreversible, in the sense that it is a sunk cost: the investment expenditure cannot be fully recovered;
+	\item The decision can be made at any time.
+	% and thus it is made at the best time regarding the value of the firm.
+\end{enumerate}
+
+
+Alternatively to the traditional NPV analysis - on which, since the investment is irreversible, it is seen as a now or never opportunity (without the possibility to postpone the investment) -, the decision can be postponed resulting in an extra value associated to its potential. 
+
+In accordance to \cite{dixit:book}, the investment decision treated by real options approach can be seen as an optimal stopping problem. This is justified by the fact that we a have a dynamic problem of a risk-neutral firm that discounts against a rate (here assumed to be constant), $r$, for which we want to find the optimal time to change ruling strategy, by maximizing its value.
+
+
+Recall that, as stated in Chapter \ref{chapter:introduction}, the starting instant ($t=0$) upon which the firm is able to decide is here considered to be at the innovation breakthrough.
+
+The problems treated on this work are mainly investment and exiting ones, being related to the passage from an established product to an innovative one. Therefore, taking into account what was written in the previous section, they can be written as in \eqref{bc_v1} with reward function $J$ as in \eqref{bc_j}, where the running cost function $g\geq0$ denotes the current earnings, that is, the cash-flow originated at each instant by the current strategy; the terminal function $h\geq0$ denotes the long-run cash-flow originated since the decision is taken and by considering the new situation of the firm (and investment costs) and the process $X$ denotes here the demand process, which evolves accordingly to a Geometric Brownian Motion\footnote{On Section \ref{intro:notation} the demand process is defined.}, leading to
+\begin{equation}
+V(x)=\sup_{\tau \geq 0} J(x,\tau)=\sup_{\tau \geq 0} \mathds{E}^{X_0=x}\left[ \left( \int^\tau_0 e^{-r s} g(X_s) \ ds +e^{-r \tau}h(X_\tau) \right) \mathds{1}_{ \{\tau< \infty \}} \right].
+\label{stopprob2}
+\end{equation}
+
+Note that, by admitting the \textit{old} product to be established in the market, its unitary price is not influenced by the demand. This results on a deterministic running cost function, allowing to easily solve the integral above.
+On the other hand, the innovative one, since it's not yet recognized in the market, it is strongly dependent on the level of the demand. Hence, we assume that any decision won't be incurred if the demand is very low, because it is more profitable to continue with the established product.
+
+Following this line of thought we are led to admit a continuation region of the form $\mathcal{C}=\{ x\in \mathds{R}: x<x^* \}$, where the value $x^*$ corresponds to the level of demand that triggers the investment decision. $\mathcal{C}$ is characterized by the free-boundary problem stated in \eqref{bc_prob}, which, taking into account the definition of $\mathcal{C}$ and the infinitesimal generator of a GBM, it is written as
+\begin{subequations}
+	\begin{empheq}[left={\empheqlbrace\,}]{align}
+	&V(x)-h(x)=0 \ &, \ x > x^* \nonumber\\
+	& \frac{\sigma^2}{2}x^2 V''(x)+\mu x V'(x) - r V(x)+g(x)=0  \ &, \  x < x^* \label{bc_wo} \\
+	&V(x^*)=h(x^*) \label{valuematch}\\
+	&V'(x)|_{x=x^*} =h'(x)|_{x=x^*} \label{smoothpasting}
+    \end{empheq}
+%\label{eq:vm+sp}
+\end{subequations}
+
+Henceforth, we will refer to \eqref{valuematch} as \textit{value matching} condition - since it matches the values of the unknown function $V$ to those of the known termination payoff function $h$ - and to \eqref {smoothpasting} as \textit{smooth pasting} condition. Those are the necessary conditions that allow the first requirement of Theorem \ref{verif} to be satisfied.
+
+The characterization of the stopping region $\mathcal{S}$ and value function $V$ defined on it are straightforward defined by \eqref{bc_s} and $V(x)=h(x)$, respectively.
+
+From \eqref{bc_wo} we obtain that for any demand level in $\mathcal{C}$, the ordinary differential equation of second order, above represented, is satisfied. This is a Cauchy-Euler equation, whose solution (here denoted by $V_\mathcal{C}$) might be seen as the sum of the homogeneous solution $V_h$ with a particular solution $V_p$, that is, $V_\mathcal{C}(x)=V_h(x)+V_p(x), \ \forall x \in \mathcal{C}$.
+
+The homogeneous solution is found by solving the (homogenous) Cauchy-Euler equation of second order associated to \eqref{bc_wo}, that is, $\frac{\sigma^2}{2}x^2 V_h''(x)+\mu x V_h'(x) - r V_h(x)=0$, whose solution has the form of
+$$ V_h(x)=ax^{d_1}+bx^{d_2}$$
+where $d_1$ and $d_2$ are the positive and negative solutions of the quadratic equation
+\begin{equation}
+d^2+\left( \frac{2 \mu}{\sigma^2}-1 \right)d-\frac{2r^2}{\sigma^2}=0 \qquad  \Rightarrow \qquad   d_{1,2}= \frac{1}{2}-\frac{\mu}{\sigma^2} \pm \sqrt{\left( \frac{1}{2} -\frac{\mu}{\sigma^2} \right) ^2+ \frac{2r}{\sigma^2}}.
+\label{d1d2}
+\end{equation}
+
+Taking into account that $r>\mu$, one can easily check that $d_1>1$ and $d_2<0$.
+
+On most situations addressed during this work we face a terminal function $h$ that is a non-decreasing function of polynomial type. This is a special case studied in \cite{guerra}, from where we conclude that one of the boundary conditions is that the solution for $x=0$ needs to be zero, ie, $\underset{x\to 0^+}{\lim} V_h(x)=0$. Therefore, we must have $b=0$ resulting in $V_h(x)=ax^{d_1}$.
+Also, in this context, by noting that it is an absurd to suppose a project with negative value, it is required that $a>0$.
+
+
+Regarding the particular solution $V_p$, we have that it trivially will depend on the running function $g$.
+
+Thus, regarding the general context as described in \eqref{stopprob2}, we obtain that the value function $V$ is of the form:
+\begin{align}
+V(x)=\begin{cases}
+ax^{d_1}+bx^{d_2}+V_p(x) \ &, \ x<x^*\\
+h(x) \ &, \ x\geq x^*
+\end{cases}
+\label{sol}
+\end{align}
+where coefficients $a$ and $b$ and the threshold $x^*$ are found by value matching \eqref{valuematch} and smooth pasting \eqref{smoothpasting} conditions along with the ones derived based on the situation treated. Finally, by knowing $V$ we straightforward know how to characterize both continuation and stopping regions.
+
+
+
+Fortunately, on most problems here addressed (being the only exception found on Chapter \ref{chapter:3}), we are able to change the formulation presented in \eqref{stopprob2}, in order to get a null running function as follows:
+\begin{align}
+V(x)&=\sup_{\tau \geq 0} \mathds{E}^{X_0=x}\left[  \int^\infty_0 e^{-r s} g(X_s) \ ds +\left( e^{-r \tau}h(X_\tau)  -   \int_\tau^\infty e^{-r s} g(X_s) \ ds \right) \mathds{1}_{ \{\tau< \infty \}} \right] \nonumber \\
+& = \mathds{E}^{X_0=x}\left[ \int^\infty_0 e^{-r s} g(X_s) \ ds \right] + \sup_{\tau \geq 0} \mathds{E}^{X_0=x}\left[ \left( \underbrace{  e^{-r \tau}h(X_\tau) - \int_\tau^\infty e^{-r s} g(X_s) \ ds}_{\widetilde{h}(X_\tau)} \right) \mathds{1}_{ \{\tau< \infty \}} \right] \nonumber \\
+& =  \mathds{E}^{X_0=x}\left[ \int^\infty_0 e^{-r s} g(X_s) \ ds \right]+ \sup_{\tau \geq 0}\mathds{E}^{X_0=x}\left[ e^{-r s}\widetilde{h}(X_\tau) \mathds{1}_{ \{\tau< \infty \}} \right] \label{bc_confuso}.
+\end{align}
+%Afterwards, we obtain that 
+This simplification is advantageous when the integral on the left is easily solvable. This way, we only need to solve the rightmost optimal stopping problem, using the methodology so far presented.
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Therefore any investment decision might be seen as an optimal stopping problem in which we want to find the best time to make a decision such that the value of the firm is maximized.
+
+%By considering $t=0$ as the starting instant to make the decision, the investment problem can be stated on the form of \eqref{stopprob}, where the running cost function $g\geq0$ denotes the current earnings, corresponding to the cash-flow originated at each instant by the current situation; the terminal function $h\geq0$ denotes the long-term earnings after the investment is done, corresponding to the long-term cash-flow originated since the investment is made and considering the new situation of the firm and investment costs; parameter $\gamma$ denotes the discount rate $r$ and the process $X$ denotes here the demand process, which evolves accordingly to a Geometric Brownian Motion\footnote{On Section \ref{intro:notation} the demand process is defined.}. Since the supremum here is taken over all stopping times after the initial instant, it follows that \eqref{stopprob} is now written as
+%
+%
+%Recall that $V$ is such that the HJB variational inequality \eqref{HJB} is satisfied, where $\mathcal{A}$ is the infinitesimal generator of the stochastic process $X$. Accordingly to \textit{Theorem 7.3.3} on \cite{oksendal:book}, its expression is given by 
+%\begin{equation}
+%\mathcal{A}F(x)=
+%%\lim_{t\downarrow 0} \frac{\mathds{E}^{X_0=x}(F(X_t))-F(x)}{t}=
+%\frac{\sigma^2}{2}x^2F''(x)+\mu x F'(x), \ \forall F \in C^2(\mathds{R}).
+%\label{eq:Lgbm}
+%\end{equation}
+%
+%For any state (i.e., demand level) included in the continuation region $\mathcal{C}$, terminal costs are larger than what we earn by investing, resulting in a negative profit. Thus the firm will prefer to wait until the demand level reaches a value that does not belong to $\mathcal{C}$ and only then, invest. Therefore, the continuation region consists in the set of states attained by the leftmost term above of HJB equation \eqref{HJB}, that is
+%\begin{equation*}
+%\mathcal{C}=\{ x \in \mathds{R}: h(x)-V(x)>0 \}=\{ x \in \mathds{R}: rV(x)- \mathcal{A}V(x)-g(x)=0 \}.
+%\label{cont}
+%\end{equation*}
+%
+%%Since the investment decision will only occur after a jump in the innovation process happens, at time $T$, 
+%Our intuition leads us to conjecture that the continuation region consists on the set of demand levels that are under a certain value $x^*$, which is defined to be the threshold between the continuation region $\mathcal{C}$ and the stopping region $\mathcal{S}$.
+%
+%
+%Since at time $t_\theta$ (when the innovation breakthrough occurs) we are already in position to invest and the investment is done as soon as possible, it follows that the threshold value $x^*$ might be greater or equal to the demand value observed at that time. Otherwise it wouldn't be true that
+%
+%
+%%Note that the threshold value $x^*$ might be greater or equal to the demand value observed at the innovation breakthrough, that is at time $t_\theta$, since at this time we are already in position to invest. If we don't invest for the demand level observed at innovation jump  $x_{t_\theta}$, then we won't do it for smaller values since
+%$h(x_{t_\theta})-V(x_{t_\theta})>0\ \Rightarrow \ \forall x<x_{t_\theta}: h(x)-V(x)>0$, meaning that we will have no profit. Therefore,
+%\begin{equation}
+%\mathcal{C} = \{ x \in (0, \infty): x<x^* \} \ \text{for some} \ x^* \in 
+%%(a,\infty) \subseteq
+%(X_{t_\theta}, \infty).
+%\label{c_region}
+%\end{equation}
+%
+%On the other hand, the stopping region $\mathcal{S}$, is defined to be the set whose states verify that the terminal function and the value function are equal (equivalent to the set of states attained by the rightmost term above of HJB equation \eqref{eq:HJB}), that is,
+%\begin{equation}
+%\mathcal{S}=\{ x \in \mathds{R}: h(x)-V(x)=0 \}= \{ x \in \mathds{R}: x\geq x^* \}= \mathds{R} \setminus \mathcal{C}.
+%\label{s_region}
+%\end{equation}
+%
+%The value function $V$, as defined in \eqref{stopprob2}, must statements both statements \eqref{cont} and \eqref{s_region}, meaning that $V$ must be defined by parts.
+%
+%Starting with the condition in \eqref{cont}, $V$ is such that
+%\begin{equation}
+%r V(x) - \mathcal{L} V(x)= r V(x)-\frac{\sigma^2}{2}x^2V''(x)-\mu x V'(x) -g(x) =0
+%\label{ce}
+%\end{equation}
+%is verified for $\forall x \in \mathcal{C}$.
+%
+%The solution $V$ above might be seen as the sum of the homogeneous solution $V_h$ with a particular solution $V_p$, that is, $V(x)=V_h(x)+V_p(x), \ \forall x \in \mathcal{C}$.
+%
+%A particular solution $V_p$ might be found by considering $V''(x)=0, \ \forall x$ and then solve the corresponding differential equation $V(x)-\mu x V'(x) -g(x)=0$.
+%Note that in case the running cost function $g$ is null, $V(x)=V_h(x)$.
+%
+%The correspondent homogeneous ODE in \eqref{ce} corresponds to an (homogeneous) Cauchy-Euler equation of second order, whose solution has the form
+%$$ V(x)=ax^{d_1}+bx^{d_2}$$
+%where $d_1$ and $d_2$ are the positive and negative solutions of the quadratic equation
+%\begin{equation}
+%d^2+\left( \frac{2 \mu}{\sigma^2}-1 \right)d-\frac{2r^2}{\sigma^2}=0 \qquad  \Rightarrow \qquad   d_{1,2}= \frac{1}{2}-\frac{\mu}{\sigma^2} \pm \sqrt{\left( \frac{1}{2} -\frac{\mu}{\sigma^2} \right) ^2+ \frac{2r}{\sigma^2}}.
+%\label{d1d2}
+%\end{equation}
+%
+%Taking into account that $r>\mu$, it follows that $d_1>0$ and $d_2<0$.
+%
+%Since there is no possibility of having a project with negative value and $h$ is a non-negative and non-decreasing function, the solution regarding $x=0$ must be 0, that is, $V$ must verify
+%\begin{equation}
+%\lim_{x\rightarrow 0^+} V(x)=0.
+%\label{cond1}
+%\end{equation}
+%This fact implies that when the running cost function is null ($V(x)=V_h(x)$), $b=0$ and hence $V(x)=ax^{d_1}$. Regarding the situation when $V(x)=V_h(x)+V_p(x)$, one should have $V_p(0)=V_h(0)$ and thus coefficients $a$ and $b$ must be determined. However, since we will be able to reduce all problems to the case where the running cost function is null - except on Chapter \ref{chapter:3} where $V_h$ is such that $V_h(0)=0$, implying $\lim_{x\rightarrow 0^+} V(x)=\lim_{x\rightarrow 0^+} V_h(x)=0$ - we can focus on the case where
+%\begin{equation}
+%V(x)=ax^{d_1} \quad \text{with} \quad d_1=\frac{1}{2}-\frac{\mu}{\sigma^2} +\sqrt{\left( \frac{1}{2} -\frac{\mu}{\sigma^2} \right) ^2+ \frac{2r}{\sigma^2}}>1.
+%\label{d1}
+%\end{equation}
+%
+%In order to satisfy condition presented in \eqref{stop}, $V$ is taken to be equal to terminal cost function $h$ for $\forall x \in \mathcal{S}$.
+%
+%Despite the two different regions, value function $F$ must be continuous and smooth in all its domain ($F\in C(\mathds{R})$), particularly at the boundary value $x^*$. Then, accordingly to \cite{dixit:book}, \textit{value matching} and \textit{smooth pasting}, respectively given by
+%\begin{subequations}
+%	\label{eq:vm+sp}
+%	\begin{align}
+%	&V(x^*)=V(x^*) \label{valuematch}\\
+%	&V'(x^*)=V'(x)|_{x=x^*} \label{smoothpasting}
+%	\end{align}
+%\end{subequations}
+%must be verified. Solving the respective system, we get values $x^*$ and $a$, obtainning inally, that our value function takes the form of
+%\begin{equation}
+%V(x)=\begin{cases} ax^{d_1} &\quad \text{for } x\in \mathcal{C} \\
+%h(x)  &\quad \text{for } x\in \mathcal{S},
+%\end{cases}
+%\label{sol}
+%\end{equation}
+%with $d_1$ as in \eqref{d1} and where $\mathcal{C}$ is defined as in \eqref{c_region}, $\mathcal{S}$ as in \eqref{s_region} and the optimal stopping time as in \eqref{stop}.
