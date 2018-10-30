@@ -1,0 +1,64 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                      %
+%     File: Thesis_Appendix_B.tex                                      %
+%     Tex Master: Thesis.tex                                           %
+%                                                                      %
+%     Author: Andre C. Marta                                           %
+%     Last modified :  2 Jul 2015                                      %
+%                                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{\texttt{Mathematica} code to assess the influence of the number of innovation jumps}
+\label{chapter:appendixjump}
+
+In this appendix we present the code used to make the assessments presented on Chapter \ref{chapter:max}.
+\vspace{0.5cm}
+% ----------------------------------------------------------------------
+
+$\bullet$ Calculation of the optimal R\&D investment, $R^*$, for given parameter $\gamma$ and number of jumps $n$:
+\begin{lstlisting}
+V[R_] := (R^gamma/(r + R^gamma))^n *F - R;
+ptstat = Flatten[Values[NSolve[r R + R^(1 + gamma) - 
+	F n r (R^gamma/(r + R^gamma))^n gamma == 0 && R > 0,R]]]; (*raizes
+		 da 1a derivada *)
+If[ptstat == {},
+	ptstat = 
+	Flatten[Values[FindRoot[r R + R^(1 + gamma) -
+		F n r (R^gamma/(r + R^gamma))^n gamma == 0, {R, 
+		0.5}]]]  (* outro metodo para calcular raizes da 1a derivada *)
+];
+d2[R_] := (F n r (R^gamma/(r + R^gamma))^n gamma (-R^gamma (1 + gamma) 
+	+ r (-1 + n gamma)))/(R^2 (r + R^gamma)^2);
+maxrelat = Negative@Map[d2, ptstat] //. False -> 0 //. True -> 1;  (* 
+	pontos estacionarios com 2a derivada <0 *)
+neg = maxrelat*ptstat; (* vector com entradas dadas por pontos est. 
+	com 2a derivada <0, cc entrada a zero *)
+If[Norm[maxrelat] == 1, (* existe apenas 1 ponto est. com 2a derv. <
+0 -> maximo global! *)
+	max = Norm[ptstat*neg/Norm[neg]],
+	max = 0;
+	tam = Length[ptstat];
+	While[i <= tam, (* teste para escolher qual dos pontos est. 
+com 2a derv. <0 -> maximo global *)
+		If[V[maxrelat[[i]]] > max,
+		max = maxrelat[[i]]];
+		i++];
+	];
+max];
+\end{lstlisting}
+
+
+\vspace{3mm}
+$\bullet$ Calculation of the optimal R\&D investment, $R^*$, up to 5 innovation jumps and by varying $\gamma$ from 0 to 1:
+
+\begin{lstlisting}
+n = 1;
+RoptSaltos = {};
+While[n <= 5,
+	gammas = Rest[Range[0, 1, 0.05]];
+	Ropt = MapThread[calcR, {gammas, Table[n, {i, 1, Length[gammas]}]}];
+		(* lista R optimais *)
+	RoptSaltos = Append[RoptSaltos, Ropt];
+	n++
+];
+\end{lstlisting}
