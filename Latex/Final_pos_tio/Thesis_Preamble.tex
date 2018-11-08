@@ -47,6 +47,18 @@
 \usepackage{titlesec}
 \usepackage{tikz}
 \usepackage{mwe}
+\usetikzlibrary{decorations.pathreplacing} 
+
+\tikzset{
+	brace_top/.style={
+		decoration={brace},
+		decorate
+	},
+	brace_bottom/.style={
+		decoration={brace, mirror},
+		decorate
+	}
+}
 
 \tikzset{
 	basic/.style  = {draw, text width=7cm, drop shadow, font=\sffamily, rectangle},

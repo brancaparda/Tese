@@ -21,7 +21,7 @@
 \label{section:overview}
 
 In this chapter we consider a firm that %has no products inserted on the market
-is not active in the market and aims to invest in a new product, with an innovation level $\theta$. Therefore, at the investment time, the firm needs to incur an investment cost proportional to the capacity of production $K$. This cost is given by $\delta K$ with $\delta>0$, a sensibility parameter related to the investment\footnote{Check Section \ref{intro:notation} for further details.}. Here we consider that the investment decision is irreversible (meaning that it is not possible to obtain investment costs back) and that the production starts at the same time the investment is undertaken.
+is not active in the market and aims to invest in a new product, with an innovation level $\theta$. Therefore, at the investment time, the firm needs to incur an investment cost proportional to the capacity of production $K$. This cost is given by $\delta K$ with $\delta>0$, a sensibility parameter related to the investment\footnote{Check Notation section for further details.}. Here we consider that the investment decision is irreversible (meaning that it is not possible to obtain investment costs back) and that the production starts at the same time the investment is undertaken.
 
 
 The unitary price function $p$ associated to this product is considered to evolve stochastically with the demand process \textbf{X} and it is given by
@@ -29,7 +29,7 @@ The unitary price function $p$ associated to this product is considered to evolv
 p(X_t)=(\theta-\alpha K) X_t \geq 0
 \label{prob1:p}
 \end{equation}
-where $\alpha>0$ is a sensibility parameter and $X_t$ corresponds to the demand level observed at the instant $t\geq0$. Depending on the authors, $p$ might also be called \textit{demand function}, as it is the case on \cite{rita}, for example. The firm wouldn't fix an unitary negative price to a certain product, since it would imply a negative profit. Therefore $p$ is always positive and hence, it follows that $\theta \geq \alpha K$ must be verified.
+where $\alpha>0$ is a sensibility parameter and $X_t$ corresponds to the demand level observed at the instant $t\geq0$. Depending on the authors, $p$ might also be called \textit{demand function}, as it is the case on reference \cite{rita}, for example. The firm wouldn't fix an unitary negative price to a certain product, since it would imply a negative profit. Therefore $p$ is always positive and hence, it follows that $\theta \geq \alpha K$ must be verified.
 
 The instantaneous profit function $\pi$ is obtained by multiplying the unitary price function $p$ by the quantity wanted to be produced, which, as previously explained, is assumed to be fixed along the production process. Then, it follows that
 \begin{equation}
@@ -37,11 +37,61 @@ The instantaneous profit function $\pi$ is obtained by multiplying the unitary p
 \label{prob1:pi}
 \end{equation}
 
-\begin{figure}[!htb]
+%\begin{figure}[!htb]
+%	\centering
+%	\includegraphics[width=\textwidth]{Prob1_CapOpt/1_timelinet.PNG}
+%	\caption{Timeline representing the two possible different stages of production and associated decisions. Time is set to start at the innovation breakthrough.}
+%	\label{1_time}
+%\end{figure}
+
+
+
+\begin{figure}
 	\centering
-	\includegraphics[width=\textwidth]{Prob1_CapOpt/1_timelinet.PNG}
+	
+	\begin{tikzpicture}[y=1cm, x=1cm, thick, font=\footnotesize]    
+	\usetikzlibrary{arrows,decorations.pathreplacing}
+	
+	
+	
+	% time line week
+	\draw[line width=1.2pt, ->, >=latex'](0,0) -- coordinate (x axis) (14,0) node[right] {\textit{Time}}; 
+	\foreach \x in {0,3,9}
+	\draw (\x cm,3pt) -- (\x cm,-3pt);
+	%\foreach \x in {current time,  , $\tau$, 3} \draw (\x,0.1) -- (\x,-0.1) node[below] {\x};
+	\draw (0,0) node[below=3pt] (a) {$\text{R\&D investment}$} node[above=3pt] {};
+	\draw (3,0) node[below=9pt] (a) {$\text{Innovation breakthrough $\theta$}$} node[above=3pt] {};
+	\draw (9,0) node[below=3pt] (a) {$\text{$\tau$ new product's investment}$} node[above=3pt] {};
+	
+	%brace
+	%\node (start_p) at (0,0.6) {};
+	%\node (end_p) at (7.99,0.6) {};
+	%\draw [brace_top] (start_p.north) -- node [above, pos=0.5] {$\text{\textit{Old} product}$} (end_p.north);
+	
+	%brace
+	\node (start_pn) at (9.01,0.6) {};
+	\node (end_pn) at (13.8,0.6) {};
+	\draw [brace_top] (start_pn.north) -- node [above, pos=0.5] {$\text{\textit{New product}}$} (end_pn.north);
+	
+	%brace
+	%\node (start_pn) at (12.01,0.6) {};
+	%\node (end_pn) at (13.8,0.6) {};
+	%\draw [brace_top] (start_pn.north) -- node [above, pos=0.5] {$\text{\textit{New} product}$} (end_pn.north);
+	
+	
+	% top brace
+	\node (start_t) at (0,0.1) {};
+	\node (end_t) at (2.99,0.1) {};
+	\draw [brace_top] (start_t.north) -- node [above, pos=0.5] {$\text{Innovation development}$} (end_t.north);
+	
+	% top brace
+	\node (start_week) at (3.01,0.1) {};
+	\node (end_week) at (13.8,0.1) {};
+	\draw [brace_top] (start_week.north) -- node [above, pos=0.5] {$\text{Firm is able to make its investment decisions regarding $\theta$}$} (end_week.north);
+	
+	\end{tikzpicture}
 	\caption{Timeline representing the two possible different stages of production and associated decisions. Time is set to start at the innovation breakthrough.}
-	\label{1_time}
+		\label{1_time}
 \end{figure}
 
 Recall that investment timeline is set to start at the precise instant the innovation breakthrough happens, as presented on Figure \ref{1_time}. Only after that instant the firm is able to create the product with an in-putted $\theta$ innovation level.
@@ -169,7 +219,7 @@ ad_1(x_B^*)^{d_1-1}=\frac{K(\theta-\alpha K)}{r-\mu}
 \end{cases}
 \hspace{5mm} \Rightarrow \ \hspace{5mm}
 \begin{cases}
-a= \left( \frac{K(\theta-\alpha K) x_B^*}{r-\mu} - \delta K \right)(x_B^*)^{-d_1} = \frac{\delta K (x^*)^{-d_1}}{d_1-1}\\
+a= \left( \frac{K(\theta-\alpha K) x_B^*}{r-\mu} - \delta K \right)(x_B^*)^{-d_1} = \frac{\delta K (x_B^*)^{-d_1}}{d_1-1}\\
 x_B^*=\frac{d_1}{d_1-1} \frac{ \delta (r-\mu)}{\theta-\alpha K}
 \end{cases}
 \label{eq:sistema}
@@ -263,7 +313,7 @@ Finally the stopping region coincides with $\mathcal{S}=\{x\in \mathds{R}:x< x_C
 
 Now we analyse the optimal capacity level $K^*_C$. If at the innovation breakthrough - that we set to be the initial instant when deducting the optimal investment times - we have $X_0<x^*_C$, then the investment decision will happen at the same instant the demand reaches level $x^*_C$. 
 %, by paying $\delta K^*_C$. 
-As done in \cite{huis:cap}, the optimal capacity level is obtained by evaluating $K^*$, as defined in \eqref{eq:K41}, at the threshold demand level $x^*_C$ \eqref{eq:prob1_xC}, leading to
+As done in reference\cite{huis:cap}, the optimal capacity level is obtained by evaluating $K^*$, as defined in \eqref{eq:K41}, at the threshold demand level $x^*_C$ \eqref{eq:prob1_xC}, leading to
 \begin{equation}
 K^*_C=\frac{2 \sigma ^2 \theta}{\alpha \left(\sigma ^2 \left(\sqrt{\frac{4 \mu ^2}{\sigma ^4}-\frac{4 \mu }{\sigma ^2}+\frac{8 r}{\sigma ^2}+1}+3\right)-2 \mu \right)}.
 \label{prob1:K*}
@@ -419,7 +469,7 @@ from where we conclude that $x^*_B$ may be smaller or larger than $x^*_C$, depen
 
 We use the following values, unless stated otherwise:
 %One relevant question in terms of the investment decision is to assess whether the optimization capacity leads to postpone or not the investment thresholds for both models, using numerical illustrations. We use, for this objective, the software \texttt{Mathematica} and, unless stated otherwise, the following values:
-
+\pagebreak
 \begin{table*}[!htb]
 	\centering
 	\begin{tabular}{lllllll}
@@ -428,6 +478,7 @@ We use the following values, unless stated otherwise:
 		 $\bullet$ & $r=0.05$       &  & \hspace{7cm} &  &  $\bullet$ & $K=100$       \\
 		 $\bullet$ & $\delta=2$                                
 	\end{tabular}
+\vspace{1cm}
 %\caption{bjde}
 \end{table*}	
 %\begin{itemize}
@@ -442,17 +493,17 @@ We use the following values, unless stated otherwise:
 
 \begin{figure}[!htb]
 	\begin{subfigmatrix}{2}
-		\subfigure[Behaviour of the threshold value with respect to the benchmark model (blue) and the capacity optimized model (orange), considering capacity levels $K \in [0, \theta/\alpha=1000)$ and the value that $x^*_B$ takes when considering $K^*_C \simeq 375$ (black dot).]{\includegraphics[width=0.45\textwidth]{Prob1_CapOpt/xopt_k.pdf}}
+		\subfigure[Behaviour of the threshold value with respect to the benchmark model (blue) and the capacity optimized model (orange), considering capacity levels $K \in [0, \theta/\alpha=1000)$ and the value that $x^*_B$ takes when considering $K^*_C \simeq 375$ (black).]{\includegraphics[width=0.45\textwidth]{Prob1_CapOpt/xopt_k.pdf}}
 		\subfigure[Evaluation of value functions $F$, considering capacity equal to 200 (darkest blue), $K=K^*_C \simeq 375$ (mid-blue) and 600 (lighest blue), and $F^*$ (orange) with respective demand threshold values presented (black w.r.t. Benchmark Model and grey w.r.t. Capacity Optimization Model)]{\includegraphics[width=0.45\textwidth]{Prob1_CapOpt/F_k100700.pdf}}
 	\end{subfigmatrix}
 	\caption{Influence of the chosen capacity $K$ in the threshold values $x^*_B$ and $x^*_C$ and respective value functions $F$ and $F^*$.}
 	\label{fig:Kvar}
 \end{figure}
 
-We start by illustrating how $x^*_B$ and $x^*_C$ are related by the capacity level $K$. On Figure \ref{fig:Kvar} (a), the behaviour of $x_B^*$ w.r.t the capacity chosen.
+We start by illustrating how $x^*_B$ and $x^*_C$ are related by the capacity level $K$. On Figure \ref{fig:Kvar} (a), the increasing behaviour of $x_B^*$ w.r.t the capacity chosen is presented.
 % one verifies (as expected) that only $x_B^*$ is influenced by the capacity chosen. A similar behaviour is verified for $\alpha$ since $x^*_B$ depends on both parameters the same way.
 
-Although the threshold $x_B^*$ may be smaller, greater or equal to $x^*_C$ (depending on the capacity $K$ chosen), we always verify that $F^*(x) \geq F(x,K), \ \forall x, K$ considered in the domain of our problem. Figure \ref{fig:Kvar} confirms this precise fact. Its most intriguing case is $F(x,K^*_C)$, which has the same threshold level as the optimal capacity level and verifies: $F^*(x)=F(x,K^*_C), \ \forall x \leq x^*_C$, however 
+Although the threshold $x_B^*$ may be smaller, greater or equal to $x^*_C$ (depending on the capacity $K$ chosen), we always verify that $F^*(x) \geq F(x,K), \ \forall x, K$ considered in the domain of our problem. Figure \ref{fig:Kvar} (b) confirms this precise fact. Its most intriguing case is $F(x,K^*_C)$, which has the same threshold level as the optimal capacity level and verifies: $F^*(x)=F(x,K^*_C), \ \forall x \leq x^*_C$, however 
 %for demand values greater than $x_C^*$ we obtain 
 $F^*(x)>F(x,K^*_C), \ \forall x > x^*_C$. This is justified by the fact that $F(x,K^*_C)$ considers solely capacity $K_C^*$\footnote{Recall by \eqref{prob1:K*} that $K^*_C$ corresponds to the optimal capacity $K^*$, as described in \eqref{eq:K41}, evaluated at $x_C^*$}, which doesn't maximize the terminal function for demand levels greater than $x_C^*$, while $F^*(x)$ considers the optimal capacity associated to each level of demand, leading to a greater value function.
 
@@ -482,7 +533,7 @@ Figure \ref{fig:sigm} (c)shaows that the greater the sensibility parameter $\del
 		\subfigure[$\sigma=0.05$]{\includegraphics[width=0.45\textwidth]{Prob1_CapOpt/xopt_mu.pdf}}
 		\subfigure[$\sigma=0.2$]{\includegraphics[width=0.45\textwidth]{Prob1_CapOpt/xopt_mu_sigma2.pdf}}
 	\end{subfigmatrix}
-	\caption{Behaviour of the threshold value with respect to the benchmark model (blue) and the capacity optimized model (orange), considering drift $\mu \in [-r, r]$ and corresponding stationary point $\sigma^2/2$ (black dot).}
+	\caption{Behaviour of the threshold value with respect to the benchmark model (blue) and the capacity optimized model (orange), considering drift $\mu \in [-r, r]$ and corresponding stationary point $\sigma^2/2$ (black).}
 	\label{fig:mu}
 \end{figure}
 
@@ -561,7 +612,7 @@ In order to illustrate the previous result and to have an idea about the type of
 		\subfigure[$\sigma \in (0,1)$]{\includegraphics[width=0.32\textwidth]{Prob1_CapOpt/kopt_sigma.pdf}}
 		\subfigure[$\theta \in (\alpha K^*_C,10)$]{\includegraphics[width=0.32\textwidth]{Prob1_CapOpt/kopt_theta.pdf}}
 	\end{subfigmatrix}
-	\caption{Behaviour of the optimal capacity regarding the threshold value $x^*_C$ and increasing parameters $\mu$, $\sigma$ and $\theta$.}
+	\caption{Behaviour of the optimal capacity regarding the threshold value $x^*_C$ and increasing parameters $\mu$ (a), $\sigma$ (b) and $\theta$ (c).}
 	\label{fig:k1}
 \end{figure}
 
@@ -583,7 +634,7 @@ As expected, on Figure \ref{fig:k1} (c) we observe that $K^*_C$ grows linearly w
 		\subfigure[$ r \in ( \mu, 1 )$]{\includegraphics[width=0.45\textwidth]{Prob1_CapOpt/kopt_r.pdf}}
 		\subfigure[$ \alpha \in (0,1)$]{\includegraphics[width=0.45\textwidth]{Prob1_CapOpt/kopt_alpha.pdf}}
 	\end{subfigmatrix}
-	\caption{Behaviour of the optimal capacity regarding the threshold value $x^*_C$ and decreasing parameters $r$ and $\alpha$.}
+	\caption{Behaviour of the optimal capacity regarding the threshold value $x^*_C$ and decreasing parameters $r$ (a) and $\alpha$ (b).}
 	\label{fig:k2}
 \end{figure}
 

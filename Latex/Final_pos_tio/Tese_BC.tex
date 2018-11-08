@@ -24,7 +24,7 @@ d X_t=b(X_t)dt + \sigma (X_t)dW_t, \ X_0=x\in \mathds{R},
 \end{equation} 
 where $b$ and $\sigma$ are functions that satisfy Itô conditions given by:
 \begin{align}
-\exists K \in (0,\infty) \  \forall t \in [0,\infty) \ \forall u \in \mathds{U} \ \forall x,y \in\mathds{R}^n: \hspace{3mm} \nonumber &\\
+\exists K \in (0,\infty) \  \forall t \in [0,\infty) \ \forall x,y \in\mathds{R}^n: \hspace{3mm} \nonumber &\\
 |b(t,x,\alpha)-b(t,y,\alpha)| + || \sigma (t,x,\alpha)- \sigma(t,y,\alpha)|| &\leq K |x-y| \label{bc_cond1} \\
 |b(t,x,\alpha)|^2+|| \sigma (t,x,\alpha)|| &\leq K^2 (1+|x|^2).  \label{bc_cond2}
 \end{align}
@@ -182,7 +182,7 @@ This way we assure that our guess concerning the continuation region is the righ
 
 %In firm's investment context, a \textit{real option} is seen as a situation on which a firm has the right, but not the obligation, to undertake certain initiatives such as deferring, abandoning, expanding, staging or contracting a capital investment project. There are three factors assumed to hold during the investment decision:
 
-To incorporate the irreversibility and the possibility to delay an investment the real option approach was extended to support investment decisions. This chapter was based on the pioneer work of Dixit and Pindyck o \cite{dixit:book}.
+To incorporate the irreversibility and the possibility to delay an investment the real option approach was extended to support investment decisions. This chapter was based on the pioneer work of Dixit and Pindyck \cite{dixit:book}.
 
 In this approach, investment opportunities are seen as real options: \textit{the firm has the right, but not the obligation, to undertake certain initiatives such as deferring, abandoning, expanding, staging or contracting a capital investment project} \cite{corp:book}. There are three factors assumed to hold during the investment decision:
 \begin{enumerate}
@@ -195,12 +195,12 @@ In this approach, investment opportunities are seen as real options: \textit{the
 
 Alternatively to the traditional NPV analysis - on which, since the investment is irreversible, it is seen as a now or never opportunity (without the possibility to postpone the investment) -, the decision can be postponed resulting in an extra value associated to its potential. 
 
-In accordance to \cite{dixit:book}, the investment decision treated by real options approach can be seen as an optimal stopping problem. This is justified by the fact that we a have a dynamic problem of a risk-neutral firm that discounts against a rate (here assumed to be constant), $r$, for which we want to find the optimal time to change ruling strategy, by maximizing its value.
+In accordance to reference \cite{dixit:book}, the investment decision treated by real options approach can be seen as an optimal stopping problem. This is justified by the fact that we a have a dynamic problem of a risk-neutral firm that discounts against a rate (here assumed to be constant), $r$, for which we want to find the optimal time to change ruling strategy, by maximizing its value.
 
 
 Recall that, as stated in Chapter \ref{chapter:introduction}, the starting instant ($t=0$) upon which the firm is able to decide is here considered to be at the innovation breakthrough.
 
-The problems treated on this work are mainly investment and exiting ones, being related to the passage from an established product to an innovative one. Therefore, taking into account what was written in the previous section, they can be written as in \eqref{bc_v1} with reward function $J$ as in \eqref{bc_j}, where the running cost function $g\geq0$ denotes the current earnings, that is, the cash-flow originated at each instant by the current strategy; the terminal function $h\geq0$ denotes the long-run cash-flow originated since the decision is taken and by considering the new situation of the firm (and investment costs) and the process $X$ denotes here the demand process, which evolves accordingly to a Geometric Brownian Motion\footnote{On Section \ref{intro:notation} the demand process is defined.}, leading to
+The problems treated on this work are mainly investment and exiting ones, being related to the passage from an established product to an innovative one. Therefore, taking into account what was written in the previous section, they can be written as in \eqref{bc_v1} with reward function $J$ as in \eqref{bc_j}, where the running cost function $g\geq0$ denotes the current earnings, that is, the cash-flow originated at each instant by the current strategy; the terminal function $h\geq0$ denotes the long-run cash-flow originated since the decision is taken and by considering the new situation of the firm (and investment costs) and the process $X$ denotes here the demand process, which evolves accordingly to a Geometric Brownian Motion, leading to
 \begin{equation}
 V(x)=\sup_{\tau \geq 0} J(x,\tau)=\sup_{\tau \geq 0} \mathds{E}^{X_0=x}\left[ \left( \int^\tau_0 e^{-r s} g(X_s) \ ds +e^{-r \tau}h(X_\tau) \right) \mathds{1}_{ \{\tau< \infty \}} \right].
 \label{stopprob2}
@@ -236,7 +236,7 @@ d^2+\left( \frac{2 \mu}{\sigma^2}-1 \right)d-\frac{2r^2}{\sigma^2}=0 \qquad  \Ri
 
 Taking into account that $r>\mu$, one can easily check that $d_1>1$ and $d_2<0$.
 
-On most situations addressed during this work we face a terminal function $h$ that is a non-decreasing function of polynomial type. This is a special case studied in \cite{guerra}, from where we conclude that one of the boundary conditions is that the solution for $x=0$ needs to be zero, ie, $\underset{x\to 0^+}{\lim} V_h(x)=0$. Therefore, we must have $b=0$ resulting in $V_h(x)=ax^{d_1}$.
+On most situations addressed during this work we face a terminal function $h$ that is a non-decreasing function of polynomial type. This is a special case studied in reference \cite{guerra}, from where we conclude that one of the boundary conditions is that the solution for $x=0$ needs to be zero, ie, $\underset{x\to 0^+}{\lim} V_h(x)=0$. Therefore, we must have $b=0$ resulting in $V_h(x)=ax^{d_1}$.
 Also, in this context, by noting that it is an absurd to suppose a project with negative value, it is required that $a>0$.
 
 

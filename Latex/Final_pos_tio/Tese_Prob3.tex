@@ -20,35 +20,82 @@
 
 %We increase the complexity of our problem by considering that the firm has three different states of production.
 
-%In the first state, we consider that the firm only produces a (very) \textit{stable} product, that does not depend on the demand observe. We will call it \textit{old} product. Its demand function $p_0$ and instaneous profit function $\pi_0$ are the same as stated in Chapter \ref{chapter:2} and take the values of \eqref{p0} and \eqref{pi0}, respectively.
+%In the first state, we consider that the firm only produces a recognized product, that does not depend on the demand observed. We will call it \textit{old product}. Its demand function $p_0$ and instantaneous profit function $\pi_0$ are the same as stated in Chapter \ref{chapter:2} and take the values of \eqref{p0} and \eqref{pi0}, respectively.
 
-%In the second state, we consider the firm produces simultaneously the \textit{old} product and a new one. We will call it \textit{new} product. This \textit{new} product is inserted in the market since after the innovation process as achieved a certain innovation level, \textit{a priori} defined. Since it's based on a new technology and it's a product that is not know by people, we will consider that its profit depends on the demand level.
+%In the second state, we consider the firm produces simultaneously the old product and a new one. We will call it new product. This new product is inserted in the market since after the innovation process as achieved a certain innovation level, \textit{a priori} defined. Since it's based on a new technology and it's a product that is not know by people, we will consider that its profit depends on the demand level.
 
-Here the case described on the previous chapter is extended by considering a firm, which has an established product in the market, and wants to find the best time to:
+In this chapter, the case described on the previous chapter is extended by considering a firm, which has an established product in the market, and wants to find the best time to:
 \begin{enumerate}
-	\item Invest and introduce in the market an innovative product with technology level $\theta$, allowing the possibility of a simultaneous production of both \textit{old} and \textit{new} products;
-	\item Abandon the production of the \textit{old} product, maintaining the \textit{new} one in the market.
+	\item Invest and introduce in the market an innovative product with technology level $\theta$, allowing the possibility of a simultaneous production of both old and new products;
+	\item Abandon the production of the old product, maintaining the new one in the market.
 \end{enumerate}
 
 %Consequently, as showed on Figure \ref{3_time}, the firm faces 3 stages.
 Figure \ref{3_time} shows the 3 stages that have to be considered by the firm.
 
-\vspace{4mm}
-\begin{figure}[!htb]
-	\centering
-	\includegraphics[width=\textwidth]{Prob3/3_timelinet.PNG}
-	\caption{Timeline representing the three possible different stages of production and associated decisions.}
+
+\begin{figure}[h]
+	
+\begin{tikzpicture}[y=1cm, x=1cm, thick, font=\footnotesize]    
+\usetikzlibrary{arrows,decorations.pathreplacing}
+
+
+	\draw[line width=1.2pt, ->, >=latex'](0,0) -- coordinate (x axis) (14,0) node[right] {\textit{Time}}; 
+\foreach \x in {0,3,8,12}
+\draw (\x cm,3pt) -- (\x cm,-3pt);
+%\foreach \x in {current time,  , $\tau$, 3} \draw (\x,0.1) -- (\x,-0.1) node[below] {\x};
+\draw (0,0) node[below=3pt] (a) {$\text{R\&D investment}$} node[above=3pt] {};
+\draw (3,0) node[below=9pt] (a) {$\text{Innovation breakthrough $\theta$}$} node[above=3pt] {};
+%brace
+
+\draw (8,0) node[below=3pt] (a) {$\text{ $\tau:$ 
+		new product's investment }$} node[above=3pt] {};
+\draw (12,0) node[below=9pt] (a) {$\text{$\tau_2:$ old product's abandonment}$} node[above=3pt] {};
+
+
+
+
+\node (start_p) at (0,0.6) {};
+\node (end_p) at (7.99,0.6) {};
+\draw [brace_top] (start_p.north) -- node [above, pos=0.5] {$\text{\textit{Old product}}$} (end_p.north);
+
+%brace
+\node (start_pn) at (8.01,0.6) {};
+\node (end_pn) at (11.99,0.6) {};
+\draw [brace_top] (start_pn.north) -- node [above, pos=0.5] {$\text{\textit{Old \& New product}}$} (end_pn.north);
+
+%brace
+\node (start_pn) at (12.01,0.6) {};
+\node (end_pn) at (13.8,0.6) {};
+\draw [brace_top] (start_pn.north) -- node [above, pos=0.5] {$\text{\textit{New product}}$} (end_pn.north);
+
+
+% top brace
+\node (start_t) at (0,0.1) {};
+\node (end_t) at (2.99,0.1) {};
+\draw [brace_top] (start_t.north) -- node [above, pos=0.5] {$\text{Innovation development}$} (end_t.north);
+
+% top brace
+\node (start_week) at (3.01,0.1) {};
+\node (end_week) at (13.8,0.1) {};
+\draw [brace_top] (start_week.north) -- node [above, pos=0.5] {$\text{Firm is able to make its investment decisions regarding $\theta$}$} (end_week.north);
+
+
+\end{tikzpicture}
+
+\caption{Timeline representing the three possible different stages of production and associated decisions.}
 	\label{3_time}
 \end{figure}
+
 On the first stage only the established product is produced, whose unitary price $p_0$ and profit functions $\pi_0$ are the same as stated in Chapter \ref{chapter:2}, and take the values of \eqref{p0} and \eqref{pi0}, respectively.
 
-During the second stage the firm produces both \textit{old} and \textit{new} products, leading to the follow profit functions
+During the second stage the firm produces both old and new products, leading to the follow profit functions
 \begin{align}
 \pi_0^A(X_t)&=(1-\alpha K_0-\eta K_1 X_t) K_0\\
 \pi_1^A(X_t)&=(\theta-\alpha K_1-\eta K_0 X_t) K_1.
 \end{align}
 
-A \textit{cannibalisation} (or\textit{ horizontal differentiation}) parameter $\eta$ is introduced on both expressions to embody the crossed effect between the \textit{old} and the \textit{new} product. As we consider both products to be interacting in the same market, $\eta$ represents the penalty that the quantity
+A \textit{cannibalisation} (or\textit{ horizontal differentiation}) parameter $\eta$ is introduced on both expressions to embody the crossed effect between the old and the new product. As we consider both products to be interacting in the same market, $\eta$ represents the penalty that the quantity
 associated to a product will influence the price of the other. We consider here
 that this influence is the same for both products, so we can have a unique cannibalisation parameter $\eta$.
 By observing that $\eta\geq \alpha$ would imply a larger effect on the product price that on the quantity of production itself, we establish $\eta$ to be such that $\eta < \alpha$. 
@@ -67,14 +114,14 @@ By adding both profits $\pi^A_0$ and $\pi_1^A$ we attain the profit associated t
 
 
 
-%The instantaneous profit functions associated to the \textit{old} and the \textit{new} product, during the simultaneous production, are given respectively by
+%The instantaneous profit functions associated to the old and the new product, during the simultaneous production, are given respectively by
 %\begin{align}
 %\pi_0^A(X_t)&=(1-\alpha K_0-\eta K_1 X_t) K_0\\
 %\pi_1^A(X_t)&=(\theta-\alpha K_1-\eta K_0 X_t) K_1.
 %\end{align}
 
 
-%We need to consider a \textit{cannibalisation} (or\textit{ horizontal differentiation}) parameter $\eta$ that corresponds to the crossed effect between the \textit{old} and the \textit{new} product. As we consider both products to be interacting in the same market, $\eta$ represents the penalty that the quantity
+%We need to consider a \textit{cannibalisation} (or\textit{ horizontal differentiation}) parameter $\eta$ that corresponds to the crossed effect between the old and the new product. As we consider both products to be interacting in the same market, $\eta$ represents the penalty that the quantity
 %associated to a product will influence the price of the other. We consider here
 %that this influence is the same for both products, so we can have a unique cannibalisation parameter $\eta$, however this one cannot be greater than the sensibility parameter $\alpha$ ($\eta<\alpha$). Otherwise, the quantity
 %of the other product would have a larger effect on the product price than the quantity of the product itself.
@@ -85,10 +132,10 @@ By adding both profits $\pi^A_0$ and $\pi_1^A$ we attain the profit associated t
 %\end{equation}
 
 
-Finally, on the third state, we consider that the firm abandons the \textit{old} product and starts producing solely the \textit{new} product, which is not considered to be a stable product. Its demand function $p_1$ and profit function $\pi_1$ are as stated in Chapter \ref{chapter:2}, and take the values of \eqref{p1} and \eqref{pi1}, respectively.
+Finally, on the third state, we consider that the firm abandons the old product and starts producing solely the new product, which is not considered to be a stable product. Its demand function $p_1$ and profit function $\pi_1$ are as stated in Chapter \ref{chapter:2}, and take the values of \eqref{p1} and \eqref{pi1}, respectively.
 
 
-Therefore we want to find two optimal times to make different (but maybe simultaneous) decisions. We want to find the best time $\tau_1$ to go from the first to the second stage - that is, to invest in the \textit{new} product and start producing, simultaneously, the \textit{old} and the \textit{new} product - and we also want to find the best time $\tau_2$ to go from the second to the third stage - that is, to replace the production of the \textit{old} product by the \textit{new} one. Note that $\tau_2 \geq \tau_1$, and both are stopping times adapted to the natural filtration of the demand process $\{ X_t, \ t\geq0 \}$. Moreover, we assume that once the \textit{old} product is abandoned, the decision is irreversible.
+Therefore we want to find two optimal times to make different (but maybe simultaneous) decisions. We want to find the best time $\tau_1$ to go from the first to the second stage - that is, to invest in the new product and start producing, simultaneously, the old and the new product - and we also want to find the best time $\tau_2$ to go from the second to the third stage - that is, to replace the production of the old product by the new one. Note that $\tau_2 \geq \tau_1$, and both are stopping times adapted to the natural filtration of the demand process $\{ X_t, \ t\geq0 \}$. Moreover, we assume that once the old product is abandoned, the decision is irreversible.
 
 The strategy followed to calculate $\tau_1$ and $\tau_2$ is the one presented in \cite{dixit:book}. Dixit and Pindyck suggest to
 %calculate the value of the project, secondly 
@@ -155,7 +202,7 @@ instant that the firm invests ($\tau_1$).
 In that regard we consider $\{Y_t, \ t\geq0\}$ as the stochastic process that represents the demand level after occurring the investment at $\tau_1$.
 Note that it evolves stochastically accordingly to a GBM with the same drift $\mu$ and volatility $\sigma$ as $\{X_t, \ t\geq0\}$ and whose initial value is the same as observed by $X$ at the instant $\tau_1$, that is, $\{Y_t, \ t\geq0\} = \{X_{\tau_1+t}, \ t\geq0\}$.
 
-Additionally, we consider as well $\tau$ to be the stopping time, adapted to the natural filtration of the process $\{Y_t, \ t\geq0\}$. Observe that $\tau$ represents the optimal time for which the firm should make the replacement of the \textit{old} product by the \textit{new} one, after having invested at time $\tau_1$. This means that  if $\tau=0$, then the old product is replaced by the new one at the precise instant when the investment happens $\tau_1$. Note that $\tau$ is also adapted to the natural filtration of $\{ X_{\tau+t},\ t\geq0 \}$ and that $\tau_2=\tau_1+\tau$. Thus, by knowing $\tau_1$ and finding $\tau$, we can calculate $\tau_2$.
+Additionally, we consider as well $\tau$ to be the stopping time, adapted to the natural filtration of the process $\{Y_t, \ t\geq0\}$. Observe that $\tau$ represents the optimal time for which the firm should make the replacement of the old product by the new one, after having invested at time $\tau_1$. This means that  if $\tau=0$, then the old product is replaced by the new one at the precise instant when the investment happens $\tau_1$. Note that $\tau$ is also adapted to the natural filtration of $\{ X_{\tau+t},\ t\geq0 \}$ and that $\tau_2=\tau_1+\tau$. Thus, by knowing $\tau_1$ and finding $\tau$, we can calculate $\tau_2$.
 
 Therefore, $F_2$, as written in \eqref{eq:34}, is equivalent to
 \begin{equation}
@@ -163,7 +210,7 @@ F_2(x_{\tau_1})=\sup_{\tau} \mathds{E}^{Y_0=x_{\tau_1}} \left[ \int_0^{\tau} \le
 \label{eq:3s2}
 \end{equation}
 %In case we want to calculate $\tau_2$, we just need to add the stopping times $\tau_1$ and $\tau$.
-meaning that, in accordance to Figure \ref{3_time}, from time 0 to time $\tau$, the firm is producing both products and that from time $\tau$ on, the firm only produces the \textit{new} product, where the instant 0 corresponds to the instant when the firm decides to invest, given in fact by $\tau_1$.
+meaning that, in accordance to Figure \ref{3_time}, from time 0 to time $\tau$, the firm is producing both products and that from time $\tau$ on, the firm only produces the new product, where the instant 0 corresponds to the instant when the firm decides to invest, given in fact by $\tau_1$.
 
 Fortunately it is possible to simplify the notation of \eqref{eq:3s2}. Since the Strong Markov property states that after a stopping time, the future path of the GBM depends conditionally (only) on the value at the stopping time, it follows that 
 $$\{(Y_t | Y_0=x_{\tau_1}), \ t\geq0 \} = \{(X_{\tau_1+t} | X_{\tau_1}=x_{\tau_1}),\ t\geq \tau_1 \} \overset{d}{=}  \{(X_{t}, | X_0=x_{\tau_1}), \ t\geq0 \}. $$
@@ -271,9 +318,9 @@ F_{2,p}(x)=\frac{(\theta-\alpha K_1)K_1-2 \eta K_0 K_1}{r-\mu}x \  \   \xrightar
 
 % Note that $\underset{x \to 0}{\text{lim}} F_{2,p}(x)=0$. This fact is an useful detail when it comes to calculate $F_2$.
 
-Since there is no possibility of having a project having a negative value it follows $F_2(x) \geq 0, \ \forall x \in \mathcal{C}$. From \ref{F2p}, we obtain that $F_{2,h}=a_2 x^{d_1}+b_2 x^{d_2}$ simplifies to $F_{2,h}=a_2 x^{d_1}$, guaranteeing this way that $\underset{x \to 0}{\text{lim}} F_2(x)=\underset{x \to 0}{\text{lim}} F_{2,h}(x)+F_{2,p}(x)=0$.
+Since there is no possibility of having a project having a negative value it follows $F_2(x) \geq 0, \ \forall x \in \mathcal{C}$. From \eqref{F2p}, we obtain that $F_{2,h}=a_2 x^{d_1}+b_2 x^{d_2}$ simplifies to $F_{2,h}=a_2 x^{d_1}$, guaranteeing this way that $\underset{x \to 0}{\text{lim}} F_2(x)=\underset{x \to 0}{\text{lim}} F_{2,h}(x)+F_{2,p}(x)=0$.
 
-Once again, the constant term $a_2$ and the demand level that triggers the abandonment of the \textit{old} product $x_2^*$ are found by value matching \eqref{valuematch} and smooth pasting \eqref{smoothpasting} conditions, expressed by
+Once again, the constant term $a_2$ and the demand level that triggers the abandonment of the old product $x_2^*$ are found by value matching \eqref{valuematch} and smooth pasting \eqref{smoothpasting} conditions, expressed by
 \begin{equation}
 \begin{cases}
 a_2(x_2^*)^{d_1}+\frac{(\theta-\alpha K_1)K_1-2 \eta K_0 K_1}{r-\mu}x_2^*=\frac{(\theta-\alpha K_1)K_1}{r-\mu} x_2^* -\frac{\pi_0}{r} \\
@@ -285,7 +332,7 @@ from which we obtain
 a_2 &= \left( \frac{2\eta K_0 K_1}{r-\mu}x^*-\frac{\pi_0}{r} \right)(x_2^*)^{-d_1} \nonumber \\
 x_2^*&=\frac{d_1}{d_1-1} \frac{1-\alpha K_0}{2 \eta K_1} \frac{r-\mu}{r} \label{3:x2}
 \end{align}
-%Taking into account that the instantaneous profit associated to the time when both (\textit{old} and \textit{new}) products are being produced cannot be negative, that is $\pi_A(X_t) \geq 0 \ \forall t \geq 0$, we obtain that $F_2 \geq 0$ 
+%Taking into account that the instantaneous profit associated to the time when both (old and new) products are being produced cannot be negative, that is $\pi_A(X_t) \geq 0 \ \forall t \geq 0$, we obtain that $F_2 \geq 0$ 
 
 Taking into account that $F_2$ is also defined in the stopping region, we obtain that its expression is given by
 \begin{equation}
@@ -308,7 +355,7 @@ which is again an optimal problem with null running cost function. However, this
 %We still want to find the optimal time $\tau_1$ to make the investment decision. However as the problem is stated in \eqref{eq:f2x}, we obtain two different demand threshold levels:
 \begin{itemize}
 	\item $x_{1,A}^*$:
-	this is the threshold that triggers the investment and the addition of the \textit{new} product to the market, starting a period of simultaneous production. Therefore it is associated to the region $X_{\tau_1} < x^*_2$ so as to the following stopping problem %we add the \textit{new} product and have a period of simultaneously production. It is associated to the region $$ and to the stopping problem
+	this is the threshold that triggers the investment and the addition of the new product to the market, starting a period of simultaneous production. Therefore it is associated to the region $X_{\tau_1} < x^*_2$ so as to the following stopping problem %we add the new product and have a period of simultaneously production. It is associated to the region $$ and to the stopping problem
 	\begin{equation}
 	%\underset{\tau_1}{\text{sup}} 
 	\sup_{\tau_1} \mathds{E}^{X_0=x} \left[ e^{-r \tau_1} \left( \frac{(\theta-\alpha K_1)K_1-2 \eta K_0 K_1}{r-\mu} X_{\tau_1}+
@@ -317,7 +364,7 @@ which is again an optimal problem with null running cost function. However, this
 	 \end{equation}
 	 where the decision is made on finite time $\tau$ with probability 1. Note that when the demand observes larger values than $x^*_2$ its respective value is given by the expression on the rightmost side of \eqref{eq:f2x}.
 	\item $x_{1,R}^*$: this is the threshold associated to the region $X_{\tau_1} \geq x^*_2$, for which the firm invest in the new product by immediately replacing the one established in the market. Considering that the investment decision is made in finite time with probability 1, this situation leads to the following stopping problem
-	%we add the \textit{new} product and immediately replace the old one. It is associated to the region $X_{\tau_1} \geq x^*_2$ and to the stopping problem
+	%we add the new product and immediately replace the old one. It is associated to the region $X_{\tau_1} \geq x^*_2$ and to the stopping problem
 	\begin{equation}
 	%\underset{\tau_1}{\text{sup}} 
 	\sup_{\tau_1} \mathds{E}^{X_0=x} \left[ e^{-r \tau_1} \left( \frac{(\theta-\alpha K_1)K_1}{r-\mu} X_{\tau_1}-
@@ -393,7 +440,7 @@ F_{1,R}(x)= \left(  a_{1,R}x^{d_1} \mathds{1}_{ \{ x<x^*_{1,R}\}} +
 with $a_{1,R}$ taking the same value as $a_2$ in \eqref{2_aB}.
 
 
-Note that from \eqref{3:Fadd} it is impossible to observe a demand threshold $x_2^*$ smaller than $x_{1,A}^*$. This would mean that at the precise instant $x_{1,A}^*$ was reached, we should immediately replace the \textit{old} product by the \textit{new} one. However, this case is not related with thresholds $x_{1,A}$ or $x_2^*$, but with $x_{1,R}^*$.
+Note that from \eqref{3:Fadd} it is impossible to observe a demand threshold $x_2^*$ smaller than $x_{1,A}^*$. This would mean that at the precise instant $x_{1,A}^*$ was reached, we should immediately replace the old product by the new one. However, this case is not related with thresholds $x_{1,A}$ or $x_2^*$, but with $x_{1,R}^*$.
 Therefore we are able to constraint the domains of both functions $F_{1,A}$ and $F_{1,R}$ by analysing under which conditions $x_{1,A}^*<x^*_2$ holds:
 \begin{align}
 x_{1,A}^*<x_2^* \ &\Leftrightarrow \ \frac{d_1}{d_1-1} \frac{1-\alpha K_0}{2 \eta K_1} \frac{r-\mu}{r} = \frac{d_1}{d_1-1} \frac{\delta K_1 (r-\mu)}{(\theta-\alpha K_1)K_1-2\eta K_0 K_1} \nonumber \\
@@ -489,12 +536,12 @@ First, note that regarding this set of values, we obtain a cannibalisation thres
 
 Therefore in the situations represented on the first and second columns the firm is recommended to 
 %we have, for the plots in the first and second columns, that it's better to 
-invest and have a period of simultaneous production and to produce solely the \textit{new} product when the demand is observed to be $x^*_2$.
-%only after the second threshold being reached, we change to produce solely the \textit{new} product.
-On the other side, in the third column, it is represented the situation for which a firm should invest and replace immediately the \textit{old} established product by the \textit{new} one as soon as $x^*_{1,R}$ is hit.
-%when we invest, we should immediately produce solely the \textit{new} product.
+invest and have a period of simultaneous production and to produce solely the new product when the demand is observed to be $x^*_2$.
+%only after the second threshold being reached, we change to produce solely the new product.
+On the other side, in the third column, it is represented the situation for which a firm should invest and replace immediately the old established product by the new one as soon as $x^*_{1,R}$ is hit.
+%when we invest, we should immediately produce solely the new product.
 
-In the first row ($\eta=0.007$) we observe that the thresholds to be considered are $x_{1,A}^*$ and $x_2^*$. The first one states upon which demand level we should invest in the \textit{new} product and start the simultaneous production. The second one states upon which demand level we should produce only the \textit{new} product. The respective value function associated is defined by 3 parts, being given by 
+In the first row ($\eta=0.007$) we observe that the thresholds to be considered are $x_{1,A}^*$ and $x_2^*$. The first one states upon which demand level we should invest in the new product and start the simultaneous production. The second one states upon which demand level we should produce only the new product. The respective value function associated is defined by 3 parts, being given by 
 \begin{equation}
 \begin{split}
 F(x)=\frac{\pi_0}{r}+
@@ -565,17 +612,17 @@ We performed numerical experiments to assess the changes of $x^*_{1,A}$ with the
 		\subfigure[$\sigma \in (0,1)$]{\includegraphics[width=0.32\textwidth]{Prob3/x1Asigma.pdf}}
 		\subfigure[$r \in (0,\mu)$]{\includegraphics[width=0.32\textwidth]{Prob3/x1Ar.pdf}}
 	\end{subfigmatrix}
-	\caption{Behaviour of the threshold value $x^*_{1,A}$ with respect to the parameters with which it increases $\eta, \ \delta, \ \alpha, \ K_0, \ K_1, \ \sigma$ and $r$.}
+	\caption{Behaviour of the threshold value $x^*_{1,A}$ with respect to the parameters with which it increases $\eta$ (a), $ \delta$ (b), $ \alpha$ (c), $ K_0$ (d), $K_1$ (e), $ \sigma$ (f) and $r$ (g).}
 	\label{fig:2_x1Ai}
 \end{figure}
 
-Figure \ref{fig:2_x1Ai} (a) shows that the larger the cannibalisation parameter, the later the firm is expected to adopt the new product, since a high demand needs to be observed such that the investment and associated costs of the simultaneous production are overcome. Recall that for quite large values of $\eta$, we are in the situation where is preferable to invest on the \textit{new} product, replacing immediately the \textit{old} one.
+Figure \ref{fig:2_x1Ai} (a) shows that the larger the cannibalisation parameter, the later the firm is expected to adopt the new product, since a high demand needs to be observed such that the investment and associated costs of the simultaneous production are overcome. Recall that for quite large values of $\eta$, we are in the situation where is preferable to invest on the new product, replacing immediately the old one.
 
 The linear relationship between $\delta$ and $x_{1,A}^*$, as presented on Figure \ref{fig:2_x1Ai} (b), comes immediately  by the threshold's expression. This is financially justified by the fact that a larger $\delta$ results on larger investmnet (sunk) costs and, therefore, the firm only invests when it could profit. 
 
 One can note that $x^*_{1,A}$ shows a similar linear behaviour with $\alpha$, $K_0$ and $K_1$. 
 
-On Figure \ref{fig:2_x1Ai} (c), the growth of $\alpha$ suggests that the established product is preferable to the \textit{new} one, resulting in a larger demand threshold.
+On Figure \ref{fig:2_x1Ai} (c), the growth of $\alpha$ suggests that the established product is preferable to the new one, resulting in a larger demand threshold.
 
 Concerning both capacities of production $K_0$ and $K_1$, we observe on Figures \ref{fig:2_x1Ai} (d) and (e), that the larger they are, the higher the demand level that triggers the invest is. Regarding $K_0$ this result is justified by the fact that the larger is the value it takes, the higher the profit of the established product is, so the firm gets more relutant about investing for low demand levels. In different circumstances, a larger $K_1$ induces a longer investment (so as investment costs), wherefore the investment decision will only incur if the observed demand is large enough. 
 
@@ -592,14 +639,14 @@ Although we weren't able to deduce any analytical result concerning the interest
 		\subfigure[$\mu \in (0,r)$]{\includegraphics[width=0.4\textwidth]{Prob3/x1Amu.pdf}}
 		\subfigure[$\theta \in (1,10)$]{\includegraphics[width=0.4\textwidth]{Prob3/x1Atheta.pdf}}
 	\end{subfigmatrix}
-	\caption{Behaviour of the threshold value $x^*_{1,A}$ with respect to parameters with which it decreases $\mu$ and $\theta$.}
+	\caption{Behaviour of the threshold value $x^*_{1,A}$ with respect to parameters with which it decreases $\mu$ (a) and $\theta$ (b).}
 	\label{fig:2_x1Ad}
 \end{figure}
 
 
 As analysed on previous chapters, we observe on a declining market ($\mu<0$), the investment threshold decreases linearly in a stronger rate than in a growing market $\mu>0$, on which the threshold barely changes.
  
-Finally, in view of the results shown in Figure \ref{fig:2_x1Ai}, we obtain that the larger the innovation level, the higher is the expected profit during the simultaneous production period and, hence, the more attractive is the investment on the \textit{new} product.
+Finally, in view of the results shown in Figure \ref{fig:2_x1Ai}, we obtain that the larger the innovation level, the higher is the expected profit during the simultaneous production period and, hence, the more attractive is the investment on the new product.
 %On Figure \ref{fig:2_x1Ad} we present some plots that also comprove what was stated on Proposition \ref{3_propx1A}, but with respect to the parameters with which $x_{1,A}^*$ increases. Again, we add the plot concerning the drift parameter $\mu$, for which we couldn't derive any analytical solution, but studying the behaviour of $x^*_{1,A}$ we conclude that it also decreases with $\mu$.
 
 
@@ -651,7 +698,7 @@ Unfortunately we are not able to derive any analytical expression regarding chan
 
 %We also obtained that the volatility $\sigma$ was the unique parameter we found to increase both thresholds $x_{1,A}^*$ and $x_2$. Note that by Section \ref{2_bm}, that the same holds for the threshold $x_{1,R}$. Thus we conclude that a situation where the demands shows to have a high volatility, both investment and replacement decisions tend to be postponed.
 
-Interestingly, market's uncertainty is the unique aspect that delays the abandonment of the production of the \textit{old} product, being preferable to keep the firm producing both products. This result is presented on Figure \ref{fig:2_x2i} and it is justified by the fact that the stable profit associated to the \textit{old} product, which is not influenced by the uncertainty of the market, benefits the firm from possible low demand levels, leading to a low profit, if the firm was only producing the innovative product.
+Interestingly, market's uncertainty is the unique aspect that delays the abandonment of the production of the old product, being preferable to keep the firm producing both products. This result is presented on Figure \ref{fig:2_x2i} and it is justified by the fact that the stable profit associated to the old product, which is not influenced by the uncertainty of the market, benefits the firm from possible low demand levels, leading to a low profit, if the firm was only producing the innovative product.
 
 \begin{figure}[!htb]
 	\begin{subfigmatrix}{6}
@@ -662,7 +709,7 @@ Interestingly, market's uncertainty is the unique aspect that delays the abandon
 		\subfigure[$r \in (0,\mu)$]{\includegraphics[width=0.32\textwidth]{Prob3/x2r.pdf}}
 		\subfigure[$\mu \in (0,r)$]{\includegraphics[width=0.32\textwidth]{Prob3/x2mu.pdf}}
 	\end{subfigmatrix}
-	\caption{Behaviour of the threshold value $x^*_{1,A}$ with respect to parameters with which it decreases $\eta, \ \alpha, \ K_0, \ K_1, \ r$ and $\mu$.}
+	\caption{Behaviour of the threshold value $x^*_{1,A}$ with respect to parameters with which it decreases $\eta$ (a), $ \alpha$ (b), $K_0$ (c), $K_1$ (d), $r$ (e) and $\mu$ (f).}
 	\label{fig:2_x2d}
 \end{figure}
 
@@ -670,7 +717,7 @@ In view of Figure \ref{fig:2_x2d} (a) the larger the cannibalisation parameter c
 
 Since both cannibalisation $\eta$ and capacity $K_1$ appear in the denominator of $x^*_2$, a similar behaviour is expected from both them. This is verified on Figure \ref{fig:2_x2d} (d) and comes from the fact that a larger capacity investment (already) incurred - when the demand reached $x^*_{1,A}$ - results on smaller profit by considering a simultaneous production than by solely producing the innovative product, encouraging the firm to invest earlier.
 
-By confronting the results presented on Figures \ref{fig:2_x2d} (b) and (c) with the expression on \eqref{3:x2}, we observe that both $\alpha$ and $K_0$ have an akin linear effect: the larger the sensibility $\alpha$ or the capacity $K_0$, the earlier the firm should cease the production of the \textit{old} product.
+By confronting the results presented on Figures \ref{fig:2_x2d} (b) and (c) with the expression on \eqref{3:x2}, we observe that both $\alpha$ and $K_0$ have an akin linear effect: the larger the sensibility $\alpha$ or the capacity $K_0$, the earlier the firm should cease the production of the old product.
 
 Once again we obtain the same peculiar type of behaviour with respect to changes on market's fortuity, as is showed on Figure \ref{fig:2_x2d} (f).
 

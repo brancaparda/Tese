@@ -13,7 +13,7 @@ In this chapter we analyse the optimal times to invest regarding the three diffe
 %First, we will analyse some relevant measures - such as estimated mean, median and standard deviation - concerning the behaviour of optimal investment times with different initial demand values.
 Regarding the following simulations performed, the optimal stopping times are calculated on different ways.
 For Chapters \ref{chapter:1} and \ref{chapter:2} (and accordingly to the diagrams presented on Figures \ref{1_time} and \ref{2_time}, respectively) there is a single optimal investment time which is calculated considering as initial instant the time at which the innovation breakthrough takes place.
-On Chapter \ref{chapter:3} (and accordingly to the diagram on Figure \ref{3_time}), we have two optimal investment times: the optimal time to enter the market with the \textit{new} product, $\tau_1$, and the optimal time to abandon the \textit{old} product, $\tau_2$, considering as initial instant the time when the \textit{new} product is adopted, that is $\tau_1$. Therefore, if one wants to know the estimated optimal time when a firm should abandon the \textit{old} product after its entrance in the market, one should sum $\tau_1$ and $\tau_2$, for example.
+On Chapter \ref{chapter:3} (and accordingly to the diagram on Figure \ref{3_time}), we have two optimal investment times: the optimal time to enter the market with the new product, $\tau_1$, and the optimal time to abandon the old product, $\tau_2$, considering as initial instant the time when the new product is adopted, that is $\tau_1$. Therefore, if one wants to know the estimated optimal time when a firm should abandon the old product after its entrance in the market, one should sum $\tau_1$ and $\tau_2$, for example.
 
 
 We first consider, by analysing, statistical measures of the simulated series (in particular: mean, median and standard deviation), we study the influence of initial demand values on optimal investing times.
@@ -129,9 +129,9 @@ Since the magnitude of thresholds analysed on Chapter \ref{chapter:3} is quite l
 
 
 %On the other side, since the magnitude of thresholds analysed on Chapter \ref{chapter:3}, is quite larger than the ones on previous two chapters, we consider the demand to be incremented by a larger step: \texttt{xStep}=0.002.
-Recall that the most interesting situation on this chapter was obtained by considering $\eta<\eta^*$\footnote{For values $\eta \geq \eta^*$, we are in the same case as described on Chapter \ref{chapter:2}: we have an unique threshold which sets the transition from the production of the established product to the \textit{new} one.}
-\eqref{3_eta*}, from which we get an optimal investment time regarding the simultaneous production of established and \textit{new} products and the time for the established product to exit the market, maintaining solely the new one. Regarding the analysis of the optimal stopping time associated to $x_2^*$, we evaluate for a single initial demand value $x_{1,R}^*$, since this is the first instant, after investing when the demand reaching $x_{1,R}^*$.
-%Considering the case when we invest on the \textit{new} product for a demand level $x$ greater than $x_{1,R}^*$, we would set the initial instant until it re
+Recall that the most interesting situation on this chapter was obtained by considering $\eta<\eta^*$\footnote{For values $\eta \geq \eta^*$, we are in the same case as described on Chapter \ref{chapter:2}: we have an unique threshold which sets the transition from the production of the established product to the new one.}
+\eqref{3_eta*}, from which we get an optimal investment time regarding the simultaneous production of established and new products and the time for the established product to exit the market, maintaining solely the new one. Regarding the analysis of the optimal stopping time associated to $x_2^*$, we evaluate for a single initial demand value $x_{1,R}^*$, since this is the first instant, after investing when the demand reaching $x_{1,R}^*$.
+%Considering the case when we invest on the new product for a demand level $x$ greater than $x_{1,R}^*$, we would set the initial instant until it re
 
 
 
@@ -234,7 +234,7 @@ Since these are mere illustrations concerning deduced models, we are able to cho
 %For all the analysis performed, we consider the same set of parameters used on respective Comparative Statics sections. The only exception stands for volatility, which we increase to $\sigma=0.1$, in order to obtain results within a larger variability.
 
 
-%Despite $\sigma$, these are the same values used on Chapter \ref{chapter:3}. Note that by choosing $\eta=0.007$, we have that $\eta< \eta^*$ and thus we are in the situation where the firm has two decisions to make: when it should invest and start the simultaneous production; when it should stop  the simultaneous production and produce solely the \textit{new} product.
+%Despite $\sigma$, these are the same values used on Chapter \ref{chapter:3}. Note that by choosing $\eta=0.007$, we have that $\eta< \eta^*$ and thus we are in the situation where the firm has two decisions to make: when it should invest and start the simultaneous production; when it should stop  the simultaneous production and produce solely the new product.
 %On Figure \ref{fig:stoptime_1} we can find the results obtained.
 
 %Results are presented on Figure \eqref{fig:stoptime_1}.
@@ -248,7 +248,7 @@ the obtained results are presented, from which we conclude:
 	\item The smaller the initial demand $x_0$, the longer the firm needs to wait to invest;
 	\item The larger the demand value that triggers the investment, the longer the firm needs to wait to be advantageous to invest;
 	\item The mean and the median of investment times are approximately equal, suggesting that the distribution of investment times is approximately symmetric;
-	\item Both mean and mean are of the same order of magnitude as the standard deviation. This might suggest that the presented results are inconclusive. However when considering a larger amount of sample paths we observe no significant improvements, as reduction of the variability, only a considerable longer (computational) running time.
+	\item Both mean and median are of the same order of magnitude as the standard deviation. This suggests a high variability of the results obtained. Increasing the amount of sample paths simulated we observe no significant decrease of the variability, only a considerable longer computational running time.
 \end{enumerate}
 %Note that on every plot, the demand level that triggers the investment it is represented by a dashed line.
 
@@ -281,7 +281,7 @@ The case $x^*\leq X_0$ is not here addressed since it immediately implies that t
 
 %We highlight here, as well, the fact that the mean and the median of investment times is approximately equal, suggesting that the distribution of investment times is approximately symmetric.
 
-On the last row we find the results concerning the optimal time to invest in a \textit{new} product and start to produce, simultaneously, the \textit{old} and \textit{new} products, as studied on Chapter \ref{chapter:3}.
+On the last row we find the results concerning the optimal time to invest in a new product and start to produce, simultaneously, the old and new products, as studied on Chapter \ref{chapter:3}.
 The noticeable \textit{step} behaviour of both simulated values and respective mean is a consequence of the unitary time step considered during the simulation and the scale of the results obtained. Note that this implies a more irregular standard deviation as presented on the last row of Table \ref{tab1}.
 Although this behaviour is not easily detectable on the other situations, since the results obtained are in a larger scale, one expects that they behave the same way.
 %Although its simulations and median are presented in a (clear) step format, they have a similar behaviour has 
@@ -300,7 +300,7 @@ Taking now into account the optimal time to stop the production of the establish
 \label{stoptime_t}
 \end{table}
 
-Recall that we consider the demand process to start at $x_{1,A}^*$, since this is the demand level observed at the instant the firm invests on the innovative product. Therefore, mean and median are taken considering as \textit{initial instant} the time at which the firm decides to invest in the new product and start the simultaneous production, that is, $\tau^*_{1,A}=\inf \{ t\geq 0: X_t \geq x^*_{1,A} \}$. Thus, the mean/median presented should be read as the mean/median time after the investment on the \textit{new} product was done. To obtain the estimated mean/median time for which the firm produces solely the \textit{new} product, one should add the value presented on Table \ref{stoptime_t} to the one obtained as the mean/median time to invest in the \textit{new} product, for a given initial demand value $x_0$.    
+Recall that we consider the demand process to start at $x_{1,A}^*$, since this is the demand level observed at the instant the firm invests on the innovative product. Therefore, mean and median are taken considering as \textit{initial instant} the time at which the firm decides to invest in the new product and start the simultaneous production, that is, $\tau^*_{1,A}=\inf \{ t\geq 0: X_t \geq x^*_{1,A} \}$. Thus, the mean/median presented should be read as the mean/median time after the investment on the new product was done. To obtain the estimated mean/median time for which the firm produces solely the new product, one should add the value presented on Table \ref{stoptime_t} to the one obtained as the mean/median time to invest in the new product, for a given initial demand value $x_0$.    
 
 We note that, in this case, it seems that the results do not have large volatility, and thus we may suggest that the sample mean and median are good descriptors of the optimal time it takes to decide to stop the old product's production.
 
@@ -402,8 +402,8 @@ Once again the analysis regarding the optimal time to abandon the simultaneous p
 
 The numerical results for the investment times related to both models (the benchmark and the optimal capacity models) as a function of $\sigma$ (the volatility of the demand) obtained are presented on Table \ref{res2}. 
 
-For the sake of completeness, we include also the corresponding investment thresholds and the optimal capacity level. These are not obtained by simulation but they are rather the implementation of equations presented on the previous respective chapters.
-However, due to the disparate order of magnitude of the optimal investment times with the optimal capacity $K^*$ and demand thresholds, the last ones are only considered for the analysis of the relative variation.
+For the sake of completeness, we include also the corresponding investment thresholds and the optimal capacity level. These are not obtained by simulation. They are rather the implementation of equations presented on the previous respective chapters.
+However, due to the contrasting order of magnitude of the optimal investment times with the optimal capacity $K^*$ and demand thresholds, the last ones are only considered for the analysis of the relative variation, on the rightmost column.
 
 \begin{table}[!htb]
 	\caption{Sensitivity analysis of the (estimated) mean of optimal investment time w.r.t. the demand's volatility, regarding different initial values $x_0 \in \{0.001, \ 0.01\}$.}
@@ -436,7 +436,7 @@ However, due to the disparate order of magnitude of the optimal investment times
 \end{table}
 
 
-Confronting the results of performed simulation, regarding both models on chapters \ref{chapter:1} and \ref{chapter:2}, above presented with the numerical results present on Appendix \ref{chapter:appendixVectors}, the following conclusions are pointed:
+Confronting the results of performed simulations, regarding both models on chapters \ref{chapter:1} and \ref{chapter:2}, above presented with the numerical results present on Appendix \ref{chapter:appendixVectors}, the following conclusions are pointed:
 \begin{enumerate}
 	
 	
@@ -449,8 +449,7 @@ Confronting the results of performed simulation, regarding both models on chapte
 	 	\item For large values of $\sigma$ (approximately greater than 0.2), we observe that a larger uncertainty on the market seems to likely postpone the investment decision;
 	 \end{itemize}
 
-	\item There seems to exist no relation between the behaviour of the mean time to undertake the decision and the demand threshold level or the optimal capacity associated;	
-	
+	\item There seems to exist no relation between the behaviour of the mean time to undertake the decision and the demand threshold level or the optimal capacity associated.	
 \end{enumerate}
 
 
@@ -459,7 +458,7 @@ Confronting the results of performed simulation, regarding both models on chapte
 For the case when the firm is already in the market and may either replace or add a new product (Chapter \ref{chapter:3}), the investment times (presented on the last row), have a different behaviour from the previous ones. We note that for this case the expected times (both for the investment and for the replacement time) are more stable that in the other two cases, in the sense that changes on $\sigma$ do not affect them as significantly as in the previous cases. We do not have any explanation for this fact. However we do suspect that it is related with the fact that quite different values are considered for the numerical simulation of the chapter \ref{chapter:3} than for chapters \ref{chapter:1} and \ref{chapter:2}.  
 
 
-\section{Sensitivity of the optimal investment times w.r.t. the crossed-effect between initial demand value, $x_0$, and volatility, $\sigma$}
+\section{Sensitivity of the optimal investment times with respect to the crossed-effect between initial demand value, $x_0$, and volatility, $\sigma$}
 
 Additionally we study the crossed-effect of both initial demand value and volatility. This is achieved by analysing the frequency of the optimal investment times obtained through their histogram representation.
 
@@ -473,7 +472,7 @@ As previously noticed, since the results obtained for chapters \ref{chapter:1} a
 
 \subsubsection{Results}
 
-Table \ref{hist} shows the results regarding the benchmark model associated to the situation on which a firm is not active in the market and wants to enter it with an innovative product. 
+Table \ref{hist} shows the results regarding the benchmark model associated to the situation on which a firm is not active in the market and wants to enter it with an innovative product, deduced on Chapter \ref{chapter:1}. The results obtained can be extended to the optimal investment time deduced on Chapter \ref{chapter:2}.
 
 \begin{table}[!htb]
 	\caption{Histograms of simulated optimal investment times of the benchmark model w.r.t. the situation for which a firm is not active in the market and wants to enter it with a new product (Chapter \ref{chapter:1}), considering initial demand values $x_0=\{0.001,\ 0.01\}$ and demand's volatilities $\sigma=\{0.001, \ 0.1, \ 0.5 \}$.}
@@ -506,11 +505,11 @@ Table \ref{hist} shows the results regarding the benchmark model associated to t
 \end{table}
 
 
-We conclude the following:
+We conclude the following aspects:
 \begin{enumerate}
 	\item The smaller the uncertainty in the market, the lower is the variability of the waiting time to invest.
 	However, as previously concluded from Table \ref{res2}, this is not associated to the lowest waiting times.
-	Curiously, when considering $\sigma=0.001$ and $x_0=0.1$ we observe that for all the demand processes simulated, the firm enters the market after 4 time units. This is not a surprising, as we are choosing a really low value of volatility, leading to an almost deterministic process;
+	When considering $\sigma=0.001$ and $x_0=0.1$ we observe that for all the demand processes simulated, the firm enters the market after 4 time units. This is not a surprising, as we are choosing a really low value of volatility, leading to an almost deterministic process;
 	
 	\item The larger the volatility, the larger is the number of demand sample paths that do not reach the demand level that triggers the investment within the horizon defined (of 1500 time units). This result is in accordance to the significant growth of the waiting time when on markets with a large uncertainty, as observed on Table \ref{res2};
 	
@@ -522,7 +521,7 @@ We conclude the following:
 
 
 \vspace{3mm}
-Now we analyse the situation on which a firm is already active, but wants to enter the market with an innovative product, allowing a simultaneous production period, as described on Chapter \ref{chapter:3}. Here we only analyse the threshold that triggers the introduction of the innovative product in the market, $x^*_{1,A}$, since it is dependent on the initial demand value (while the threshold that triggers the removal of the \textit{old} product, $x_2$, it is not).
+Now we analyse the situation on which a firm is already active, but wants to enter the market with an innovative product, allowing a simultaneous production period, as described on Chapter \ref{chapter:3}. Here we only analyse the threshold that triggers the introduction of the innovative product in the market, $x^*_{1,A}$, since it is dependent on the initial demand value (while the threshold that triggers the removal of the old product, $x_2$, it is not).
 
 
 \begin{table}[!htb]
@@ -708,7 +707,7 @@ From the results presented on Table \ref{hist2}, the following conclusions are t
 %$\bullet$ \textbf{Situation on Chapter \ref{chapter:3}: firm has an established product and want to introduce a new one, allowing a phase of simultaneous production}
 %
 %
-%On Figure \ref{fig:vol_3}, there are represented both estimated means of optimal investment times upon which the firm should invest in the \textit{new} product and start the simultaneous production of the \textit{old} and \textit{new} products, given initial demand values $x_0 \in \{ 0.001, \ 0.01 \}$, and the estimated mean of optimal time to suppress the production of the old product and start solely to produce the \textit{new} product, considering the starting demand value to be $x_{1,A}^*$. We observe that this time none of the estimated means seem to vary significantly with the volatility level considered.
+%On Figure \ref{fig:vol_3}, there are represented both estimated means of optimal investment times upon which the firm should invest in the new product and start the simultaneous production of the old and new products, given initial demand values $x_0 \in \{ 0.001, \ 0.01 \}$, and the estimated mean of optimal time to suppress the production of the old product and start solely to produce the new product, considering the starting demand value to be $x_{1,A}^*$. We observe that this time none of the estimated means seem to vary significantly with the volatility level considered.
 %
 %
 %\begin{figure}[!ht]

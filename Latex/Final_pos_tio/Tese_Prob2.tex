@@ -25,25 +25,75 @@ By an established product we mean that it is so well recognized in the market th
 p_0=1-\alpha K_0
 \label{p0}
 \end{equation}
-where $\alpha$ stands for a capacity sensibility parameter and $K_0$ for the capacity of production of this product, that we will call the \textit{old} product.
+where $\alpha$ stands for a capacity sensibility parameter and $K_0$ for the capacity of production of this product, that we will call the old product.
 
 However, the same does not hold for the new product. When the innovation breakthrough takes place, the firm has the option to invest and immediately start to produce the new product. Since this one is a new product, susceptible to the consumers' demand, its unitary price function is considered to be the same as stated in Section \ref{section:overview}, that is,
 \begin{equation}
 p_1(X_t)=(\theta-\alpha K_1)X_t
 \label{p1}
 \end{equation}
-where $\theta$ stands for the innovation level after the breakthrough, $\alpha$ for the same sensitivity parameter as in the \textit{old} product, $K_1$ for the capacity of production of the \textit{new} product and $X_t$ for the demand level at time $t$.
+where $\theta$ stands for the innovation level after the breakthrough, $\alpha$ for the same sensitivity parameter as in the old product, $K_1$ for the capacity of production of the new product and $X_t$ for the demand level at time $t$.
 
 The instantaneous profit function with respect to each product is given by $\pi_i, \ i \in \{0,1\}$, and it is obtained by multiplying the unitary price function by the production capacity. %, that is, $\pi_i(X_t)=p_i(X_t) K_i$. 
 
 
 %\vspace{4mm}
-\begin{figure}[!htb]
+%\begin{figure}[!htb]
+%	\centering
+%	\includegraphics[width=\textwidth]{Prob2_CapOpt/2_timelinet.PNG}
+%	\caption{Timeline representing the two possible different stages of production and associated decisions. Time is set to start at the innovation breakthrough.}
+%	\label{2_time}
+%\end{figure}
+
+\begin{figure}
 	\centering
-	\includegraphics[width=\textwidth]{Prob2_CapOpt/2_timelinet.PNG}
+	
+	\begin{tikzpicture}[y=1cm, x=1cm, thick, font=\footnotesize]    
+	\usetikzlibrary{arrows,decorations.pathreplacing}
+	
+	
+	
+	% time line week
+	\draw[line width=1.2pt, ->, >=latex'](0,0) -- coordinate (x axis) (14,0) node[right] {\textit{Time}}; 
+	\foreach \x in {0,3,9}
+	\draw (\x cm,3pt) -- (\x cm,-3pt);
+	%\foreach \x in {current time,  , $\tau$, 3} \draw (\x,0.1) -- (\x,-0.1) node[below] {\x};
+	\draw (0,0) node[below=3pt] (a) {$\text{R\&D investment}$} node[above=3pt] {};
+	\draw (3,0) node[below=9pt] (a) {$\text{Innovation breakthrough $\theta$}$} node[above=3pt] {};
+	\draw (9,0) node[below=3pt] (a) {$\text{$\tau$ new product's investment}$} node[above=3pt] {};
+	
+	brace
+	\node (start_p) at (0,0.6) {};
+	\node (end_p) at (8.99,0.6) {};
+	\draw [brace_top] (start_p.north) -- node [above, pos=0.5] {$\text{\textit{Old product}}$} (end_p.north);
+	
+	%brace
+	\node (start_pn) at (9.01,0.6) {};
+	\node (end_pn) at (13.8,0.6) {};
+	\draw [brace_top] (start_pn.north) -- node [above, pos=0.5] {$\text{\textit{New product}}$} (end_pn.north);
+	
+	%brace
+	%\node (start_pn) at (12.01,0.6) {};
+	%\node (end_pn) at (13.8,0.6) {};
+	%\draw [brace_top] (start_pn.north) -- node [above, pos=0.5] {$\text{new product}$} (end_pn.north);
+	
+	
+	% top brace
+	\node (start_t) at (0,0.1) {};
+	\node (end_t) at (2.99,0.1) {};
+	\draw [brace_top] (start_t.north) -- node [above, pos=0.5] {$\text{Innovation development}$} (end_t.north);
+	
+	% top brace
+	\node (start_week) at (3.01,0.1) {};
+	\node (end_week) at (13.8,0.1) {};
+	\draw [brace_top] (start_week.north) -- node [above, pos=0.5] {$\text{Firm is able to make its investment decisions regarding $\theta$}$} (end_week.north);
+	
+	\end{tikzpicture}
 	\caption{Timeline representing the two possible different stages of production and associated decisions. Time is set to start at the innovation breakthrough.}
 	\label{2_time}
 \end{figure}
+
+
 
 Since the firm is not interested to invest before the innovation process reaches level $\theta$, it is not relevant, for the investment decision, to consider what happened before. Therefore the initial time is set to start at the instant the breakthrough takes place. %($t_\theta$).  
 Hence the optimal investment time will occur $\tau^*$ time units after the breakthrough, as presented on Figure \ref{2_time}.
@@ -85,7 +135,7 @@ Assuming that the investment decision must be made in finite time, our optimal s
 \label{eq:prob2}
 \end{equation}
 
-The first integral corresponds to the discounted profit associated to the \textit{old} product from the time when the innovation level $\theta$ is reached (considered here to be its initial instant) until the time when the firm decides to invest in the \textit{new} product (denoted by $\tau$). The second integral corresponds to the long term discounted profit associated to the \textit{new} product, obtained after investing. Subtracting to it discounted sunk costs $e^{r \tau} \delta K_1$, we obtain the cash-flow associated to the investment decision.
+The first integral corresponds to the discounted profit associated to the old product from the time when the innovation level $\theta$ is reached (considered here to be its initial instant) until the time when the firm decides to invest in the new product (denoted by $\tau$). The second integral corresponds to the long term discounted profit associated to the new product, obtained after investing. Subtracting to it discounted sunk costs $e^{r \tau} \delta K_1$, we obtain the cash-flow associated to the investment decision.
 
 We can simplify this problem in order to have a standard optimal stopping problem with null running cost function.
 Starting by conditioning \eqref{eq:prob2} to the time when the investment should happen and using Tower rule it follows that \eqref{eq:prob2} is equal to
@@ -95,7 +145,7 @@ Starting by conditioning \eqref{eq:prob2} to the time when the investment should
 \end{equation}
 Since expectation is a linear operator, we can simplify each of the integrals separately.
 
-Note that in the leftmost integral of \eqref{eq:prob21}, as previously written, the instantaneous profit associated to the \textit{old} product does not depend on the demand level and all the parameters are deterministic. Then we easily solve the integral, simplifying its expression as
+Note that in the leftmost integral of \eqref{eq:prob21}, as previously written, the instantaneous profit associated to the old product does not depend on the demand level and all the parameters are deterministic. Then we easily solve the integral, simplifying its expression as
 \begin{align}
 \mathds{E}^{\tau} \left[\int_0^\tau \pi_0e^{-rs} ds \right] 
 &= \mathds{E}^{\tau} \left[ \int_0^\tau p_0K_0e^{-rs} ds \right] \nonumber \\
@@ -114,7 +164,7 @@ Following a similar approach as in Section \ref{subsec:1_bm}, when deducing \eqn
 & \quad = e^{-r\tau} \left( \frac{(\theta-\alpha K_1)K_1 X_\tau}{r-\mu} -\delta K_1 \right)
 \label{h2}
 \end{align}
-where $X_\tau$ is taken to be the demand level at the time when the \textit{new} product starts being produced. Recall, from the previous section, that expression \eqref{h2} only holds if the assumptions of Fubini's Theorem hold, which particularly implies that $r-\mu>0$.
+where $X_\tau$ is taken to be the demand level at the time when the new product starts being produced. Recall, from the previous section, that expression \eqref{h2} only holds if the assumptions of Fubini's Theorem hold, which particularly implies that $r-\mu>0$.
 
 Let's denote $F$ as the value function solution to \eqref{eq:prob21}. Plugging expressions \eqref{g2} and \eqref{h2} in \eqref{eq:prob21}, getting rid of the expectation conditional to time when the investment decision is made and using (again) the Tower rule, we obtain that, assuming the investment decision to be made in finite time, $F$ may be written as
 \begin{equation}
@@ -168,7 +218,7 @@ with an associated optimal stopping time defined as in \eqref{stoptime}.
 \subsection{Capacity Optimization Model}
 \label{subsec:2_com}
 
-As considered in Chapter \ref{chapter:1}, we now extend the previous model, by allowing the firm to optimally choose the capacity of the \textit{new} product.
+As considered in Chapter \ref{chapter:1}, we now extend the previous model, by allowing the firm to optimally choose the capacity of the new product.
 This optimal stopping problem can be stated as
 \begin{align}
 F^*(x)&=\sup _\tau \mathds{E}^{X_0=x} \left[ \max_{K_1} \left\{ \int_0^\tau \pi_0e^{-rs} ds + e^{-r\tau} \left( \int_\tau^\infty \pi_1(X_s)e^{-rs}ds -\delta K_1 \right) \mathds{1}_{ \{\tau < \infty \} } \right\} \right] \nonumber \\
@@ -307,7 +357,7 @@ Regarding $K_0$, we conclude that
 \begin{cases}
 >0 &\ \text{for} \ K_0<\frac{1}{2 \alpha}\\
 <0 &\ \text{for} \ K_0>\frac{1}{2 \alpha}
-\end{cases}.
+\end{cases},
 \end{align*}
 since the expression represented in fraction is always positive.
 
@@ -474,7 +524,7 @@ In addition to the values considered in the previous chapter, we also assume $K_
 		\subfigure[$\delta \in (0,1)$]{\includegraphics[width=0.45\textwidth]{Prob2_CapOpt/xopt_delta.pdf}}
 		\subfigure[$\sigma \in (0,1)$]{\includegraphics[width=0.45\textwidth]{Prob2_CapOpt/xopt_sigma.pdf}}
 	\end{subfigmatrix}
-	\caption{Behaviour of the threshold value with respect to the benchmark model (blue) and the capacity optimized model (orange) and parameters with which $x^*_B$ increases $\delta$ and $\sigma$.}
+	\caption{Behaviour of the threshold value with respect to the benchmark model (blue) and the capacity optimized model (orange) and parameters with which $x^*_B$ increases $\delta$ (a) and $\sigma$ (b).}
 	\label{fig:2_x2}
 \end{figure}
 
@@ -493,7 +543,7 @@ The second one is justified by the growing uncertainty (of the demand). Although
 		\subfigure[$\theta \in (1,10)$]{\includegraphics[width=0.45\textwidth]{Prob2_CapOpt/xopt_theta.pdf}}
 		\subfigure[$\mu \in ( -r,r )$ ]{\includegraphics[width=0.45\textwidth]{Prob2_CapOpt/xopt_mu.pdf}}
 	\end{subfigmatrix}
-	\caption{Behaviour of the threshold value with respect to the benchmark model (blue) and the capacity optimized model (orange) and parameter with which  $x^*_B$ decreases $\theta$ and $\mu$.}
+	\caption{Behaviour of the threshold value with respect to the benchmark model (blue) and the capacity optimized model (orange) and parameter with which  $x^*_B$ decreases $\theta$ (a) and $\mu$ (b).}
 	\label{fig:2_x3}
 \end{figure}
 
@@ -513,7 +563,7 @@ Regarding expectations about the market evolution (illustrated in Figure \ref{fi
 		\subfigure[$K_0 \in ( 0, \frac{1}{\alpha}=100 )$ ]{\includegraphics[width=0.32\textwidth]{Prob2_CapOpt/xopt_k0.pdf}}
 		\subfigure[$K_1 \in (0, \frac{\theta}{\alpha}=1000 )$]{\includegraphics[width=0.32\textwidth]{Prob2_CapOpt/xopt_k1.pdf}}
 	\end{subfigmatrix}
-	\caption{Behaviour of the threshold value with respect to the benchmark model (blue) and the capacity optimized model (orange) and parameters with which  $x^*_B$ has a non-monotonic behaviour $r$, $K_0$ and $K_1$.}
+	\caption{Behaviour of the threshold value with respect to the benchmark model (blue) and the capacity optimized model (orange) and parameters with which $x^*_B$ has a non-monotonic behaviour $r$ (a), $K_0$ (b) and $K_1 (c)$.}
 	\label{fig:2_x1}
 \end{figure}
 
@@ -524,8 +574,8 @@ On Figure \ref{fig:2_x1} (a) we observe that, concerning each model, exists a di
 % thethe leftmost plot we can see that a minimum demand threshold is observed for small values of discount rate $r$. Unfortunately we couldn't derive its analytical expression.
 
 Interestingly, as seen on Figure \ref{fig:2_x1} (b), 
-%regarding the capacity of \textit{old} product,
-a maximum demand threshold is observed on both models when the capacity level $K_0$ is exactly equal to $\frac{1}{2 \alpha}$ (which, on this case, takes the value $K_0=50$). This quantity is motivated by the profit function associated to the established product, in the sense that a capacity of $\frac{1}{2 \alpha}$ leads to the maximization of $\pi_0$. Therefore, for $K_0$ assuming quite smaller or larger values than $\frac{1}{2 \alpha}$, the firm obtains a relative low profit in the \textit{old} product and, consequently, the idea of investing in a new product gets more attractive to the firm, which is reflected by the small threshold levels.
+%regarding the capacity of old product,
+a maximum demand threshold is observed on both models when the capacity level $K_0$ is exactly equal to $\frac{1}{2 \alpha}$ (which, on this case, takes the value $K_0=50$). This quantity is motivated by the profit function associated to the established product, in the sense that a capacity of $\frac{1}{2 \alpha}$ leads to the maximization of $\pi_0$. Therefore, for $K_0$ assuming quite smaller or larger values than $\frac{1}{2 \alpha}$, the firm obtains a relative low profit in the old product and, consequently, the idea of investing in a new product gets more attractive to the firm, which is reflected by the small threshold levels.
 %This values comes from the expression $\alpha K_0 \pi_0=\alpha K_0 (1-\alpha K_0)$ included on both expressions of $x_B^*$ \eqref{2_xB} and $x^*_C$ \eqref{eq:prob2_xC}.
 
 
@@ -582,7 +632,7 @@ The non monotonic behaviour of $K^*_C$ with $K_0$ is illustrated in Figure \ref{
 	\label{fig:2_k0}
 \end{figure}
 
-%Starting with the capacity level of the \textit{old} product $K_0$, 
+%Starting with the capacity level of the old product $K_0$, 
 Figure \ref{fig:2_k0} shows that the highest optimal capacity level $K^*_C$ happens for $K_0=\frac{1}{2 \alpha}$.
 We note that this stresses previous observations: if the firm is committed to a larger investment, then it impacts the investing timing, postponing it.
 % This is motivated by the results obtained for $x^*_C$, as seen on Figure \ref{fig:2_x1}, which also reaches its highest value at $\frac{1}{2 \alpha}$.
@@ -595,7 +645,7 @@ We note that this stresses previous observations: if the firm is committed to a 
 		\subfigure[$\sigma \in (0,1)$]{\includegraphics[width=0.32\textwidth]{Prob2_CapOpt/koptx_sigma.pdf}}
 		\subfigure[$ \theta \in ( 1, 10 )$]{\includegraphics[width=0.32\textwidth]{Prob2_CapOpt/koptx_theta.pdf}}
 	\end{subfigmatrix}
-	\caption{Behaviour of the optimal capacity regarding the threshold value $x^*_C$ and increasing parameters $\mu, \ \sigma$ and $\theta$}
+	\caption{Behaviour of the optimal capacity regarding the threshold value $x^*_C$ and increasing parameters $\mu$ (a), $\sigma$ (b) and $\theta$ (c).}
 	\label{fig:2_k1}
 \end{figure}
 
@@ -610,7 +660,7 @@ Also, note, on Figure \ref{fig:2_k1} (c), that $K^*_C$ seems to increase linearl
 		\subfigure[$ r \in ( \mu, 1 )$]{\includegraphics[width=0.32\textwidth]{Prob2_CapOpt/koptx_r.pdf}}
 		\subfigure[$ \alpha \in (0,1)$]{\includegraphics[width=0.32\textwidth]{Prob2_CapOpt/koptx_alpha.pdf}}
 	\end{subfigmatrix}
-	\caption{Behaviour of the optimal capacity regarding the threshold value $x^*_C$ and decreasing parameters $\delta, \ r$ and $\alpha$.}
+	\caption{Behaviour of the optimal capacity regarding the threshold value $x^*_C$ and decreasing parameters $\delta$ (a), $r$ (b) and $\alpha$ (c).}
 	\label{fig:2_k3}
 \end{figure}
 
