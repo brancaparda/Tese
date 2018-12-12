@@ -1,0 +1,40 @@
+\chapter*{Notation}
+
+% Add entry in the table of contents as section
+\addcontentsline{toc}{section}{Notation}
+
+%Throughout this thesis, many terms will appear and their explanation will come along. However most of them will always be the same, since they do not depend on the chapter that we are working on. Therefore, to promote a better understanding in the context of the problem, we present already in here the most used notation, along with some assumptions:
+
+\begin{itemize}
+	\item $\{ W(t), \ t \geq 0 \}$: Standard Brownian Motion (or Wiener Process) which is a stochastic process that has the following characteristics:
+	\begin{enumerate}
+		\item $W(0) = 0$ with probability 1;
+		\item $W(t) - W(s) \sim N(0, t-s)$. Notice that $\mathds{E}[W(t)] = 0$ and $Var[W(t)] = t$;
+		\item Independent increments: $\forall \ 0 < s_i < t_i < s_j < t_j: \ W(t_i) - W(s_i) \amalg W(t_j) - W(s_j) $;
+		
+		Stationary increments:  $\forall t,s \geq 0: \ W(t+s) - W(s) \buildrel d\over= W(t) $;
+		\item $W(t)$ is continuous in $t$ (however nowhere differentiable).
+	\end{enumerate}
+%It is also seen as the continuous version of a Random Walk with Normal increments.
+
+	\item  $\{ X(t), \ t \geq 0 \}$: Geometric Brownian Motion (GBM) represents the demand for a certain product at each instant $t$. It is the solution of the following stochastic differential equation (SDE)
+	$$ dX_t=\mu X_t dt + \sigma X_t d W_t, \ X_0=x, $$
+	where $\mu$ represents the drift and $\sigma$ the volatility of the demand.
+	
+	\item $R$: R\&D costs such as scientists wages and equipments, which directly related with the innovation process. These are seen as sunk costs, that is, costs that cannot be recovered after being incurred.
+	
+	\item  $\{ \theta(t), \ t \geq 0 \}$: innovation process assumed to be a homogeneous Compound Poisson Process, that is a stochastic process that evolves accordingly to
+	$$\theta_t= \theta_0+ u N_t$$
+	where $\theta_0$ corresponds to the initial innovation level, $u > 0$ is the jump size and $\{N_t, \ t \geq 0\}$ follows a Poisson process with rate $\lambda(R)=R^\gamma, \ \gamma \in (0,1)$.
+	% This rate function is such that $\lambda(0) = 0$: no R\&D means zero probability of innovating; $\lambda^\prime (R)>0$: bigger investment means the higher probability of success and $ \lambda ^{ \prime \prime} (R)<0$: exists a amount of R\&D costs that maximizes the rate function, that is, $\exists R^*: \lambda(R^*)\geq \lambda(R) \  \forall R$.
+	
+	\item $\theta$: innovation breakthrough level. That is, the level of innovation for which we decide to invest in the new product. Considered to be reached in $n \in \mathds{N}$ jumps, as it will be seen on Chapter \ref{chapter:max}.
+	
+	\item $\alpha$: constant parameter that reflects the sensitivity of the quantity with respect to the price, $\alpha>0$.
+	
+	\item $K_i$: capacity of production of product $i$. When a single product is considered, there is no mention to index $i$. The firm is considered to produce always up to its capacity and, consequently, $K_i$ corresponds as well to the quantity produced. Since profit functions need to be positive, on Chapters \ref{chapter:2} and \ref{chapter:3}, we have the following restrictions regarding capacities of \textit{old} and \textit{new} product, respectively, $K_0<1/\alpha$ and $K_1<\theta/\alpha$. Note that (only) the last restriction will also hold for Chapter \ref{chapter:1}.
+	
+	\item $\delta$: constant parameter that reflects the sensitivity of the quantity with respect to investment sunk costs. These sunk costs will be denoted by $\delta K_1, \  \delta>0$ (or $\delta K$, on Chapter \ref{chapter:1}).
+	
+	\item $\eta$: cannibalisation parameter corresponding to the crossed effect between the old and the new product and representing how the quantity associated to a product will influence the price of the other. On Chapter \ref{chapter:3}, we consider that this influence is the same for both products, resulting in a unique cannibalisation parameter. It cannot be greater than the sensitivity parameter $\alpha$, that is, $\eta <\alpha$.
+\end{itemize}
